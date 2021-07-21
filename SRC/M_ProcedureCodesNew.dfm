@@ -3,7 +3,7 @@ object M_ProcedureCodesNewFRM: TM_ProcedureCodesNewFRM
   Top = 315
   Caption = 'Instructor'
   ClientHeight = 649
-  ClientWidth = 1008
+  ClientWidth = 1013
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -19,7 +19,7 @@ object M_ProcedureCodesNewFRM: TM_ProcedureCodesNewFRM
   object Panel1: TPanel
     Left = 0
     Top = 0
-    Width = 1008
+    Width = 1013
     Height = 53
     Align = alTop
     Font.Charset = DEFAULT_CHARSET
@@ -33,7 +33,7 @@ object M_ProcedureCodesNewFRM: TM_ProcedureCodesNewFRM
     object Label1: TLabel
       Left = 1
       Top = 1
-      Width = 1006
+      Width = 1011
       Height = 51
       Align = alClient
       Alignment = taCenter
@@ -45,7 +45,7 @@ object M_ProcedureCodesNewFRM: TM_ProcedureCodesNewFRM
   object Panel4: TPanel
     Left = 0
     Top = 606
-    Width = 1008
+    Width = 1013
     Height = 43
     Align = alBottom
     TabOrder = 1
@@ -126,7 +126,7 @@ object M_ProcedureCodesNewFRM: TM_ProcedureCodesNewFRM
   object Panel3: TPanel
     Left = 0
     Top = 92
-    Width = 1008
+    Width = 1013
     Height = 514
     Align = alClient
     TabOrder = 2
@@ -134,40 +134,42 @@ object M_ProcedureCodesNewFRM: TM_ProcedureCodesNewFRM
     object Panel5: TPanel
       Left = 1
       Top = 1
-      Width = 1006
+      Width = 1011
       Height = 232
       Align = alTop
       BevelOuter = bvNone
       TabOrder = 0
       ExplicitLeft = 2
       ExplicitTop = 6
+      ExplicitWidth = 1006
       object wwDBGrid1: TwwDBGrid
         Left = 34
         Top = 5
         Width = 735
         Height = 185
         ControlType.Strings = (
-          'CODE;CustomEdit;CodeFLD;F')
+          'CODE;CustomEdit;CodeFLD;F'
+          'FK_CLEARANCE_INSTRUCTION;CustomEdit;ClearanceFLD;F')
         Selected.Strings = (
           'PROCEDURE_CODE'#9'9'#9'Code'#9'F'#9
           'XML_CODE'#9'13'#9'Xml Code'#9'F'#9
           'DESCRIPTION'#9'22'#9'Description'#9'F'#9
           'FK_CLEARANCE_INSTRUCTION'#9'20'#9'Clearance Instruction'#9'F'#9
-          'AMOUNT_ABOVE'#9'11'#9'Above Amount'#9'F'
-          'AMOUNT_BELOW'#9'11'#9'Below amount'#9'F')
+          'AMOUNT_ABOVE'#9'11'#9'Above Amount'#9'F'#9
+          'AMOUNT_BELOW'#9'11'#9'Below amount'#9'F'#9)
         IniAttributes.Delimiter = ';;'
         IniAttributes.UnicodeIniFile = False
         TitleColor = clBtnFace
         FixedCols = 0
         ShowHorzScrollBar = True
-        Color = clBtnFace
+        Color = clInfoBk
         DataSource = TableSRC
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = -11
         Font.Name = 'Arial'
         Font.Style = []
-        Options = [dgEditing, dgAlwaysShowEditor, dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit, dgWordWrap]
+        Options = [dgEditing, dgAlwaysShowEditor, dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit, dgWordWrap]
         ParentFont = False
         ParentShowHint = False
         ShowHint = True
@@ -181,23 +183,46 @@ object M_ProcedureCodesNewFRM: TM_ProcedureCodesNewFRM
         TitleLines = 1
         TitleButtons = False
         OnDblClick = wwDBGrid1DblClick
+        object ClearanceFLD: TwwDBLookupCombo
+          Left = 105
+          Top = 112
+          Width = 121
+          Height = 22
+          DropDownAlignment = taLeftJustify
+          Selected.Strings = (
+            'CODE'#9'5'#9'CODE'#9'F'
+            'DESCRIPTION'#9'50'#9'DESCRIPTION'#9'F')
+          DataField = 'PROCEDURE_CODE'
+          DataSource = TableSRC
+          LookupTable = ClearanceSQL
+          LookupField = 'CODE'
+          TabOrder = 0
+          AutoDropDown = False
+          ShowButton = True
+          PreciseEditRegion = False
+          AllowClearKey = False
+          ShowMatchText = True
+        end
       end
     end
     object Grid1: TwwDBGrid
       Left = 35
-      Top = 233
-      Width = 503
-      Height = 280
+      Top = 297
+      Width = 735
+      Height = 216
+      ControlType.Strings = (
+        'VALID_IOSS;CheckBox;Y;N'
+        'DUTY_TYPE;CustomEdit;DutyTypeFLD;F')
       Selected.Strings = (
-        'SERIAL_NUMBER'#9'10'#9'S/N'#9'F'#9
-        'FK_PROCEDURE_CODE'#9'10'#9'Proc'#9'F'#9
-        'DUTY_TYPE'#9'9'#9'Duty type'#9'F'
-        'VALID_IOSS'#9'20'#9'Requires IOSS'#9'F'#9)
+        'SERIAL_NUMBER'#9'10'#9'S/N'#9'T'#9
+        'DUTY_TYPE'#9'12'#9'Duty type'#9'F'#9
+        'VALID_IOSS'#9'16'#9'Requires IOSS'#9'F'#9)
       IniAttributes.Delimiter = ';;'
       IniAttributes.UnicodeIniFile = False
       TitleColor = clBtnFace
-      FixedCols = 0
+      FixedCols = 1
       ShowHorzScrollBar = True
+      EditControlOptions = [ecoCheckboxSingleClick, ecoSearchOwnerForm]
       Align = alLeft
       Color = 12713983
       DataSource = DetailSRC
@@ -206,10 +231,8 @@ object M_ProcedureCodesNewFRM: TM_ProcedureCodesNewFRM
       Font.Height = -11
       Font.Name = 'Arial'
       Font.Style = []
-      KeyOptions = []
-      Options = [dgTitles, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgConfirmDelete, dgCancelOnExit, dgWordWrap]
+      Options = [dgEditing, dgAlwaysShowEditor, dgTitles, dgIndicator, dgColumnResize, dgColLines, dgTabs, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit, dgWordWrap]
       ParentFont = False
-      ReadOnly = True
       TabOrder = 1
       TitleAlignment = taLeftJustify
       TitleFont.Charset = DEFAULT_CHARSET
@@ -221,17 +244,38 @@ object M_ProcedureCodesNewFRM: TM_ProcedureCodesNewFRM
       TitleButtons = False
       OnDblClick = Grid1DblClick
       ExplicitLeft = 41
-      ExplicitTop = 257
+      ExplicitTop = 296
+      object DutyTypeFLD: TwwDBLookupCombo
+        Left = 117
+        Top = 96
+        Width = 121
+        Height = 22
+        DropDownAlignment = taLeftJustify
+        Selected.Strings = (
+          'DUTY_CODE'#9'3'#9'DUTY_CODE'#9#9)
+        DataField = 'DUTY_TYPE'
+        DataSource = DetailSRC
+        LookupTable = DutyTypeSQL
+        LookupField = 'DUTY_CODE'
+        TabOrder = 0
+        AutoDropDown = False
+        ShowButton = True
+        PreciseEditRegion = False
+        AllowClearKey = False
+        ShowMatchText = True
+      end
     end
     object Panel6: TPanel
       Left = 1
-      Top = 233
+      Top = 297
       Width = 34
-      Height = 280
+      Height = 216
       Align = alLeft
       BevelOuter = bvNone
       Caption = 'Panel6'
       TabOrder = 2
+      ExplicitTop = 233
+      ExplicitHeight = 280
     end
     object AddDetailBTN: TBitBtn
       Left = 874
@@ -264,6 +308,7 @@ object M_ProcedureCodesNewFRM: TM_ProcedureCodesNewFRM
       NumGlyphs = 2
       ParentFont = False
       TabOrder = 3
+      Visible = False
       OnClick = AddDetailBTNClick
     end
     object EditDetailBTN: TBitBtn
@@ -336,6 +381,7 @@ object M_ProcedureCodesNewFRM: TM_ProcedureCodesNewFRM
         FFFFF7F6FAE1DCEBD5CCE2DDD7E8F9F8FBFFFFFFFFFFFFFFFFFF}
       ParentFont = False
       TabOrder = 4
+      Visible = False
       OnClick = EditDetailBTNClick
     end
     object DeleteDetailBTN: TBitBtn
@@ -369,17 +415,216 @@ object M_ProcedureCodesNewFRM: TM_ProcedureCodesNewFRM
       NumGlyphs = 2
       ParentFont = False
       TabOrder = 5
+      Visible = False
       OnClick = DeleteDetailBTNClick
+    end
+    object RzPanel1: TRzPanel
+      Left = 1
+      Top = 233
+      Width = 1011
+      Height = 64
+      Align = alTop
+      TabOrder = 6
+      ExplicitWidth = 1006
+      object wwDBNavigator1: TwwDBNavigator
+        Left = 24
+        Top = 16
+        Width = 193
+        Height = 25
+        AutosizeStyle = asSizeNavButtons
+        DataSource = DetailSRC
+        RepeatInterval.InitialDelay = 500
+        RepeatInterval.Interval = 100
+        BackgroundOptions.IndentX = 0
+        BackgroundOptions.IndentY = 0
+        object wwDBNavigator1Insert: TwwNavButton
+          Left = 0
+          Top = 0
+          Width = 39
+          Height = 25
+          Hint = 'Insert new record'
+          ImageIndex = -1
+          NumGlyphs = 2
+          Spacing = 4
+          Transparent = False
+          Caption = 'wwDBNavigator1Insert'
+          DisabledTextColors.ShadeColor = clGray
+          DisabledTextColors.HighlightColor = clBtnHighlight
+          Index = 0
+          Style = nbsInsert
+        end
+        object wwDBNavigator1Delete: TwwNavButton
+          Left = 39
+          Top = 0
+          Width = 39
+          Height = 25
+          Hint = 'Delete current record'
+          ImageIndex = -1
+          NumGlyphs = 2
+          Spacing = 4
+          Transparent = False
+          Caption = 'wwDBNavigator1Delete'
+          Enabled = False
+          DisabledTextColors.ShadeColor = clGray
+          DisabledTextColors.HighlightColor = clBtnHighlight
+          Index = 1
+          Style = nbsDelete
+        end
+        object wwDBNavigator1Post: TwwNavButton
+          Left = 78
+          Top = 0
+          Width = 39
+          Height = 25
+          Hint = 'Post changes of current record'
+          ImageIndex = -1
+          NumGlyphs = 2
+          Spacing = 4
+          Transparent = False
+          Caption = 'wwDBNavigator1Post'
+          Enabled = False
+          DisabledTextColors.ShadeColor = clGray
+          DisabledTextColors.HighlightColor = clBtnHighlight
+          Index = 2
+          Style = nbsPost
+        end
+        object wwDBNavigator1Cancel: TwwNavButton
+          Left = 117
+          Top = 0
+          Width = 38
+          Height = 25
+          Hint = 'Cancel changes made to current record'
+          ImageIndex = -1
+          NumGlyphs = 2
+          Spacing = 4
+          Transparent = False
+          Caption = 'wwDBNavigator1Cancel'
+          Enabled = False
+          DisabledTextColors.ShadeColor = clGray
+          DisabledTextColors.HighlightColor = clBtnHighlight
+          Index = 3
+          Style = nbsCancel
+        end
+        object wwDBNavigator1Refresh: TwwNavButton
+          Left = 155
+          Top = 0
+          Width = 38
+          Height = 25
+          Hint = 'Refresh the contents of the dataset'
+          ImageIndex = -1
+          NumGlyphs = 2
+          Spacing = 4
+          Transparent = False
+          Caption = 'wwDBNavigator1Refresh'
+          DisabledTextColors.ShadeColor = clGray
+          DisabledTextColors.HighlightColor = clBtnHighlight
+          Index = 4
+          Style = nbsRefresh
+        end
+      end
     end
   end
   object Panel2: TPanel
     Left = 0
     Top = 53
-    Width = 1008
+    Width = 1013
     Height = 39
     Align = alTop
     TabOrder = 3
     ExplicitWidth = 811
+    object wwDBNavigator2: TwwDBNavigator
+      Left = 35
+      Top = 5
+      Width = 193
+      Height = 25
+      AutosizeStyle = asSizeNavButtons
+      DataSource = TableSRC
+      RepeatInterval.InitialDelay = 500
+      RepeatInterval.Interval = 100
+      BackgroundOptions.IndentX = 0
+      BackgroundOptions.IndentY = 0
+      object wwNavButton1: TwwNavButton
+        Left = 0
+        Top = 0
+        Width = 39
+        Height = 25
+        Hint = 'Insert new record'
+        ImageIndex = -1
+        NumGlyphs = 2
+        Spacing = 4
+        Transparent = False
+        Caption = 'wwDBNavigator1Insert'
+        DisabledTextColors.ShadeColor = clGray
+        DisabledTextColors.HighlightColor = clBtnHighlight
+        Index = 0
+        Style = nbsInsert
+      end
+      object wwNavButton2: TwwNavButton
+        Left = 39
+        Top = 0
+        Width = 39
+        Height = 25
+        Hint = 'Delete current record'
+        ImageIndex = -1
+        NumGlyphs = 2
+        Spacing = 4
+        Transparent = False
+        Caption = 'wwDBNavigator1Delete'
+        DisabledTextColors.ShadeColor = clGray
+        DisabledTextColors.HighlightColor = clBtnHighlight
+        Index = 1
+        Style = nbsDelete
+      end
+      object wwNavButton3: TwwNavButton
+        Left = 78
+        Top = 0
+        Width = 39
+        Height = 25
+        Hint = 'Post changes of current record'
+        ImageIndex = -1
+        NumGlyphs = 2
+        Spacing = 4
+        Transparent = False
+        Caption = 'wwDBNavigator1Post'
+        Enabled = False
+        DisabledTextColors.ShadeColor = clGray
+        DisabledTextColors.HighlightColor = clBtnHighlight
+        Index = 2
+        Style = nbsPost
+      end
+      object wwNavButton4: TwwNavButton
+        Left = 117
+        Top = 0
+        Width = 38
+        Height = 25
+        Hint = 'Cancel changes made to current record'
+        ImageIndex = -1
+        NumGlyphs = 2
+        Spacing = 4
+        Transparent = False
+        Caption = 'wwDBNavigator1Cancel'
+        Enabled = False
+        DisabledTextColors.ShadeColor = clGray
+        DisabledTextColors.HighlightColor = clBtnHighlight
+        Index = 3
+        Style = nbsCancel
+      end
+      object wwNavButton5: TwwNavButton
+        Left = 155
+        Top = 0
+        Width = 38
+        Height = 25
+        Hint = 'Refresh the contents of the dataset'
+        ImageIndex = -1
+        NumGlyphs = 2
+        Spacing = 4
+        Transparent = False
+        Caption = 'wwDBNavigator1Refresh'
+        DisabledTextColors.ShadeColor = clGray
+        DisabledTextColors.HighlightColor = clBtnHighlight
+        Index = 4
+        Style = nbsRefresh
+      end
+    end
   end
   object TableSRC: TDataSource
     DataSet = TableSQL
@@ -436,6 +681,7 @@ object M_ProcedureCodesNewFRM: TM_ProcedureCodesNewFRM
       '    Procedure_code'
       'ORDER BY PROCEDURE_CODE desc')
     Active = True
+    BeforeInsert = TableSQLBeforeInsert
     AfterInsert = TableSQLAfterInsert
     Left = 449
     Top = 37
@@ -538,8 +784,8 @@ object M_ProcedureCodesNewFRM: TM_ProcedureCodesNewFRM
     MasterSource = TableSRC
     Active = True
     AfterInsert = TableSQLAfterInsert
-    Left = 673
-    Top = 437
+    Left = 889
+    Top = 237
     ParamData = <
       item
         DataType = ftFixedChar
@@ -552,17 +798,9 @@ object M_ProcedureCodesNewFRM: TM_ProcedureCodesNewFRM
       DisplayWidth = 10
       FieldName = 'SERIAL_NUMBER'
     end
-    object DetailSQLFK_PROCEDURE_CODE: TStringField
-      DisplayLabel = 'Proc'
-      DisplayWidth = 10
-      FieldName = 'FK_PROCEDURE_CODE'
-      Required = True
-      FixedChar = True
-      Size = 5
-    end
     object DetailSQLDUTY_TYPE: TStringField
       DisplayLabel = 'Duty type'
-      DisplayWidth = 9
+      DisplayWidth = 12
       FieldName = 'DUTY_TYPE'
       Required = True
       FixedChar = True
@@ -570,16 +808,228 @@ object M_ProcedureCodesNewFRM: TM_ProcedureCodesNewFRM
     end
     object DetailSQLVALID_IOSS: TStringField
       DisplayLabel = 'Requires IOSS'
-      DisplayWidth = 20
+      DisplayWidth = 16
       FieldName = 'VALID_IOSS'
       Required = True
       FixedChar = True
       Size = 1
     end
+    object DetailSQLFK_PROCEDURE_CODE: TStringField
+      DisplayLabel = 'Proc'
+      DisplayWidth = 10
+      FieldName = 'FK_PROCEDURE_CODE'
+      Required = True
+      Visible = False
+      FixedChar = True
+      Size = 5
+    end
   end
   object DetailSRC: TIBCDataSource
     DataSet = DetailSQL
-    Left = 608
-    Top = 396
+    Left = 816
+    Top = 236
+  end
+  object DutyTypeSQL: TIBCQuery
+    SQLInsert.Strings = (
+      'INSERT INTO DUTY_TYPE'
+      
+        '  (DUTY_CODE, IS_ACTIVE, DESCRIPTION, XML_CODE, IS_VAT, DHL_GLOB' +
+        'AL_CODE, GREEK_DESCRIPTION, ORDER_NUMBER)'
+      'VALUES'
+      
+        '  (:DUTY_CODE, :IS_ACTIVE, :DESCRIPTION, :XML_CODE, :IS_VAT, :DH' +
+        'L_GLOBAL_CODE, :GREEK_DESCRIPTION, :ORDER_NUMBER)')
+    SQLDelete.Strings = (
+      'DELETE FROM DUTY_TYPE'
+      'WHERE'
+      '  DUTY_CODE = :Old_DUTY_CODE')
+    SQLUpdate.Strings = (
+      'UPDATE DUTY_TYPE'
+      'SET'
+      
+        '  DUTY_CODE = :DUTY_CODE, IS_ACTIVE = :IS_ACTIVE, DESCRIPTION = ' +
+        ':DESCRIPTION, XML_CODE = :XML_CODE, IS_VAT = :IS_VAT, DHL_GLOBAL' +
+        '_CODE = :DHL_GLOBAL_CODE, GREEK_DESCRIPTION = :GREEK_DESCRIPTION' +
+        ', ORDER_NUMBER = :ORDER_NUMBER'
+      'WHERE'
+      '  DUTY_CODE = :Old_DUTY_CODE')
+    SQLRefresh.Strings = (
+      
+        'SELECT DUTY_CODE, IS_ACTIVE, DESCRIPTION, XML_CODE, IS_VAT, DHL_' +
+        'GLOBAL_CODE, GREEK_DESCRIPTION, ORDER_NUMBER FROM DUTY_TYPE'
+      'WHERE'
+      '  DUTY_CODE = :DUTY_CODE')
+    SQLLock.Strings = (
+      'SELECT NULL FROM DUTY_TYPE'
+      'WHERE'
+      'DUTY_CODE = :Old_DUTY_CODE'
+      'FOR UPDATE WITH LOCK')
+    SQLRecCount.Strings = (
+      'SELECT COUNT(*) FROM ('
+      'SELECT 1 AS C  FROM DUTY_TYPE'
+      ''
+      ') q')
+    Connection = ClairDML.CabCOnnection
+    SQL.Strings = (
+      'select * from Duty_type')
+    Left = 339
+    Top = 469
+    object DutyTypeSQLDUTY_CODE: TStringField
+      DisplayWidth = 3
+      FieldName = 'DUTY_CODE'
+      Required = True
+      FixedChar = True
+      Size = 3
+    end
+    object DutyTypeSQLGREEK_DESCRIPTION: TStringField
+      DisplayWidth = 60
+      FieldName = 'GREEK_DESCRIPTION'
+      Visible = False
+      FixedChar = True
+      Size = 60
+    end
+    object DutyTypeSQLIS_ACTIVE: TStringField
+      DisplayWidth = 1
+      FieldName = 'IS_ACTIVE'
+      Required = True
+      Visible = False
+      FixedChar = True
+      Size = 1
+    end
+    object DutyTypeSQLDESCRIPTION: TStringField
+      DisplayWidth = 60
+      FieldName = 'DESCRIPTION'
+      Visible = False
+      FixedChar = True
+      Size = 60
+    end
+    object DutyTypeSQLXML_CODE: TStringField
+      DisplayWidth = 10
+      FieldName = 'XML_CODE'
+      Visible = False
+      Size = 10
+    end
+    object DutyTypeSQLIS_VAT: TStringField
+      DisplayWidth = 1
+      FieldName = 'IS_VAT'
+      Required = True
+      Visible = False
+      FixedChar = True
+      Size = 1
+    end
+    object DutyTypeSQLDHL_GLOBAL_CODE: TStringField
+      DisplayWidth = 30
+      FieldName = 'DHL_GLOBAL_CODE'
+      Visible = False
+      FixedChar = True
+      Size = 30
+    end
+    object DutyTypeSQLORDER_NUMBER: TIntegerField
+      DisplayWidth = 10
+      FieldName = 'ORDER_NUMBER'
+      Visible = False
+    end
+  end
+  object DutyTypeSRC: TDataSource
+    DataSet = DutyTypeSQL
+    Left = 483
+    Top = 461
+  end
+  object ClearanceSQL: TIBCQuery
+    SQLInsert.Strings = (
+      'INSERT INTO CLEARANCE_INSTRUCTION'
+      
+        '  (CODE, DESCRIPTION, FK_TARIFF_GROUP, IS_VAT_APPLY, ORDER_NUMBE' +
+        'R, IS_DISPLAY, IS_ACTIVE)'
+      'VALUES'
+      
+        '  (:CODE, :DESCRIPTION, :FK_TARIFF_GROUP, :IS_VAT_APPLY, :ORDER_' +
+        'NUMBER, :IS_DISPLAY, :IS_ACTIVE)')
+    SQLDelete.Strings = (
+      'DELETE FROM CLEARANCE_INSTRUCTION'
+      'WHERE'
+      '  CODE = :Old_CODE')
+    SQLUpdate.Strings = (
+      'UPDATE CLEARANCE_INSTRUCTION'
+      'SET'
+      
+        '  CODE = :CODE, DESCRIPTION = :DESCRIPTION, FK_TARIFF_GROUP = :F' +
+        'K_TARIFF_GROUP, IS_VAT_APPLY = :IS_VAT_APPLY, ORDER_NUMBER = :OR' +
+        'DER_NUMBER, IS_DISPLAY = :IS_DISPLAY, IS_ACTIVE = :IS_ACTIVE'
+      'WHERE'
+      '  CODE = :Old_CODE')
+    SQLRefresh.Strings = (
+      
+        'SELECT CODE, DESCRIPTION, FK_TARIFF_GROUP, IS_VAT_APPLY, ORDER_N' +
+        'UMBER, IS_DISPLAY, IS_ACTIVE FROM CLEARANCE_INSTRUCTION'
+      'WHERE'
+      '  CODE = :CODE')
+    SQLLock.Strings = (
+      'SELECT NULL FROM CLEARANCE_INSTRUCTION'
+      'WHERE'
+      'CODE = :Old_CODE'
+      'FOR UPDATE WITH LOCK')
+    SQLRecCount.Strings = (
+      'SELECT COUNT(*) FROM ('
+      'SELECT 1 AS C  FROM CLEARANCE_INSTRUCTION'
+      ''
+      ') q')
+    Connection = ClairDML.CabCOnnection
+    SQL.Strings = (
+      'select * from clearance_Instruction')
+    ReadOnly = True
+    Left = 403
+    Top = 225
+    object ClearanceSQLCODE: TStringField
+      DisplayWidth = 5
+      FieldName = 'CODE'
+      Required = True
+      FixedChar = True
+      Size = 5
+    end
+    object ClearanceSQLDESCRIPTION: TStringField
+      DisplayWidth = 50
+      FieldName = 'DESCRIPTION'
+      Size = 50
+    end
+    object ClearanceSQLFK_TARIFF_GROUP: TStringField
+      DisplayWidth = 5
+      FieldName = 'FK_TARIFF_GROUP'
+      Visible = False
+      FixedChar = True
+      Size = 5
+    end
+    object ClearanceSQLIS_VAT_APPLY: TStringField
+      DisplayWidth = 1
+      FieldName = 'IS_VAT_APPLY'
+      Required = True
+      Visible = False
+      FixedChar = True
+      Size = 1
+    end
+    object ClearanceSQLORDER_NUMBER: TIntegerField
+      DisplayWidth = 10
+      FieldName = 'ORDER_NUMBER'
+      Visible = False
+    end
+    object ClearanceSQLIS_DISPLAY: TStringField
+      DisplayWidth = 1
+      FieldName = 'IS_DISPLAY'
+      Visible = False
+      FixedChar = True
+      Size = 1
+    end
+    object ClearanceSQLIS_ACTIVE: TStringField
+      DisplayWidth = 1
+      FieldName = 'IS_ACTIVE'
+      Visible = False
+      FixedChar = True
+      Size = 1
+    end
+  end
+  object ClearanceSRC: TDataSource
+    DataSet = ClearanceSQL
+    Left = 499
+    Top = 245
   end
 end

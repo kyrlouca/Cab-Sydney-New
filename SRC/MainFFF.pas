@@ -111,6 +111,7 @@ type
     Maintenance1: TMenuItem;
     ProcessHawbs1: TMenuItem;
     Button2: TButton;
+    ProcedureCodeExemptions1: TMenuItem;
     procedure Button2Click(Sender: TObject);
     procedure Button6Click(Sender: TObject);
     procedure Button7Click(Sender: TObject);

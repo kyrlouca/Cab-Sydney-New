@@ -3,7 +3,7 @@ object M_ProcedureCodeFRM: TM_ProcedureCodeFRM
   Top = 153
   Caption = 'Instructor'
   ClientHeight = 558
-  ClientWidth = 581
+  ClientWidth = 803
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -21,7 +21,7 @@ object M_ProcedureCodeFRM: TM_ProcedureCodeFRM
   object Panel1: TPanel
     Left = 0
     Top = 0
-    Width = 581
+    Width = 803
     Height = 53
     Align = alTop
     Font.Charset = DEFAULT_CHARSET
@@ -31,11 +31,12 @@ object M_ProcedureCodeFRM: TM_ProcedureCodeFRM
     Font.Style = [fsBold]
     ParentFont = False
     TabOrder = 0
+    ExplicitWidth = 581
     object Label4: TLabel
       AlignWithMargins = True
       Left = 4
       Top = 4
-      Width = 573
+      Width = 795
       Height = 45
       Align = alClient
       Alignment = taCenter
@@ -48,10 +49,11 @@ object M_ProcedureCodeFRM: TM_ProcedureCodeFRM
   object Panel4: TPanel
     Left = 0
     Top = 515
-    Width = 581
+    Width = 803
     Height = 43
     Align = alBottom
     TabOrder = 1
+    ExplicitWidth = 581
     object BitBtn3: TBitBtn
       Left = 423
       Top = 6
@@ -200,10 +202,11 @@ object M_ProcedureCodeFRM: TM_ProcedureCodeFRM
   object Panel2: TPanel
     Left = 0
     Top = 53
-    Width = 581
+    Width = 803
     Height = 39
     Align = alTop
     TabOrder = 2
+    ExplicitWidth = 581
     object Nav1: TwwDBNavigator
       Left = 1
       Top = 7
@@ -348,24 +351,26 @@ object M_ProcedureCodeFRM: TM_ProcedureCodeFRM
   object Panel3: TPanel
     Left = 0
     Top = 92
-    Width = 581
+    Width = 803
     Height = 423
     Align = alClient
     TabOrder = 3
+    ExplicitWidth = 581
     object Panel5: TPanel
       Left = 1
       Top = 1
-      Width = 579
+      Width = 801
       Height = 224
       Align = alTop
       BevelOuter = bvNone
       Locked = True
       TabOrder = 0
+      ExplicitWidth = 579
       object GroupBox1: TGroupBox
         Left = 6
         Top = 5
         Width = 473
-        Height = 116
+        Height = 180
         Caption = 'Details'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -452,7 +457,7 @@ object M_ProcedureCodeFRM: TM_ProcedureCodeFRM
     object Grid1: TwwDBGrid
       Left = 1
       Top = 225
-      Width = 579
+      Width = 801
       Height = 197
       Selected.Strings = (
         'PROCEDURE_CODE'#9'5'#9'PROCEDURE_CODE'#9'F'#9
@@ -483,6 +488,7 @@ object M_ProcedureCodeFRM: TM_ProcedureCodeFRM
       TitleFont.Style = []
       TitleLines = 1
       TitleButtons = False
+      ExplicitWidth = 579
     end
   end
   object TableSRC: TDataSource
@@ -494,9 +500,13 @@ object M_ProcedureCodeFRM: TM_ProcedureCodeFRM
   object TableSQL: TIBCQuery
     SQLInsert.Strings = (
       'INSERT INTO PROCEDURE_CODE'
-      '  (PROCEDURE_CODE, DESCRIPTION)'
+      
+        '  (PROCEDURE_CODE, DESCRIPTION, XML_CODE, AMOUNT_BELOW, AMOUNT_A' +
+        'BOVE, FK_CLEARANCE_INSTRUCTION)'
       'VALUES'
-      '  (:PROCEDURE_CODE, :DESCRIPTION)')
+      
+        '  (:PROCEDURE_CODE, :DESCRIPTION, :XML_CODE, :AMOUNT_BELOW, :AMO' +
+        'UNT_ABOVE, :FK_CLEARANCE_INSTRUCTION)')
     SQLDelete.Strings = (
       'DELETE FROM PROCEDURE_CODE'
       'WHERE'
@@ -504,11 +514,17 @@ object M_ProcedureCodeFRM: TM_ProcedureCodeFRM
     SQLUpdate.Strings = (
       'UPDATE PROCEDURE_CODE'
       'SET'
-      '  PROCEDURE_CODE = :PROCEDURE_CODE, DESCRIPTION = :DESCRIPTION'
+      
+        '  PROCEDURE_CODE = :PROCEDURE_CODE, DESCRIPTION = :DESCRIPTION, ' +
+        'XML_CODE = :XML_CODE, AMOUNT_BELOW = :AMOUNT_BELOW, AMOUNT_ABOVE' +
+        ' = :AMOUNT_ABOVE, FK_CLEARANCE_INSTRUCTION = :FK_CLEARANCE_INSTR' +
+        'UCTION'
       'WHERE'
       '  PROCEDURE_CODE = :Old_PROCEDURE_CODE')
     SQLRefresh.Strings = (
-      'SELECT PROCEDURE_CODE, DESCRIPTION FROM PROCEDURE_CODE'
+      
+        'SELECT PROCEDURE_CODE, DESCRIPTION, XML_CODE, AMOUNT_BELOW, AMOU' +
+        'NT_ABOVE, FK_CLEARANCE_INSTRUCTION FROM PROCEDURE_CODE'
       'WHERE'
       '  PROCEDURE_CODE = :PROCEDURE_CODE')
     SQLLock.Strings = (

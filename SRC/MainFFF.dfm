@@ -799,6 +799,9 @@ object MainFRM: TMainFRM
           Caption = 'Procedure Codes'
           OnClick = ProcedureMNTClick
         end
+        object ProcedureCodeExemptions1: TMenuItem
+          Caption = 'Procedure Code Exemptions'
+        end
         object ExemptedMediumTariffs1: TMenuItem
           Caption = 'Exempted Medium Tariffs'
           OnClick = ExemptedMediumTariffs1Click
