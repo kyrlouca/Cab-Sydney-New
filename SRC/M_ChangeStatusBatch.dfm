@@ -1,0 +1,539 @@
+object M_ChangeStatusBatchFRM: TM_ChangeStatusBatchFRM
+  Left = 365
+  Top = 153
+  Caption = 'Instructor'
+  ClientHeight = 558
+  ClientWidth = 768
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -10
+  Font.Name = 'MS Sans Serif'
+  Font.Style = []
+  KeyPreview = True
+  OldCreateOrder = False
+  Position = poDesktopCenter
+  WindowState = wsMaximized
+  OnActivate = FormActivate
+  OnCloseQuery = FormCloseQuery
+  OnCreate = FormCreate
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Panel1: TPanel
+    Left = 0
+    Top = 0
+    Width = 768
+    Height = 53
+    Align = alTop
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clBlue
+    Font.Height = -27
+    Font.Name = 'Arial'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 0
+    object Label4: TLabel
+      AlignWithMargins = True
+      Left = 4
+      Top = 4
+      Width = 319
+      Height = 32
+      Align = alClient
+      Alignment = taCenter
+      Caption = 'Change Clearing Status '
+      Layout = tlCenter
+    end
+  end
+  object Panel4: TPanel
+    Left = 0
+    Top = 515
+    Width = 768
+    Height = 43
+    Align = alBottom
+    TabOrder = 1
+    object RzPanel1: TRzPanel
+      Left = 667
+      Top = 1
+      Width = 100
+      Height = 41
+      Align = alRight
+      BorderOuter = fsNone
+      TabOrder = 0
+      object RzBitBtn1: TRzBitBtn
+        Left = 6
+        Top = 3
+        Width = 73
+        Height = 34
+        Caption = 'Close'
+        DoubleBuffered = True
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -12
+        Font.Name = 'Arial'
+        Font.Style = []
+        ParentDoubleBuffered = False
+        ParentFont = False
+        TabOrder = 0
+        OnClick = RzBitBtn1Click
+        Glyph.Data = {
+          F6060000424DF606000000000000360000002800000018000000180000000100
+          180000000000C006000000000000000000000000000000000000FFFFFFFFFFFF
+          FFFFFF0004450004450004450004450004450004450004450004450004450004
+          45000445000445000445000445000445000445000445000445FFFFFFFFFFFFFF
+          FFFFFFFFFFFFFFFFFFFFFF000A4D3461A53F70B44B7DC15789CE5F91D66396DB
+          6396DB6396DB6598DD6295DA6295DA5D90D55688CD4C7EC24374B83765A9000A
+          4DFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF0011563B6DB14174B84B7EC256
+          89CE5E91D66396DB6396DB6396DB6598DD6295DA6295DA5D90D55689CE4D80C4
+          4477BB3E70B4001156FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF0018613869
+          AE3366A72B5EA22B5EA22B5EA22B5EA22B5EA2497CCE6396DB3164A52B5EA22B
+          5EA22B5EA22B5EA22D60A43869AE001861FFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+          FFFFFF001F6A3A6CB02C5FA32B5EA22B5EA22B5EA22B5EA22B5EA24779CA6093
+          D8295CA02B5EA22B5EA22B5EA22B5EA22E61A53A6CB0001F6AFFFFFFFFFFFFFF
+          FFFFFFFFFFFFFFFFFFFFFF00226D3B6DB128579B2B5EA22B5EA22B5EA22B5EA2
+          2B5EA24274C45B8ED42554982B5EA22B5EA22B5EA22B5EA22E61A53B6DB10022
+          6DFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF0024703D6FB42451952B5EA22B
+          5EA22B5EA22B5EA22B5EA23F70BE578ACF214E922B5EA22B5EA22B5EA22B5EA2
+          2E61A53D6FB4002470FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF0026723E70
+          B51E498E2A5CA02B5EA22B5EA22B5EA22B5EA23B6BB95285CB1D478C2A5CA02B
+          5EA22B5EA22B5EA22D60A43E70B5002672FFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+          FFFFFF0028754072B7183F842451962B5EA22B5EA22B5EA22B5EA23766B44E81
+          C7173D812451962B5EA22B5EA22B5EA22D60A44072B7002875FFFFFFFFFFFFFF
+          FFFFFFFFFFFFFFFFFFFFFF002A784274B9133479193F84224F9328599D2B5EA2
+          2B5EA23463AF4A7DC2113176193F84224F9328599D2B5EA22E61A54274B9002A
+          78FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF002C7A4376BB0C296F0F307415
+          3A7E1A43871D488C214F933261AD487BC00B276B0F3074153A7E1A43871D488C
+          2451964376BB002C7AFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF002E7D4578
+          BD477ABF477ABF477ABF477ABF477ABF477ABF477ABF477ABF477ABF477ABF47
+          7ABF477ABF477ABF142669142669002E7DFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+          FFFFFF002F7F477ABF3260AC3260AC3160AC325FAB325FAC3160AB3463AE477A
+          BF3260AC3260AC3160AB325FAC3160AB3166B45287D1002F7FFFFFFFFFFFFFFF
+          FFFFFFFFFFFFFFFFFFFFFF003182497CC13265A6285B9F285B9F285B9F285B9F
+          285B9F3462AF4A7DC22E61A2285B9F285B9F285B9F285B9F70A3EB84B7FC0031
+          82FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF0033844B7EC3295CA0275A9E27
+          5A9E275A9E275A9E275A9E3A6AB85184CA26589C275A9E275A9E275A9E275A9E
+          2B5EA24B7EC3003384FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF0035864D80
+          C525549826599D26599D26599D26599D26599D4172C2598CD2214F9326599D26
+          599D26599D26599D2B5EA24D80C5003586FFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+          FFFFFF0036894E81C7204D9125589C25589C25589C25589C25589C497BCE6295
+          DB1D488C25589C25589C25589C25589C2A5DA14E81C7003689FFFFFFFFFFFFFF
+          FFFFFFFFFFFFFFFFFFFFFF00388B5083C91C458A23559924579B24579B24579B
+          24579B5286DC6C9FE518418423559924579B24579B24579B295CA05083C90038
+          8BFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF00398C5084CA163C7F1D4A8D23
+          569A23569A23569A23569A5B90E675A8ED1337791D4A8D23569A23569A23569A
+          295CA05084CA00398CFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF003B8E5286
+          CC0F2F7213397A1A478A1F5094225599225599629AF17DB0F50C2A6B13397A1A
+          478A1F5094225599285B9F5286CC003B8EFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+          FFFFFF003C905387CD0A266A0C2869123576153D7F1942851C488B67A0F882B5
+          FA0722620C2A6B123576153D7F174083214E925387CD003C90FFFFFFFFFFFFFF
+          FFFFFFFFFFFFFFFFFFFFFF003D91598DD25F92D7699CE174A7EC7DB0F584B7FC
+          84B7FC84B7FC82B5FA82B5FA82B5FA7CAFF473A6EB6A9DE26194D95B8FD4003D
+          91FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF003E935085CC5D91D7689CE173
+          A6EC7EB1F684B7FC84B7FC84B7FC82B5FA82B5FA82B5FA7BAEF373A6EC699DE2
+          6093D95388CF003E93FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF003F94003F
+          94003F94003F94003F94003F94003F94003F94003F94003F94003F94003F9400
+          3F94003F94003F94003F94003F94003F94FFFFFFFFFFFFFFFFFF}
+        Margin = -1
+      end
+    end
+    object unselectBTN: TBitBtn
+      Left = 279
+      Top = 6
+      Width = 97
+      Height = 36
+      Caption = 'Unselect All'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'Arial'
+      Font.Style = []
+      Glyph.Data = {
+        DE010000424DDE01000000000000760000002800000024000000120000000100
+        0400000000006801000000000000000000001000000000000000000000000000
+        80000080000000808000800000008000800080800000C0C0C000808080000000
+        FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00333333444444
+        33333333333F8888883F33330000324334222222443333388F3833333388F333
+        000032244222222222433338F8833FFFFF338F3300003222222AAAAA22243338
+        F333F88888F338F30000322222A33333A2224338F33F8333338F338F00003222
+        223333333A224338F33833333338F38F00003222222333333A444338FFFF8F33
+        3338888300003AAAAAAA33333333333888888833333333330000333333333333
+        333333333333333333FFFFFF000033333333333344444433FFFF333333888888
+        00003A444333333A22222438888F333338F3333800003A2243333333A2222438
+        F38F333333833338000033A224333334422224338338FFFFF8833338000033A2
+        22444442222224338F3388888333FF380000333A2222222222AA243338FF3333
+        33FF88F800003333AA222222AA33A3333388FFFFFF8833830000333333AAAAAA
+        3333333333338888883333330000333333333333333333333333333333333333
+        0000}
+      NumGlyphs = 2
+      ParentFont = False
+      TabOrder = 1
+      OnClick = unselectBTNClick
+    end
+  end
+  object Panel3: TPanel
+    Left = 0
+    Top = 53
+    Width = 768
+    Height = 462
+    Align = alClient
+    TabOrder = 2
+    object Panel5: TPanel
+      Left = 1
+      Top = 1
+      Width = 766
+      Height = 224
+      Align = alTop
+      BevelOuter = bvNone
+      Locked = True
+      TabOrder = 0
+      object GroupBox1: TGroupBox
+        Left = 20
+        Top = 5
+        Width = 339
+        Height = 70
+        Caption = 'Select'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -12
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 0
+        object BYCodeBTN: TSpeedButton
+          Left = 284
+          Top = 29
+          Width = 23
+          Height = 21
+          Hint = 'Find Hawb in this Mawb'
+          Flat = True
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -15
+          Font.Name = 'MS Sans Serif'
+          Font.Style = [fsBold]
+          Glyph.Data = {
+            76010000424D7601000000000000760000002800000020000000100000000100
+            04000000000000010000130B0000130B00001000000000000000000000000000
+            800000800000008080008000000080008000808000007F7F7F00BFBFBF000000
+            FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00333333333333
+            33033333333333333F7F3333333333333000333333333333F777333333333333
+            000333333333333F777333333333333000333333333333F77733333333333300
+            033333333FFF3F777333333700073B703333333F7773F77733333307777700B3
+            33333377333777733333307F8F8F7033333337F333F337F3333377F8F9F8F773
+            3333373337F3373F3333078F898F870333337F33F7FFF37F333307F99999F703
+            33337F377777337F3333078F898F8703333373F337F33373333377F8F9F8F773
+            333337F3373337F33333307F8F8F70333333373FF333F7333333330777770333
+            333333773FF77333333333370007333333333333777333333333}
+          NumGlyphs = 2
+          ParentFont = False
+          OnClick = BYCodeBTNClick
+        end
+        object Label1: TLabel
+          Left = 9
+          Top = 29
+          Width = 66
+          Height = 15
+          Caption = 'Hawb/ TDID'
+          Color = clBtnFace
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -12
+          Font.Name = 'Arial'
+          Font.Style = []
+          ParentColor = False
+          ParentFont = False
+          WordWrap = True
+        end
+        object HawbFLD: TwwDBEdit
+          Left = 81
+          Top = 29
+          Width = 181
+          Height = 22
+          TabOrder = 0
+          UnboundDataType = wwDefault
+          WantReturns = False
+          WordWrap = False
+          OnKeyDown = HawbFLDKeyDown
+        end
+      end
+      object RzGroupBox1: TRzGroupBox
+        Left = 365
+        Top = 5
+        Width = 290
+        Height = 70
+        Caption = 'Change Status'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Arial'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 1
+        object ChangeStatusBTN: TRzBitBtn
+          Left = 12
+          Top = 22
+          Width = 173
+          Height = 36
+          Caption = 'Change to New Status'
+          DoubleBuffered = True
+          Font.Charset = GREEK_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -12
+          Font.Name = 'Arial'
+          Font.Style = []
+          ParentDoubleBuffered = False
+          ParentFont = False
+          TabOrder = 0
+          OnClick = ChangeStatusBTNClick
+          Glyph.Data = {
+            F6060000424DF606000000000000360000002800000018000000180000000100
+            180000000000C006000000000000000000000000000000000000FFFFFFFFFFFF
+            FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF7676727676727676727676
+            72767672767672FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+            FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF767672
+            E6E2E2E6DEDEE6DEDEE6E2E2767672FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+            FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF928E8E8E8A8AFFFFFFFF
+            FFFFFFFFFF767672D6D2CEDAD6D6DAD6D6D6D2CE767672FFFFFFFFFFFFFFFFFF
+            8E8E8A928E8EFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF8E8A8AA29E
+            9EDEDADA96928E8A8A867E7A7A726E6E6A66666E6E6E6E6E6E6A6666726E6E7E
+            7A7A8E8A8A96928EDEDADAA29E9E8E8A8AFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+            8A86869A9692D6D6D2B2AEAE7E7E7A5E5E5A4242425652527A76768A86868A86
+            867A76765652524242425E5E5A7E7E7AB2AEAED6D6D69A96968A8686FFFFFFFF
+            FFFFFFFFFFFFFFFF868282D6D6D2B6B2AE7A7A763E3E3A52524E9E9A9AEAEAEA
+            FAFAFAFEFEFEFEFEFEFAFAFAEAEAEAA29E9A52524E3E3E3A7E7A7AB6B2AED6D6
+            D6868282FFFFFFFFFFFFFFFFFFFFFFFFFFFFFF8E8E8AA29E9E5A5A56767272CA
+            C6C6E6E6E2EAE6E6EAEAEAF2EEEEF2EEEEEAEAEAEAE6E6E6E6E6CAC6C6767272
+            5A5A56A6A29E928E8AFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF8682826E6A
+            6A767272C6C6C2DEDEDAE2E2DEC6C2C2767672767672767672767672C6C2C2E2
+            E2DEDEDEDAC6C6C27672726E6A6A868282FFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+            FFFFFF7A76765A5A56AEAAA6D6D2D2DEDADABEBEBA868282FFFFFFFFFFFFFFFF
+            FFFFFFFF868282BEBEBADEDADAD6D6D2AEAAA65A5A567A7676FFFFFFFFFFFFFF
+            FFFF7676727676727676726E6A667A7676C6C2BED2CECEBABAB6868282FFFFFF
+            9A96928A86868A86869A9696FFFFFF868282BEBAB6D6D2CEC6C2BE7A7A766E6A
+            6A767672767672767672767672AAA6A6AEAAA6726E6AA29E9EBEBAB6C6C2BE76
+            7672FFFFFF9A96968A8A86AAA6A6AAA6A68A8A869A9696FFFFFF767672C6C2BE
+            BEBABAA29E9E726E6EB2AEAAAEAAA6767672767672BAB6B6C2BEBE868282B6B2
+            B2B2AEAEB2AEAA767672FFFFFF8A8A86B2AEAACAC6C6CAC6C6B2AEAA8A8A86FF
+            FFFF767672B6B2AEB6B2AEBAB6B28A8686C6C2BEBEBAB6767672767672BEBAB6
+            C6C2BE9E9A96CAC6C6B2AEAAAEAAA6767672FFFFFF8E8A8ABAB6B2DEDAD6DEDA
+            D6BAB6B28E8A8AFFFFFF767672B2AEAAB2AEAACECAC69E9A9AC6C2C2C2BEBA76
+            7672767672D2CECEDAD6D6BEBEBAD2CECEAEAAAA9E9A9A767672FFFFFFA29E9E
+            928E8EC2BEBEC2BEBE928E8EA29E9EFFFFFF767672A29E9AB2AEAAD6D2CEC2BE
+            BEDAD6D6D6D2D2767672767672767672767672C6C6C2DEDADABEBAB68A868696
+            928E8A8686FFFFFFA29E9E928E8A928E8AA29E9EFFFFFF8A8A869692928A8686
+            BEBABADEDEDACAC6C6767672767672767672FFFFFFFFFFFFFFFFFF827E7ED6D2
+            D2DEDAD68682827E7A7A96928E8A8A86FFFFFFFFFFFFFFFFFFFFFFFF8E8A8A96
+            928E7E7A7A868282DEDADAD6D2D2827E7EFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+            FFFFFF928E8EBAB6B2EAE6E6BEBEBA7672726E6A6A7E7A7A7676727676727676
+            72767672827E7A726E6A767272C2BEBEEAE6E6BAB6B6928E8EFFFFFFFFFFFFFF
+            FFFFFFFFFFFFFFFFFFFFFF9A9692DAD6D6EEEAEAEEEEEABEBAB66A66665A5A5A
+            5252524242424242425252525A5A5A6A6666BEBABAF2EEEEEEEEEADEDADA9A96
+            96FFFFFFFFFFFFFFFFFFFFFFFFFFFFFF8E8A8AFEFEFEDED6D6EAE6E6F6F6F2F6
+            F6F2EAE6E69E9A9A6662624E4A4A4E4A4A6662629E9A9AEEEAE6F6F6F6F6F6F6
+            EAE6E6DEDADAFEFEFE8E8E8AFFFFFFFFFFFFFFFFFFFFFFFF928E8EBAB6B2FEFE
+            FEEAE2E2F2EEEECAC6C6EAEAEAFAFAFAFAF6F6F6F6F6F6F6F6FAF6F6FAFAFAEA
+            EAEACAC6C6F2EEEEEAE6E6FEFEFEBAB6B6928E8EFFFFFFFFFFFFFFFFFFFFFFFF
+            FFFFFF928E8EBEBAB6FEFEFEA29E9E969692868282EAEAEAFEFEFEFEFEFEFEFE
+            FEFEFEFEEAEAEA8682829A9692A29E9EFEFEFEBEBABA96928EFFFFFFFFFFFFFF
+            FFFFFFFFFFFFFFFFFFFFFFFFFFFF96928E96928EFFFFFFFFFFFFFFFFFF767672
+            F2EEEEF2EEEEF2EEEEF6F2EE767672FFFFFFFFFFFFFFFFFF96928E969292FFFF
+            FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+            FFFFFFFFFF767672FEFEFEFEFEFEFEFEFEFEFEFE767672FFFFFFFFFFFFFFFFFF
+            FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+            FFFFFFFFFFFFFFFFFFFFFFFFFF767672767672767672767672767672767672FF
+            FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
+          Margin = -1
+        end
+        object NewStatusFLD: TwwDBComboBox
+          Left = 191
+          Top = 30
+          Width = 89
+          Height = 23
+          ShowButton = True
+          Style = csOwnerDrawFixed
+          MapList = True
+          AllowClearKey = False
+          AutoDropDown = True
+          ShowMatchText = True
+          DropDownCount = 8
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -12
+          Font.Name = 'Arial'
+          Font.Style = []
+          ItemHeight = 0
+          ParentFont = False
+          Sorted = False
+          TabOrder = 1
+          UnboundDataType = wwDefault
+        end
+      end
+      object wwDBNavigator1: TwwDBNavigator
+        Left = 15
+        Top = 169
+        Width = 121
+        Height = 32
+        AutosizeStyle = asSizeNavButtons
+        DataSource = TableSRC
+        RepeatInterval.InitialDelay = 500
+        RepeatInterval.Interval = 100
+        object wwDBNavigator1Prior: TwwNavButton
+          Left = 0
+          Top = 0
+          Width = 41
+          Height = 32
+          Hint = 'Move to prior record'
+          ImageIndex = -1
+          NumGlyphs = 2
+          Spacing = 4
+          Transparent = False
+          Caption = 'wwDBNavigator1Prior'
+          Enabled = False
+          DisabledTextColors.ShadeColor = clGray
+          DisabledTextColors.HighlightColor = clBtnHighlight
+          Index = 0
+          Style = nbsPrior
+        end
+        object wwDBNavigator1Delete: TwwNavButton
+          Left = 41
+          Top = 0
+          Width = 40
+          Height = 32
+          Hint = 'Delete current record'
+          ImageIndex = -1
+          NumGlyphs = 2
+          Spacing = 4
+          Transparent = False
+          Caption = 'wwDBNavigator1Delete'
+          Enabled = False
+          DisabledTextColors.ShadeColor = clGray
+          DisabledTextColors.HighlightColor = clBtnHighlight
+          Index = 1
+          Style = nbsDelete
+        end
+        object wwDBNavigator1Next: TwwNavButton
+          Left = 81
+          Top = 0
+          Width = 40
+          Height = 32
+          Hint = 'Move to next record'
+          ImageIndex = -1
+          NumGlyphs = 2
+          Spacing = 4
+          Transparent = False
+          Caption = 'wwDBNavigator1Next'
+          Enabled = False
+          DisabledTextColors.ShadeColor = clGray
+          DisabledTextColors.HighlightColor = clBtnHighlight
+          Index = 2
+          Style = nbsNext
+        end
+      end
+    end
+    object wwDBGrid1: TwwDBGrid
+      Left = 16
+      Top = 208
+      Width = 665
+      Height = 120
+      Selected.Strings = (
+        'HawbID'#9'20'#9'HawbID'#9#9
+        'Tdid'#9'11'#9'Tdid'#9#9
+        'Description'#9'30'#9'Description'#9#9
+        'status'#9'20'#9'status'#9'F'#9)
+      IniAttributes.Delimiter = ';;'
+      IniAttributes.UnicodeIniFile = False
+      TitleColor = clBtnFace
+      FixedCols = 0
+      ShowHorzScrollBar = True
+      Color = clInfoBk
+      DataSource = TableSRC
+      Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit, dgWordWrap]
+      ReadOnly = True
+      TabOrder = 1
+      TitleAlignment = taLeftJustify
+      TitleFont.Charset = DEFAULT_CHARSET
+      TitleFont.Color = clWindowText
+      TitleFont.Height = -10
+      TitleFont.Name = 'MS Sans Serif'
+      TitleFont.Style = []
+      TitleLines = 1
+      TitleButtons = False
+    end
+  end
+  object TableSRC: TDataSource
+    DataSet = TableVRT
+    Left = 528
+    Top = 177
+  end
+  object WriteTrans: TIBCTransaction
+    DefaultConnection = ClairDML.CabCOnnection
+    Left = 345
+    Top = 149
+  end
+  object ReadTrans: TIBCTransaction
+    DefaultConnection = ClairDML.CabCOnnection
+    IsolationLevel = iblReadOnlyReadCommitted
+    Left = 288
+    Top = 169
+  end
+  object TableVRT: TVirtualTable
+    AutoCalcFields = False
+    FieldDefs = <
+      item
+        Name = 'HawbSerial'
+        DataType = ftInteger
+      end
+      item
+        Name = 'HawbID'
+        DataType = ftString
+        Size = 20
+      end
+      item
+        Name = 'Tdid'
+        DataType = ftString
+        Size = 20
+      end
+      item
+        Name = 'MawbSerial'
+        DataType = ftInteger
+      end
+      item
+        Name = 'Description'
+        DataType = ftString
+        Size = 80
+      end>
+    Left = 464
+    Top = 168
+    Data = {
+      040005000A004861776253657269616C03000000000000000600486177624944
+      010014000000000004005464696401001400000000000A004D61776253657269
+      616C03000000000000000B004465736372697074696F6E010050000000000000
+      0000000000}
+    object TableVRTHawbID: TStringField
+      DisplayWidth = 20
+      FieldName = 'HawbID'
+    end
+    object TableVRTTdid: TStringField
+      DisplayWidth = 11
+      FieldName = 'Tdid'
+    end
+    object TableVRTDescription: TStringField
+      DisplayWidth = 30
+      FieldName = 'Description'
+      Size = 80
+    end
+    object TableVRTstatus: TStringField
+      DisplayWidth = 20
+      FieldName = 'status'
+    end
+    object TableVRTHawbSerial: TIntegerField
+      DisplayWidth = 11
+      FieldName = 'HawbSerial'
+      Visible = False
+    end
+    object TableVRTMawbSerial: TIntegerField
+      DisplayWidth = 10
+      FieldName = 'MawbSerial'
+      Visible = False
+    end
+  end
+end

@@ -1,0 +1,10 @@
+=>Started reading file C:\Data\DelphiProjects\TokyoCabT\CustomsPayments_ReadInvoiceFiles\test2.TXT
+*** ERROR line: 13. Invalid account: 961144444
+*** ERROR line: 14. Invalid account: 961195323
+Finished invoice 2017/08/10 19:19:25 => C:\Data\DelphiProjects\TokyoCabT\CustomsPayments_ReadInvoiceFiles\test2.xyz valid=1433 invalid=0
+---------------------------------------------------------------
+=>Started reading file C:\Data\DelphiProjects\TokyoCabT\CustomsPayments_ReadInvoiceFiles\test2.TXT
+*** ERROR line: 4. Invalid account: 961144444
+*** ERROR line: 5. Invalid account: 961195323
+Finished invoice 2017/08/10 19:22:28 => C:\Data\DelphiProjects\TokyoCabT\CustomsPayments_ReadInvoiceFiles\test2.xyz valid=1433 invalid=0
+---------------------------------------------------------------

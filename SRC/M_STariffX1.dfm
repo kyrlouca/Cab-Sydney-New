@@ -1,0 +1,1365 @@
+object M_StariffX1FRM: TM_StariffX1FRM
+  Left = 240
+  Top = 105
+  BorderIcons = []
+  BorderStyle = bsDialog
+  Caption = 'Tariff'
+  ClientHeight = 723
+  ClientWidth = 738
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -10
+  Font.Name = 'MS Sans Serif'
+  Font.Style = []
+  KeyPreview = True
+  OldCreateOrder = False
+  Position = poMainFormCenter
+  OnActivate = FormActivate
+  OnCloseQuery = FormCloseQuery
+  OnCreate = FormCreate
+  OnKeyDown = FormKeyDown
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Panel1: TPanel
+    Left = 0
+    Top = 0
+    Width = 738
+    Height = 53
+    Align = alTop
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clBlue
+    Font.Height = -27
+    Font.Name = 'Arial'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 0
+    object TitleLbl: TLabel
+      Left = 1
+      Top = 1
+      Width = 736
+      Height = 51
+      Align = alClient
+      Alignment = taCenter
+      Caption = 'Create Tariff'
+      ExplicitWidth = 161
+      ExplicitHeight = 32
+    end
+  end
+  object Panel4: TPanel
+    Left = 0
+    Top = 680
+    Width = 738
+    Height = 43
+    Align = alBottom
+    TabOrder = 3
+    object AcceptBTN: TBitBtn
+      Left = 8
+      Top = 6
+      Width = 89
+      Height = 34
+      Caption = 'Accept'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'Arial'
+      Font.Style = []
+      Glyph.Data = {
+        F6060000424DF606000000000000360000002800000018000000180000000100
+        180000000000C006000000000000000000000000000000000000FFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF05793AEDF8F2FFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF0E8245
+        63CE9D108447EFF9F3FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFF0D844472D1A76DD0A466CE9F0F8747E8F4ECFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFF0D864480D7B07ED5AE76D2A96DD0A465CD9F108947EBF6EEFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFF04823D8FDAB98FDAB986D8B37DD5AE74D2A86ACF
+        A261CC9D0F8B48EEF7F1FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF0C88469CDFC19FE0C398DDBF8EDBB8
+        85D7B27AD4AB6FD1A665CE9F5CCB9A0F8D4AEEF7F1FFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF098C47A5E1C6ADE4CCA7
+        E2C89FDFC395DCBC8AD9B67ED6AE72D1A868CEA05ECB9A57C9970E904CCBE3CC
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF099048A7E2
+        C8B8E7D2B5E6D0AEE4CCA4E1C699DDBF26B46688D9B475D2A96ACFA260CC9B57
+        C99651C794048C41D5E9D6FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        079347A1E1C4B8E7D2BEE9D6B7E7D3AFE5CDA3E0C60D964AFFFFFF1FAD5F83D7
+        B26BD0A260CC9C58C99651C89351C7930E974DDAECDBFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFF0291438FDBB9AEE4CCB4E6D0B8E7D2B5E6D0A7E2C80B974BFFFFFF
+        FFFFFFFFFFFF1FAD5F7CD5AD60CC9C57CA9651C89350C79251C7920E984EDDEE
+        DEFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF19A359A0E0C3AEE4CCB0E4CDA4E1C51D
+        A35BFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF23B16373D1A856C99650C7924FC791
+        4FC79251C791119C51DEEFDFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF1CA75C9DDF
+        C2A6E2C7109F51FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF23B1636B
+        D0A24FC7924FC79250C79250C79250C791139E53E3F2E5FFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFF1AA85A16A557FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFF24B36563CD9E50C7924FC79250C79250C79251C7920C9B4DFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF20AF615FCC9A4FC79250C79251C8
+        93088D46FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF1BAA5C
+        5ACA9853C8940A964BFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFFFF11A052139F53FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
+      ParentFont = False
+      ParentShowHint = False
+      ShowHint = True
+      TabOrder = 0
+      OnClick = AcceptBTNClick
+    end
+    object CanelBTN: TBitBtn
+      Left = 103
+      Top = 6
+      Width = 89
+      Height = 34
+      Caption = 'Cancel'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'Arial'
+      Font.Style = []
+      Glyph.Data = {
+        F6060000424DF606000000000000360000002800000018000000180000000100
+        180000000000C006000000000000000000000000000000000000FFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFF3B46E23A44E2FFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF3A44E23B46E2FFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF3B46E2616BF9616BF93842E0FF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF3842E0616BF9
+        616BF93B46E2FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF3A44E15660F1737C
+        FE7E87FE626CF93842E0FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF38
+        42E0626CF97E87FE737CFE5660F13A44E1FFFFFFFFFFFFFFFFFFFFFFFF3842E0
+        4C54EA6169F66972FC757FFE848DFE636DFA3842E0FFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFF3842E0636DFA848DFE757FFE6972FC6169F64C54EA3842E0FFFFFFFF
+        FFFFFFFFFF3741DF464FE75961F1626BF86B74FE7882FE828CFE616BF93943E1
+        FFFFFFFFFFFFFFFFFF3943E1616BF9828CFE7882FE6B74FE626BF85961F1464F
+        E73741DFFFFFFFFFFFFFFFFFFFFFFFFF3741DF4851E85C64F3646CF96A73FD74
+        7DFE7B85FE5D67F73B46E2FFFFFF3B46E25D67F77B85FE747DFE6A73FD646CF9
+        5C64F34851E83741DFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF3741DF4851
+        E85A62F2616AF7666FFA6D76FE717BFE6B74FE3B46E26B74FE717BFE6D76FE66
+        6FFA616AF75A62F24851E83741DFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFF3741DF4750E75860F15D65F4616AF7646DF96770FB6770FB6770
+        FB646DF9616AF75D65F45860F14750E73741DFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF3640DE424AE34E55E9575FF05A62F2
+        5C64F35C64F35C64F35A62F2575FF04E55E9424AE33640DEFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF3640DE4E
+        55E9575FF05A62F25C64F35C64F35C64F35A62F2575FF04E55E93640DEFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFF3640DE575FF05A62F25C64F35C64F35C64F35A62F2575FF036
+        40DEFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFF3640DE4E55E9575FF05A62F25C64F35C64F35C64
+        F35A62F2575FF04E55E93640DEFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF3640DE424AE34E55E9575FF05A62F2
+        5C64F35C64F35C64F35A62F2575FF04E55E9424AE33640DEFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF3741DF4750E75860F15D
+        65F4616AF7646DF96770FB6770FB6770FB646DF9616AF75D65F45860F14750E7
+        3741DFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF3741DF4851
+        E85A62F2616AF7666FFA6D76FE717BFE6B74FE3B46E26B74FE717BFE6D76FE66
+        6FFA616AF75A62F24851E83741DFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        3741DF4851E85C64F3646CF96A73FD747DFE7B85FE5D67F73B46E2FFFFFF3B46
+        E25D67F77B85FE747DFE6A73FD646CF95C64F34851E83741DFFFFFFFFFFFFFFF
+        FFFFFFFFFF3741DF464FE75961F1626BF86B74FE7882FE828CFE616BF93943E1
+        FFFFFFFFFFFFFFFFFF3943E1616BF9828CFE7882FE6B74FE626BF85961F1464F
+        E73741DFFFFFFFFFFFFFFFFFFF3842E04C54EA6169F66972FC757FFE848DFE63
+        6DFA3842E0FFFFFFFFFFFFFFFFFFFFFFFFFFFFFF3842E0636DFA848DFE757FFE
+        6972FC6169F64C54EA3842E0FFFFFFFFFFFFFFFFFFFFFFFF3A44E15660F1737C
+        FE7E87FE626CF93842E0FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF38
+        42E0626CF97E87FE737CFE5660F13A44E1FFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFF3B46E2616BF9616BF93842E0FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFF3842E0616BF9616BF93B46E2FFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFF3B46E23A44E2FFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF3A44E23B46E2FFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
+      ParentFont = False
+      TabOrder = 1
+      OnClick = CanelBTNClick
+    end
+    object Panel11: TRzPanel
+      Left = 639
+      Top = 1
+      Width = 98
+      Height = 41
+      Align = alRight
+      BorderOuter = fsNone
+      TabOrder = 2
+      Transparent = True
+      object BitBtn1: TBitBtn
+        Left = 19
+        Top = 3
+        Width = 73
+        Height = 37
+        Caption = 'Close'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -12
+        Font.Name = 'Arial'
+        Font.Style = []
+        Glyph.Data = {
+          F6060000424DF606000000000000360000002800000018000000180000000100
+          180000000000C006000000000000000000000000000000000000FFFFFFFFFFFF
+          FFFFFF0004450004450004450004450004450004450004450004450004450004
+          45000445000445000445000445000445000445000445000445FFFFFFFFFFFFFF
+          FFFFFFFFFFFFFFFFFFFFFF000A4D3461A53F70B44B7DC15789CE5F91D66396DB
+          6396DB6396DB6598DD6295DA6295DA5D90D55688CD4C7EC24374B83765A9000A
+          4DFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF0011563B6DB14174B84B7EC256
+          89CE5E91D66396DB6396DB6396DB6598DD6295DA6295DA5D90D55689CE4D80C4
+          4477BB3E70B4001156FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF0018613869
+          AE3366A72B5EA22B5EA22B5EA22B5EA22B5EA2497CCE6396DB3164A52B5EA22B
+          5EA22B5EA22B5EA22D60A43869AE001861FFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+          FFFFFF001F6A3A6CB02C5FA32B5EA22B5EA22B5EA22B5EA22B5EA24779CA6093
+          D8295CA02B5EA22B5EA22B5EA22B5EA22E61A53A6CB0001F6AFFFFFFFFFFFFFF
+          FFFFFFFFFFFFFFFFFFFFFF00226D3B6DB128579B2B5EA22B5EA22B5EA22B5EA2
+          2B5EA24274C45B8ED42554982B5EA22B5EA22B5EA22B5EA22E61A53B6DB10022
+          6DFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF0024703D6FB42451952B5EA22B
+          5EA22B5EA22B5EA22B5EA23F70BE578ACF214E922B5EA22B5EA22B5EA22B5EA2
+          2E61A53D6FB4002470FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF0026723E70
+          B51E498E2A5CA02B5EA22B5EA22B5EA22B5EA23B6BB95285CB1D478C2A5CA02B
+          5EA22B5EA22B5EA22D60A43E70B5002672FFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+          FFFFFF0028754072B7183F842451962B5EA22B5EA22B5EA22B5EA23766B44E81
+          C7173D812451962B5EA22B5EA22B5EA22D60A44072B7002875FFFFFFFFFFFFFF
+          FFFFFFFFFFFFFFFFFFFFFF002A784274B9133479193F84224F9328599D2B5EA2
+          2B5EA23463AF4A7DC2113176193F84224F9328599D2B5EA22E61A54274B9002A
+          78FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF002C7A4376BB0C296F0F307415
+          3A7E1A43871D488C214F933261AD487BC00B276B0F3074153A7E1A43871D488C
+          2451964376BB002C7AFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF002E7D4578
+          BD477ABF477ABF477ABF477ABF477ABF477ABF477ABF477ABF477ABF477ABF47
+          7ABF477ABF477ABF142669142669002E7DFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+          FFFFFF002F7F477ABF3260AC3260AC3160AC325FAB325FAC3160AB3463AE477A
+          BF3260AC3260AC3160AB325FAC3160AB3166B45287D1002F7FFFFFFFFFFFFFFF
+          FFFFFFFFFFFFFFFFFFFFFF003182497CC13265A6285B9F285B9F285B9F285B9F
+          285B9F3462AF4A7DC22E61A2285B9F285B9F285B9F285B9F70A3EB84B7FC0031
+          82FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF0033844B7EC3295CA0275A9E27
+          5A9E275A9E275A9E275A9E3A6AB85184CA26589C275A9E275A9E275A9E275A9E
+          2B5EA24B7EC3003384FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF0035864D80
+          C525549826599D26599D26599D26599D26599D4172C2598CD2214F9326599D26
+          599D26599D26599D2B5EA24D80C5003586FFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+          FFFFFF0036894E81C7204D9125589C25589C25589C25589C25589C497BCE6295
+          DB1D488C25589C25589C25589C25589C2A5DA14E81C7003689FFFFFFFFFFFFFF
+          FFFFFFFFFFFFFFFFFFFFFF00388B5083C91C458A23559924579B24579B24579B
+          24579B5286DC6C9FE518418423559924579B24579B24579B295CA05083C90038
+          8BFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF00398C5084CA163C7F1D4A8D23
+          569A23569A23569A23569A5B90E675A8ED1337791D4A8D23569A23569A23569A
+          295CA05084CA00398CFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF003B8E5286
+          CC0F2F7213397A1A478A1F5094225599225599629AF17DB0F50C2A6B13397A1A
+          478A1F5094225599285B9F5286CC003B8EFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+          FFFFFF003C905387CD0A266A0C2869123576153D7F1942851C488B67A0F882B5
+          FA0722620C2A6B123576153D7F174083214E925387CD003C90FFFFFFFFFFFFFF
+          FFFFFFFFFFFFFFFFFFFFFF003D91598DD25F92D7699CE174A7EC7DB0F584B7FC
+          84B7FC84B7FC82B5FA82B5FA82B5FA7CAFF473A6EB6A9DE26194D95B8FD4003D
+          91FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF003E935085CC5D91D7689CE173
+          A6EC7EB1F684B7FC84B7FC84B7FC82B5FA82B5FA82B5FA7BAEF373A6EC699DE2
+          6093D95388CF003E93FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF003F94003F
+          94003F94003F94003F94003F94003F94003F94003F94003F94003F94003F9400
+          3F94003F94003F94003F94003F94003F94FFFFFFFFFFFFFFFFFF}
+        ParentFont = False
+        TabOrder = 0
+        OnClick = BitBtn1Click
+      end
+    end
+  end
+  object Panel2: TPanel
+    Left = 0
+    Top = 53
+    Width = 738
+    Height = 39
+    Align = alTop
+    TabOrder = 1
+  end
+  object Panel3: TPanel
+    Left = 0
+    Top = 92
+    Width = 738
+    Height = 588
+    Align = alClient
+    TabOrder = 2
+    object MainPanelPNL: TPanel
+      Left = 1
+      Top = 1
+      Width = 736
+      Height = 552
+      Align = alTop
+      BevelOuter = bvNone
+      TabOrder = 0
+      object DetailsGRP: TGroupBox
+        Left = 7
+        Top = 18
+        Width = 391
+        Height = 111
+        Caption = 'Details'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -12
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 0
+        object Label2: TLabel
+          Left = 7
+          Top = 51
+          Width = 60
+          Height = 14
+          Caption = 'Description'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -12
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+        end
+        object Label3: TLabel
+          Left = 39
+          Top = 19
+          Width = 28
+          Height = 14
+          Caption = 'Code'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -12
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+        end
+        object Label4: TLabel
+          Left = 42
+          Top = 78
+          Width = 24
+          Height = 14
+          Caption = 'VAT'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -12
+          Font.Name = 'Tahoma'
+          Font.Style = []
+          ParentFont = False
+        end
+        object DescFLD: TwwDBEdit
+          Left = 72
+          Top = 48
+          Width = 169
+          Height = 21
+          BorderStyle = bsNone
+          DataField = 'DESCRIPTION'
+          DataSource = TableSRC
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -12
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Enabled = True
+          Frame.NonFocusBorders = [efLeftBorder, efTopBorder, efRightBorder, efBottomBorder]
+          Frame.FocusStyle = efsFrameSingle
+          Frame.NonFocusStyle = efsFrameSunken
+          ParentFont = False
+          TabOrder = 1
+          UnboundDataType = wwDefault
+          WantReturns = False
+          WordWrap = False
+        end
+        object TariffCodeFLD: TwwDBEdit
+          Left = 73
+          Top = 21
+          Width = 121
+          Height = 21
+          AutoSelect = False
+          BorderStyle = bsNone
+          CharCase = ecUpperCase
+          DataField = 'TARIFF_CODE'
+          DataSource = TableSRC
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -12
+          Font.Name = 'Arial'
+          Font.Style = []
+          Frame.Enabled = True
+          Frame.NonFocusBorders = [efLeftBorder, efTopBorder, efRightBorder, efBottomBorder]
+          Frame.FocusStyle = efsFrameSingle
+          Frame.NonFocusStyle = efsFrameSunken
+          ParentFont = False
+          Picture.PictureMaskFromDataSet = False
+          Picture.AllowInvalidExit = True
+          TabOrder = 0
+          UnboundDataType = wwDefault
+          UsePictureMask = False
+          WantReturns = False
+          WordWrap = False
+          OnExit = TariffCodeFLDExit
+        end
+        object VatFLD: TwwDBComboBox
+          Left = 72
+          Top = 75
+          Width = 169
+          Height = 22
+          ShowButton = True
+          Style = csOwnerDrawFixed
+          MapList = False
+          AllowClearKey = False
+          AutoDropDown = True
+          ShowMatchText = True
+          DataField = 'FK_VAT_CODE'
+          DataSource = TableSRC
+          DropDownCount = 8
+          ItemHeight = 0
+          Sorted = False
+          TabOrder = 2
+          UnboundDataType = wwDefault
+        end
+      end
+      object Button1: TButton
+        Left = 376
+        Top = 432
+        Width = 75
+        Height = 25
+        Caption = 'Button1'
+        TabOrder = 3
+        Visible = False
+      end
+      object buttonsPNL: TPanel
+        Left = 383
+        Top = 159
+        Width = 186
+        Height = 122
+        BevelOuter = bvNone
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -10
+        Font.Name = 'ButtonsPNL'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 2
+        object AddDetailBTN: TRzBitBtn
+          Left = 22
+          Top = 1
+          Width = 89
+          Height = 34
+          Alignment = taLeftJustify
+          Caption = 'Add'
+          DoubleBuffered = True
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -15
+          Font.Name = 'Arial'
+          Font.Style = []
+          ParentDoubleBuffered = False
+          ParentFont = False
+          TabOrder = 0
+          OnClick = AddDetailBTNClick
+          Glyph.Data = {
+            DE010000424DDE01000000000000760000002800000024000000120000000100
+            0400000000006801000000000000000000001000000000000000000000000000
+            80000080000000808000800000008000800080800000C0C0C000808080000000
+            FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00333333333333
+            33333333333333333333333300003333333344C3333333333333337FF3333333
+            00003333333A224333333333333338733F33333300003333333A224333333333
+            333338733F33333300003333333A224333333333333338733F33333300003333
+            333A224333333333333338733F33333300003333333A22433333333333333873
+            3F33333300003344444422444444C3337FFF787337FFFFF300003A2222222222
+            22224338733333333333333F00003A222222222222224338733333333333333F
+            000033AAAAAA222AAAAA3338777777733377777700003333333A224333333337
+            888888733788888300003333333A224333333333333338733F33333300003333
+            333A224333333333333338733F33333300003333333A22433333333333333873
+            3F33333300003333333A2243333333333333387337333333000033333333AA33
+            3333333333333877733333330000333333333333333333333333338883333333
+            0000}
+          Margin = -1
+          NumGlyphs = 2
+          Spacing = 14
+        end
+        object EditDetailBTN: TRzBitBtn
+          Left = 22
+          Top = 41
+          Width = 89
+          Height = 34
+          Alignment = taLeftJustify
+          Caption = 'Edit'
+          DoubleBuffered = True
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -15
+          Font.Name = 'Arial'
+          Font.Style = []
+          ParentDoubleBuffered = False
+          ParentFont = False
+          TabOrder = 1
+          OnClick = EditDetailBTNClick
+          Glyph.Data = {
+            F6060000424DF606000000000000360000002800000018000000180000000100
+            180000000000C006000074120000741200000000000000000000FFFFFFF8F8F8
+            FBFBFAFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+            FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+            FFFFFFFFFFD0CFCF393939454133869297D0E9F3E4F8FFF4FCFFFBFEFFFFFFFF
+            FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+            FFFFFFFFFFFFFFFFFFFFFFFFFFEEF0F08988874B454460747995D1E4A4EBFF99
+            E2FF97E1FFDBF3FFFEFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+            FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF6F7F8948B87787A7A95B9
+            C3B6F1FFB3EEFFB3EEFFB5EFFFA7E2FFE4F5FFFFFFFFFFFFFFFFFFFFFFFFFFFF
+            FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF9FAFB
+            889BA2A2C4CFB9ECFABCF2FFBBEFFFC1F1FFBEEFFFA1E3FF99DBFFE8F7FFFFFF
+            FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+            FFFFFFFFFFFEFFFFA6DBF2C0F5FFC6F5FFC5F2FFCAF4FFCEF5FFBAEDFF90DAFB
+            8CDBFD9DDCFFEDF9FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+            FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFB4E8FFBCEDFFD0F6FFD6F8FFD8F8FFC8
+            F2FF98DAFE6EC8F775CEF58DDBFCA1DEFFEFF8FFFFFFFFFFFFFFFFFFFFFFFFFF
+            FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFB1E6FFC6F0FFDCF9
+            FFDDFAFFC8F0FF97D7FF5EB8FC5BB9F967C4F579D1F78DDAFCA4DFFFF4FBFFFF
+            FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+            D5F1FFB0E5FFAFE4FDA1DDFD79C8FD42A5FF44A5FF51B1FD5CBBF968C4F679CF
+            F58DDAFDA6E0FFF9FDFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+            FFFFFFFFFFFFFFFFFFFFFFC2E6FA46B2F130A3F32498F6319CFB3CA1FF46A8FF
+            52B0FD5EBBF969C5F679D0F68EDAFCA8E0FFFEFFFFFFFFFFFFFFFFFFFFFFFFFF
+            FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFA3D7F51E99EC239AF22C
+            9CF7359EFC3DA1FF48A8FF54B2FC5FBDF96BC5F67AD0F78DDBFCACE1FFFFFFFF
+            FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+            FF9ED5F61F9BEE259BF32E9DF8369FFD3EA3FF49ABFF55B4FC61BEF96BC8F67C
+            D3F790DCFDB1E2FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+            FFFFFFFFFFFFFFFFFFFFFFFF97D1F61E9AED269BF42F9DFA389FFD41A4FF4DAC
+            FF57B6FC63C0F76FC9F583D6F88FDBFEB7E4FFFEFFFFFFFFFFFFFFFFFFFFFFFF
+            FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF90CEF41E9AEF279BF5
+            309DFA399FFD42A5FF4EADFF58B7FB64C0F770CAF684D6F88CDBFFDFEFF7FFFF
+            FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+            FFFF8ECEF41E99EE279BF5309CFA389FFE43A4FF4DADFF59B8FA64C2F771CCF6
+            8DD5F45D7F87797978FEFEFEFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+            FFFFFFFFFFFFFFFFFFFFFFFFFF8CCDF51F99EF289AF5319CFA399FFE42A4FF4F
+            AEFE59B8FC6CC5F86BA9C74B4A4A2B2B2B5C5C5CF7F7FCFFFFFFFFFFFFFFFFFF
+            FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFAFDFF8BCCF41F99F0289A
+            F5309DFA39A0FE41A4FF50AFFF7DBEEEA6A9AE5F5F6039393A3D3D3C7472D9FF
+            FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+            FAFDFF8CCDF42099EE289AF52C9CFC3BA3FE8EC9FDE4EAF4AEAEB16C6C6E6F6F
+            715D5A8C675FDDFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+            FFFFFFFFFFFFFFFFFFFFFFF9FDFF83C8F41697F0449EE386ACCEB1B1B4ABABAF
+            919194BABABEA8A6B17D6FD97064D3FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+            FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFAFDFFC8D6DEBAB9B98C
+            8C8C626262818182CACACDEEECF69A88DB836ED47C6BC8FFFFFFFFFFFFFFFFFF
+            FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+            FFFBFBFBDEDDDCC3C3C3939393929094BAB1CAAE99D89277CC8067BE9B8CCBFF
+            FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+            FFFFFFFFFFFFFFFFFFFFFFFFF8F8F8AAA8B27C6C9D866AB3977BBF8D6EB98164
+            B1836DB4E8E4F2FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+            FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF5F4F7A799C37359A0
+            7458A1795EA39A87BCE5E1EFFEFDFEFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+            FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+            FFFFF7F6FAE1DCEBD5CCE2DDD7E8F9F8FBFFFFFFFFFFFFFFFFFF}
+          Margin = -1
+          Spacing = 8
+        end
+        object DeleteDetailBTN: TRzBitBtn
+          Left = 22
+          Top = 81
+          Width = 89
+          Height = 34
+          Alignment = taLeftJustify
+          Caption = 'Delete'
+          DoubleBuffered = True
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -15
+          Font.Name = 'Arial'
+          Font.Style = []
+          ParentDoubleBuffered = False
+          ParentFont = False
+          TabOrder = 2
+          OnClick = DeleteDetailBTNClick
+          Glyph.Data = {
+            DE010000424DDE01000000000000760000002800000024000000120000000100
+            0400000000006801000000000000000000001000000000000000000000000000
+            80000080000000808000800000008000800080800000C0C0C000808080000000
+            FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00333333333333
+            3333333333333333333333330000333333333333333333333333333333333333
+            0000333333333333333333333333333333333333000033333333333333333333
+            3333333333333333000033333333333333333333333333333333333300003333
+            3333333333333333333333333333333300003333333333333333333333333333
+            3333333300003388888888888888333333333333333333330000391111111111
+            111193337FFFFFFFFFFFFFF30000391111111111111193387333333333333378
+            0000339999999999999933387777777777777778000033333333333333333333
+            8888888888888883000033333333333333333333333333333333333300003333
+            3333333333333333333333333333333300003333333333333333333333333333
+            3333333300003333333333333333333333333333333333330000333333333333
+            3333333333333333333333330000333333333333333333333333333333333333
+            0000}
+          Margin = -1
+          NumGlyphs = 2
+          Spacing = 14
+        end
+      end
+      object LIneGRD: TwwDBGrid
+        Left = 7
+        Top = 159
+        Width = 391
+        Height = 114
+        ControlType.Strings = (
+          'TARIFF_UNIT_RATE;CustomEdit;RateFLD;F')
+        Selected.Strings = (
+          'DUTY_TYPE'#9'7'#9'Duty'#9#9
+          'CHARGING_METHOD'#9'9'#9'Method'#9#9
+          'TARIFF_UNIT_RATE'#9'12'#9'Rate'#9#9)
+        IniAttributes.Delimiter = ';;'
+        IniAttributes.UnicodeIniFile = False
+        TitleColor = clBtnFace
+        FixedCols = 2
+        ShowHorzScrollBar = True
+        Color = 12713983
+        DataSource = DetailSRC
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -11
+        Font.Name = 'Arial'
+        Font.Style = []
+        KeyOptions = [dgEnterToTab]
+        Options = [dgEditing, dgTitles, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit, dgWordWrap]
+        ParentFont = False
+        TabOrder = 1
+        TitleAlignment = taLeftJustify
+        TitleFont.Charset = DEFAULT_CHARSET
+        TitleFont.Color = clWindowText
+        TitleFont.Height = -13
+        TitleFont.Name = 'Arial'
+        TitleFont.Style = []
+        TitleLines = 1
+        TitleButtons = False
+        OnCalcCellColors = LIneGRDCalcCellColors
+        OnDblClick = LIneGRDDblClick
+        OnEnter = LIneGRDEnter
+      end
+      object KeysGRD: TwwDBGrid
+        Left = 14
+        Top = 326
+        Width = 384
+        Height = 114
+        ControlType.Strings = (
+          'THE_KEY;CustomEdit;TariffKeyFLD;F')
+        Selected.Strings = (
+          'THE_KEY'#9'35'#9'Key')
+        IniAttributes.Delimiter = ';;'
+        IniAttributes.UnicodeIniFile = False
+        TitleColor = clBtnFace
+        FixedCols = 2
+        ShowHorzScrollBar = True
+        Color = 12713983
+        DataSource = KeysSRC
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -11
+        Font.Name = 'Arial'
+        Font.Style = []
+        KeyOptions = [dgEnterToTab]
+        Options = [dgEditing, dgTitles, dgConfirmDelete, dgCancelOnExit, dgWordWrap]
+        ParentFont = False
+        TabOrder = 4
+        TitleAlignment = taLeftJustify
+        TitleFont.Charset = DEFAULT_CHARSET
+        TitleFont.Color = clWindowText
+        TitleFont.Height = -13
+        TitleFont.Name = 'Arial'
+        TitleFont.Style = []
+        TitleLines = 1
+        TitleButtons = False
+        OnCalcCellColors = LIneGRDCalcCellColors
+        OnDblClick = LIneGRDDblClick
+        OnEnter = LIneGRDEnter
+        object TariffKeyFLD: TwwDBEdit
+          Left = 22
+          Top = 64
+          Width = 121
+          Height = 22
+          CharCase = ecUpperCase
+          DataField = 'THE_KEY'
+          DataSource = KeysSRC
+          TabOrder = 0
+          UnboundDataType = wwDefault
+          WantReturns = False
+          WordWrap = False
+        end
+      end
+      object Nav1: TwwDBNavigator
+        Left = -1
+        Top = 294
+        Width = 200
+        Height = 26
+        AutosizeStyle = asSizeNavButtons
+        DataSource = KeysSRC
+        RepeatInterval.InitialDelay = 500
+        RepeatInterval.Interval = 100
+        BackgroundOptions.IndentX = 0
+        BackgroundOptions.IndentY = 0
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -12
+        Font.Name = 'Arial'
+        Font.Style = []
+        object Nav1Prior: TwwNavButton
+          Left = 0
+          Top = 0
+          Width = 34
+          Height = 26
+          Hint = 'Move to prior record'
+          ImageIndex = -1
+          NumGlyphs = 2
+          Spacing = 4
+          Transparent = False
+          Caption = 'Nav1Prior'
+          Enabled = False
+          DisabledTextColors.ShadeColor = clGray
+          DisabledTextColors.HighlightColor = clBtnHighlight
+          Index = 0
+          Style = nbsPrior
+        end
+        object Nav1Next: TwwNavButton
+          Left = 34
+          Top = 0
+          Width = 34
+          Height = 26
+          Hint = 'Move to next record'
+          ImageIndex = -1
+          NumGlyphs = 2
+          Spacing = 4
+          Transparent = False
+          Caption = 'Nav1Next'
+          Enabled = False
+          DisabledTextColors.ShadeColor = clGray
+          DisabledTextColors.HighlightColor = clBtnHighlight
+          Index = 1
+          Style = nbsNext
+        end
+        object Nav1Insert: TwwNavButton
+          Left = 68
+          Top = 0
+          Width = 33
+          Height = 26
+          Hint = 'Insert new record'
+          ImageIndex = -1
+          NumGlyphs = 2
+          Spacing = 4
+          Transparent = False
+          Caption = 'Nav1Insert'
+          DisabledTextColors.ShadeColor = clGray
+          DisabledTextColors.HighlightColor = clBtnHighlight
+          OnClick = Nav1InsertClick
+          Index = 2
+          Style = nbsInsert
+        end
+        object Nav1Delete: TwwNavButton
+          Left = 101
+          Top = 0
+          Width = 33
+          Height = 26
+          Hint = 'Delete current record'
+          ImageIndex = -1
+          NumGlyphs = 2
+          Spacing = 4
+          Transparent = False
+          Caption = 'Nav1Delete'
+          Enabled = False
+          DisabledTextColors.ShadeColor = clGray
+          DisabledTextColors.HighlightColor = clBtnHighlight
+          Index = 3
+          Style = nbsDelete
+        end
+        object Nav1Post: TwwNavButton
+          Left = 134
+          Top = 0
+          Width = 33
+          Height = 26
+          Hint = 'Post changes of current record'
+          ImageIndex = -1
+          NumGlyphs = 2
+          Spacing = 4
+          Transparent = False
+          Caption = 'Nav1Post'
+          Enabled = False
+          DisabledTextColors.ShadeColor = clGray
+          DisabledTextColors.HighlightColor = clBtnHighlight
+          Index = 4
+          Style = nbsPost
+        end
+        object Nav1Cancel: TwwNavButton
+          Left = 167
+          Top = 0
+          Width = 33
+          Height = 26
+          Hint = 'Cancel changes made to current record'
+          ImageIndex = -1
+          NumGlyphs = 2
+          Spacing = 4
+          Transparent = False
+          Caption = 'Nav1Cancel'
+          Enabled = False
+          DisabledTextColors.ShadeColor = clGray
+          DisabledTextColors.HighlightColor = clBtnHighlight
+          Index = 5
+          Style = nbsCancel
+        end
+      end
+      object RzBitBtn1: TRzBitBtn
+        Left = 404
+        Top = 27
+        Width = 121
+        Height = 34
+        Alignment = taLeftJustify
+        Caption = 'Excise Codes'
+        DoubleBuffered = True
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -15
+        Font.Name = 'Arial'
+        Font.Style = []
+        ParentDoubleBuffered = False
+        ParentFont = False
+        TabOrder = 6
+        OnClick = RzBitBtn1Click
+        Margin = -1
+        Spacing = 14
+      end
+      object CertBTN: TRzBitBtn
+        Left = 404
+        Top = 67
+        Width = 121
+        Height = 34
+        Alignment = taLeftJustify
+        Caption = 'Certificates'
+        DoubleBuffered = True
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -15
+        Font.Name = 'Arial'
+        Font.Style = []
+        ParentDoubleBuffered = False
+        ParentFont = False
+        TabOrder = 7
+        OnClick = CertBTNClick
+        Margin = -1
+        Spacing = 14
+      end
+    end
+  end
+  object AlwaysApplyFLD: TwwCheckBox
+    Left = 255
+    Top = 130
+    Width = 97
+    Height = 17
+    TabStop = False
+    DisableThemes = False
+    AlwaysTransparent = False
+    ValueChecked = 'Y'
+    ValueUnchecked = 'N'
+    DisplayValueChecked = 'Y'
+    DisplayValueUnchecked = 'N'
+    NullAndBlankState = cbUnchecked
+    Caption = 'Medium Tariff'
+    DataField = 'IS_LOW'
+    DataSource = TableSRC
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'Calibri'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 4
+  end
+  object RateFLD: TwwDBEdit
+    Left = 200
+    Top = 328
+    Width = 121
+    Height = 21
+    DataField = 'TARIFF_UNIT_RATE'
+    DataSource = DetailSRC
+    TabOrder = 5
+    UnboundDataType = wwDefault
+    WantReturns = False
+    WordWrap = False
+  end
+  object TableSRC: TDataSource
+    DataSet = TableSQL
+    OnStateChange = TableSRCStateChange
+    Left = 32
+    Top = 33
+  end
+  object TableSQL: TIBCQuery
+    KeyFields = 'Tariff_code'
+    GeneratorMode = gmInsert
+    SQLInsert.Strings = (
+      'INSERT INTO S_TARIFF'
+      
+        '  (TARIFF_CODE, FK_TARIFF_USAGE, FK_VAT_CODE, DESCRIPTION, DESCR' +
+        'IPTION_GREEK, ACTIVE, USER_KEYWORD, VAT_APPLIES, ALWAYS_APPLY, I' +
+        'S_ALWAYS_HIGH, IS_LOW)'
+      'VALUES'
+      
+        '  (:TARIFF_CODE, :FK_TARIFF_USAGE, :FK_VAT_CODE, :DESCRIPTION, :' +
+        'DESCRIPTION_GREEK, :ACTIVE, :USER_KEYWORD, :VAT_APPLIES, :ALWAYS' +
+        '_APPLY, :IS_ALWAYS_HIGH, :IS_LOW)')
+    SQLDelete.Strings = (
+      'DELETE FROM S_TARIFF'
+      'WHERE'
+      '  TARIFF_CODE = :Old_TARIFF_CODE')
+    SQLUpdate.Strings = (
+      'UPDATE S_TARIFF'
+      'SET'
+      
+        '  TARIFF_CODE = :TARIFF_CODE, FK_TARIFF_USAGE = :FK_TARIFF_USAGE' +
+        ', FK_VAT_CODE = :FK_VAT_CODE, DESCRIPTION = :DESCRIPTION, DESCRI' +
+        'PTION_GREEK = :DESCRIPTION_GREEK, ACTIVE = :ACTIVE, USER_KEYWORD' +
+        ' = :USER_KEYWORD, VAT_APPLIES = :VAT_APPLIES, ALWAYS_APPLY = :AL' +
+        'WAYS_APPLY, IS_ALWAYS_HIGH = :IS_ALWAYS_HIGH, IS_LOW = :IS_LOW'
+      'WHERE'
+      '  TARIFF_CODE = :Old_TARIFF_CODE')
+    SQLRefresh.Strings = (
+      
+        'SELECT TARIFF_CODE, FK_TARIFF_USAGE, FK_VAT_CODE, DESCRIPTION, D' +
+        'ESCRIPTION_GREEK, ACTIVE, USER_KEYWORD, VAT_APPLIES, ALWAYS_APPL' +
+        'Y, IS_ALWAYS_HIGH, IS_LOW FROM S_TARIFF'
+      'WHERE'
+      '  TARIFF_CODE = :TARIFF_CODE')
+    SQLLock.Strings = (
+      'SELECT NULL FROM S_TARIFF'
+      'WHERE'
+      'TARIFF_CODE = :Old_TARIFF_CODE'
+      'FOR UPDATE WITH LOCK')
+    SQLRecCount.Strings = (
+      'SELECT COUNT(*) FROM ('
+      'SELECT 1 AS C  FROM S_TARIFF'
+      ''
+      ') q')
+    Connection = ClairDML.CabCOnnection
+    Transaction = ReadTrans
+    UpdateTransaction = WriteTrans
+    SQL.Strings = (
+      'SELECT'
+      '*'
+      'FROM'
+      'S_TARIFF'
+      'where '
+      'Tariff_code= :tariffCode')
+    Active = True
+    AutoCalcFields = False
+    AfterInsert = TableSQLAfterInsert
+    Left = 89
+    Top = 13
+    ParamData = <
+      item
+        DataType = ftUnknown
+        Name = 'tariffCode'
+        Value = nil
+      end>
+    object TableSQLTARIFF_CODE: TStringField
+      FieldName = 'TARIFF_CODE'
+      Required = True
+      Size = 17
+    end
+    object TableSQLFK_TARIFF_USAGE: TStringField
+      FieldName = 'FK_TARIFF_USAGE'
+      FixedChar = True
+      Size = 3
+    end
+    object TableSQLFK_VAT_CODE: TStringField
+      FieldName = 'FK_VAT_CODE'
+      Required = True
+      FixedChar = True
+      Size = 3
+    end
+    object TableSQLDESCRIPTION: TStringField
+      FieldName = 'DESCRIPTION'
+      FixedChar = True
+      Size = 60
+    end
+    object TableSQLDESCRIPTION_GREEK: TStringField
+      FieldName = 'DESCRIPTION_GREEK'
+      FixedChar = True
+      Size = 60
+    end
+    object TableSQLACTIVE: TStringField
+      FieldName = 'ACTIVE'
+      Required = True
+      FixedChar = True
+      Size = 1
+    end
+    object TableSQLUSER_KEYWORD: TStringField
+      FieldName = 'USER_KEYWORD'
+      FixedChar = True
+    end
+    object TableSQLIS_LOW: TStringField
+      FieldName = 'IS_LOW'
+      FixedChar = True
+      Size = 1
+    end
+    object TableSQLVAT_APPLIES: TStringField
+      FieldName = 'VAT_APPLIES'
+      Required = True
+      FixedChar = True
+      Size = 1
+    end
+  end
+  object WriteTrans: TIBCTransaction
+    DefaultConnection = ClairDML.CabCOnnection
+    DefaultCloseAction = taRollbackRetaining
+    Left = 169
+    Top = 21
+  end
+  object ReadTrans: TIBCTransaction
+    DefaultConnection = ClairDML.CabCOnnection
+    IsolationLevel = iblReadOnlyReadCommitted
+    Left = 216
+    Top = 17
+  end
+  object MakeSQL: TIBCQuery
+    GeneratorMode = gmInsert
+    SQLInsert.Strings = (
+      'INSERT INTO BASE_TARIFF'
+      
+        '  (SERIAL_NUMBER, CODE, DESCRIPTION, ACCOUNT_CATEGORY, REGIONAL_' +
+        'CODE, IS_CUSTOMS, IS_BASIC, IS_VAT_APPLY, CAN_BE_RELIEVED, IS_TH' +
+        'E_VAT, IS_PER_UNIT, ORDER_NUMBER, IS_ACTIVE, UNIT_TYPE)'
+      'VALUES'
+      
+        '  (:SERIAL_NUMBER, :CODE, :DESCRIPTION, :ACCOUNT_CATEGORY, :REGI' +
+        'ONAL_CODE, :IS_CUSTOMS, :IS_BASIC, :IS_VAT_APPLY, :CAN_BE_RELIEV' +
+        'ED, :IS_THE_VAT, :IS_PER_UNIT, :ORDER_NUMBER, :IS_ACTIVE, :UNIT_' +
+        'TYPE)')
+    SQLDelete.Strings = (
+      'DELETE FROM BASE_TARIFF'
+      'WHERE'
+      '  SERIAL_NUMBER = :Old_SERIAL_NUMBER')
+    SQLUpdate.Strings = (
+      'UPDATE BASE_TARIFF'
+      'SET'
+      
+        '  SERIAL_NUMBER = :SERIAL_NUMBER, CODE = :CODE, DESCRIPTION = :D' +
+        'ESCRIPTION, ACCOUNT_CATEGORY = :ACCOUNT_CATEGORY, REGIONAL_CODE ' +
+        '= :REGIONAL_CODE, IS_CUSTOMS = :IS_CUSTOMS, IS_BASIC = :IS_BASIC' +
+        ', IS_VAT_APPLY = :IS_VAT_APPLY, CAN_BE_RELIEVED = :CAN_BE_RELIEV' +
+        'ED, IS_THE_VAT = :IS_THE_VAT, IS_PER_UNIT = :IS_PER_UNIT, ORDER_' +
+        'NUMBER = :ORDER_NUMBER, IS_ACTIVE = :IS_ACTIVE, UNIT_TYPE = :UNI' +
+        'T_TYPE'
+      'WHERE'
+      '  SERIAL_NUMBER = :Old_SERIAL_NUMBER')
+    SQLRefresh.Strings = (
+      
+        'SELECT SERIAL_NUMBER, CODE, DESCRIPTION, ACCOUNT_CATEGORY, REGIO' +
+        'NAL_CODE, IS_CUSTOMS, IS_BASIC, IS_VAT_APPLY, CAN_BE_RELIEVED, I' +
+        'S_THE_VAT, IS_PER_UNIT, ORDER_NUMBER, IS_ACTIVE, UNIT_TYPE FROM ' +
+        'BASE_TARIFF'
+      'WHERE'
+      '  SERIAL_NUMBER = :SERIAL_NUMBER')
+    SQLLock.Strings = (
+      'SELECT NULL FROM BASE_TARIFF'
+      'WHERE'
+      'SERIAL_NUMBER = :Old_SERIAL_NUMBER'
+      'FOR UPDATE WITH LOCK')
+    SQLRecCount.Strings = (
+      'SELECT COUNT(*) FROM ('
+      'SELECT 1 AS C  FROM BASE_TARIFF'
+      ''
+      ') q')
+    Connection = ClairDML.CabCOnnection
+    Transaction = ReadTrans
+    UpdateTransaction = WriteTrans
+    SQL.Strings = (
+      'SELECT'
+      '*'
+      'FROM'
+      'BASE_TARIFF'
+      'order by Code')
+    ReadOnly = True
+    Active = True
+    AfterInsert = TableSQLAfterInsert
+    Left = 449
+    Top = 85
+  end
+  object DetailSRC: TIBCDataSource
+    DataSet = DetailSQL
+    Left = 241
+    Top = 253
+  end
+  object DetailSQL: TIBCQuery
+    KeyFields = 'serial_number'
+    KeyGenerator = 'GEN_S_TARIFF_CERTIFICATE'
+    SQLInsert.Strings = (
+      'INSERT INTO S_TARIFF_LINE'
+      
+        '  (FK_S_TARIFF_CODE, SERIAL_NUMBER, DUTY_TYPE, FK_BASE, DESCRIPT' +
+        'ION, TARIFF_UNIT, TARIFF_UNIT_INCREMENT, TARIFF_UNIT_RATE, CAN_B' +
+        'E_RELIEVED, CHARGING_METHOD, UNITS_NOT_CHARGED, MIN_CHARGE, MAX_' +
+        'CHARGE)'
+      'VALUES'
+      
+        '  (:FK_S_TARIFF_CODE, :SERIAL_NUMBER, :DUTY_TYPE, :FK_BASE, :DES' +
+        'CRIPTION, :TARIFF_UNIT, :TARIFF_UNIT_INCREMENT, :TARIFF_UNIT_RAT' +
+        'E, :CAN_BE_RELIEVED, :CHARGING_METHOD, :UNITS_NOT_CHARGED, :MIN_' +
+        'CHARGE, :MAX_CHARGE)')
+    SQLDelete.Strings = (
+      'DELETE FROM S_TARIFF_LINE'
+      'WHERE'
+      '  SERIAL_NUMBER = :Old_SERIAL_NUMBER')
+    SQLUpdate.Strings = (
+      'UPDATE S_TARIFF_LINE'
+      'SET'
+      
+        '  FK_S_TARIFF_CODE = :FK_S_TARIFF_CODE, SERIAL_NUMBER = :SERIAL_' +
+        'NUMBER, DUTY_TYPE = :DUTY_TYPE, FK_BASE = :FK_BASE, DESCRIPTION ' +
+        '= :DESCRIPTION, TARIFF_UNIT = :TARIFF_UNIT, TARIFF_UNIT_INCREMEN' +
+        'T = :TARIFF_UNIT_INCREMENT, TARIFF_UNIT_RATE = :TARIFF_UNIT_RATE' +
+        ', CAN_BE_RELIEVED = :CAN_BE_RELIEVED, CHARGING_METHOD = :CHARGIN' +
+        'G_METHOD, UNITS_NOT_CHARGED = :UNITS_NOT_CHARGED, MIN_CHARGE = :' +
+        'MIN_CHARGE, MAX_CHARGE = :MAX_CHARGE'
+      'WHERE'
+      '  SERIAL_NUMBER = :Old_SERIAL_NUMBER')
+    SQLRefresh.Strings = (
+      
+        'SELECT FK_S_TARIFF_CODE, SERIAL_NUMBER, DUTY_TYPE, FK_BASE, DESC' +
+        'RIPTION, TARIFF_UNIT, TARIFF_UNIT_INCREMENT, TARIFF_UNIT_RATE, C' +
+        'AN_BE_RELIEVED, CHARGING_METHOD, UNITS_NOT_CHARGED, MIN_CHARGE, ' +
+        'MAX_CHARGE FROM S_TARIFF_LINE'
+      'WHERE'
+      '  SERIAL_NUMBER = :SERIAL_NUMBER')
+    SQLLock.Strings = (
+      'SELECT NULL FROM S_TARIFF_LINE'
+      'WHERE'
+      'SERIAL_NUMBER = :Old_SERIAL_NUMBER'
+      'FOR UPDATE WITH LOCK')
+    SQLRecCount.Strings = (
+      'SELECT COUNT(*) FROM ('
+      'SELECT 1 AS C  FROM S_TARIFF_LINE'
+      ''
+      ') q')
+    Connection = ClairDML.CabCOnnection
+    Transaction = ReadTrans
+    UpdateTransaction = WriteTrans
+    SQL.Strings = (
+      'Select stl.* from '
+      'S_TARIFF_LINE stl')
+    MasterFields = 'TARIFF_CODE'
+    DetailFields = 'FK_S_TARIFF_CODE'
+    MasterSource = TableSRC
+    AutoCommit = False
+    Active = True
+    Left = 305
+    Top = 261
+    ParamData = <
+      item
+        DataType = ftString
+        Name = 'TARIFF_CODE'
+        ParamType = ptInput
+        Value = nil
+      end>
+    object DetailSQLDUTY_TYPE: TStringField
+      DisplayLabel = 'Duty'
+      DisplayWidth = 7
+      FieldName = 'DUTY_TYPE'
+      Required = True
+      FixedChar = True
+      Size = 3
+    end
+    object DetailSQLCHARGING_METHOD: TStringField
+      DisplayLabel = 'Method'
+      DisplayWidth = 9
+      FieldName = 'CHARGING_METHOD'
+      FixedChar = True
+      Size = 3
+    end
+    object DetailSQLTARIFF_UNIT_RATE: TFloatField
+      DisplayLabel = 'Rate'
+      DisplayWidth = 12
+      FieldName = 'TARIFF_UNIT_RATE'
+      DisplayFormat = '0.00'
+      EditFormat = '0.00'
+    end
+    object DetailSQLFK_S_TARIFF_CODE: TStringField
+      FieldName = 'FK_S_TARIFF_CODE'
+      Visible = False
+      FixedChar = True
+      Size = 17
+    end
+    object DetailSQLSERIAL_NUMBER: TIntegerField
+      FieldName = 'SERIAL_NUMBER'
+      Visible = False
+    end
+    object DetailSQLFK_BASE: TIntegerField
+      FieldName = 'FK_BASE'
+      Visible = False
+    end
+    object DetailSQLDESCRIPTION: TStringField
+      FieldName = 'DESCRIPTION'
+      Visible = False
+      FixedChar = True
+      Size = 15
+    end
+    object DetailSQLTARIFF_UNIT: TStringField
+      FieldName = 'TARIFF_UNIT'
+      Visible = False
+      FixedChar = True
+      Size = 3
+    end
+    object DetailSQLTARIFF_UNIT_INCREMENT: TIntegerField
+      FieldName = 'TARIFF_UNIT_INCREMENT'
+      Visible = False
+    end
+    object DetailSQLCAN_BE_RELIEVED: TStringField
+      FieldName = 'CAN_BE_RELIEVED'
+      Required = True
+      Visible = False
+      FixedChar = True
+      Size = 1
+    end
+    object DetailSQLUNITS_NOT_CHARGED: TIntegerField
+      FieldName = 'UNITS_NOT_CHARGED'
+      Visible = False
+    end
+    object DetailSQLMIN_CHARGE: TFloatField
+      FieldName = 'MIN_CHARGE'
+      Visible = False
+    end
+    object DetailSQLMAX_CHARGE: TFloatField
+      FieldName = 'MAX_CHARGE'
+      Visible = False
+    end
+  end
+  object VatSQL: TIBCQuery
+    Connection = ClairDML.CabCOnnection
+    SQL.Strings = (
+      'select * from VAT_Category')
+    Active = True
+    Left = 497
+    Top = 93
+    object VatSQLRATE: TFloatField
+      DisplayWidth = 10
+      FieldName = 'RATE'
+      DisplayFormat = '0.00'
+    end
+    object VatSQLCODE: TStringField
+      DisplayWidth = 3
+      FieldName = 'CODE'
+      Required = True
+      Size = 3
+    end
+    object VatSQLDESCRIPTION: TStringField
+      DisplayWidth = 14
+      FieldName = 'DESCRIPTION'
+      Size = 30
+    end
+    object VatSQLXML_CODE: TStringField
+      DisplayWidth = 60
+      FieldName = 'XML_CODE'
+      Visible = False
+      FixedChar = True
+      Size = 60
+    end
+    object VatSQLIS_DEFAULT: TStringField
+      DisplayWidth = 1
+      FieldName = 'IS_DEFAULT'
+      Visible = False
+      FixedChar = True
+      Size = 1
+    end
+  end
+  object VatSRC: TIBCDataSource
+    DataSet = VatSQL
+    Left = 553
+    Top = 101
+  end
+  object KeysSRC: TIBCDataSource
+    DataSet = keysSQL
+    Left = 561
+    Top = 453
+  end
+  object keysSQL: TIBCQuery
+    KeyFields = 'SERIAL_NUMBER'
+    KeyGenerator = 'GEN_S_TARIFF_KEY'
+    SQLInsert.Strings = (
+      'INSERT INTO S_TARIFF_KEY'
+      '  (SERIAL_NUMBER, THE_KEY, FK_S_TARIFF_CODE, DESCRIPTION)'
+      'VALUES'
+      '  (:SERIAL_NUMBER, :THE_KEY, :FK_S_TARIFF_CODE, :DESCRIPTION)')
+    SQLDelete.Strings = (
+      'DELETE FROM S_TARIFF_KEY'
+      'WHERE'
+      '  SERIAL_NUMBER = :Old_SERIAL_NUMBER')
+    SQLUpdate.Strings = (
+      'UPDATE S_TARIFF_KEY'
+      'SET'
+      
+        '  SERIAL_NUMBER = :SERIAL_NUMBER, THE_KEY = :THE_KEY, FK_S_TARIF' +
+        'F_CODE = :FK_S_TARIFF_CODE, DESCRIPTION = :DESCRIPTION'
+      'WHERE'
+      '  SERIAL_NUMBER = :Old_SERIAL_NUMBER')
+    SQLRefresh.Strings = (
+      
+        'SELECT SERIAL_NUMBER, THE_KEY, FK_S_TARIFF_CODE, DESCRIPTION FRO' +
+        'M S_TARIFF_KEY'
+      'WHERE'
+      '  SERIAL_NUMBER = :SERIAL_NUMBER')
+    SQLLock.Strings = (
+      'SELECT NULL FROM S_TARIFF_KEY'
+      'WHERE'
+      'SERIAL_NUMBER = :Old_SERIAL_NUMBER'
+      'FOR UPDATE WITH LOCK')
+    SQLRecCount.Strings = (
+      'SELECT COUNT(*) FROM ('
+      'SELECT 1 AS C  FROM S_TARIFF_KEY'
+      ''
+      ') q')
+    Connection = ClairDML.CabCOnnection
+    Transaction = ReadTrans
+    UpdateTransaction = WriteTrans
+    SQL.Strings = (
+      'select * from s_tariff_key'
+      'order by Serial_number desc')
+    MasterFields = 'TARIFF_CODE'
+    DetailFields = 'FK_S_TARIFF_CODE'
+    MasterSource = TableSRC
+    Active = True
+    Left = 481
+    Top = 469
+    ParamData = <
+      item
+        DataType = ftString
+        Name = 'TARIFF_CODE'
+        ParamType = ptInput
+        Value = nil
+      end>
+    object keysSQLTHE_KEY: TStringField
+      DisplayLabel = 'Key'
+      DisplayWidth = 35
+      FieldName = 'THE_KEY'
+    end
+    object keysSQLDESCRIPTION: TStringField
+      DisplayLabel = 'Description'
+      DisplayWidth = 70
+      FieldName = 'DESCRIPTION'
+      Visible = False
+      Size = 160
+    end
+    object keysSQLSERIAL_NUMBER: TIntegerField
+      FieldName = 'SERIAL_NUMBER'
+      Visible = False
+    end
+    object keysSQLFK_S_TARIFF_CODE: TStringField
+      FieldName = 'FK_S_TARIFF_CODE'
+      Visible = False
+      FixedChar = True
+      Size = 17
+    end
+  end
+end

@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="invDHL" xmlns="invDHL" elementFormDefault="qualified">
+ <xs:simpleType name="String80Type">
+  <xs:restriction base="xs:string">
+   <xs:maxLength value="80" />
+  </xs:restriction>
+ </xs:simpleType>
+ <xs:complexType name="AddressType">
+  <xs:sequence>
+   <xs:element name="Address1" type="String80Type" />
+   <xs:element name="PostCode" type="String80Type" />
+   <xs:element name="City" type="String80Type" />
+   <xs:element name="Country" type="String80Type" />
+  </xs:sequence>
+ </xs:complexType>
+ <xs:complexType name="CustomerType">
+  <xs:sequence>
+   <xs:element name="Name" type="xs:string" />
+   <xs:element name="Address" type="AddressType" />
+  </xs:sequence>
+ </xs:complexType>
+ <xs:complexType name="LineType">
+  <xs:sequence>
+   <xs:element name="Amount" type="xs:decimal" />
+   <xs:element name="Category" type="xs:string" />
+  </xs:sequence>
+ </xs:complexType>
+ <xs:complexType name="InvoiceType">
+  <xs:sequence>
+   <xs:element name="SerialNumber" type="xs:int" />
+   <xs:element name="HawbId" type="xs:string" />
+   <xs:element name="MawbId" type="xs:string" />
+   <xs:element name="District" type="xs:string" />
+   <xs:element name="InvoiceDate" type="xs:date" />
+   <xs:element name="Amount" type="xs:decimal" />
+   <xs:element name="Customer" type="CustomerType" />
+   <xs:element name="Lines">
+    <xs:complexType>
+     <xs:choice>
+      <xs:element name="Line" type="LineType" minOccurs="1" maxOccurs="unbounded" />
+     </xs:choice>
+    </xs:complexType>
+   </xs:element>
+  </xs:sequence>
+ </xs:complexType>
+ <xs:element name="CypDhl">
+  <xs:complexType>
+   <xs:sequence>
+    <xs:element name="Hdr">
+     <xs:complexType>
+      <xs:sequence>
+       <xs:element name="Origin" type="xs:string" />
+       <xs:element name="FileCreationDate" type="xs:date" />
+       <xs:element name="FileName" type="xs:string" />
+      </xs:sequence>
+     </xs:complexType>
+    </xs:element>
+    <xs:element name="Invoices">
+     <xs:complexType>
+      <xs:choice>
+       <xs:element name="Invoice" type="InvoiceType" minOccurs="1" maxOccurs="unbounded" />
+      </xs:choice>
+     </xs:complexType>
+    </xs:element>
+   </xs:sequence>
+  </xs:complexType>
+ </xs:element>
+</xs:schema>

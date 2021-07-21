@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MGMsg xmlns="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsi="http://www.dhl.com/AMG" xsi:schemaLocation="http://www.dhl.com/AMGSU01.XSD">
+	<MsgHdr>
+		<MsgTyp>MG-SU01</MsgTyp>
+		<MsgMajVsn>1</MsgMajVsn>
+		<MsgMinVsn>0</MsgMinVsn>
+		<CrtnDm>2021-06-14 17:02:37+03:00</CrtnDm>
+		<LastProcessedDm>2021-06-14 17:02:37+03:00</LastProcessedDm>
+		<MsgOrgnatorAppl>CAB</MsgOrgnatorAppl>
+		<MsgGenAddr>LCA-GTW</MsgGenAddr>
+		<LastProcessedBy>AMG</LastProcessedBy>
+	</MsgHdr>
+	<CstmSts>
+		<ShpAWBNum>2407863172</ShpAWBNum>
+		<Tmstmp>2021-06-14 17:02:37+03:00</Tmstmp>
+		<ClrFlg>N</ClrFlg>
+		<ShpSts>DIP</ShpSts>
+		<OrgnSrvaCd>HKG</OrgnSrvaCd>
+		<DestSrvaCd>LCA</DestSrvaCd>
+	</CstmSts>
+</MGMsg>

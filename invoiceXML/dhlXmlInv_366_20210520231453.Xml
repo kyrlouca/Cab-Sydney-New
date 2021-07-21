@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MSG xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<Hdr Id="INV-POD" Ver="1.033" Dtm="2021-05-20 23:14:53" GmtOff="+03:00">
+		<Sndr AppCd="CABS" AppVer="1.00" CtryCd="CY" AppNm="CABS"/>
+	</Hdr>
+	<Bd>
+		<Inv PMthTyCd="OPI" TotNOfPcs="1" Dt="2018-01-24 00:00:00" DueDt="2018-01-24 00:00:00">
+			<InvDocTy InvDcTyCd="REG"/>
+			<GI SrcCtryCd="CY" SrcSrvaCd="LCA" SrcFcCd="GTW" SrcCtryNm="CYPRUS"/>
+			<CntOrdLnTr OrdLnNo="1" PayChrg="14.74">
+				<OrdLnTrAdInf AttNm="CHARGE_CODE" AttVal="GIMP"/>
+				<OrdLnTrAdInf AttNm="CHARGE_DESCRIPTION" AttVal="Import Duty"/>
+			</CntOrdLnTr>
+			<CntOrdLnTr OrdLnNo="2" PayChrg="47.26">
+				<OrdLnTrAdInf AttNm="CHARGE_CODE" AttVal="GVAT"/>
+				<OrdLnTrAdInf AttNm="CHARGE_DESCRIPTION" AttVal="VAT"/>
+			</CntOrdLnTr>
+		</Inv>
+		<Shp id="1498908110">
+			<ShpTr DstSrvaCd="LCA" OrgSrvaCd="DME" SActWgt="3.000" PuDtm="2018-01-24 00:00:00" TrmTrdCd="DTU">
+				<SCDtl CRlTyCd="BT" AccNo="DUTYCYCSH" CustNm="KOSTEROV MAXIM" CntNm="KOSTEROV MAXIM" Addr1="ASDF" Addr2="" Addr3="" Zip="" CtyNm="" CDivCd="KOSTEROV MAXIM" CtryCd="CY">
+					<SCCDev CDevTyCd="TEL" CDevNo=""/>
+					<SCCDev CDevTyCd="EMAIL" CDevNo=""/>
+				</SCDtl>
+				<SCDtl CRlTyCd="RV" CustNm="KOSTEROV MAXIM" CntNm="KOSTEROV MAXIM" Addr1="ASDF" Addr2="" Addr3="" Zip="" CtyNm="" CtryCd="CY">
+					<SCCDev CDevTyCd="TEL" CDevNo=""/>
+					<SCCDev CDevTyCd="EMAIL" CDevNo=""/>
+				</SCDtl>
+				<SCDtl CRlTyCd="SP" CustNm="KOSTEROV JURII" CntNm="KOSTEROV JURII" Addr1="S. ENTUZIASTOV H 26 APP 141" Addr2="S. ENTUZIASTOV H 26 APP 141" Addr3="S. ENTUZIASTOV H 26 APP 141" Zip="105064" CtyNm="MOSCOW" CtryCd="RU">
+					<SCCDev CDevTyCd="TEL" CDevNo=""/>
+					<SCCDev CDevTyCd="EMAIL" CDevNo=""/>
+				</SCDtl>
+			</ShpTr>
+			<ShpDsc DscGds="clothes"/>
+			<ShpRef ShpRef="39092364705">
+				<TrcRefTy Cd="MAB"/>
+			</ShpRef>
+			<ShpInDoc>
+				<SDoc InctrmCd="DDU"/>
+			</ShpInDoc>
+		</Shp>
+		<GEvt LEvtCd="MA" MvmtId="A30621" EvtDtm="21/11/2017"/>
+	</Bd>
+</MSG>

@@ -1,0 +1,36 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{011145B6-F888-452E-97A8-78B591233637}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="..\CabSydney02.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="CabSydney02">
+        <MSBuild Projects="..\CabSydney02.dproj"/>
+    </Target>
+    <Target Name="CabSydney02:Clean">
+        <MSBuild Projects="..\CabSydney02.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="CabSydney02:Make">
+        <MSBuild Projects="..\CabSydney02.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="CabSydney02"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="CabSydney02:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="CabSydney02:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>

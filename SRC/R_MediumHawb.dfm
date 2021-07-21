@@ -1,0 +1,3666 @@
+object R_MediumHawbFRM: TR_MediumHawbFRM
+  Left = 514
+  Top = 536
+  Caption = 'PrintMedium'
+  ClientHeight = 617
+  ClientWidth = 775
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -13
+  Font.Name = 'MS Sans Serif'
+  Font.Style = []
+  OldCreateOrder = False
+  PixelsPerInch = 120
+  TextHeight = 16
+  object Button1: TButton
+    Left = 104
+    Top = 96
+    Width = 75
+    Height = 25
+    Caption = 'Button1'
+    TabOrder = 0
+  end
+  object HawbMediumValueSRC: TIBCDataSource
+    DataSet = mediumSimpleSQL
+    Left = 148
+    Top = 301
+  end
+  object MediumPIP: TppDBPipeline
+    DataSource = HawbMediumValueSRC
+    UserName = 'MediumPIP'
+    Left = 260
+    Top = 301
+    object MediumPIPppField1: TppField
+      FieldAlias = 'HAB_ID'
+      FieldName = 'HAB_ID'
+      FieldLength = 10
+      DisplayWidth = 10
+      Position = 0
+    end
+    object MediumPIPppField2: TppField
+      FieldAlias = 'IOSS'
+      FieldName = 'IOSS'
+      FieldLength = 20
+      DisplayWidth = 20
+      Position = 1
+    end
+    object MediumPIPppField3: TppField
+      FieldAlias = 'PROCEDURE_CODE'
+      FieldName = 'PROCEDURE_CODE'
+      FieldLength = 10
+      DisplayWidth = 10
+      Position = 2
+    end
+    object MediumPIPppField4: TppField
+      FieldAlias = 'XML_HOUSE_ID'
+      FieldName = 'XML_HOUSE_ID'
+      FieldLength = 13
+      DisplayWidth = 13
+      Position = 3
+    end
+    object MediumPIPppField5: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'EUROVAL'
+      FieldName = 'EUROVAL'
+      FieldLength = 0
+      DataType = dtDouble
+      DisplayWidth = 10
+      Position = 4
+    end
+    object MediumPIPppField6: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'CUSTOMS_VALUE'
+      FieldName = 'CUSTOMS_VALUE'
+      FieldLength = 0
+      DataType = dtDouble
+      DisplayWidth = 10
+      Position = 5
+    end
+    object MediumPIPppField7: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'SERIAL_NUMBER'
+      FieldName = 'SERIAL_NUMBER'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 6
+    end
+    object MediumPIPppField8: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'FK_MAWB_REFER_NUMBER'
+      FieldName = 'FK_MAWB_REFER_NUMBER'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 7
+    end
+    object MediumPIPppField9: TppField
+      FieldAlias = 'FK_CLEARING_STATE'
+      FieldName = 'FK_CLEARING_STATE'
+      FieldLength = 1
+      DisplayWidth = 1
+      Position = 8
+    end
+    object MediumPIPppField10: TppField
+      FieldAlias = 'FK_INVOICE_STATUS'
+      FieldName = 'FK_INVOICE_STATUS'
+      FieldLength = 1
+      DisplayWidth = 1
+      Position = 9
+    end
+    object MediumPIPppField11: TppField
+      FieldAlias = 'DESCRIPTION'
+      FieldName = 'DESCRIPTION'
+      FieldLength = 200
+      DisplayWidth = 200
+      Position = 10
+    end
+    object MediumPIPppField12: TppField
+      FieldAlias = 'CUSTOMER_NAME'
+      FieldName = 'CUSTOMER_NAME'
+      FieldLength = 40
+      DisplayWidth = 40
+      Position = 11
+    end
+    object MediumPIPppField13: TppField
+      FieldAlias = 'SENDER_NAME'
+      FieldName = 'SENDER_NAME'
+      FieldLength = 60
+      DisplayWidth = 60
+      Position = 12
+    end
+    object MediumPIPppField14: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'FK_COUNTRY_ORIGIN'
+      FieldName = 'FK_COUNTRY_ORIGIN'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 13
+    end
+    object MediumPIPppField15: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'NUM_OF_PIECES_ARRIVED'
+      FieldName = 'NUM_OF_PIECES_ARRIVED'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 14
+    end
+    object MediumPIPppField16: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'FK_CUSTOMER_CODE'
+      FieldName = 'FK_CUSTOMER_CODE'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 15
+    end
+    object MediumPIPppField17: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'WEIGHT'
+      FieldName = 'WEIGHT'
+      FieldLength = 0
+      DataType = dtDouble
+      DisplayWidth = 10
+      Position = 16
+    end
+    object MediumPIPppField18: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'MEDIUM_VAT_RATE'
+      FieldName = 'MEDIUM_VAT_RATE'
+      FieldLength = 0
+      DataType = dtDouble
+      DisplayWidth = 10
+      Position = 17
+    end
+    object MediumPIPppField19: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'PRE_DISCOUNT_AMOUNT'
+      FieldName = 'PRE_DISCOUNT_AMOUNT'
+      FieldLength = 0
+      DataType = dtDouble
+      DisplayWidth = 10
+      Position = 18
+    end
+    object MediumPIPppField20: TppField
+      FieldAlias = 'CURRENCY'
+      FieldName = 'CURRENCY'
+      FieldLength = 3
+      DisplayWidth = 3
+      Position = 19
+    end
+    object MediumPIPppField21: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'RATE'
+      FieldName = 'RATE'
+      FieldLength = 0
+      DataType = dtDouble
+      DisplayWidth = 10
+      Position = 20
+    end
+    object MediumPIPppField22: TppField
+      FieldAlias = 'ORIGINCOUNTRY'
+      FieldName = 'ORIGINCOUNTRY'
+      FieldLength = 40
+      DisplayWidth = 40
+      Position = 21
+    end
+  end
+  object MediumRPT: TppReport
+    AutoStop = False
+    DataPipeline = MawbPIP
+    PassSetting = psTwoPass
+    PrinterSetup.BinName = 'Default'
+    PrinterSetup.DocumentName = 'Report'
+    PrinterSetup.Duplex = dpNone
+    PrinterSetup.Orientation = poLandscape
+    PrinterSetup.PaperName = 'A4'
+    PrinterSetup.PrinterName = 'Default'
+    PrinterSetup.SaveDeviceSettings = False
+    PrinterSetup.mmMarginBottom = 6350
+    PrinterSetup.mmMarginLeft = 6350
+    PrinterSetup.mmMarginRight = 6350
+    PrinterSetup.mmMarginTop = 6350
+    PrinterSetup.mmPaperHeight = 209975
+    PrinterSetup.mmPaperWidth = 296970
+    PrinterSetup.PaperSize = 9
+    ArchiveFileName = '($MyDocuments)\ReportArchive.raf'
+    DeviceType = 'Screen'
+    DefaultFileDeviceType = 'PDF'
+    EmailSettings.ReportFormat = 'PDF'
+    EmailSettings.ConnectionSettings.MailService = 'SMTP'
+    EmailSettings.ConnectionSettings.EnableMultiPlugin = False
+    EmailSettings.OAuth2 = {0E010C5265646972656374506F727402000000}
+    LanguageID = 'Default'
+    OnPreviewFormCreate = MediumRPTPreviewFormCreate
+    OpenFile = False
+    OutlineSettings.CreateNode = True
+    OutlineSettings.CreatePageNodes = True
+    OutlineSettings.Enabled = True
+    OutlineSettings.Visible = True
+    ThumbnailSettings.Enabled = True
+    ThumbnailSettings.Visible = True
+    ThumbnailSettings.DeadSpace = 30
+    ThumbnailSettings.PageHighlight.Width = 3
+    ThumbnailSettings.ThumbnailSize = tsSmall
+    PDFSettings.EmbedFontOptions = [efUseSubset]
+    PDFSettings.EncryptSettings.AllowCopy = True
+    PDFSettings.EncryptSettings.AllowInteract = True
+    PDFSettings.EncryptSettings.AllowModify = True
+    PDFSettings.EncryptSettings.AllowPrint = True
+    PDFSettings.EncryptSettings.AllowExtract = True
+    PDFSettings.EncryptSettings.AllowAssemble = True
+    PDFSettings.EncryptSettings.AllowQualityPrint = True
+    PDFSettings.EncryptSettings.Enabled = False
+    PDFSettings.EncryptSettings.KeyLength = kl40Bit
+    PDFSettings.EncryptSettings.EncryptionType = etRC4
+    PDFSettings.DigitalSignatureSettings.SignPDF = False
+    PDFSettings.FontEncoding = feAnsi
+    PDFSettings.ImageCompressionLevel = 25
+    PDFSettings.PDFAFormat = pafNone
+    PreviewFormSettings.PageBorder.mmPadding = 0
+    RTFSettings.DefaultFont.Charset = DEFAULT_CHARSET
+    RTFSettings.DefaultFont.Color = clWindowText
+    RTFSettings.DefaultFont.Height = -13
+    RTFSettings.DefaultFont.Name = 'Arial'
+    RTFSettings.DefaultFont.Style = []
+    TextFileName = '($MyDocuments)\Report.pdf'
+    TextSearchSettings.DefaultString = '<FindText>'
+    TextSearchSettings.Enabled = True
+    XLSSettings.AppName = 'ReportBuilder'
+    XLSSettings.Author = 'ReportBuilder'
+    XLSSettings.Subject = 'Report'
+    XLSSettings.Title = 'Report'
+    XLSSettings.WorksheetName = 'Report'
+    CloudDriveSettings.DropBoxSettings.OAuth2.RedirectPort = 0
+    CloudDriveSettings.DropBoxSettings.DirectorySupport = True
+    CloudDriveSettings.GoogleDriveSettings.OAuth2.RedirectPort = 0
+    CloudDriveSettings.GoogleDriveSettings.DirectorySupport = False
+    CloudDriveSettings.OneDriveSettings.OAuth2.RedirectPort = 0
+    CloudDriveSettings.OneDriveSettings.DirectorySupport = True
+    Left = 404
+    Top = 317
+    Version = '21.0'
+    mmColumnWidth = 0
+    DataPipelineName = 'MawbPIP'
+    object ppTitleBand1: TppTitleBand
+      Background.Brush.Style = bsClear
+      Border.mmPadding = 0
+      mmBottomOffset = 0
+      mmHeight = 44873
+      mmPrintPosition = 0
+      object ppLabel1: TppLabel
+        DesignLayer = ppDesignLayer1
+        UserName = 'Label1'
+        HyperlinkEnabled = False
+        Border.mmPadding = 0
+        Caption = #932#917#923#937#925#917#921#927': 440'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 10
+        Font.Style = []
+        FormFieldSettings.FormSubmitInfo.SubmitMethod = fstPost
+        FormFieldSettings.FormFieldType = fftNone
+        Transparent = True
+        mmHeight = 4234
+        mmLeft = 1058
+        mmTop = 529
+        mmWidth = 25136
+        BandType = 1
+        LayerName = Foreground
+      end
+      object ppLabel3: TppLabel
+        DesignLayer = ppDesignLayer1
+        UserName = 'Label3'
+        HyperlinkEnabled = False
+        Border.mmPadding = 0
+        Caption = #919#924#917#929#927#924#919#925#921#913':'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 10
+        Font.Style = []
+        FormFieldSettings.FormSubmitInfo.SubmitMethod = fstPost
+        FormFieldSettings.FormFieldType = fftNone
+        Transparent = True
+        mmHeight = 4022
+        mmLeft = 42122
+        mmTop = 635
+        mmWidth = 25188
+        BandType = 1
+        LayerName = Foreground
+      end
+      object ppLabel2: TppLabel
+        DesignLayer = ppDesignLayer1
+        UserName = 'Label2'
+        HyperlinkEnabled = False
+        Border.mmPadding = 0
+        Caption = #916#921#913#931#913#934#921#931#932#919#931': DHL (CYPRUS) LTD'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 10
+        Font.Style = []
+        FormFieldSettings.FormSubmitInfo.SubmitMethod = fstPost
+        FormFieldSettings.FormFieldType = fftNone
+        Transparent = True
+        mmHeight = 4233
+        mmLeft = 2910
+        mmTop = 8731
+        mmWidth = 55033
+        BandType = 1
+        LayerName = Foreground
+      end
+      object ppLabel7: TppLabel
+        DesignLayer = ppDesignLayer1
+        UserName = 'Label7'
+        HyperlinkEnabled = False
+        Border.mmPadding = 0
+        Caption = #935#937#929#913' '#928#929#927#917#923#917#933#931#919#931':'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 10
+        Font.Style = []
+        FormFieldSettings.FormSubmitInfo.SubmitMethod = fstPost
+        FormFieldSettings.FormFieldType = fftNone
+        Transparent = True
+        mmHeight = 3969
+        mmLeft = 74877
+        mmTop = 17727
+        mmWidth = 35454
+        BandType = 1
+        LayerName = Foreground
+      end
+      object ppLabel8: TppLabel
+        DesignLayer = ppDesignLayer1
+        UserName = 'Label8'
+        HyperlinkEnabled = False
+        Border.mmPadding = 0
+        Caption = #928#932#919#931#919':'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 10
+        Font.Style = []
+        FormFieldSettings.FormSubmitInfo.SubmitMethod = fstPost
+        FormFieldSettings.FormFieldType = fftNone
+        Transparent = True
+        mmHeight = 3969
+        mmLeft = 2910
+        mmTop = 17727
+        mmWidth = 12965
+        BandType = 1
+        LayerName = Foreground
+      end
+      object ppLabel25: TppLabel
+        DesignLayer = ppDesignLayer1
+        UserName = 'Label25'
+        HyperlinkEnabled = False
+        Border.mmPadding = 0
+        Caption = 'HMSD:'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 10
+        Font.Style = []
+        FormFieldSettings.FormSubmitInfo.SubmitMethod = fstPost
+        FormFieldSettings.FormFieldType = fftNone
+        Transparent = True
+        mmHeight = 4233
+        mmLeft = 2910
+        mmTop = 22754
+        mmWidth = 11113
+        BandType = 1
+        LayerName = Foreground
+      end
+      object ppDBText8: TppDBText
+        DesignLayer = ppDesignLayer1
+        UserName = 'DBText8'
+        HyperlinkEnabled = False
+        Border.mmPadding = 0
+        DataField = 'Country'
+        DataPipeline = MawbPIP
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 10
+        Font.Style = []
+        ParentDataPipeline = False
+        Transparent = True
+        DataPipelineName = 'MawbPIP'
+        mmHeight = 3969
+        mmLeft = 114036
+        mmTop = 17727
+        mmWidth = 12171
+        BandType = 1
+        LayerName = Foreground
+      end
+      object ppDBText10: TppDBText
+        DesignLayer = ppDesignLayer1
+        UserName = 'DBText10'
+        HyperlinkEnabled = False
+        Border.mmPadding = 0
+        DataField = 'FLIGHT_NUMBER'
+        DataPipeline = MawbPIP
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 10
+        Font.Style = []
+        ParentDataPipeline = False
+        Transparent = True
+        DataPipelineName = 'MawbPIP'
+        mmHeight = 3969
+        mmLeft = 17992
+        mmTop = 17727
+        mmWidth = 16404
+        BandType = 1
+        LayerName = Foreground
+      end
+      object ppLine2: TppLine
+        DesignLayer = ppDesignLayer1
+        UserName = 'Line2'
+        Border.mmPadding = 0
+        Position = lpBottom
+        Weight = 0.600000023841857900
+        mmHeight = 1905
+        mmLeft = 423
+        mmTop = 5503
+        mmWidth = 265431
+        BandType = 1
+        LayerName = Foreground
+      end
+      object ppRegion1: TppRegion
+        DesignLayer = ppDesignLayer1
+        UserName = 'Region1'
+        Caption = 'Region1'
+        mmHeight = 32385
+        mmLeft = 197485
+        mmTop = 9525
+        mmWidth = 68368
+        BandType = 1
+        LayerName = Foreground
+        mmBottomOffset = 0
+        mmOverFlowOffset = 0
+        mmStopPosition = 0
+        mmMinHeight = 0
+        object ppLabel26: TppLabel
+          DesignLayer = ppDesignLayer1
+          UserName = 'Label26'
+          HyperlinkEnabled = False
+          Border.mmPadding = 0
+          Caption = #915#921#913' '#933#928#919#929#917#931#921#913#922#919' '#935#929#919#931#919
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Name = 'Arial'
+          Font.Size = 10
+          Font.Style = []
+          FormFieldSettings.FormSubmitInfo.SubmitMethod = fstPost
+          FormFieldSettings.FormFieldType = fftNone
+          Transparent = True
+          mmHeight = 4022
+          mmLeft = 199390
+          mmTop = 11219
+          mmWidth = 42122
+          BandType = 1
+          LayerName = Foreground
+        end
+        object ppLabel27: TppLabel
+          DesignLayer = ppDesignLayer1
+          UserName = 'Label27'
+          HyperlinkEnabled = False
+          Border.mmPadding = 0
+          Caption = #922#913#932#913#935#937#929#919#931#919' '#931#932#927' '#931#933#931#932#919#924#913
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Name = 'Arial'
+          Font.Size = 10
+          Font.Style = []
+          FormFieldSettings.FormSubmitInfo.SubmitMethod = fstPost
+          FormFieldSettings.FormFieldType = fftNone
+          Transparent = True
+          mmHeight = 4022
+          mmLeft = 201930
+          mmTop = 17992
+          mmWidth = 49318
+          BandType = 1
+          LayerName = Foreground
+        end
+        object ppLabel28: TppLabel
+          DesignLayer = ppDesignLayer1
+          UserName = 'Label28'
+          HyperlinkEnabled = False
+          Border.mmPadding = 0
+          Caption = #913#929#921#920#924#927#931' '#913#928#927#916#917#921#926#919#931':'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Name = 'Arial'
+          Font.Size = 10
+          Font.Style = []
+          FormFieldSettings.FormSubmitInfo.SubmitMethod = fstPost
+          FormFieldSettings.FormFieldType = fftNone
+          Transparent = True
+          mmHeight = 4022
+          mmLeft = 201930
+          mmTop = 29845
+          mmWidth = 39158
+          BandType = 1
+          LayerName = Foreground
+        end
+        object ppLabel29: TppLabel
+          DesignLayer = ppDesignLayer1
+          UserName = 'Label29'
+          HyperlinkEnabled = False
+          Border.mmPadding = 0
+          Caption = #917#921#931#928#929#913#926#919#931':'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Name = 'Arial'
+          Font.Size = 10
+          Font.Style = []
+          FormFieldSettings.FormSubmitInfo.SubmitMethod = fstPost
+          FormFieldSettings.FormFieldType = fftNone
+          Transparent = True
+          mmHeight = 4022
+          mmLeft = 219921
+          mmTop = 34290
+          mmWidth = 21167
+          BandType = 1
+          LayerName = Foreground
+        end
+        object ppLabel30: TppLabel
+          DesignLayer = ppDesignLayer1
+          UserName = 'Label30'
+          HyperlinkEnabled = False
+          Border.mmPadding = 0
+          Caption = #928#923#919#929#937#924#937#925' (SADML)'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Name = 'Arial'
+          Font.Size = 10
+          Font.Style = []
+          FormFieldSettings.FormSubmitInfo.SubmitMethod = fstPost
+          FormFieldSettings.FormFieldType = fftNone
+          Transparent = True
+          mmHeight = 4022
+          mmLeft = 201930
+          mmTop = 22860
+          mmWidth = 36618
+          BandType = 1
+          LayerName = Foreground
+        end
+      end
+      object ppLabel38: TppLabel
+        DesignLayer = ppDesignLayer1
+        UserName = 'Label38'
+        HyperlinkEnabled = False
+        Border.mmPadding = 0
+        Caption = 'MAWB:'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 10
+        Font.Style = []
+        FormFieldSettings.FormSubmitInfo.SubmitMethod = fstPost
+        FormFieldSettings.FormFieldType = fftNone
+        Transparent = True
+        mmHeight = 3969
+        mmLeft = 2910
+        mmTop = 28045
+        mmWidth = 12171
+        BandType = 1
+        LayerName = Foreground
+      end
+      object ppDBText15: TppDBText
+        DesignLayer = ppDesignLayer1
+        UserName = 'DBText15'
+        HyperlinkEnabled = False
+        Border.mmPadding = 0
+        DataField = 'MAWB_ID'
+        DataPipeline = MawbPIP
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 10
+        Font.Style = []
+        ParentDataPipeline = False
+        Transparent = True
+        DataPipelineName = 'MawbPIP'
+        mmHeight = 3969
+        mmLeft = 17992
+        mmTop = 28045
+        mmWidth = 23813
+        BandType = 1
+        LayerName = Foreground
+      end
+      object ppDBText16: TppDBText
+        DesignLayer = ppDesignLayer1
+        UserName = 'DBText102'
+        HyperlinkEnabled = False
+        Border.mmPadding = 0
+        DataField = 'DATE_ARRIVED'
+        DataPipeline = MawbPIP
+        DisplayFormat = 'dd/mm/yyy'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 10
+        Font.Style = []
+        ParentDataPipeline = False
+        Transparent = True
+        DataPipelineName = 'MawbPIP'
+        mmHeight = 4022
+        mmLeft = 69427
+        mmTop = 635
+        mmWidth = 24977
+        BandType = 1
+        LayerName = Foreground
+      end
+      object ppLine1: TppLine
+        DesignLayer = ppDesignLayer1
+        UserName = 'Line1'
+        Border.mmPadding = 0
+        Position = lpBottom
+        Weight = 0.600000023841857900
+        mmHeight = 1905
+        mmLeft = 423
+        mmTop = 42968
+        mmWidth = 265431
+        BandType = 1
+        LayerName = Foreground
+      end
+      object ppDBText1: TppDBText
+        DesignLayer = ppDesignLayer1
+        UserName = 'DBText1'
+        HyperlinkEnabled = False
+        Border.mmPadding = 0
+        DataField = 'TDID_MEDIUM'
+        DataPipeline = MawbPIP
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 10
+        Font.Style = []
+        ParentDataPipeline = False
+        Transparent = True
+        DataPipelineName = 'MawbPIP'
+        mmHeight = 4233
+        mmLeft = 17992
+        mmTop = 22754
+        mmWidth = 37835
+        BandType = 1
+        LayerName = Foreground
+      end
+    end
+    object ppHeaderBand1: TppHeaderBand
+      Background.Brush.Style = bsClear
+      Border.mmPadding = 0
+      mmBottomOffset = 0
+      mmHeight = 0
+      mmPrintPosition = 0
+    end
+    object ppDetailBand1: TppDetailBand
+      Background1.Brush.Style = bsClear
+      Background2.Brush.Style = bsClear
+      Border.mmPadding = 0
+      PrintHeight = phDynamic
+      mmBottomOffset = 0
+      mmHeight = 7144
+      mmPrintPosition = 0
+      object ppSubReport1: TppSubReport
+        DesignLayer = ppDesignLayer1
+        UserName = 'SubReport1'
+        ExpandAll = False
+        NewPrintJob = False
+        OutlineSettings.CreateNode = True
+        TraverseAllData = False
+        DataPipelineName = 'MediumPIP'
+        mmHeight = 5027
+        mmLeft = 0
+        mmTop = 0
+        mmWidth = 284270
+        BandType = 4
+        LayerName = Foreground
+        mmBottomOffset = 0
+        mmOverFlowOffset = 0
+        mmStopPosition = 0
+        mmMinHeight = 0
+        object ppChildReport1: TppChildReport
+          AutoStop = False
+          DataPipeline = MediumPIP
+          PrinterSetup.BinName = 'Default'
+          PrinterSetup.DocumentName = 'Report'
+          PrinterSetup.Duplex = dpNone
+          PrinterSetup.Orientation = poLandscape
+          PrinterSetup.PaperName = 'A4'
+          PrinterSetup.PrinterName = 'Default'
+          PrinterSetup.SaveDeviceSettings = False
+          PrinterSetup.mmMarginBottom = 6350
+          PrinterSetup.mmMarginLeft = 6350
+          PrinterSetup.mmMarginRight = 6350
+          PrinterSetup.mmMarginTop = 6350
+          PrinterSetup.mmPaperHeight = 209975
+          PrinterSetup.mmPaperWidth = 296970
+          PrinterSetup.PaperSize = 9
+          Version = '21.0'
+          mmColumnWidth = 0
+          DataPipelineName = 'MediumPIP'
+          object ppTitleBand2: TppTitleBand
+            Background.Brush.Style = bsClear
+            Border.mmPadding = 0
+            mmBottomOffset = 0
+            mmHeight = 13229
+            mmPrintPosition = 0
+            object ppLabel17: TppLabel
+              DesignLayer = ppDesignLayer2
+              UserName = 'Label17'
+              HyperlinkEnabled = False
+              Border.mmPadding = 0
+              Caption = #913'/'#913
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clBlack
+              Font.Name = 'Calibri'
+              Font.Size = 10
+              Font.Style = [fsBold]
+              FormFieldSettings.FormSubmitInfo.SubmitMethod = fstPost
+              FormFieldSettings.FormFieldType = fftNone
+              Transparent = True
+              mmHeight = 3810
+              mmLeft = 3704
+              mmTop = 6879
+              mmWidth = 5376
+              BandType = 1
+              LayerName = Foreground1
+            end
+            object ppLabel18: TppLabel
+              DesignLayer = ppDesignLayer2
+              UserName = 'Label18'
+              HyperlinkEnabled = False
+              Border.mmPadding = 0
+              Caption = 'HAWB'
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clBlack
+              Font.Name = 'Calibri'
+              Font.Size = 10
+              Font.Style = [fsBold]
+              FormFieldSettings.FormSubmitInfo.SubmitMethod = fstPost
+              FormFieldSettings.FormFieldType = fftNone
+              Transparent = True
+              mmHeight = 3810
+              mmLeft = 10605
+              mmTop = 6879
+              mmWidth = 9737
+              BandType = 1
+              LayerName = Foreground1
+            end
+            object ppLabel19: TppLabel
+              DesignLayer = ppDesignLayer2
+              UserName = 'Label19'
+              HyperlinkEnabled = False
+              Border.mmPadding = 0
+              Caption = #928#913#922#917#932#913
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clBlack
+              Font.Name = 'Calibri'
+              Font.Size = 10
+              Font.Style = [fsBold]
+              FormFieldSettings.FormSubmitInfo.SubmitMethod = fstPost
+              FormFieldSettings.FormFieldType = fftNone
+              Transparent = True
+              mmHeight = 3704
+              mmLeft = 31933
+              mmTop = 6879
+              mmWidth = 12912
+              BandType = 1
+              LayerName = Foreground1
+            end
+            object ppLabel20: TppLabel
+              DesignLayer = ppDesignLayer2
+              UserName = 'Label20'
+              HyperlinkEnabled = False
+              Border.mmPadding = 0
+              Caption = #928#913#929#913#923#919#928#932#919#931
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clBlack
+              Font.Name = 'Calibri'
+              Font.Size = 10
+              Font.Style = [fsBold]
+              FormFieldSettings.FormSubmitInfo.SubmitMethod = fstPost
+              FormFieldSettings.FormFieldType = fftNone
+              Transparent = True
+              mmHeight = 3704
+              mmLeft = 61119
+              mmTop = 6879
+              mmWidth = 25612
+              BandType = 1
+              LayerName = Foreground1
+            end
+            object ppLabel21: TppLabel
+              DesignLayer = ppDesignLayer2
+              UserName = 'Label201'
+              HyperlinkEnabled = False
+              Border.mmPadding = 0
+              Caption = #935#937#929#913' '#922#913#932#913#915#937#915#919#931
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clBlack
+              Font.Name = 'Calibri'
+              Font.Size = 10
+              Font.Style = [fsBold]
+              FormFieldSettings.FormSubmitInfo.SubmitMethod = fstPost
+              FormFieldSettings.FormFieldType = fftNone
+              TextAlignment = taCentered
+              Transparent = True
+              WordWrap = True
+              mmHeight = 3704
+              mmLeft = 101600
+              mmTop = 6879
+              mmWidth = 19050
+              BandType = 1
+              LayerName = Foreground1
+            end
+            object ppLabel37: TppLabel
+              DesignLayer = ppDesignLayer2
+              UserName = 'Label37'
+              HyperlinkEnabled = False
+              Border.mmPadding = 0
+              Caption = #914#913#929#927#931' KG'
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clBlack
+              Font.Name = 'Calibri'
+              Font.Size = 10
+              Font.Style = [fsBold]
+              FormFieldSettings.FormSubmitInfo.SubmitMethod = fstPost
+              FormFieldSettings.FormFieldType = fftNone
+              TextAlignment = taCentered
+              Transparent = True
+              WordWrap = True
+              mmHeight = 3704
+              mmLeft = 46038
+              mmTop = 6879
+              mmWidth = 11007
+              BandType = 1
+              LayerName = Foreground1
+            end
+            object ppLabel24: TppLabel
+              DesignLayer = ppDesignLayer2
+              UserName = 'Label24'
+              HyperlinkEnabled = False
+              Border.mmPadding = 0
+              Caption = #934#928#913' (3000)'
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clBlack
+              Font.Name = 'Calibri'
+              Font.Size = 10
+              Font.Style = [fsBold]
+              FormFieldSettings.FormSubmitInfo.SubmitMethod = fstPost
+              FormFieldSettings.FormFieldType = fftNone
+              Transparent = True
+              mmHeight = 3810
+              mmLeft = 238919
+              mmTop = 1058
+              mmWidth = 17357
+              BandType = 1
+              LayerName = Foreground1
+            end
+            object ppLabel23: TppLabel
+              DesignLayer = ppDesignLayer2
+              UserName = 'Label23'
+              HyperlinkEnabled = False
+              Border.mmPadding = 0
+              Caption = #913#926#921#913
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clBlack
+              Font.Name = 'Calibri'
+              Font.Size = 10
+              Font.Style = [fsBold]
+              FormFieldSettings.FormSubmitInfo.SubmitMethod = fstPost
+              FormFieldSettings.FormFieldType = fftNone
+              Transparent = True
+              mmHeight = 3810
+              mmLeft = 231888
+              mmTop = 6879
+              mmWidth = 7620
+              BandType = 1
+              LayerName = Foreground1
+            end
+            object ppLabel35: TppLabel
+              DesignLayer = ppDesignLayer2
+              UserName = 'Label35'
+              HyperlinkEnabled = False
+              Border.mmPadding = 0
+              Caption = 'RATE'
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clBlack
+              Font.Name = 'Calibri'
+              Font.Size = 10
+              Font.Style = [fsBold]
+              FormFieldSettings.FormSubmitInfo.SubmitMethod = fstPost
+              FormFieldSettings.FormFieldType = fftNone
+              Transparent = True
+              mmHeight = 3810
+              mmLeft = 243946
+              mmTop = 6879
+              mmWidth = 8467
+              BandType = 1
+              LayerName = Foreground1
+            end
+            object ppLabel36: TppLabel
+              DesignLayer = ppDesignLayer2
+              UserName = 'Label36'
+              HyperlinkEnabled = False
+              Border.mmPadding = 0
+              Caption = #928#927#931#927
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clBlack
+              Font.Name = 'Calibri'
+              Font.Size = 10
+              Font.Style = [fsBold]
+              FormFieldSettings.FormSubmitInfo.SubmitMethod = fstPost
+              FormFieldSettings.FormFieldType = fftNone
+              Transparent = True
+              mmHeight = 3810
+              mmLeft = 261417
+              mmTop = 6879
+              mmWidth = 8723
+              BandType = 1
+              LayerName = Foreground1
+            end
+            object ppLine3: TppLine
+              DesignLayer = ppDesignLayer2
+              UserName = 'Line3'
+              Border.mmPadding = 0
+              Position = lpBottom
+              Weight = 0.600000023841857900
+              mmHeight = 1852
+              mmLeft = 0
+              mmTop = 11113
+              mmWidth = 269082
+              BandType = 1
+              LayerName = Foreground1
+            end
+            object ppLabel78: TppLabel
+              DesignLayer = ppDesignLayer2
+              UserName = 'Label78'
+              HyperlinkEnabled = False
+              Border.mmPadding = 0
+              Caption = 'IOSS'
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clBlack
+              Font.Name = 'Calibri'
+              Font.Size = 10
+              Font.Style = [fsBold]
+              FormFieldSettings.FormSubmitInfo.SubmitMethod = fstPost
+              FormFieldSettings.FormFieldType = fftNone
+              Transparent = True
+              mmHeight = 3969
+              mmLeft = 179113
+              mmTop = 6879
+              mmWidth = 7408
+              BandType = 1
+              LayerName = Foreground1
+            end
+            object ppLabel79: TppLabel
+              DesignLayer = ppDesignLayer2
+              UserName = 'Label79'
+              HyperlinkEnabled = False
+              Border.mmPadding = 0
+              Caption = 'PROC'
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clBlack
+              Font.Name = 'Calibri'
+              Font.Size = 10
+              Font.Style = [fsBold]
+              FormFieldSettings.FormSubmitInfo.SubmitMethod = fstPost
+              FormFieldSettings.FormFieldType = fftNone
+              Transparent = True
+              mmHeight = 3969
+              mmLeft = 207440
+              mmTop = 6879
+              mmWidth = 8731
+              BandType = 1
+              LayerName = Foreground1
+            end
+            object ppLabel22: TppLabel
+              DesignLayer = ppDesignLayer2
+              UserName = 'Label1'
+              HyperlinkEnabled = False
+              Border.mmPadding = 0
+              Caption = 'Reg Number'
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clBlack
+              Font.Name = 'Calibri'
+              Font.Size = 10
+              Font.Style = [fsBold]
+              FormFieldSettings.FormSubmitInfo.SubmitMethod = fstPost
+              FormFieldSettings.FormFieldType = fftNone
+              Transparent = True
+              mmHeight = 3969
+              mmLeft = 132027
+              mmTop = 6879
+              mmWidth = 18257
+              BandType = 1
+              LayerName = Foreground1
+            end
+          end
+          object ppDetailBand2: TppDetailBand
+            Background1.Brush.Style = bsClear
+            Background2.Brush.Style = bsClear
+            Border.mmPadding = 0
+            mmBottomOffset = 0
+            mmHeight = 4498
+            mmPrintPosition = 0
+            object ppDBText12: TppDBText
+              DesignLayer = ppDesignLayer2
+              UserName = 'DBText12'
+              HyperlinkEnabled = False
+              Border.mmPadding = 0
+              DataField = 'EUROVAL'
+              DataPipeline = MediumPIP
+              DisplayFormat = #8364'#,0.00;-#,0.00'
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clBlack
+              Font.Name = 'Calibri'
+              Font.Size = 8
+              Font.Style = []
+              TextAlignment = taRightJustified
+              Transparent = True
+              DataPipelineName = 'MediumPIP'
+              mmHeight = 4022
+              mmLeft = 224664
+              mmTop = 476
+              mmWidth = 14699
+              BandType = 4
+              LayerName = Foreground1
+            end
+            object ppDBText18: TppDBText
+              DesignLayer = ppDesignLayer2
+              UserName = 'DBText18'
+              HyperlinkEnabled = False
+              Border.mmPadding = 0
+              DataField = 'CUSTOMER_NAME'
+              DataPipeline = MediumPIP
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clBlack
+              Font.Name = 'Calibri'
+              Font.Size = 8
+              Font.Style = []
+              ParentDataPipeline = False
+              Transparent = True
+              DataPipelineName = 'MediumPIP'
+              mmHeight = 4022
+              mmLeft = 61119
+              mmTop = 476
+              mmWidth = 38894
+              BandType = 4
+              LayerName = Foreground1
+            end
+            object ppDBText19: TppDBText
+              DesignLayer = ppDesignLayer2
+              UserName = 'DBText19'
+              HyperlinkEnabled = False
+              Border.mmPadding = 0
+              DataField = 'ORIGINCOUNTRY'
+              DataPipeline = MediumPIP
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clBlack
+              Font.Name = 'Calibri'
+              Font.Size = 8
+              Font.Style = []
+              Transparent = True
+              DataPipelineName = 'MediumPIP'
+              mmHeight = 4233
+              mmLeft = 102659
+              mmTop = 265
+              mmWidth = 24871
+              BandType = 4
+              LayerName = Foreground1
+            end
+            object ppDBText22: TppDBText
+              DesignLayer = ppDesignLayer2
+              UserName = 'DBText22'
+              HyperlinkEnabled = False
+              Border.mmPadding = 0
+              DataField = 'WEIGHT'
+              DataPipeline = MediumPIP
+              DisplayFormat = '#,0.00;-#,0.00'
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clBlack
+              Font.Name = 'Calibri'
+              Font.Size = 8
+              Font.Style = []
+              TextAlignment = taRightJustified
+              Transparent = True
+              DataPipelineName = 'MediumPIP'
+              mmHeight = 4233
+              mmLeft = 45773
+              mmTop = 265
+              mmWidth = 8996
+              BandType = 4
+              LayerName = Foreground1
+            end
+            object ppDBText23: TppDBText
+              DesignLayer = ppDesignLayer2
+              UserName = 'DBText23'
+              HyperlinkEnabled = False
+              Border.mmPadding = 0
+              DataField = 'HAB_ID'
+              DataPipeline = MediumPIP
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clBlack
+              Font.Name = 'Calibri'
+              Font.Size = 8
+              Font.Style = []
+              Transparent = True
+              DataPipelineName = 'MediumPIP'
+              mmHeight = 4233
+              mmLeft = 10851
+              mmTop = 265
+              mmWidth = 20820
+              BandType = 4
+              LayerName = Foreground1
+            end
+            object ppVariable2: TppVariable
+              DesignLayer = ppDesignLayer2
+              UserName = 'Variable2'
+              HyperlinkEnabled = False
+              Border.mmPadding = 0
+              BlankWhenZero = False
+              CalcOrder = 0
+              DataType = dtInteger
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clBlack
+              Font.Name = 'Calibri'
+              Font.Size = 8
+              Font.Style = []
+              OnCalc = ppVariable2Calc
+              ResetType = veReportStart
+              TextAlignment = taRightJustified
+              Transparent = True
+              mmHeight = 3439
+              mmLeft = -4233
+              mmTop = 265
+              mmWidth = 12171
+              BandType = 4
+              LayerName = Foreground1
+            end
+            object ppDBText21: TppDBText
+              DesignLayer = ppDesignLayer2
+              UserName = 'DBText1'
+              HyperlinkEnabled = False
+              Border.mmPadding = 0
+              DataField = 'NUM_OF_PIECES_ARRIVED'
+              DataPipeline = MediumPIP
+              DisplayFormat = '#,0.00;-#,0.00'
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clBlack
+              Font.Name = 'Calibri'
+              Font.Size = 8
+              Font.Style = []
+              TextAlignment = taRightJustified
+              Transparent = True
+              DataPipelineName = 'MediumPIP'
+              mmHeight = 4233
+              mmLeft = 33867
+              mmTop = 265
+              mmWidth = 8996
+              BandType = 4
+              LayerName = Foreground1
+            end
+            object ppDBText31: TppDBText
+              DesignLayer = ppDesignLayer2
+              UserName = 'DBText31'
+              HyperlinkEnabled = False
+              Border.mmPadding = 0
+              DataField = 'IOSS'
+              DataPipeline = MediumPIP
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clBlack
+              Font.Name = 'Calibri'
+              Font.Size = 8
+              Font.Style = []
+              Transparent = True
+              DataPipelineName = 'MediumPIP'
+              mmHeight = 3969
+              mmLeft = 179113
+              mmTop = 529
+              mmWidth = 26477
+              BandType = 4
+              LayerName = Foreground1
+            end
+            object ppDBText32: TppDBText
+              DesignLayer = ppDesignLayer2
+              UserName = 'DBText32'
+              HyperlinkEnabled = False
+              Border.mmPadding = 0
+              DataField = 'PROCEDURE_CODE'
+              DataPipeline = MediumPIP
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clBlack
+              Font.Name = 'Calibri'
+              Font.Size = 8
+              Font.Style = []
+              Transparent = True
+              DataPipelineName = 'MediumPIP'
+              mmHeight = 3969
+              mmLeft = 207440
+              mmTop = 529
+              mmWidth = 14817
+              BandType = 4
+              LayerName = Foreground1
+            end
+            object MedAmountFLD: TppVariable
+              DesignLayer = ppDesignLayer2
+              UserName = 'Variable1'
+              Border.mmPadding = 0
+              BlankWhenZero = False
+              CalcOrder = 1
+              DataType = dtDouble
+              DisplayFormat = #8364'#,0.00;-#,0.00'
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clBlack
+              Font.Name = 'Calibri'
+              Font.Size = 8
+              Font.Style = []
+              OnCalc = MedAmountFLDCalc
+              TextAlignment = taRightJustified
+              Transparent = True
+              mmHeight = 3440
+              mmLeft = 257176
+              mmTop = 529
+              mmWidth = 12170
+              BandType = 4
+              LayerName = Foreground1
+            end
+            object ppLabel80: TppLabel
+              DesignLayer = ppDesignLayer2
+              UserName = 'Label80'
+              Border.mmPadding = 0
+              Caption = '19.00%'
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clBlack
+              Font.Name = 'Calibri'
+              Font.Size = 8
+              Font.Style = []
+              FormFieldSettings.FormSubmitInfo.SubmitMethod = fstPost
+              FormFieldSettings.FormFieldType = fftNone
+              TextAlignment = taRightJustified
+              Transparent = True
+              mmHeight = 3439
+              mmLeft = 241565
+              mmTop = 265
+              mmWidth = 9260
+              BandType = 4
+              LayerName = Foreground1
+            end
+            object ppVariable5: TppVariable
+              DesignLayer = ppDesignLayer2
+              UserName = 'Variable3'
+              Border.mmPadding = 0
+              BlankWhenZero = False
+              CalcOrder = 2
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clBlack
+              Font.Name = 'Calibri'
+              Font.Size = 8
+              Font.Style = []
+              OnCalc = ppVariable5Calc
+              Transparent = True
+              mmHeight = 3439
+              mmLeft = 133086
+              mmTop = 794
+              mmWidth = 12171
+              BandType = 4
+              LayerName = Foreground1
+            end
+          end
+          object ppSummaryBand2: TppSummaryBand
+            Background.Brush.Style = bsClear
+            Border.mmPadding = 0
+            mmBottomOffset = 0
+            mmHeight = 6615
+            mmPrintPosition = 0
+            object ppDBCalc2: TppDBCalc
+              DesignLayer = ppDesignLayer2
+              UserName = 'DBCalc1'
+              HyperlinkEnabled = False
+              Border.mmPadding = 0
+              DataField = 'NUM_OF_PIECES_ARRIVED'
+              DataPipeline = MediumPIP
+              DisplayFormat = '#,0.00;-#,0.00'
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clBlack
+              Font.Name = 'Arial'
+              Font.Size = 9
+              Font.Style = []
+              ParentDataPipeline = False
+              TextAlignment = taRightJustified
+              Transparent = True
+              DataPipelineName = 'MediumPIP'
+              mmHeight = 3704
+              mmLeft = 28840
+              mmTop = 1770
+              mmWidth = 13758
+              BandType = 7
+              LayerName = Foreground1
+            end
+            object ppDBCalc1: TppDBCalc
+              DesignLayer = ppDesignLayer2
+              UserName = 'DBCalc2'
+              HyperlinkEnabled = False
+              Border.mmPadding = 0
+              DataField = 'WEIGHT'
+              DataPipeline = MediumPIP
+              DisplayFormat = '#,0.00;-#,0.00'
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clBlack
+              Font.Name = 'Arial'
+              Font.Size = 9
+              Font.Style = []
+              ParentDataPipeline = False
+              TextAlignment = taRightJustified
+              Transparent = True
+              DataPipelineName = 'MediumPIP'
+              mmHeight = 3704
+              mmLeft = 43392
+              mmTop = 1770
+              mmWidth = 11377
+              BandType = 7
+              LayerName = Foreground1
+            end
+            object ppLine9: TppLine
+              DesignLayer = ppDesignLayer2
+              UserName = 'Line9'
+              Border.mmPadding = 0
+              Weight = 0.600000023841857900
+              mmHeight = 272
+              mmLeft = 0
+              mmTop = 643
+              mmWidth = 268971
+              BandType = 7
+              LayerName = Foreground1
+            end
+            object TotalVatVr: TppVariable
+              DesignLayer = ppDesignLayer2
+              UserName = 'Variable4'
+              Border.mmPadding = 0
+              BlankWhenZero = False
+              CalcOrder = 0
+              CalcType = veDataPipelineTraversal
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clBlack
+              Font.Name = 'Calibri'
+              Font.Size = 8
+              Font.Style = []
+              OnCalc = TotalVatVrCalc
+              ResetType = veReportStart
+              TextAlignment = taRightJustified
+              Transparent = True
+              mmHeight = 3440
+              mmLeft = 257176
+              mmTop = 1852
+              mmWidth = 12171
+              BandType = 7
+              LayerName = Foreground1
+              CalcDataPipelineName = 'MediumPIP'
+            end
+          end
+          object ppDesignLayers2: TppDesignLayers
+            object ppDesignLayer2: TppDesignLayer
+              UserName = 'Foreground1'
+              LayerType = ltBanded
+              Index = 0
+            end
+          end
+        end
+      end
+    end
+    object ppFooterBand1: TppFooterBand
+      Background.Brush.Style = bsClear
+      Border.mmPadding = 0
+      mmBottomOffset = 0
+      mmHeight = 5503
+      mmPrintPosition = 0
+      object ppSystemVariable1: TppSystemVariable
+        DesignLayer = ppDesignLayer1
+        UserName = 'SystemVariable1'
+        HyperlinkEnabled = False
+        Border.mmPadding = 0
+        VarType = vtPageSet
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 9
+        Font.Style = []
+        Transparent = True
+        mmHeight = 4233
+        mmLeft = 274903
+        mmTop = 794
+        mmWidth = 7938
+        BandType = 8
+        LayerName = Foreground
+      end
+    end
+    object ppSummaryBand1: TppSummaryBand
+      Background.Brush.Style = bsClear
+      Border.mmPadding = 0
+      mmBottomOffset = 0
+      mmHeight = 66463
+      mmPrintPosition = 0
+      object ppLabel10: TppLabel
+        DesignLayer = ppDesignLayer1
+        UserName = 'Label10'
+        HyperlinkEnabled = False
+        Border.mmPadding = 0
+        Caption = 
+          #932#945' '#960#953#959' '#960#940#957#969' '#949#956#960#959#961#949#973#956#945#964#945' '#948#949#957' '#965#960#940#947#959#957#964#945#953' '#963#949' '#959#960#959#953#959#965#963#948#942#960#959#964#949' '#948#945#963#956#959#973#962' '#942 +
+          ' '#948#949#963#956#941#965#963#949#953#962
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 9
+        Font.Style = []
+        FormFieldSettings.FormSubmitInfo.SubmitMethod = fstPost
+        FormFieldSettings.FormFieldType = fftNone
+        Transparent = True
+        mmHeight = 3810
+        mmLeft = 1058
+        mmTop = 8255
+        mmWidth = 119380
+        BandType = 7
+        LayerName = Foreground
+      end
+      object ppLabel11: TppLabel
+        DesignLayer = ppDesignLayer1
+        UserName = 'Label11'
+        HyperlinkEnabled = False
+        Border.mmPadding = 0
+        Caption = #933#960#959#947#961#945#966#942
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 9
+        Font.Style = []
+        FormFieldSettings.FormSubmitInfo.SubmitMethod = fstPost
+        FormFieldSettings.FormFieldType = fftNone
+        Transparent = True
+        mmHeight = 3810
+        mmLeft = 196850
+        mmTop = 29210
+        mmWidth = 14393
+        BandType = 7
+        LayerName = Foreground
+      end
+      object ppLabel12: TppLabel
+        DesignLayer = ppDesignLayer1
+        UserName = 'Label12'
+        HyperlinkEnabled = False
+        Border.mmPadding = 0
+        Caption = #933#960#959#947#961#945#966#942
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 9
+        Font.Style = []
+        FormFieldSettings.FormSubmitInfo.SubmitMethod = fstPost
+        FormFieldSettings.FormFieldType = fftNone
+        Transparent = True
+        mmHeight = 3810
+        mmLeft = 196850
+        mmTop = 38523
+        mmWidth = 14393
+        BandType = 7
+        LayerName = Foreground
+      end
+      object ppLabel13: TppLabel
+        DesignLayer = ppDesignLayer1
+        UserName = 'Label13'
+        HyperlinkEnabled = False
+        Border.mmPadding = 0
+        Caption = #916#953#945#947#961#945#966#942' TDID '#945#960#972' '#924#945#957#953#966#941#963#964#959
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 9
+        Font.Style = []
+        FormFieldSettings.FormSubmitInfo.SubmitMethod = fstPost
+        FormFieldSettings.FormFieldType = fftNone
+        Transparent = True
+        mmHeight = 3810
+        mmLeft = 1058
+        mmTop = 38100
+        mmWidth = 45297
+        BandType = 7
+        LayerName = Foreground
+      end
+      object ppLabel14: TppLabel
+        DesignLayer = ppDesignLayer1
+        UserName = 'Label14'
+        HyperlinkEnabled = False
+        Border.mmPadding = 0
+        Caption = #933#960#959#947#961#945#966#942' '#916#953#945#963#945#966#953#963#964#942
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 9
+        Font.Style = []
+        FormFieldSettings.FormSubmitInfo.SubmitMethod = fstPost
+        FormFieldSettings.FormFieldType = fftNone
+        Transparent = True
+        mmHeight = 3810
+        mmLeft = 1058
+        mmTop = 20743
+        mmWidth = 32173
+        BandType = 7
+        LayerName = Foreground
+      end
+      object ppLabel15: TppLabel
+        DesignLayer = ppDesignLayer1
+        UserName = 'Label15'
+        HyperlinkEnabled = False
+        Border.mmPadding = 0
+        Caption = #908#957#959#956#945' '#923#949#953#964#959#965#961#947#959#973
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 9
+        Font.Style = []
+        FormFieldSettings.FormSubmitInfo.SubmitMethod = fstPost
+        FormFieldSettings.FormFieldType = fftNone
+        Transparent = True
+        mmHeight = 3810
+        mmLeft = 79163
+        mmTop = 29210
+        mmWidth = 26247
+        BandType = 7
+        LayerName = Foreground
+      end
+      object ppLabel16: TppLabel
+        DesignLayer = ppDesignLayer1
+        UserName = 'Label16'
+        HyperlinkEnabled = False
+        Border.mmPadding = 0
+        Caption = #908#957#959#956#945' '#923#949#953#964#959#965#961#947#959#973' '#917#955#941#947#967#959#965
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 9
+        Font.Style = []
+        FormFieldSettings.FormSubmitInfo.SubmitMethod = fstPost
+        FormFieldSettings.FormFieldType = fftNone
+        Transparent = True
+        mmHeight = 3810
+        mmLeft = 1058
+        mmTop = 29210
+        mmWidth = 39158
+        BandType = 7
+        LayerName = Foreground
+      end
+      object ppLabel31: TppLabel
+        DesignLayer = ppDesignLayer1
+        UserName = 'Label31'
+        HyperlinkEnabled = False
+        Border.mmPadding = 0
+        Caption = #931#933#925#927#923#927' '#934#928#913' (3000):'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 9
+        Font.Style = []
+        FormFieldSettings.FormSubmitInfo.SubmitMethod = fstPost
+        FormFieldSettings.FormFieldType = fftNone
+        Transparent = True
+        mmHeight = 3810
+        mmLeft = 197485
+        mmTop = 2963
+        mmWidth = 31327
+        BandType = 7
+        LayerName = Foreground
+      end
+      object ppLabel32: TppLabel
+        DesignLayer = ppDesignLayer1
+        UserName = 'Label32'
+        HyperlinkEnabled = False
+        Border.mmPadding = 0
+        Caption = #913#928#927#920'. '#932#917#923#919' (4104):'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 9
+        Font.Style = []
+        FormFieldSettings.FormSubmitInfo.SubmitMethod = fstPost
+        FormFieldSettings.FormFieldType = fftNone
+        Transparent = True
+        mmHeight = 3810
+        mmLeft = 197485
+        mmTop = 8255
+        mmWidth = 30057
+        BandType = 7
+        LayerName = Foreground
+      end
+      object ppLabel33: TppLabel
+        DesignLayer = ppDesignLayer1
+        UserName = 'Label33'
+        HyperlinkEnabled = False
+        Border.mmPadding = 0
+        Caption = #932#917#923#919' '#928#913#929#913#916#927#931#919#931' (4202):'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 9
+        Font.Style = []
+        FormFieldSettings.FormSubmitInfo.SubmitMethod = fstPost
+        FormFieldSettings.FormFieldType = fftNone
+        Transparent = True
+        mmHeight = 3810
+        mmLeft = 197485
+        mmTop = 13547
+        mmWidth = 38947
+        BandType = 7
+        LayerName = Foreground
+      end
+      object ppLabel34: TppLabel
+        DesignLayer = ppDesignLayer1
+        UserName = 'Label34'
+        HyperlinkEnabled = False
+        Border.mmPadding = 0
+        Caption = #931#933#925#927#923#921#922#927' '#932#917#923#927#931' '#917#921#931#928#929#913#926#919#931':'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 9
+        Font.Style = []
+        FormFieldSettings.FormSubmitInfo.SubmitMethod = fstPost
+        FormFieldSettings.FormFieldType = fftNone
+        Transparent = True
+        mmHeight = 3810
+        mmLeft = 197485
+        mmTop = 18415
+        mmWidth = 46567
+        BandType = 7
+        LayerName = Foreground
+      end
+      object ppLine4: TppLine
+        DesignLayer = ppDesignLayer1
+        UserName = 'Line4'
+        Border.mmPadding = 0
+        Weight = 0.600000023841857900
+        mmHeight = 2200
+        mmLeft = 423
+        mmTop = 847
+        mmWidth = 268086
+        BandType = 7
+        LayerName = Foreground
+      end
+      object TotalVatFLD: TppVariable
+        DesignLayer = ppDesignLayer1
+        UserName = 'TotalVatFLD'
+        Border.mmPadding = 0
+        BlankWhenZero = False
+        CalcOrder = 0
+        CalcType = veDataPipelineTraversal
+        DataType = dtDouble
+        DisplayFormat = #8364'#,0.00;-#,0.00'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 9
+        Font.Style = []
+        OnCalc = TotalVatFLDCalc
+        ResetType = veReportStart
+        TextAlignment = taRightJustified
+        Transparent = True
+        mmHeight = 3969
+        mmLeft = 254001
+        mmTop = 2910
+        mmWidth = 15240
+        BandType = 7
+        LayerName = Foreground
+        CalcDataPipelineName = 'MediumPIP'
+      end
+      object ppLabel77: TppLabel
+        DesignLayer = ppDesignLayer1
+        UserName = 'Label77'
+        OnGetText = ppLabel77GetText
+        Border.mmPadding = 0
+        Caption = 'Label77'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 9
+        Font.Style = []
+        FormFieldSettings.FormSubmitInfo.SubmitMethod = fstPost
+        FormFieldSettings.FormFieldType = fftNone
+        TextAlignment = taRightJustified
+        Transparent = True
+        mmHeight = 4233
+        mmLeft = 252484
+        mmTop = 17463
+        mmWidth = 16757
+        BandType = 7
+        LayerName = Foreground
+      end
+    end
+    object ppDesignLayers1: TppDesignLayers
+      object ppDesignLayer1: TppDesignLayer
+        UserName = 'Foreground'
+        LayerType = ltBanded
+        Index = 0
+      end
+    end
+    object ppParameterList1: TppParameterList
+    end
+  end
+  object MawbSQL: TIBCQuery
+    DMLRefresh = True
+    Connection = ClairDML.CabCOnnection
+    SQL.Strings = (
+      'SELECT'
+      
+        'ma.reference_number, MA.FK_COUNTRY_CONSIGNEE, MA.XML_CONSOLIDATE' +
+        'D_ID,ma.FLIGHT_NUMBER, ma.TDID_MEDIUM,ma.HMSD,ma.mawb_id, ma.dat' +
+        'e_arrived'
+      'from'
+      '  MAWB ma'
+      'where '
+      'reference_number= :MawbSerial;')
+    DetailFields = 'FK_MAWB_REFER_NUMBER'
+    Active = True
+    AutoCalcFields = False
+    Left = 88
+    Top = 208
+    ParamData = <
+      item
+        DataType = ftUnknown
+        Name = 'MawbSerial'
+        Value = nil
+      end>
+    object MawbSQLREFERENCE_NUMBER: TIntegerField
+      FieldName = 'REFERENCE_NUMBER'
+      Required = True
+    end
+    object MawbSQLFK_COUNTRY_CONSIGNEE: TIntegerField
+      FieldName = 'FK_COUNTRY_CONSIGNEE'
+    end
+    object MawbSQLXML_CONSOLIDATED_ID: TStringField
+      FieldName = 'XML_CONSOLIDATED_ID'
+      FixedChar = True
+      Size = 13
+    end
+    object MawbSQLFLIGHT_NUMBER: TStringField
+      FieldName = 'FLIGHT_NUMBER'
+      Size = 10
+    end
+    object MawbSQLTDID_MEDIUM: TStringField
+      FieldName = 'TDID_MEDIUM'
+      FixedChar = True
+      Size = 15
+    end
+    object MawbSQLHMSD: TStringField
+      FieldName = 'HMSD'
+      FixedChar = True
+    end
+    object MawbSQLMAWB_ID: TStringField
+      FieldName = 'MAWB_ID'
+      Size = 15
+    end
+    object MawbSQLDATE_ARRIVED: TDateField
+      FieldName = 'DATE_ARRIVED'
+    end
+  end
+  object MawbSRC: TIBCDataSource
+    DataSet = MawbSQL
+    Left = 136
+    Top = 208
+  end
+  object MawbPIP: TppDBPipeline
+    DataSource = MawbSRC
+    UserName = 'MawbPIP'
+    Left = 256
+    Top = 224
+    object MawbPIPppField1: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'REFERENCE_NUMBER'
+      FieldName = 'REFERENCE_NUMBER'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 0
+    end
+    object MawbPIPppField2: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'FK_COUNTRY_CONSIGNEE'
+      FieldName = 'FK_COUNTRY_CONSIGNEE'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 1
+    end
+    object MawbPIPppField3: TppField
+      FieldAlias = 'XML_CONSOLIDATED_ID'
+      FieldName = 'XML_CONSOLIDATED_ID'
+      FieldLength = 13
+      DisplayWidth = 13
+      Position = 2
+    end
+    object MawbPIPppField4: TppField
+      FieldAlias = 'FLIGHT_NUMBER'
+      FieldName = 'FLIGHT_NUMBER'
+      FieldLength = 10
+      DisplayWidth = 10
+      Position = 3
+    end
+    object MawbPIPppField5: TppField
+      FieldAlias = 'TDID_MEDIUM'
+      FieldName = 'TDID_MEDIUM'
+      FieldLength = 15
+      DisplayWidth = 15
+      Position = 4
+    end
+    object MawbPIPppField6: TppField
+      FieldAlias = 'HMSD'
+      FieldName = 'HMSD'
+      FieldLength = 20
+      DisplayWidth = 20
+      Position = 5
+    end
+    object MawbPIPppField7: TppField
+      FieldAlias = 'MAWB_ID'
+      FieldName = 'MAWB_ID'
+      FieldLength = 15
+      DisplayWidth = 15
+      Position = 6
+    end
+    object MawbPIPppField8: TppField
+      FieldAlias = 'DATE_ARRIVED'
+      FieldName = 'DATE_ARRIVED'
+      FieldLength = 0
+      DataType = dtDate
+      DisplayWidth = 10
+      Position = 7
+    end
+  end
+  object SystemParametersSQL: TIBCQuery
+    Connection = ClairDML.CabCOnnection
+    SQL.Strings = (
+      ' select *  from System_Parameters where parameter_id= :TheKey;'
+      ' ')
+    Active = True
+    Left = 544
+    Top = 136
+    ParamData = <
+      item
+        DataType = ftUnknown
+        Name = 'TheKey'
+        Value = nil
+      end>
+    object SystemParametersSQLPARAMETER_ID: TStringField
+      FieldName = 'PARAMETER_ID'
+      Origin = 'CLAIRDB.SYSTEM_PARAMETERS.PARAMETER_ID'
+      FixedChar = True
+    end
+    object SystemParametersSQLINT_1: TIntegerField
+      FieldName = 'INT_1'
+      Origin = 'CLAIRDB.SYSTEM_PARAMETERS.INT_1'
+    end
+    object SystemParametersSQLINT_2: TIntegerField
+      FieldName = 'INT_2'
+      Origin = 'CLAIRDB.SYSTEM_PARAMETERS.INT_2'
+    end
+    object SystemParametersSQLSTR_1: TStringField
+      FieldName = 'STR_1'
+      Origin = 'CLAIRDB.SYSTEM_PARAMETERS.STR_1'
+      FixedChar = True
+      Size = 80
+    end
+    object SystemParametersSQLSTR_2: TStringField
+      FieldName = 'STR_2'
+      Origin = 'CLAIRDB.SYSTEM_PARAMETERS.STR_2'
+      FixedChar = True
+      Size = 80
+    end
+    object SystemParametersSQLNUM_1: TFloatField
+      FieldName = 'NUM_1'
+    end
+  end
+  object mediumSimpleSQL: TIBCQuery
+    SQLInsert.Strings = (
+      'INSERT INTO HAWB'
+      
+        '  (SERIAL_NUMBER, HAB_ID, FK_MAWB_REFER_NUMBER, FK_CUSTOMER_CODE' +
+        ', DESCRIPTION, WEIGHT, FK_CLEARING_STATE, FK_INVOICE_STATUS, NUM' +
+        '_OF_PIECES_ARRIVED, FK_COUNTRY_ORIGIN, CUSTOMER_NAME, XML_HOUSE_' +
+        'ID, SENDER_NAME, MEDIUM_VAT_RATE, PROCEDURE_CODE, IOSS)'
+      'VALUES'
+      
+        '  (:SERIAL_NUMBER, :HAB_ID, :FK_MAWB_REFER_NUMBER, :FK_CUSTOMER_' +
+        'CODE, :DESCRIPTION, :WEIGHT, :FK_CLEARING_STATE, :FK_INVOICE_STA' +
+        'TUS, :NUM_OF_PIECES_ARRIVED, :FK_COUNTRY_ORIGIN, :CUSTOMER_NAME,' +
+        ' :XML_HOUSE_ID, :SENDER_NAME, :MEDIUM_VAT_RATE, :PROCEDURE_CODE,' +
+        ' :IOSS)')
+    SQLDelete.Strings = (
+      'DELETE FROM HAWB'
+      'WHERE'
+      '  SERIAL_NUMBER = :Old_SERIAL_NUMBER')
+    SQLUpdate.Strings = (
+      'UPDATE HAWB'
+      'SET'
+      
+        '  SERIAL_NUMBER = :SERIAL_NUMBER, HAB_ID = :HAB_ID, FK_MAWB_REFE' +
+        'R_NUMBER = :FK_MAWB_REFER_NUMBER, FK_CUSTOMER_CODE = :FK_CUSTOME' +
+        'R_CODE, DESCRIPTION = :DESCRIPTION, WEIGHT = :WEIGHT, FK_CLEARIN' +
+        'G_STATE = :FK_CLEARING_STATE, FK_INVOICE_STATUS = :FK_INVOICE_ST' +
+        'ATUS, NUM_OF_PIECES_ARRIVED = :NUM_OF_PIECES_ARRIVED, FK_COUNTRY' +
+        '_ORIGIN = :FK_COUNTRY_ORIGIN, CUSTOMER_NAME = :CUSTOMER_NAME, XM' +
+        'L_HOUSE_ID = :XML_HOUSE_ID, SENDER_NAME = :SENDER_NAME, MEDIUM_V' +
+        'AT_RATE = :MEDIUM_VAT_RATE, PROCEDURE_CODE = :PROCEDURE_CODE, IO' +
+        'SS = :IOSS'
+      'WHERE'
+      '  SERIAL_NUMBER = :Old_SERIAL_NUMBER')
+    SQLRefresh.Strings = (
+      
+        'SELECT SERIAL_NUMBER, HAB_ID, FK_MAWB_REFER_NUMBER, FK_CUSTOMER_' +
+        'CODE, DESCRIPTION, WEIGHT, FK_CLEARING_STATE, FK_INVOICE_STATUS,' +
+        ' NUM_OF_PIECES_ARRIVED, FK_COUNTRY_ORIGIN, CUSTOMER_NAME, XML_HO' +
+        'USE_ID, SENDER_NAME, MEDIUM_VAT_RATE, PROCEDURE_CODE, IOSS FROM ' +
+        'HAWB'
+      'WHERE'
+      '  SERIAL_NUMBER = :SERIAL_NUMBER')
+    SQLLock.Strings = (
+      'SELECT NULL FROM HAWB'
+      'WHERE'
+      'SERIAL_NUMBER = :Old_SERIAL_NUMBER'
+      'FOR UPDATE WITH LOCK')
+    SQLRecCount.Strings = (
+      'SELECT COUNT(*) FROM ('
+      'SELECT 1 AS C  FROM HAWB'
+      ''
+      ') q')
+    Connection = ClairDML.CabCOnnection
+    SQL.Strings = (
+      'select'
+      '    ha.hab_id,'
+      '    ha.ioss,ha.procedure_code,'
+      '    ha.xml_house_id,'
+      '    ssi.total_amount as EuroVal,'
+      '    ssi.customs_value,'
+      
+        '    ha.serial_number, ha.fk_mawb_refer_number, ha.fk_clearing_St' +
+        'ate,fk_invoice_status, ha.Description,'
+      '    ha.customer_name,'
+      
+        '    ha.sender_name, ha.fk_country_origin , ha.NUM_OF_PIECES_ARRI' +
+        'VED,ha.FK_CUstomer_code,HA.WEIGHT,'
+      '    ha.medium_vat_rate, ssi.pre_discount_amount,ssi.currency,'
+      '    exr.rate ,'
+      '    cou.name as OriginCountry'
+      'from'
+      '    hawb ha'
+      
+        'left outer join sender_invoice ssi on ha.serial_number= ssi.fk_h' +
+        'awb_serial'
+      
+        'left outer join exchange_rate exr on ssi.currency = exr.fk_curre' +
+        'ncy_code'
+      'left outer join country cou on cou.number=ha.fk_country_origin'
+      'where'
+      'ha.fk_clearance_instruction ='#39'MED'#39
+      'and ha.fk_mawb_refer_number = :mawbSerial'
+      'order by Hab_id')
+    Active = True
+    AutoCalcFields = False
+    Left = 40
+    Top = 304
+    ParamData = <
+      item
+        DataType = ftUnknown
+        Name = 'mawbSerial'
+        Value = nil
+      end>
+    object mediumSimpleSQLHAB_ID: TStringField
+      FieldName = 'HAB_ID'
+      Required = True
+      Size = 10
+    end
+    object mediumSimpleSQLIOSS: TStringField
+      FieldName = 'IOSS'
+      FixedChar = True
+    end
+    object mediumSimpleSQLPROCEDURE_CODE: TStringField
+      FieldName = 'PROCEDURE_CODE'
+      Size = 10
+    end
+    object mediumSimpleSQLXML_HOUSE_ID: TStringField
+      FieldName = 'XML_HOUSE_ID'
+      FixedChar = True
+      Size = 13
+    end
+    object mediumSimpleSQLEUROVAL: TFloatField
+      FieldName = 'EUROVAL'
+      ReadOnly = True
+    end
+    object mediumSimpleSQLCUSTOMS_VALUE: TFloatField
+      FieldName = 'CUSTOMS_VALUE'
+      ReadOnly = True
+    end
+    object mediumSimpleSQLSERIAL_NUMBER: TIntegerField
+      FieldName = 'SERIAL_NUMBER'
+      Required = True
+    end
+    object mediumSimpleSQLFK_MAWB_REFER_NUMBER: TIntegerField
+      FieldName = 'FK_MAWB_REFER_NUMBER'
+      Required = True
+    end
+    object mediumSimpleSQLFK_CLEARING_STATE: TStringField
+      FieldName = 'FK_CLEARING_STATE'
+      Required = True
+      FixedChar = True
+      Size = 1
+    end
+    object mediumSimpleSQLFK_INVOICE_STATUS: TStringField
+      FieldName = 'FK_INVOICE_STATUS'
+      Required = True
+      FixedChar = True
+      Size = 1
+    end
+    object mediumSimpleSQLDESCRIPTION: TStringField
+      FieldName = 'DESCRIPTION'
+      Size = 200
+    end
+    object mediumSimpleSQLCUSTOMER_NAME: TStringField
+      FieldName = 'CUSTOMER_NAME'
+      FixedChar = True
+      Size = 40
+    end
+    object mediumSimpleSQLSENDER_NAME: TStringField
+      FieldName = 'SENDER_NAME'
+      FixedChar = True
+      Size = 60
+    end
+    object mediumSimpleSQLFK_COUNTRY_ORIGIN: TIntegerField
+      FieldName = 'FK_COUNTRY_ORIGIN'
+    end
+    object mediumSimpleSQLNUM_OF_PIECES_ARRIVED: TIntegerField
+      FieldName = 'NUM_OF_PIECES_ARRIVED'
+    end
+    object mediumSimpleSQLFK_CUSTOMER_CODE: TIntegerField
+      FieldName = 'FK_CUSTOMER_CODE'
+    end
+    object mediumSimpleSQLWEIGHT: TFloatField
+      FieldName = 'WEIGHT'
+    end
+    object mediumSimpleSQLMEDIUM_VAT_RATE: TFloatField
+      FieldName = 'MEDIUM_VAT_RATE'
+    end
+    object mediumSimpleSQLPRE_DISCOUNT_AMOUNT: TFloatField
+      FieldName = 'PRE_DISCOUNT_AMOUNT'
+      ReadOnly = True
+    end
+    object mediumSimpleSQLCURRENCY: TStringField
+      FieldName = 'CURRENCY'
+      ReadOnly = True
+      FixedChar = True
+      Size = 3
+    end
+    object mediumSimpleSQLRATE: TFloatField
+      FieldName = 'RATE'
+      ReadOnly = True
+    end
+    object mediumSimpleSQLORIGINCOUNTRY: TStringField
+      FieldName = 'ORIGINCOUNTRY'
+      ReadOnly = True
+      Size = 40
+    end
+  end
+  object OldRPT: TppReport
+    AutoStop = False
+    DataPipeline = MawbPIP
+    PassSetting = psTwoPass
+    PrinterSetup.BinName = 'Default'
+    PrinterSetup.DocumentName = 'Report'
+    PrinterSetup.Duplex = dpNone
+    PrinterSetup.Orientation = poLandscape
+    PrinterSetup.PaperName = 'A4'
+    PrinterSetup.PrinterName = 'Default'
+    PrinterSetup.SaveDeviceSettings = False
+    PrinterSetup.mmMarginBottom = 6350
+    PrinterSetup.mmMarginLeft = 6350
+    PrinterSetup.mmMarginRight = 6350
+    PrinterSetup.mmMarginTop = 6350
+    PrinterSetup.mmPaperHeight = 209975
+    PrinterSetup.mmPaperWidth = 296970
+    PrinterSetup.PaperSize = 9
+    ArchiveFileName = '($MyDocuments)\ReportArchive.raf'
+    DeviceType = 'Screen'
+    DefaultFileDeviceType = 'PDF'
+    EmailSettings.ReportFormat = 'PDF'
+    EmailSettings.ConnectionSettings.MailService = 'SMTP'
+    EmailSettings.ConnectionSettings.EnableMultiPlugin = False
+    EmailSettings.OAuth2 = {0E010C5265646972656374506F727402000000}
+    LanguageID = 'Default'
+    OnPreviewFormCreate = MediumRPTPreviewFormCreate
+    OpenFile = False
+    OutlineSettings.CreateNode = True
+    OutlineSettings.CreatePageNodes = True
+    OutlineSettings.Enabled = True
+    OutlineSettings.Visible = True
+    ThumbnailSettings.Enabled = True
+    ThumbnailSettings.Visible = True
+    ThumbnailSettings.DeadSpace = 30
+    ThumbnailSettings.PageHighlight.Width = 3
+    ThumbnailSettings.ThumbnailSize = tsSmall
+    PDFSettings.EmbedFontOptions = [efUseSubset]
+    PDFSettings.EncryptSettings.AllowCopy = True
+    PDFSettings.EncryptSettings.AllowInteract = True
+    PDFSettings.EncryptSettings.AllowModify = True
+    PDFSettings.EncryptSettings.AllowPrint = True
+    PDFSettings.EncryptSettings.AllowExtract = True
+    PDFSettings.EncryptSettings.AllowAssemble = True
+    PDFSettings.EncryptSettings.AllowQualityPrint = True
+    PDFSettings.EncryptSettings.Enabled = False
+    PDFSettings.EncryptSettings.KeyLength = kl40Bit
+    PDFSettings.EncryptSettings.EncryptionType = etRC4
+    PDFSettings.DigitalSignatureSettings.SignPDF = False
+    PDFSettings.FontEncoding = feAnsi
+    PDFSettings.ImageCompressionLevel = 25
+    PDFSettings.PDFAFormat = pafNone
+    PreviewFormSettings.PageBorder.mmPadding = 0
+    RTFSettings.DefaultFont.Charset = DEFAULT_CHARSET
+    RTFSettings.DefaultFont.Color = clWindowText
+    RTFSettings.DefaultFont.Height = -13
+    RTFSettings.DefaultFont.Name = 'Arial'
+    RTFSettings.DefaultFont.Style = []
+    TextFileName = '($MyDocuments)\Report.pdf'
+    TextSearchSettings.DefaultString = '<FindText>'
+    TextSearchSettings.Enabled = True
+    XLSSettings.AppName = 'ReportBuilder'
+    XLSSettings.Author = 'ReportBuilder'
+    XLSSettings.Subject = 'Report'
+    XLSSettings.Title = 'Report'
+    XLSSettings.WorksheetName = 'Report'
+    CloudDriveSettings.DropBoxSettings.OAuth2.RedirectPort = 0
+    CloudDriveSettings.DropBoxSettings.DirectorySupport = True
+    CloudDriveSettings.GoogleDriveSettings.OAuth2.RedirectPort = 0
+    CloudDriveSettings.GoogleDriveSettings.DirectorySupport = False
+    CloudDriveSettings.OneDriveSettings.OAuth2.RedirectPort = 0
+    CloudDriveSettings.OneDriveSettings.DirectorySupport = True
+    Left = 380
+    Top = 413
+    Version = '21.0'
+    mmColumnWidth = 0
+    DataPipelineName = 'MawbPIP'
+    object ppTitleBand3: TppTitleBand
+      Background.Brush.Style = bsClear
+      Border.mmPadding = 0
+      mmBottomOffset = 0
+      mmHeight = 44873
+      mmPrintPosition = 0
+      object ppLabel39: TppLabel
+        DesignLayer = ppDesignLayer5
+        UserName = 'Label1'
+        HyperlinkEnabled = False
+        Border.mmPadding = 0
+        Caption = #932#917#923#937#925#917#921#927':.........................'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 10
+        Font.Style = []
+        FormFieldSettings.FormSubmitInfo.SubmitMethod = fstPost
+        FormFieldSettings.FormFieldType = fftNone
+        Transparent = True
+        mmHeight = 4064
+        mmLeft = 1058
+        mmTop = 635
+        mmWidth = 39793
+        BandType = 1
+        LayerName = Foreground3
+      end
+      object ppLabel40: TppLabel
+        DesignLayer = ppDesignLayer5
+        UserName = 'Label3'
+        HyperlinkEnabled = False
+        Border.mmPadding = 0
+        Caption = #919#924#917#929#927#924#919#925#921#913':'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 10
+        Font.Style = []
+        FormFieldSettings.FormSubmitInfo.SubmitMethod = fstPost
+        FormFieldSettings.FormFieldType = fftNone
+        Transparent = True
+        mmHeight = 4022
+        mmLeft = 42122
+        mmTop = 635
+        mmWidth = 25188
+        BandType = 1
+        LayerName = Foreground3
+      end
+      object ppLabel41: TppLabel
+        DesignLayer = ppDesignLayer5
+        UserName = 'Label2'
+        HyperlinkEnabled = False
+        Border.mmPadding = 0
+        Caption = #916#921#913#931#913#934#921#931#932#919#931
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 10
+        Font.Style = []
+        FormFieldSettings.FormSubmitInfo.SubmitMethod = fstPost
+        FormFieldSettings.FormFieldType = fftNone
+        Transparent = True
+        mmHeight = 4022
+        mmLeft = 1058
+        mmTop = 8678
+        mmWidth = 23283
+        BandType = 1
+        LayerName = Foreground3
+      end
+      object ppLabel42: TppLabel
+        DesignLayer = ppDesignLayer5
+        UserName = 'Label4'
+        HyperlinkEnabled = False
+        Border.mmPadding = 0
+        Caption = #917#927'RI: 100016129'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 10
+        Font.Style = []
+        FormFieldSettings.FormSubmitInfo.SubmitMethod = fstPost
+        FormFieldSettings.FormFieldType = fftNone
+        Transparent = True
+        mmHeight = 4022
+        mmLeft = 25823
+        mmTop = 8467
+        mmWidth = 28787
+        BandType = 1
+        LayerName = Foreground3
+      end
+      object ppLabel43: TppLabel
+        DesignLayer = ppDesignLayer5
+        UserName = 'Label6'
+        HyperlinkEnabled = False
+        OnGetText = ppLabel6GetText
+        Border.mmPadding = 0
+        Caption = 'DHL CYPRUS'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 10
+        Font.Style = []
+        FormFieldSettings.FormSubmitInfo.SubmitMethod = fstPost
+        FormFieldSettings.FormFieldType = fftNone
+        Transparent = True
+        mmHeight = 4022
+        mmLeft = 122344
+        mmTop = 8678
+        mmWidth = 31538
+        BandType = 1
+        LayerName = Foreground3
+      end
+      object ppLabel44: TppLabel
+        DesignLayer = ppDesignLayer5
+        UserName = 'Label7'
+        HyperlinkEnabled = False
+        Border.mmPadding = 0
+        Caption = #935#937#929#913' '#928#929#927#917#923#917#933#931#919#931':'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 10
+        Font.Style = []
+        FormFieldSettings.FormSubmitInfo.SubmitMethod = fstPost
+        FormFieldSettings.FormFieldType = fftNone
+        Transparent = True
+        mmHeight = 4022
+        mmLeft = 122344
+        mmTop = 17780
+        mmWidth = 35348
+        BandType = 1
+        LayerName = Foreground3
+      end
+      object ppLabel45: TppLabel
+        DesignLayer = ppDesignLayer5
+        UserName = 'Label8'
+        HyperlinkEnabled = False
+        Border.mmPadding = 0
+        Caption = #928#932#919#931#919':'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 10
+        Font.Style = []
+        FormFieldSettings.FormSubmitInfo.SubmitMethod = fstPost
+        FormFieldSettings.FormFieldType = fftNone
+        Transparent = True
+        mmHeight = 4022
+        mmLeft = 1058
+        mmTop = 17780
+        mmWidth = 12912
+        BandType = 1
+        LayerName = Foreground3
+      end
+      object ppLabel46: TppLabel
+        DesignLayer = ppDesignLayer5
+        UserName = 'Label9'
+        HyperlinkEnabled = False
+        Border.mmPadding = 0
+        Caption = 'TDID:'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 10
+        Font.Style = []
+        FormFieldSettings.FormSubmitInfo.SubmitMethod = fstPost
+        FormFieldSettings.FormFieldType = fftNone
+        Transparent = True
+        mmHeight = 4022
+        mmLeft = 122344
+        mmTop = 26670
+        mmWidth = 9737
+        BandType = 1
+        LayerName = Foreground3
+      end
+      object ppLabel47: TppLabel
+        DesignLayer = ppDesignLayer5
+        UserName = 'Label5'
+        HyperlinkEnabled = False
+        Border.mmPadding = 0
+        Caption = #927#925#927#924#913':.............................'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 10
+        Font.Style = []
+        FormFieldSettings.FormSubmitInfo.SubmitMethod = fstPost
+        FormFieldSettings.FormFieldType = fftNone
+        Transparent = True
+        mmHeight = 4022
+        mmLeft = 56938
+        mmTop = 8678
+        mmWidth = 59478
+        BandType = 1
+        LayerName = Foreground3
+      end
+      object ppLabel48: TppLabel
+        DesignLayer = ppDesignLayer5
+        UserName = 'Label25'
+        HyperlinkEnabled = False
+        Border.mmPadding = 0
+        Caption = 'AMSD:'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 10
+        Font.Style = []
+        FormFieldSettings.FormSubmitInfo.SubmitMethod = fstPost
+        FormFieldSettings.FormFieldType = fftNone
+        Transparent = True
+        mmHeight = 4022
+        mmLeft = 1058
+        mmTop = 26670
+        mmWidth = 11007
+        BandType = 1
+        LayerName = Foreground3
+      end
+      object ppDBText2: TppDBText
+        DesignLayer = ppDesignLayer5
+        UserName = 'DBText8'
+        HyperlinkEnabled = False
+        Border.mmPadding = 0
+        DataField = 'Country'
+        DataPipeline = MawbPIP
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 10
+        Font.Style = []
+        ParentDataPipeline = False
+        Transparent = True
+        DataPipelineName = 'MawbPIP'
+        mmHeight = 4022
+        mmLeft = 161079
+        mmTop = 17780
+        mmWidth = 12065
+        BandType = 1
+        LayerName = Foreground3
+      end
+      object ppDBText3: TppDBText
+        DesignLayer = ppDesignLayer5
+        UserName = 'DBText10'
+        HyperlinkEnabled = False
+        Border.mmPadding = 0
+        DataField = 'FLIGHT_NUMBER'
+        DataPipeline = MawbPIP
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 10
+        Font.Style = []
+        ParentDataPipeline = False
+        Transparent = True
+        DataPipelineName = 'MawbPIP'
+        mmHeight = 4022
+        mmLeft = 14605
+        mmTop = 17780
+        mmWidth = 16298
+        BandType = 1
+        LayerName = Foreground3
+      end
+      object ppDBText5: TppDBText
+        DesignLayer = ppDesignLayer5
+        UserName = 'DBText11'
+        HyperlinkEnabled = False
+        Border.mmPadding = 0
+        DataField = 'TDID_MEDIUM'
+        DataPipeline = MawbPIP
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 10
+        Font.Style = []
+        ParentDataPipeline = False
+        Transparent = True
+        DataPipelineName = 'MawbPIP'
+        mmHeight = 4022
+        mmLeft = 135255
+        mmTop = 26670
+        mmWidth = 37888
+        BandType = 1
+        LayerName = Foreground3
+      end
+      object ppLine5: TppLine
+        DesignLayer = ppDesignLayer5
+        UserName = 'Line2'
+        Border.mmPadding = 0
+        Position = lpBottom
+        Weight = 0.600000023841857900
+        mmHeight = 1905
+        mmLeft = 423
+        mmTop = 5503
+        mmWidth = 265431
+        BandType = 1
+        LayerName = Foreground3
+      end
+      object ppRegion2: TppRegion
+        DesignLayer = ppDesignLayer5
+        UserName = 'Region1'
+        Caption = 'Region1'
+        mmHeight = 32385
+        mmLeft = 197485
+        mmTop = 9525
+        mmWidth = 68368
+        BandType = 1
+        LayerName = Foreground3
+        mmBottomOffset = 0
+        mmOverFlowOffset = 0
+        mmStopPosition = 0
+        mmMinHeight = 0
+        object ppLabel49: TppLabel
+          DesignLayer = ppDesignLayer5
+          UserName = 'Label26'
+          HyperlinkEnabled = False
+          Border.mmPadding = 0
+          Caption = #915#921#913' '#933#928#919#929#917#931#921#913#922#919' '#935#929#919#931#919
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Name = 'Arial'
+          Font.Size = 10
+          Font.Style = []
+          FormFieldSettings.FormSubmitInfo.SubmitMethod = fstPost
+          FormFieldSettings.FormFieldType = fftNone
+          Transparent = True
+          mmHeight = 4022
+          mmLeft = 199390
+          mmTop = 11219
+          mmWidth = 42122
+          BandType = 1
+          LayerName = Foreground3
+        end
+        object ppLabel50: TppLabel
+          DesignLayer = ppDesignLayer5
+          UserName = 'Label27'
+          HyperlinkEnabled = False
+          Border.mmPadding = 0
+          Caption = #922#913#932#913#935#937#929#919#931#919' '#931#932#927' '#931#933#931#932#919#924#913
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Name = 'Arial'
+          Font.Size = 10
+          Font.Style = []
+          FormFieldSettings.FormSubmitInfo.SubmitMethod = fstPost
+          FormFieldSettings.FormFieldType = fftNone
+          Transparent = True
+          mmHeight = 4022
+          mmLeft = 201930
+          mmTop = 17992
+          mmWidth = 49318
+          BandType = 1
+          LayerName = Foreground3
+        end
+        object ppLabel51: TppLabel
+          DesignLayer = ppDesignLayer5
+          UserName = 'Label28'
+          HyperlinkEnabled = False
+          Border.mmPadding = 0
+          Caption = #913#929#921#920#924#927#931' '#913#928#927#916#917#921#926#919#931':'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Name = 'Arial'
+          Font.Size = 10
+          Font.Style = []
+          FormFieldSettings.FormSubmitInfo.SubmitMethod = fstPost
+          FormFieldSettings.FormFieldType = fftNone
+          Transparent = True
+          mmHeight = 4022
+          mmLeft = 201930
+          mmTop = 29845
+          mmWidth = 39158
+          BandType = 1
+          LayerName = Foreground3
+        end
+        object ppLabel52: TppLabel
+          DesignLayer = ppDesignLayer5
+          UserName = 'Label29'
+          HyperlinkEnabled = False
+          Border.mmPadding = 0
+          Caption = #917#921#931#928#929#913#926#919#931':'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Name = 'Arial'
+          Font.Size = 10
+          Font.Style = []
+          FormFieldSettings.FormSubmitInfo.SubmitMethod = fstPost
+          FormFieldSettings.FormFieldType = fftNone
+          Transparent = True
+          mmHeight = 4022
+          mmLeft = 219921
+          mmTop = 34290
+          mmWidth = 21167
+          BandType = 1
+          LayerName = Foreground3
+        end
+        object ppLabel53: TppLabel
+          DesignLayer = ppDesignLayer5
+          UserName = 'Label30'
+          HyperlinkEnabled = False
+          Border.mmPadding = 0
+          Caption = #928#923#919#929#937#924#937#925' (SADML)'
+          Font.Charset = DEFAULT_CHARSET
+          Font.Color = clBlack
+          Font.Name = 'Arial'
+          Font.Size = 10
+          Font.Style = []
+          FormFieldSettings.FormSubmitInfo.SubmitMethod = fstPost
+          FormFieldSettings.FormFieldType = fftNone
+          Transparent = True
+          mmHeight = 4022
+          mmLeft = 201930
+          mmTop = 22860
+          mmWidth = 36618
+          BandType = 1
+          LayerName = Foreground3
+        end
+      end
+      object ppDBText6: TppDBText
+        DesignLayer = ppDesignLayer5
+        UserName = 'DBText101'
+        HyperlinkEnabled = False
+        Border.mmPadding = 0
+        DataField = 'HMSD'
+        DataPipeline = MawbPIP
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 10
+        Font.Style = []
+        ParentDataPipeline = False
+        Transparent = True
+        DataPipelineName = 'MawbPIP'
+        mmHeight = 4022
+        mmLeft = 13970
+        mmTop = 26670
+        mmWidth = 67098
+        BandType = 1
+        LayerName = Foreground3
+      end
+      object ppLabel54: TppLabel
+        DesignLayer = ppDesignLayer5
+        UserName = 'Label38'
+        HyperlinkEnabled = False
+        Border.mmPadding = 0
+        Caption = 'MAWB:'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 10
+        Font.Style = []
+        FormFieldSettings.FormSubmitInfo.SubmitMethod = fstPost
+        FormFieldSettings.FormFieldType = fftNone
+        Transparent = True
+        mmHeight = 4022
+        mmLeft = 122344
+        mmTop = 34925
+        mmWidth = 12277
+        BandType = 1
+        LayerName = Foreground3
+      end
+      object ppDBText7: TppDBText
+        DesignLayer = ppDesignLayer5
+        UserName = 'DBText15'
+        HyperlinkEnabled = False
+        Border.mmPadding = 0
+        DataField = 'MAWB_ID'
+        DataPipeline = MawbPIP
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 10
+        Font.Style = []
+        ParentDataPipeline = False
+        Transparent = True
+        DataPipelineName = 'MawbPIP'
+        mmHeight = 4022
+        mmLeft = 136949
+        mmTop = 34925
+        mmWidth = 23707
+        BandType = 1
+        LayerName = Foreground3
+      end
+      object ppDBText9: TppDBText
+        DesignLayer = ppDesignLayer5
+        UserName = 'DBText102'
+        HyperlinkEnabled = False
+        Border.mmPadding = 0
+        DataField = 'DATE_ARRIVED'
+        DataPipeline = MawbPIP
+        DisplayFormat = 'dd/mm/yyy'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 10
+        Font.Style = []
+        ParentDataPipeline = False
+        Transparent = True
+        DataPipelineName = 'MawbPIP'
+        mmHeight = 4022
+        mmLeft = 69427
+        mmTop = 635
+        mmWidth = 24977
+        BandType = 1
+        LayerName = Foreground3
+      end
+      object ppLine6: TppLine
+        DesignLayer = ppDesignLayer5
+        UserName = 'Line1'
+        Border.mmPadding = 0
+        Position = lpBottom
+        Weight = 0.600000023841857900
+        mmHeight = 1905
+        mmLeft = 423
+        mmTop = 42968
+        mmWidth = 265431
+        BandType = 1
+        LayerName = Foreground3
+      end
+      object ppDBText13: TppDBText
+        DesignLayer = ppDesignLayer5
+        UserName = 'DBText1'
+        HyperlinkEnabled = False
+        Border.mmPadding = 0
+        DataField = 'TDID_MEDIUM'
+        DataPipeline = MawbPIP
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 10
+        Font.Style = []
+        ParentDataPipeline = False
+        Transparent = True
+        DataPipelineName = 'MawbPIP'
+        mmHeight = 4233
+        mmLeft = 54504
+        mmTop = 34396
+        mmWidth = 37835
+        BandType = 1
+        LayerName = Foreground3
+      end
+    end
+    object ppHeaderBand3: TppHeaderBand
+      Background.Brush.Style = bsClear
+      Border.mmPadding = 0
+      mmBottomOffset = 0
+      mmHeight = 0
+      mmPrintPosition = 0
+    end
+    object ppDetailBand4: TppDetailBand
+      Background1.Brush.Style = bsClear
+      Background2.Brush.Style = bsClear
+      Border.mmPadding = 0
+      PrintHeight = phDynamic
+      mmBottomOffset = 0
+      mmHeight = 7144
+      mmPrintPosition = 0
+      object ppSubReport2: TppSubReport
+        DesignLayer = ppDesignLayer5
+        UserName = 'SubReport1'
+        ExpandAll = False
+        NewPrintJob = False
+        OutlineSettings.CreateNode = True
+        TraverseAllData = False
+        DataPipelineName = 'MediumPIP'
+        mmHeight = 5027
+        mmLeft = 0
+        mmTop = 0
+        mmWidth = 284270
+        BandType = 4
+        LayerName = Foreground3
+        mmBottomOffset = 0
+        mmOverFlowOffset = 0
+        mmStopPosition = 0
+        mmMinHeight = 0
+        object ppChildReport2: TppChildReport
+          AutoStop = False
+          DataPipeline = MediumPIP
+          PrinterSetup.BinName = 'Default'
+          PrinterSetup.DocumentName = 'Report'
+          PrinterSetup.Duplex = dpNone
+          PrinterSetup.Orientation = poLandscape
+          PrinterSetup.PaperName = 'A4'
+          PrinterSetup.PrinterName = 'Default'
+          PrinterSetup.SaveDeviceSettings = False
+          PrinterSetup.mmMarginBottom = 6350
+          PrinterSetup.mmMarginLeft = 6350
+          PrinterSetup.mmMarginRight = 6350
+          PrinterSetup.mmMarginTop = 6350
+          PrinterSetup.mmPaperHeight = 209975
+          PrinterSetup.mmPaperWidth = 296970
+          PrinterSetup.PaperSize = 9
+          Version = '21.0'
+          mmColumnWidth = 0
+          DataPipelineName = 'MediumPIP'
+          object ppTitleBand4: TppTitleBand
+            Background.Brush.Style = bsClear
+            Border.mmPadding = 0
+            mmBottomOffset = 0
+            mmHeight = 13229
+            mmPrintPosition = 0
+            object ppLabel55: TppLabel
+              DesignLayer = ppDesignLayer4
+              UserName = 'Label17'
+              HyperlinkEnabled = False
+              Border.mmPadding = 0
+              Caption = #913'/'#913
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clBlack
+              Font.Name = 'Arial'
+              Font.Size = 9
+              Font.Style = [fsBold]
+              FormFieldSettings.FormSubmitInfo.SubmitMethod = fstPost
+              FormFieldSettings.FormFieldType = fftNone
+              Transparent = True
+              mmHeight = 3810
+              mmLeft = 3704
+              mmTop = 6879
+              mmWidth = 5376
+              BandType = 1
+              LayerName = BandLayer5
+            end
+            object ppLabel56: TppLabel
+              DesignLayer = ppDesignLayer4
+              UserName = 'Label18'
+              HyperlinkEnabled = False
+              Border.mmPadding = 0
+              Caption = 'HAWB'
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clBlack
+              Font.Name = 'Arial'
+              Font.Size = 9
+              Font.Style = [fsBold]
+              FormFieldSettings.FormSubmitInfo.SubmitMethod = fstPost
+              FormFieldSettings.FormFieldType = fftNone
+              Transparent = True
+              mmHeight = 3810
+              mmLeft = 12965
+              mmTop = 6879
+              mmWidth = 9737
+              BandType = 1
+              LayerName = BandLayer5
+            end
+            object ppLabel57: TppLabel
+              DesignLayer = ppDesignLayer4
+              UserName = 'Label19'
+              HyperlinkEnabled = False
+              Border.mmPadding = 0
+              Caption = #928#913#922#917#932#913
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clBlack
+              Font.Name = 'Arial'
+              Font.Size = 9
+              Font.Style = [fsBold]
+              FormFieldSettings.FormSubmitInfo.SubmitMethod = fstPost
+              FormFieldSettings.FormFieldType = fftNone
+              Transparent = True
+              mmHeight = 3810
+              mmLeft = 30163
+              mmTop = 6879
+              mmWidth = 12912
+              BandType = 1
+              LayerName = BandLayer5
+            end
+            object ppLabel58: TppLabel
+              DesignLayer = ppDesignLayer4
+              UserName = 'Label20'
+              HyperlinkEnabled = False
+              Border.mmPadding = 0
+              Caption = #928#913#929#913#923#919#928#932#919#931
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clBlack
+              Font.Name = 'Arial'
+              Font.Size = 9
+              Font.Style = [fsBold]
+              FormFieldSettings.FormSubmitInfo.SubmitMethod = fstPost
+              FormFieldSettings.FormFieldType = fftNone
+              Transparent = True
+              mmHeight = 3810
+              mmLeft = 61119
+              mmTop = 6879
+              mmWidth = 25612
+              BandType = 1
+              LayerName = BandLayer5
+            end
+            object ppLabel59: TppLabel
+              DesignLayer = ppDesignLayer4
+              UserName = 'Label201'
+              HyperlinkEnabled = False
+              Border.mmPadding = 0
+              Caption = #935#937#929#913' '#922#913#932#913#915#937#915#919#931
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clBlack
+              Font.Name = 'Arial'
+              Font.Size = 9
+              Font.Style = [fsBold]
+              FormFieldSettings.FormSubmitInfo.SubmitMethod = fstPost
+              FormFieldSettings.FormFieldType = fftNone
+              TextAlignment = taCentered
+              Transparent = True
+              WordWrap = True
+              mmHeight = 7620
+              mmLeft = 120915
+              mmTop = 2910
+              mmWidth = 19050
+              BandType = 1
+              LayerName = BandLayer5
+            end
+            object ppLabel60: TppLabel
+              DesignLayer = ppDesignLayer4
+              UserName = 'Label22'
+              HyperlinkEnabled = False
+              Border.mmPadding = 0
+              Caption = #928#917#929#921#915#929#913#934#919' '#917#924#928#927#929#917#933#924#913#932#937#925
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clBlack
+              Font.Name = 'Arial'
+              Font.Size = 9
+              Font.Style = [fsBold]
+              FormFieldSettings.FormSubmitInfo.SubmitMethod = fstPost
+              FormFieldSettings.FormFieldType = fftNone
+              Transparent = True
+              mmHeight = 3810
+              mmLeft = 143404
+              mmTop = 6879
+              mmWidth = 49953
+              BandType = 1
+              LayerName = BandLayer5
+            end
+            object ppLabel61: TppLabel
+              DesignLayer = ppDesignLayer4
+              UserName = 'Label37'
+              HyperlinkEnabled = False
+              Border.mmPadding = 0
+              Caption = #914#913#929#927#931' KG'
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clBlack
+              Font.Name = 'Arial'
+              Font.Size = 9
+              Font.Style = [fsBold]
+              FormFieldSettings.FormSubmitInfo.SubmitMethod = fstPost
+              FormFieldSettings.FormFieldType = fftNone
+              TextAlignment = taCentered
+              Transparent = True
+              WordWrap = True
+              mmHeight = 7620
+              mmLeft = 46038
+              mmTop = 2910
+              mmWidth = 11007
+              BandType = 1
+              LayerName = BandLayer5
+            end
+            object ppLabel62: TppLabel
+              DesignLayer = ppDesignLayer4
+              UserName = 'Label24'
+              HyperlinkEnabled = False
+              Border.mmPadding = 0
+              Caption = #934#928#913' (3000)'
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clBlack
+              Font.Name = 'Arial'
+              Font.Size = 9
+              Font.Style = [fsBold]
+              FormFieldSettings.FormSubmitInfo.SubmitMethod = fstPost
+              FormFieldSettings.FormFieldType = fftNone
+              Transparent = True
+              mmHeight = 3810
+              mmLeft = 238919
+              mmTop = 1058
+              mmWidth = 17357
+              BandType = 1
+              LayerName = BandLayer5
+            end
+            object ppLabel63: TppLabel
+              DesignLayer = ppDesignLayer4
+              UserName = 'Label23'
+              HyperlinkEnabled = False
+              Border.mmPadding = 0
+              Caption = #913#926#921#913
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clBlack
+              Font.Name = 'Arial'
+              Font.Size = 9
+              Font.Style = [fsBold]
+              FormFieldSettings.FormSubmitInfo.SubmitMethod = fstPost
+              FormFieldSettings.FormFieldType = fftNone
+              Transparent = True
+              mmHeight = 3810
+              mmLeft = 233363
+              mmTop = 6879
+              mmWidth = 7620
+              BandType = 1
+              LayerName = BandLayer5
+            end
+            object ppLabel64: TppLabel
+              DesignLayer = ppDesignLayer4
+              UserName = 'Label35'
+              HyperlinkEnabled = False
+              Border.mmPadding = 0
+              Caption = 'RATE'
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clBlack
+              Font.Name = 'Arial'
+              Font.Size = 9
+              Font.Style = [fsBold]
+              FormFieldSettings.FormSubmitInfo.SubmitMethod = fstPost
+              FormFieldSettings.FormFieldType = fftNone
+              Transparent = True
+              mmHeight = 3810
+              mmLeft = 243946
+              mmTop = 6879
+              mmWidth = 8467
+              BandType = 1
+              LayerName = BandLayer5
+            end
+            object ppLabel65: TppLabel
+              DesignLayer = ppDesignLayer4
+              UserName = 'Label36'
+              HyperlinkEnabled = False
+              Border.mmPadding = 0
+              Caption = #928#927#931#927
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clBlack
+              Font.Name = 'Arial'
+              Font.Size = 9
+              Font.Style = [fsBold]
+              FormFieldSettings.FormSubmitInfo.SubmitMethod = fstPost
+              FormFieldSettings.FormFieldType = fftNone
+              Transparent = True
+              mmHeight = 3810
+              mmLeft = 256382
+              mmTop = 6879
+              mmWidth = 9313
+              BandType = 1
+              LayerName = BandLayer5
+            end
+            object ppLine7: TppLine
+              DesignLayer = ppDesignLayer4
+              UserName = 'Line3'
+              Border.mmPadding = 0
+              Position = lpBottom
+              Weight = 0.600000023841857900
+              mmHeight = 1905
+              mmLeft = 529
+              mmTop = 10055
+              mmWidth = 265431
+              BandType = 1
+              LayerName = BandLayer5
+            end
+          end
+          object ppDetailBand5: TppDetailBand
+            Background1.Brush.Style = bsClear
+            Background2.Brush.Style = bsClear
+            Border.mmPadding = 0
+            mmBottomOffset = 0
+            mmHeight = 5292
+            mmPrintPosition = 0
+            object ppDBText17: TppDBText
+              DesignLayer = ppDesignLayer4
+              UserName = 'DBText4'
+              HyperlinkEnabled = False
+              Border.mmPadding = 0
+              DataField = 'DESCRIPTION'
+              DataPipeline = MediumPIP
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clBlack
+              Font.Name = 'Arial'
+              Font.Size = 9
+              Font.Style = []
+              Transparent = True
+              DataPipelineName = 'MediumPIP'
+              mmHeight = 3969
+              mmLeft = 143404
+              mmTop = 529
+              mmWidth = 80698
+              BandType = 4
+              LayerName = BandLayer5
+            end
+            object ppDBText24: TppDBText
+              DesignLayer = ppDesignLayer4
+              UserName = 'DBText12'
+              HyperlinkEnabled = False
+              Border.mmPadding = 0
+              DataField = 'MED_CUSTOMSVALUE'
+              DataPipeline = MediumPIP
+              DisplayFormat = #8364'#,0.00;-#,0.00'
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clBlack
+              Font.Name = 'Arial'
+              Font.Size = 9
+              Font.Style = []
+              TextAlignment = taRightJustified
+              Transparent = True
+              DataPipelineName = 'MediumPIP'
+              mmHeight = 4022
+              mmLeft = 228336
+              mmTop = 529
+              mmWidth = 11430
+              BandType = 4
+              LayerName = BandLayer5
+            end
+            object ppDBText25: TppDBText
+              DesignLayer = ppDesignLayer4
+              UserName = 'DBText18'
+              HyperlinkEnabled = False
+              Border.mmPadding = 0
+              DataField = 'CUSTOMER_NAME'
+              DataPipeline = MediumPIP
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clBlack
+              Font.Name = 'Arial'
+              Font.Size = 9
+              Font.Style = []
+              ParentDataPipeline = False
+              Transparent = True
+              DataPipelineName = 'MediumPIP'
+              mmHeight = 4022
+              mmLeft = 61119
+              mmTop = 529
+              mmWidth = 63712
+              BandType = 4
+              LayerName = BandLayer5
+            end
+            object ppDBText26: TppDBText
+              DesignLayer = ppDesignLayer4
+              UserName = 'DBText19'
+              HyperlinkEnabled = False
+              Border.mmPadding = 0
+              DataField = 'Country'
+              DataPipeline = MediumPIP
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clBlack
+              Font.Name = 'Arial'
+              Font.Size = 9
+              Font.Style = []
+              Transparent = True
+              DataPipelineName = 'MediumPIP'
+              mmHeight = 4022
+              mmLeft = 126471
+              mmTop = 529
+              mmWidth = 7832
+              BandType = 4
+              LayerName = BandLayer5
+            end
+            object ppDBText27: TppDBText
+              DesignLayer = ppDesignLayer4
+              UserName = 'DBText20'
+              HyperlinkEnabled = False
+              Border.mmPadding = 0
+              DataField = 'TARIFF_UNIT_RATE'
+              DataPipeline = MediumPIP
+              DisplayFormat = '#,0.00;-#,0.00'
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clBlack
+              Font.Name = 'Arial'
+              Font.Size = 9
+              Font.Style = []
+              TextAlignment = taRightJustified
+              Transparent = True
+              DataPipelineName = 'MediumPIP'
+              mmHeight = 4022
+              mmLeft = 241830
+              mmTop = 529
+              mmWidth = 8678
+              BandType = 4
+              LayerName = BandLayer5
+            end
+            object ppDBText28: TppDBText
+              DesignLayer = ppDesignLayer4
+              UserName = 'DBText21'
+              HyperlinkEnabled = False
+              Border.mmPadding = 0
+              DataField = 'AMOUNT_NET'
+              DataPipeline = MediumPIP
+              DisplayFormat = #8364'#,0.00;-#,0.00'
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clBlack
+              Font.Name = 'Arial'
+              Font.Size = 9
+              Font.Style = []
+              TextAlignment = taRightJustified
+              Transparent = True
+              DataPipelineName = 'MediumPIP'
+              mmHeight = 3969
+              mmLeft = 254001
+              mmTop = 529
+              mmWidth = 13758
+              BandType = 4
+              LayerName = BandLayer5
+            end
+            object ppDBText29: TppDBText
+              DesignLayer = ppDesignLayer4
+              UserName = 'DBText22'
+              HyperlinkEnabled = False
+              Border.mmPadding = 0
+              DataField = 'WEIGHT'
+              DataPipeline = MediumPIP
+              DisplayFormat = '#,0.00;-#,0.00'
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clBlack
+              Font.Name = 'Arial'
+              Font.Size = 9
+              Font.Style = []
+              TextAlignment = taRightJustified
+              Transparent = True
+              DataPipelineName = 'MediumPIP'
+              mmHeight = 4022
+              mmLeft = 45244
+              mmTop = 529
+              mmWidth = 9102
+              BandType = 4
+              LayerName = BandLayer5
+            end
+            object ppDBText30: TppDBText
+              DesignLayer = ppDesignLayer4
+              UserName = 'DBText23'
+              HyperlinkEnabled = False
+              Border.mmPadding = 0
+              DataField = 'HAB_ID'
+              DataPipeline = MediumPIP
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clBlack
+              Font.Name = 'Arial'
+              Font.Size = 9
+              Font.Style = []
+              Transparent = True
+              DataPipelineName = 'MediumPIP'
+              mmHeight = 4233
+              mmLeft = 18521
+              mmTop = 529
+              mmWidth = 19050
+              BandType = 4
+              LayerName = BandLayer5
+            end
+            object ppVariable1: TppVariable
+              DesignLayer = ppDesignLayer4
+              UserName = 'Variable2'
+              HyperlinkEnabled = False
+              Border.mmPadding = 0
+              BlankWhenZero = False
+              CalcOrder = 0
+              DataType = dtInteger
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clBlack
+              Font.Name = 'Arial'
+              Font.Size = 9
+              Font.Style = []
+              TextAlignment = taRightJustified
+              Transparent = True
+              mmHeight = 3598
+              mmLeft = 529
+              mmTop = 529
+              mmWidth = 7408
+              BandType = 4
+              LayerName = BandLayer5
+            end
+          end
+          object ppSummaryBand3: TppSummaryBand
+            Background.Brush.Style = bsClear
+            Border.mmPadding = 0
+            mmBottomOffset = 0
+            mmHeight = 529
+            mmPrintPosition = 0
+          end
+          object ppDesignLayers4: TppDesignLayers
+            object ppDesignLayer4: TppDesignLayer
+              UserName = 'BandLayer5'
+              LayerType = ltBanded
+              Index = 0
+            end
+          end
+        end
+      end
+    end
+    object ppFooterBand3: TppFooterBand
+      Background.Brush.Style = bsClear
+      Border.mmPadding = 0
+      mmBottomOffset = 0
+      mmHeight = 5503
+      mmPrintPosition = 0
+      object ppSystemVariable2: TppSystemVariable
+        DesignLayer = ppDesignLayer5
+        UserName = 'SystemVariable1'
+        HyperlinkEnabled = False
+        Border.mmPadding = 0
+        VarType = vtPageSet
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 9
+        Font.Style = []
+        Transparent = True
+        mmHeight = 4233
+        mmLeft = 258022
+        mmTop = 423
+        mmWidth = 8043
+        BandType = 8
+        LayerName = Foreground3
+      end
+    end
+    object ppSummaryBand4: TppSummaryBand
+      Background.Brush.Style = bsClear
+      Border.mmPadding = 0
+      mmBottomOffset = 0
+      mmHeight = 66463
+      mmPrintPosition = 0
+      object ppLabel66: TppLabel
+        DesignLayer = ppDesignLayer5
+        UserName = 'Label10'
+        HyperlinkEnabled = False
+        Border.mmPadding = 0
+        Caption = 
+          #932#945' '#960#953#959' '#960#940#957#969' '#949#956#960#959#961#949#973#956#945#964#945' '#948#949#957' '#965#960#940#947#959#957#964#945#953' '#963#949' '#959#960#959#953#959#965#963#948#942#960#959#964#949' '#948#945#963#956#959#973#962' '#942 +
+          ' '#948#949#963#956#941#965#963#949#953#962
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 9
+        Font.Style = []
+        FormFieldSettings.FormSubmitInfo.SubmitMethod = fstPost
+        FormFieldSettings.FormFieldType = fftNone
+        Transparent = True
+        mmHeight = 3810
+        mmLeft = 1058
+        mmTop = 8255
+        mmWidth = 119380
+        BandType = 7
+        LayerName = Foreground3
+      end
+      object ppLabel67: TppLabel
+        DesignLayer = ppDesignLayer5
+        UserName = 'Label11'
+        HyperlinkEnabled = False
+        Border.mmPadding = 0
+        Caption = #933#960#959#947#961#945#966#942
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 9
+        Font.Style = []
+        FormFieldSettings.FormSubmitInfo.SubmitMethod = fstPost
+        FormFieldSettings.FormFieldType = fftNone
+        Transparent = True
+        mmHeight = 3810
+        mmLeft = 196850
+        mmTop = 29210
+        mmWidth = 14393
+        BandType = 7
+        LayerName = Foreground3
+      end
+      object ppLabel68: TppLabel
+        DesignLayer = ppDesignLayer5
+        UserName = 'Label12'
+        HyperlinkEnabled = False
+        Border.mmPadding = 0
+        Caption = #933#960#959#947#961#945#966#942
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 9
+        Font.Style = []
+        FormFieldSettings.FormSubmitInfo.SubmitMethod = fstPost
+        FormFieldSettings.FormFieldType = fftNone
+        Transparent = True
+        mmHeight = 3810
+        mmLeft = 196850
+        mmTop = 38523
+        mmWidth = 14393
+        BandType = 7
+        LayerName = Foreground3
+      end
+      object ppLabel69: TppLabel
+        DesignLayer = ppDesignLayer5
+        UserName = 'Label13'
+        HyperlinkEnabled = False
+        Border.mmPadding = 0
+        Caption = #916#953#945#947#961#945#966#942' TDID '#945#960#972' '#924#945#957#953#966#941#963#964#959
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 9
+        Font.Style = []
+        FormFieldSettings.FormSubmitInfo.SubmitMethod = fstPost
+        FormFieldSettings.FormFieldType = fftNone
+        Transparent = True
+        mmHeight = 3810
+        mmLeft = 1058
+        mmTop = 38100
+        mmWidth = 45297
+        BandType = 7
+        LayerName = Foreground3
+      end
+      object ppLabel70: TppLabel
+        DesignLayer = ppDesignLayer5
+        UserName = 'Label14'
+        HyperlinkEnabled = False
+        Border.mmPadding = 0
+        Caption = #933#960#959#947#961#945#966#942' '#916#953#945#963#945#966#953#963#964#942
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 9
+        Font.Style = []
+        FormFieldSettings.FormSubmitInfo.SubmitMethod = fstPost
+        FormFieldSettings.FormFieldType = fftNone
+        Transparent = True
+        mmHeight = 3810
+        mmLeft = 1058
+        mmTop = 20743
+        mmWidth = 32173
+        BandType = 7
+        LayerName = Foreground3
+      end
+      object ppLabel71: TppLabel
+        DesignLayer = ppDesignLayer5
+        UserName = 'Label15'
+        HyperlinkEnabled = False
+        Border.mmPadding = 0
+        Caption = #908#957#959#956#945' '#923#949#953#964#959#965#961#947#959#973
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 9
+        Font.Style = []
+        FormFieldSettings.FormSubmitInfo.SubmitMethod = fstPost
+        FormFieldSettings.FormFieldType = fftNone
+        Transparent = True
+        mmHeight = 3810
+        mmLeft = 79163
+        mmTop = 29210
+        mmWidth = 26247
+        BandType = 7
+        LayerName = Foreground3
+      end
+      object ppLabel72: TppLabel
+        DesignLayer = ppDesignLayer5
+        UserName = 'Label16'
+        HyperlinkEnabled = False
+        Border.mmPadding = 0
+        Caption = #908#957#959#956#945' '#923#949#953#964#959#965#961#947#959#973' '#917#955#941#947#967#959#965
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 9
+        Font.Style = []
+        FormFieldSettings.FormSubmitInfo.SubmitMethod = fstPost
+        FormFieldSettings.FormFieldType = fftNone
+        Transparent = True
+        mmHeight = 3810
+        mmLeft = 1058
+        mmTop = 29210
+        mmWidth = 39158
+        BandType = 7
+        LayerName = Foreground3
+      end
+      object ppLabel73: TppLabel
+        DesignLayer = ppDesignLayer5
+        UserName = 'Label31'
+        HyperlinkEnabled = False
+        Border.mmPadding = 0
+        Caption = #931#933#925#927#923#927' '#934#928#913' (3000):'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 9
+        Font.Style = []
+        FormFieldSettings.FormSubmitInfo.SubmitMethod = fstPost
+        FormFieldSettings.FormFieldType = fftNone
+        Transparent = True
+        mmHeight = 3810
+        mmLeft = 197485
+        mmTop = 2963
+        mmWidth = 31327
+        BandType = 7
+        LayerName = Foreground3
+      end
+      object ppLabel74: TppLabel
+        DesignLayer = ppDesignLayer5
+        UserName = 'Label32'
+        HyperlinkEnabled = False
+        Border.mmPadding = 0
+        Caption = #913#928#927#920'. '#932#917#923#919' (4104):'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 9
+        Font.Style = []
+        FormFieldSettings.FormSubmitInfo.SubmitMethod = fstPost
+        FormFieldSettings.FormFieldType = fftNone
+        Transparent = True
+        mmHeight = 3810
+        mmLeft = 197485
+        mmTop = 8255
+        mmWidth = 30057
+        BandType = 7
+        LayerName = Foreground3
+      end
+      object ppLabel75: TppLabel
+        DesignLayer = ppDesignLayer5
+        UserName = 'Label33'
+        HyperlinkEnabled = False
+        Border.mmPadding = 0
+        Caption = #932#917#923#919' '#928#913#929#913#916#927#931#919#931' (4202):'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 9
+        Font.Style = []
+        FormFieldSettings.FormSubmitInfo.SubmitMethod = fstPost
+        FormFieldSettings.FormFieldType = fftNone
+        Transparent = True
+        mmHeight = 3810
+        mmLeft = 197485
+        mmTop = 13547
+        mmWidth = 38947
+        BandType = 7
+        LayerName = Foreground3
+      end
+      object ppLabel76: TppLabel
+        DesignLayer = ppDesignLayer5
+        UserName = 'Label34'
+        HyperlinkEnabled = False
+        Border.mmPadding = 0
+        Caption = #931#933#925#927#923#921#922#927' '#932#917#923#927#931' '#917#921#931#928#929#913#926#919#931':'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 9
+        Font.Style = []
+        FormFieldSettings.FormSubmitInfo.SubmitMethod = fstPost
+        FormFieldSettings.FormFieldType = fftNone
+        Transparent = True
+        mmHeight = 3810
+        mmLeft = 197485
+        mmTop = 18415
+        mmWidth = 46567
+        BandType = 7
+        LayerName = Foreground3
+      end
+      object ppLine8: TppLine
+        DesignLayer = ppDesignLayer5
+        UserName = 'Line4'
+        Border.mmPadding = 0
+        Weight = 0.600000023841857900
+        mmHeight = 1905
+        mmLeft = 423
+        mmTop = 847
+        mmWidth = 265431
+        BandType = 7
+        LayerName = Foreground3
+      end
+      object ppDBCalc4: TppDBCalc
+        DesignLayer = ppDesignLayer5
+        UserName = 'DBCalc2'
+        HyperlinkEnabled = False
+        Border.mmPadding = 0
+        DataField = 'NUM_OF_PIECES_ARRIVED'
+        DataPipeline = MawbPIP
+        DisplayFormat = '#,0.00;-#,0.00'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 9
+        Font.Style = []
+        TextAlignment = taRightJustified
+        Transparent = True
+        DataPipelineName = 'MawbPIP'
+        mmHeight = 3598
+        mmLeft = 28152
+        mmTop = 3175
+        mmWidth = 13758
+        BandType = 7
+        LayerName = Foreground3
+      end
+      object ppDBCalc5: TppDBCalc
+        DesignLayer = ppDesignLayer5
+        UserName = 'DBCalc1'
+        HyperlinkEnabled = False
+        Border.mmPadding = 0
+        DataField = 'WEIGHT'
+        DataPipeline = MawbPIP
+        DisplayFormat = '#,0.00;-#,0.00'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 9
+        Font.Style = []
+        TextAlignment = taRightJustified
+        Transparent = True
+        DataPipelineName = 'MawbPIP'
+        mmHeight = 3598
+        mmLeft = 42968
+        mmTop = 3175
+        mmWidth = 11430
+        BandType = 7
+        LayerName = Foreground3
+      end
+      object ppDBCalc6: TppDBCalc
+        DesignLayer = ppDesignLayer5
+        UserName = 'DBCalc3'
+        Border.mmPadding = 0
+        DataField = 'AMOUNT_NET'
+        DataPipeline = MawbPIP
+        DisplayFormat = '#,0.00;-#,0.00'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 9
+        Font.Style = []
+        TextAlignment = taRightJustified
+        Transparent = True
+        DataPipelineName = 'MawbPIP'
+        mmHeight = 4498
+        mmLeft = 248444
+        mmTop = 3175
+        mmWidth = 17198
+        BandType = 7
+        LayerName = Foreground3
+      end
+      object ppVariable3: TppVariable
+        DesignLayer = ppDesignLayer5
+        UserName = 'DeliveryFLD'
+        Border.mmPadding = 0
+        BlankWhenZero = False
+        CalcOrder = 0
+        DataType = dtDouble
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 9
+        Font.Style = []
+        TextAlignment = taRightJustified
+        Transparent = True
+        mmHeight = 3969
+        mmLeft = 248179
+        mmTop = 9525
+        mmWidth = 17463
+        BandType = 7
+        LayerName = Foreground3
+      end
+      object ppVariable4: TppVariable
+        DesignLayer = ppDesignLayer5
+        UserName = 'StorageFLD'
+        Border.mmPadding = 0
+        BlankWhenZero = False
+        CalcOrder = 1
+        CalcType = veReportEnd
+        DataType = dtDouble
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Name = 'Arial'
+        Font.Size = 9
+        Font.Style = []
+        TextAlignment = taRightJustified
+        Transparent = True
+        mmHeight = 3969
+        mmLeft = 248179
+        mmTop = 16404
+        mmWidth = 17463
+        BandType = 7
+        LayerName = Foreground3
+      end
+    end
+    object ppDesignLayers5: TppDesignLayers
+      object ppDesignLayer5: TppDesignLayer
+        UserName = 'Foreground3'
+        LayerType = ltBanded
+        Index = 0
+      end
+    end
+    object ppParameterList3: TppParameterList
+    end
+  end
+end

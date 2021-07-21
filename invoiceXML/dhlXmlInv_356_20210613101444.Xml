@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MSG xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<Hdr Id="INV-POD" Ver="1.033" Dtm="2021-06-13 10:14:45" GmtOff="+03:00">
+		<Sndr AppCd="CABS" AppVer="1.00" CtryCd="CY" AppNm="CABS"/>
+	</Hdr>
+	<Bd>
+		<Inv PMthTyCd="CSH" TotNOfPcs="1" Dt="2018-01-24 10:14:45" DueDt="2018-01-24 10:14:45">
+			<InvDocTy InvDcTyCd="REG"/>
+			<GI SrcCtryCd="CY" SrcSrvaCd="LCA" SrcFcCd="GTW" SrcCtryNm="CY"/>
+			<CntOrdLnTr OrdLnNo="1" PayChrg="2.86">
+				<OrdLnTrAdInf AttNm="CHARGE_CODE" AttVal="GVAT"/>
+				<OrdLnTrAdInf AttNm="CHARGE_DESCRIPTION" AttVal="VAT"/>
+			</CntOrdLnTr>
+		</Inv>
+		<Shp id="2710147554">
+			<ShpTr DstSrvaCd="LCA" OrgSrvaCd="HKG" SActWgt="0.500" PuDtm="2018-01-24 00:00:00" TrmTrdCd="DTU">
+				<SCDtl CRlTyCd="BT" AccNo="DUTYCYCSH" CustNm="" CntNm="" Addr1="" Addr2="" Addr3="" Zip="" CtyNm="" CtryCd="CY">
+					<SCCDev CDevTyCd="TEL" CDevNo=""/>
+					<SCCDev CDevTyCd="EMAIL" CDevNo=""/>
+				</SCDtl>
+				<SCDtl CRlTyCd="RV" CustNm="" CntNm="" Addr1="" Addr2="" Addr3="" Zip="" CtyNm="" CtryCd="CY">
+					<SCCDev CDevTyCd="TEL" CDevNo=""/>
+					<SCCDev CDevTyCd="EMAIL" CDevNo=""/>
+				</SCDtl>
+				<SCDtl CRlTyCd="SP" CustNm="CI CI LTD" CntNm="CI CI LTD" Addr1="GUANG ZHOU SHI BAI HE QU" Addr2="GUANG ZHOU SHI BAI HE QU" Addr3="GUANG ZHOU SHI BAI HE QU" Zip="" CtyNm="HONG KONG" CtryCd="HK">
+					<SCCDev CDevTyCd="TEL" CDevNo=""/>
+					<SCCDev CDevTyCd="EMAIL" CDevNo=""/>
+				</SCDtl>
+			</ShpTr>
+			<ShpDsc DscGds="CLOTHES"/>
+			<ShpRef ShpRef="39092364705">
+				<TrcRefTy Cd="MAB"/>
+			</ShpRef>
+			<ShpInDoc>
+				<SDoc InctrmCd="DDU"/>
+			</ShpInDoc>
+		</Shp>
+		<GEvt LEvtCd="MA" MvmtId="A30621" EvtDtm="21/11/2017"/>
+	</Bd>
+</MSG>

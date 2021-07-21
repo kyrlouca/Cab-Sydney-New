@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CypDhl xmlns="invDHL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="invDHL DhlInvoices.xsd">
+	<Hdr>
+		<Origin>From DHL Cyprus</Origin>
+		<FileCreationDate>2017-08-01</FileCreationDate>
+		<FileName>C:\Data\DelphiProjects\Tariffs\InvoiceXML\dhlCypInv_8_10_20170801133429.XML</FileName>
+	</Hdr>
+	<Invoices>
+		<Invoice>
+			<SerialNumber>8</SerialNumber>
+			<HawbId>2532919185</HawbId>
+			<MawbId>61591381611</MawbId>
+			<District>NIC</District>
+			<InvoiceDate>2017-08-01</InvoiceDate>
+			<Amount> 851.13 </Amount>
+			<Customer>
+				<Name>UDJAT EYE FASHIONS LTD</Name>
+				<Address>
+					<Address1>KLEOSTHENOUS</Address1>
+					<PostCode>2012</PostCode>
+					<City>NICOSIA</City>
+					<Country>CYPRUS</Country>
+				</Address>
+			</Customer>
+			<Lines>
+				<Line>
+					<Amount>   3.50 </Amount>
+					<Category>GCUS</Category>
+				</Line>
+				<Line>
+					<Amount>   0.00 </Amount>
+					<Category>GDHL</Category>
+				</Line>
+				<Line>
+					<Amount>   0.00 </Amount>
+					<Category>GEXC</Category>
+				</Line>
+				<Line>
+					<Amount>   0.00 </Amount>
+					<Category>GIMP</Category>
+				</Line>
+				<Line>
+					<Amount> 847.63 </Amount>
+					<Category>GVAT</Category>
+				</Line>
+			</Lines>
+		</Invoice>
+		<Invoice>
+			<SerialNumber>9</SerialNumber>
+			<HawbId>2819013945</HawbId>
+			<MawbId>61591381611</MawbId>
+			<District>NIC</District>
+			<InvoiceDate>2017-08-01</InvoiceDate>
+			<Amount>  17.00 </Amount>
+			<Customer>
+				<Name>THE  ENGLISH  SCHOOL</Name>
+				<Address>
+					<Address1>ATHALASSAS 3</Address1>
+					<PostCode>3022</PostCode>
+					<City>STROVOLOS</City>
+					<Country>CYPRUS</Country>
+				</Address>
+			</Customer>
+			<Lines>
+				<Line>
+					<Amount>   2.00 </Amount>
+					<Category>GCUS</Category>
+				</Line>
+				<Line>
+					<Amount>  15.00 </Amount>
+					<Category>GVAT</Category>
+				</Line>
+			</Lines>
+		</Invoice>
+		<Invoice>
+			<SerialNumber>10</SerialNumber>
+			<HawbId>2370129075</HawbId>
+			<MawbId>61591381611</MawbId>
+			<District>LAR</District>
+			<InvoiceDate>2017-08-01</InvoiceDate>
+			<Amount>   9.37 </Amount>
+			<Customer>
+				<Name> ANDREAS   ACHILLEOS</Name>
+				<Address>
+					<Address1>7 AGIOU THERAPONTOS</Address1>
+					<PostCode>NICOSIA </PostCode>
+					<City>CYPRUS</City>
+					<Country>CYPRUS</Country>
+				</Address>
+			</Customer>
+			<Lines>
+				<Line>
+					<Amount>   3.50 </Amount>
+					<Category>GCUS</Category>
+				</Line>
+				<Line>
+					<Amount>   0.00 </Amount>
+					<Category>GDHL</Category>
+				</Line>
+				<Line>
+					<Amount>   0.00 </Amount>
+					<Category>GEXC</Category>
+				</Line>
+				<Line>
+					<Amount>   1.48 </Amount>
+					<Category>GIMP</Category>
+				</Line>
+				<Line>
+					<Amount>   4.39 </Amount>
+					<Category>GVAT</Category>
+				</Line>
+			</Lines>
+		</Invoice>
+	</Invoices>
+</CypDhl>

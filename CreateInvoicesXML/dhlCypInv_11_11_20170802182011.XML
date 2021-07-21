@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CypDhl xmlns="invDHL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="invDHL DhlInvoices.xsd">
+	<Hdr>
+		<Origin>From DHL Cyprus</Origin>
+		<FileCreationDate>2017-08-02</FileCreationDate>
+		<FileName>C:\Data\DelphiProjects\TokyoCabT\InvoiceXML\dhlCypInv_11_11_20170802182011.XML</FileName>
+	</Hdr>
+	<Invoices>
+		<Invoice>
+			<SerialNumber>11</SerialNumber>
+			<HawbId>2011452074</HawbId>
+			<MawbId>61591381611</MawbId>
+			<District>NIC</District>
+			<InvoiceDate>2017-08-01</InvoiceDate>
+			<Amount>   3.67 </Amount>
+			<Customer>
+				<Name> ANGELIKA KYRIAKOU</Name>
+				<Address>
+					<Address1>DEMONICOU 8</Address1>
+					<PostCode>NICOSIA </PostCode>
+					<City>CYPRUS</City>
+					<Country>CYPRUS</Country>
+				</Address>
+			</Customer>
+			<Lines>
+				<Line>
+					<Amount>   3.50 </Amount>
+					<Category>GCUS</Category>
+				</Line>
+				<Line>
+					<Amount>   0.00 </Amount>
+					<Category>GDHL</Category>
+				</Line>
+				<Line>
+					<Amount>   0.00 </Amount>
+					<Category>GEXC</Category>
+				</Line>
+				<Line>
+					<Amount>   0.02 </Amount>
+					<Category>GIMP</Category>
+				</Line>
+				<Line>
+					<Amount>   0.15 </Amount>
+					<Category>GVAT</Category>
+				</Line>
+			</Lines>
+		</Invoice>
+	</Invoices>
+</CypDhl>

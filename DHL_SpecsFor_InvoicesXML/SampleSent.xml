@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<MSG xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Hdr Ver="1.033" Dtm="2012-12-02 02:07:13" GmtOff="+08:00">
+    <Sndr AppCd="DCE" AppVer="1.0" CtryCd="" AppNm="DCE@JFK" />
+  </Hdr>
+  <Bd>
+    <Inv PMthTyCd="CSH" TotNOfPcs="4">
+      <InvDocTy InvDcTyCd="REG" />
+      <InvAddInf AttNm="GATEWAY CODE" AttVal="JFK" />
+      <InvAddInf AttNm="ENTRY TYPE" AttVal="Type 11" />
+      <InvAddInf AttNm="Free Text 1" AttVal="" />
+      <InvAddInf AttNm="7501 DATE" AttVal="" />
+      <InvAddInf AttNm="ENTRY DATE" AttVal="2012-12-01" />
+      <InvAddInf AttNm="INVOICE COUNTER" AttVal="1" />
+      <InvAddInf AttNm="BROKER FILER CODE" AttVal="" />
+      <InvAddInf AttNm="ENTRY NUMBER" AttVal="AEK09225133" />
+      <UsdforOrdLnTr OrdLnNo="1">
+        <OrdLnTrAdInf AttNm="HTS NUMBER" AttVal="5208314040" />
+        <OrdLnTrAdInf AttNm="ITEM QUANTITY" AttVal="0.00" />
+        <OrdLnTrAdInf AttNm="DUTY RATE" AttVal="0.08" />
+        <OrdLnTrAdInf AttNm="DUTY AMOUNT" AttVal="37.02" />
+        <OrdLnTrAdInf AttNm="ITEM VALUE" AttVal="457.00" />
+      </UsdforOrdLnTr>
+      <UsdforOrdLnTr OrdLnNo="2">
+        <OrdLnTrAdInf AttNm="HTS NUMBER" AttVal="5208314040" />
+        <OrdLnTrAdInf AttNm="ITEM QUANTITY" AttVal="0.00" />
+        <OrdLnTrAdInf AttNm="DUTY RATE" AttVal="0.00" />
+        <OrdLnTrAdInf AttNm="DUTY AMOUNT" AttVal="0.00" />
+        <OrdLnTrAdInf AttNm="ITEM VALUE" AttVal="457.00" />
+      </UsdforOrdLnTr>
+      <UsdforOrdLnTr OrdLnNo="3">
+        <OrdLnTrAdInf AttNm="HTS NUMBER" AttVal="5208314040" />
+        <OrdLnTrAdInf AttNm="ITEM QUANTITY" AttVal="0.00" />
+        <OrdLnTrAdInf AttNm="DUTY RATE" AttVal="0.00" />
+        <OrdLnTrAdInf AttNm="DUTY AMOUNT" AttVal="0.00" />
+        <OrdLnTrAdInf AttNm="ITEM VALUE" AttVal="457.00" />
+      </UsdforOrdLnTr>
+      <CntOrdLnTr OrdLnNo="1" PayChrg="37.02">
+        <OrdLnTrAdInf AttNm="CHARGE CODE" AttVal="DUTY" />
+        <OrdLnTrAdInf AttNm="CHARGE DESCRIPTION"
+        AttVal="Import / Export Duties" />
+      </CntOrdLnTr>
+    </Inv>
+    <Shp Id="2593142134">
+      <ShpTr DstSrvaCd="ELZ" OrgSrvaCd="DXB" MgNProdCd="P"
+      SActWgt="119.5" PuDtm="2012-11-30 00:00:00" TrmTrdCd="DDU">
+        <SCDtl CRlTyCd="SP" CustNm="MERIDIAN EXPRESS LOGISTICS LLC"
+        CntNm="AKASH RAVINDRABABU"
+        Addr1="NO 64- AL HABTOOR WH COMPLEX"
+        Addr2="AL QUSAIS INDL AREA 3" Addr3="DUBAI" Zip=""
+        CtyNm="DUBAI" CDivCd="">
+          <SCCDev CDevTyCd="TEL" CDevNo="042589572" />
+        </SCDtl>
+        <SCDtl CRlTyCd="RV" CustNm="MATTEW OSANYINLUSI"
+        CntNm="MATTEW OSANYINLUSI" Addr1="1248 SPRINGFIELD AVENUE"
+        Addr2="BLH" Addr3="IRVINGTON" Zip="07111" CtyNm="IRVINGTON"
+        CDivCd="NJ">
+          <SCCDev CDevTyCd="TEL" CDevNo="9733735344" />
+        </SCDtl>
+        <SCDtl CRlTyCd="UC" CustNm="MATTEW OSANYINLUSI"
+        CntNm="MATTEW OSANYINLUSI" Addr1="1248 SPRINGFIELD AVENUE"
+        Addr2="BLH" Addr3="IRVINGTON" Zip="07111" CtyNm="IRVINGTON"
+        CDivCd="NJ">
+          <SCCDev CDevTyCd="TEL" CDevNo="9733735344" />
+        </SCDtl>
+        <SCDtl CRlTyCd="BT" AccNo="DUTYUSELZ"
+        CustNm="MATTEW OSANYINLUSI" CntNm="MATTEW OSANYINLUSI"
+        Addr1="1248 SPRINGFIELD AVENUE" Addr2="BLH"
+        Addr3="IRVINGTON" Zip="07111" CtyNm="IRVINGTON"
+        CDivCd="NJ">
+          <SCCDev CDevTyCd="TEL" CDevNo="9733735344" />
+        </SCDtl>
+      </ShpTr>
+      <ShpDsc DscGds="LADIES DRESS COTTON WOVEN" />
+      <ShpRef ShpRef="" />
+      <ShpInDoc>
+        <SDoc InctrmCd="DDU" />
+      </ShpInDoc>
+      <ShpRef ShpRef="61558010875">
+        <TrcRefTy Cd="MAB" />
+      </ShpRef>
+    </Shp>
+    <GEvt MvmtId="CKS246" EvtDtm="2012-12-01 14:30:00" />
+    <Mvmt>
+      <MvmtSc MvmtSchDDtm="2012-12-01 14:30:00" />
+    </Mvmt>
+  </Bd>
+</MSG>
