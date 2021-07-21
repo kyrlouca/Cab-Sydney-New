@@ -182,10 +182,10 @@ object DeliveryOrderFRM: TDeliveryOrderFRM
         FormFieldSettings.FormSubmitInfo.SubmitMethod = fstPost
         FormFieldSettings.FormFieldType = fftNone
         Transparent = True
-        mmHeight = 4868
-        mmLeft = 156898
-        mmTop = 8576
-        mmWidth = 32978
+        mmHeight = 4763
+        mmLeft = 158750
+        mmTop = 6615
+        mmWidth = 33073
         BandType = 1
         LayerName = Foreground
       end
@@ -249,7 +249,7 @@ object DeliveryOrderFRM: TDeliveryOrderFRM
         DataPipelineName = 'MawbPL'
         mmHeight = 4657
         mmLeft = 158750
-        mmTop = 30272
+        mmTop = 33452
         mmWidth = 17145
         BandType = 1
         LayerName = Foreground
@@ -271,7 +271,7 @@ object DeliveryOrderFRM: TDeliveryOrderFRM
         DataPipelineName = 'MawbPL'
         mmHeight = 4657
         mmLeft = 184068
-        mmTop = 30272
+        mmTop = 33452
         mmWidth = 11430
         BandType = 1
         LayerName = Foreground
@@ -289,7 +289,7 @@ object DeliveryOrderFRM: TDeliveryOrderFRM
         Transparent = True
         mmHeight = 4022
         mmLeft = 158750
-        mmTop = 24980
+        mmTop = 28160
         mmWidth = 17526
         BandType = 1
         LayerName = Foreground
@@ -418,7 +418,7 @@ object DeliveryOrderFRM: TDeliveryOrderFRM
         Transparent = True
         mmHeight = 4022
         mmLeft = 183071
-        mmTop = 30476
+        mmTop = 33656
         mmWidth = 1058
         BandType = 1
         LayerName = Foreground
@@ -486,7 +486,7 @@ object DeliveryOrderFRM: TDeliveryOrderFRM
         DataPipelineName = 'HawbPL'
         mmHeight = 4657
         mmLeft = 158750
-        mmTop = 35564
+        mmTop = 38744
         mmWidth = 26670
         BandType = 1
         LayerName = Foreground
@@ -508,7 +508,7 @@ object DeliveryOrderFRM: TDeliveryOrderFRM
         DataPipelineName = 'MawbPL'
         mmHeight = 4657
         mmLeft = 178247
-        mmTop = 30272
+        mmTop = 33452
         mmWidth = 3598
         BandType = 1
         LayerName = Foreground
@@ -522,7 +522,7 @@ object DeliveryOrderFRM: TDeliveryOrderFRM
         Transparent = True
         mmHeight = 8255
         mmLeft = 132557
-        mmTop = 14926
+        mmTop = 19166
         mmWidth = 62653
         BandType = 1
         LayerName = Foreground
@@ -546,7 +546,7 @@ object DeliveryOrderFRM: TDeliveryOrderFRM
           Transparent = True
           mmHeight = 4868
           mmLeft = 132980
-          mmTop = 16619
+          mmTop = 20859
           mmWidth = 36195
           BandType = 1
           LayerName = Foreground
@@ -560,14 +560,14 @@ object DeliveryOrderFRM: TDeliveryOrderFRM
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
           Font.Name = 'Arial'
-          Font.Size = 9
+          Font.Size = 10
           Font.Style = []
           ParentDataPipeline = False
           Transparent = True
           DataPipelineName = 'HawbPL'
           mmHeight = 4498
           mmLeft = 170974
-          mmTop = 16302
+          mmTop = 20542
           mmWidth = 20108
           BandType = 1
           LayerName = Foreground
@@ -590,7 +590,7 @@ object DeliveryOrderFRM: TDeliveryOrderFRM
         DataPipelineName = 'MawbPL'
         mmHeight = 4657
         mmLeft = 158750
-        mmTop = 41120
+        mmTop = 44300
         mmWidth = 37253
         BandType = 1
         LayerName = Foreground
@@ -612,7 +612,7 @@ object DeliveryOrderFRM: TDeliveryOrderFRM
         Transparent = True
         mmHeight = 4657
         mmLeft = 132821
-        mmTop = 24451
+        mmTop = 27631
         mmWidth = 24765
         BandType = 1
         LayerName = Foreground
@@ -634,7 +634,7 @@ object DeliveryOrderFRM: TDeliveryOrderFRM
         Transparent = True
         mmHeight = 4657
         mmLeft = 132821
-        mmTop = 30272
+        mmTop = 33452
         mmWidth = 24553
         BandType = 1
         LayerName = Foreground
@@ -656,7 +656,7 @@ object DeliveryOrderFRM: TDeliveryOrderFRM
         Transparent = True
         mmHeight = 4657
         mmLeft = 132821
-        mmTop = 35564
+        mmTop = 38744
         mmWidth = 24553
         BandType = 1
         LayerName = Foreground
@@ -678,7 +678,7 @@ object DeliveryOrderFRM: TDeliveryOrderFRM
         Transparent = True
         mmHeight = 4657
         mmLeft = 132821
-        mmTop = 41120
+        mmTop = 44300
         mmWidth = 24553
         BandType = 1
         LayerName = Foreground
@@ -747,6 +747,47 @@ object DeliveryOrderFRM: TDeliveryOrderFRM
         mmLeft = 124884
         mmTop = 51329
         mmWidth = 36160
+        BandType = 1
+        LayerName = Foreground
+      end
+      object ppLabel32: TppLabel
+        DesignLayer = ppDesignLayer1
+        UserName = 'Label28'
+        AutoSize = False
+        Border.mmPadding = 0
+        Caption = 'IOSS :'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Name = 'Arial'
+        Font.Size = 12
+        Font.Style = [fsBold]
+        FormFieldSettings.FormSubmitInfo.SubmitMethod = fstPost
+        FormFieldSettings.FormFieldType = fftNone
+        Transparent = True
+        mmHeight = 4763
+        mmLeft = 133086
+        mmTop = 13229
+        mmWidth = 10848
+        BandType = 1
+        LayerName = Foreground
+      end
+      object ppDBText10: TppDBText
+        DesignLayer = ppDesignLayer1
+        UserName = 'DBText10'
+        Border.mmPadding = 0
+        DataField = 'IOSS'
+        DataPipeline = HawbPL
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Name = 'Arial'
+        Font.Size = 10
+        Font.Style = [fsBold]
+        Transparent = True
+        DataPipelineName = 'HawbPL'
+        mmHeight = 4763
+        mmLeft = 145786
+        mmTop = 13229
+        mmWidth = 47361
         BandType = 1
         LayerName = Foreground
       end
@@ -3569,12 +3610,753 @@ object DeliveryOrderFRM: TDeliveryOrderFRM
     object HawbSQLWEIGHT_GROSS: TFloatField
       FieldName = 'WEIGHT_GROSS'
     end
+    object HawbSQLIOSS: TStringField
+      FieldName = 'IOSS'
+      FixedChar = True
+    end
   end
   object HawbPL: TppDBPipeline
     DataSource = HawbSRC
     UserName = 'HawbPL'
     Left = 184
     Top = 16
+    object HawbPLppField1: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'SERIAL_NUMBER'
+      FieldName = 'SERIAL_NUMBER'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 0
+    end
+    object HawbPLppField2: TppField
+      FieldAlias = 'HAB_ID'
+      FieldName = 'HAB_ID'
+      FieldLength = 10
+      DisplayWidth = 10
+      Position = 1
+    end
+    object HawbPLppField3: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'FK_MAWB_REFER_NUMBER'
+      FieldName = 'FK_MAWB_REFER_NUMBER'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 2
+    end
+    object HawbPLppField4: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'FK_CUSTOMER_CODE'
+      FieldName = 'FK_CUSTOMER_CODE'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 3
+    end
+    object HawbPLppField5: TppField
+      FieldAlias = 'FK_CLEARANCE_INSTRUCTION'
+      FieldName = 'FK_CLEARANCE_INSTRUCTION'
+      FieldLength = 5
+      DisplayWidth = 5
+      Position = 4
+    end
+    object HawbPLppField6: TppField
+      FieldAlias = 'DESCRIPTION'
+      FieldName = 'DESCRIPTION'
+      FieldLength = 200
+      DisplayWidth = 200
+      Position = 5
+    end
+    object HawbPLppField7: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'WEIGHT'
+      FieldName = 'WEIGHT'
+      FieldLength = 0
+      DataType = dtDouble
+      DisplayWidth = 10
+      Position = 6
+    end
+    object HawbPLppField8: TppField
+      FieldAlias = 'FK_CLEARING_STATE'
+      FieldName = 'FK_CLEARING_STATE'
+      FieldLength = 1
+      DisplayWidth = 1
+      Position = 7
+    end
+    object HawbPLppField9: TppField
+      FieldAlias = 'FK_INVOICE_STATUS'
+      FieldName = 'FK_INVOICE_STATUS'
+      FieldLength = 1
+      DisplayWidth = 1
+      Position = 8
+    end
+    object HawbPLppField10: TppField
+      FieldAlias = 'FK_CURRENCY'
+      FieldName = 'FK_CURRENCY'
+      FieldLength = 3
+      DisplayWidth = 3
+      Position = 9
+    end
+    object HawbPLppField11: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'EXCHANGE_RATE'
+      FieldName = 'EXCHANGE_RATE'
+      FieldLength = 0
+      DataType = dtDouble
+      DisplayWidth = 10
+      Position = 10
+    end
+    object HawbPLppField12: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'INVOICE_TOTAL'
+      FieldName = 'INVOICE_TOTAL'
+      FieldLength = 0
+      DataType = dtDouble
+      DisplayWidth = 10
+      Position = 11
+    end
+    object HawbPLppField13: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'FREIGHT_AMOUNT'
+      FieldName = 'FREIGHT_AMOUNT'
+      FieldLength = 0
+      DataType = dtDouble
+      DisplayWidth = 10
+      Position = 12
+    end
+    object HawbPLppField14: TppField
+      FieldAlias = 'FK_OTHER_CHARGE_CODE'
+      FieldName = 'FK_OTHER_CHARGE_CODE'
+      FieldLength = 6
+      DisplayWidth = 6
+      Position = 13
+    end
+    object HawbPLppField15: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'OTHER_CHARGE_AMOUNT'
+      FieldName = 'OTHER_CHARGE_AMOUNT'
+      FieldLength = 0
+      DataType = dtDouble
+      DisplayWidth = 10
+      Position = 14
+    end
+    object HawbPLppField16: TppField
+      FieldAlias = 'OTHER_CHARGE_PAID'
+      FieldName = 'OTHER_CHARGE_PAID'
+      FieldLength = 1
+      DisplayWidth = 1
+      Position = 15
+    end
+    object HawbPLppField17: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'STAMPS_AMOUNT'
+      FieldName = 'STAMPS_AMOUNT'
+      FieldLength = 0
+      DataType = dtDouble
+      DisplayWidth = 10
+      Position = 16
+    end
+    object HawbPLppField18: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'EXPS_NON_INVOICABLE'
+      FieldName = 'EXPS_NON_INVOICABLE'
+      FieldLength = 0
+      DataType = dtDouble
+      DisplayWidth = 10
+      Position = 17
+    end
+    object HawbPLppField19: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'CUSTOMS_VALUE'
+      FieldName = 'CUSTOMS_VALUE'
+      FieldLength = 0
+      DataType = dtDouble
+      DisplayWidth = 10
+      Position = 18
+    end
+    object HawbPLppField20: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'INVOICE_SERIAL'
+      FieldName = 'INVOICE_SERIAL'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 19
+    end
+    object HawbPLppField21: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'COURIER_INVOICE_SERIAL'
+      FieldName = 'COURIER_INVOICE_SERIAL'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 20
+    end
+    object HawbPLppField22: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'COURIER_INVOICE_VALUE'
+      FieldName = 'COURIER_INVOICE_VALUE'
+      FieldLength = 0
+      DataType = dtDouble
+      DisplayWidth = 10
+      Position = 21
+    end
+    object HawbPLppField23: TppField
+      FieldAlias = 'HIGH_VALUE'
+      FieldName = 'HIGH_VALUE'
+      FieldLength = 1
+      DisplayWidth = 1
+      Position = 22
+    end
+    object HawbPLppField24: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'FK_SEC_MAWB_REFER_NUMBER'
+      FieldName = 'FK_SEC_MAWB_REFER_NUMBER'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 23
+    end
+    object HawbPLppField25: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'EDE_STORAGE_EXPENSES'
+      FieldName = 'EDE_STORAGE_EXPENSES'
+      FieldLength = 0
+      DataType = dtDouble
+      DisplayWidth = 10
+      Position = 24
+    end
+    object HawbPLppField26: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'EDE_DELIVERY_EXPENSES'
+      FieldName = 'EDE_DELIVERY_EXPENSES'
+      FieldLength = 0
+      DataType = dtDouble
+      DisplayWidth = 10
+      Position = 25
+    end
+    object HawbPLppField27: TppField
+      FieldAlias = 'DATE_INVOICED'
+      FieldName = 'DATE_INVOICED'
+      FieldLength = 0
+      DataType = dtDate
+      DisplayWidth = 10
+      Position = 26
+    end
+    object HawbPLppField28: TppField
+      FieldAlias = 'SENT_TO_HEAD'
+      FieldName = 'SENT_TO_HEAD'
+      FieldLength = 1
+      DisplayWidth = 1
+      Position = 27
+    end
+    object HawbPLppField29: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'NUM_OF_PIECES_ARRIVED'
+      FieldName = 'NUM_OF_PIECES_ARRIVED'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 28
+    end
+    object HawbPLppField30: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'TOTAL_NUM_OF_PIECES'
+      FieldName = 'TOTAL_NUM_OF_PIECES'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 29
+    end
+    object HawbPLppField31: TppField
+      FieldAlias = 'FK_CLEARANCE_TYPE'
+      FieldName = 'FK_CLEARANCE_TYPE'
+      FieldLength = 12
+      DisplayWidth = 12
+      Position = 30
+    end
+    object HawbPLppField32: TppField
+      FieldAlias = 'FK_DELIVERY_TERM'
+      FieldName = 'FK_DELIVERY_TERM'
+      FieldLength = 3
+      DisplayWidth = 3
+      Position = 31
+    end
+    object HawbPLppField33: TppField
+      FieldAlias = 'ORIGIN_STATION'
+      FieldName = 'ORIGIN_STATION'
+      FieldLength = 12
+      DisplayWidth = 12
+      Position = 32
+    end
+    object HawbPLppField34: TppField
+      FieldAlias = 'EC2_NUMBER_DATE'
+      FieldName = 'EC2_NUMBER_DATE'
+      FieldLength = 40
+      DisplayWidth = 40
+      Position = 33
+    end
+    object HawbPLppField35: TppField
+      FieldAlias = 'SENDERS_INV_NO'
+      FieldName = 'SENDERS_INV_NO'
+      FieldLength = 50
+      DisplayWidth = 50
+      Position = 34
+    end
+    object HawbPLppField36: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'NUMBER_OF_PARCELS'
+      FieldName = 'NUMBER_OF_PARCELS'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 35
+    end
+    object HawbPLppField37: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'FK_CUSTOMER_ACCOUNT'
+      FieldName = 'FK_CUSTOMER_ACCOUNT'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 36
+    end
+    object HawbPLppField38: TppField
+      FieldAlias = 'DISTRICT'
+      FieldName = 'DISTRICT'
+      FieldLength = 3
+      DisplayWidth = 3
+      Position = 37
+    end
+    object HawbPLppField39: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'DELIVERY_ORDER_AMOUNT'
+      FieldName = 'DELIVERY_ORDER_AMOUNT'
+      FieldLength = 0
+      DataType = dtDouble
+      DisplayWidth = 10
+      Position = 38
+    end
+    object HawbPLppField40: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'OTHER2_CHARGE_AMOUNT'
+      FieldName = 'OTHER2_CHARGE_AMOUNT'
+      FieldLength = 0
+      DataType = dtDouble
+      DisplayWidth = 10
+      Position = 39
+    end
+    object HawbPLppField41: TppField
+      FieldAlias = 'FK_OTHER2_CHARGE_CODE'
+      FieldName = 'FK_OTHER2_CHARGE_CODE'
+      FieldLength = 6
+      DisplayWidth = 6
+      Position = 40
+    end
+    object HawbPLppField42: TppField
+      FieldAlias = 'POSOSTOSIS'
+      FieldName = 'POSOSTOSIS'
+      FieldLength = 1
+      DisplayWidth = 1
+      Position = 41
+    end
+    object HawbPLppField43: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'TOTAL_DUTIES'
+      FieldName = 'TOTAL_DUTIES'
+      FieldLength = 0
+      DataType = dtDouble
+      DisplayWidth = 10
+      Position = 42
+    end
+    object HawbPLppField44: TppField
+      FieldAlias = 'CLEARANCE_WAITING_CODE'
+      FieldName = 'CLEARANCE_WAITING_CODE'
+      FieldLength = 5
+      DisplayWidth = 5
+      Position = 43
+    end
+    object HawbPLppField45: TppField
+      FieldAlias = 'CLEARANCE_WAITING_REASON'
+      FieldName = 'CLEARANCE_WAITING_REASON'
+      FieldLength = 40
+      DisplayWidth = 40
+      Position = 44
+    end
+    object HawbPLppField46: TppField
+      FieldAlias = 'DATE_CLEARED'
+      FieldName = 'DATE_CLEARED'
+      FieldLength = 0
+      DataType = dtDate
+      DisplayWidth = 10
+      Position = 45
+    end
+    object HawbPLppField47: TppField
+      FieldAlias = 'DATE_REGISTERED'
+      FieldName = 'DATE_REGISTERED'
+      FieldLength = 0
+      DataType = dtDate
+      DisplayWidth = 10
+      Position = 46
+    end
+    object HawbPLppField48: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'FACTOR'
+      FieldName = 'FACTOR'
+      FieldLength = 0
+      DataType = dtDouble
+      DisplayWidth = 10
+      Position = 47
+    end
+    object HawbPLppField49: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'FK_COUNTRY_ORIGIN'
+      FieldName = 'FK_COUNTRY_ORIGIN'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 48
+    end
+    object HawbPLppField50: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'CHARGE_TRL'
+      FieldName = 'CHARGE_TRL'
+      FieldLength = 0
+      DataType = dtDouble
+      DisplayWidth = 10
+      Position = 49
+    end
+    object HawbPLppField51: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'CHARGE_VAT'
+      FieldName = 'CHARGE_VAT'
+      FieldLength = 0
+      DataType = dtDouble
+      DisplayWidth = 10
+      Position = 50
+    end
+    object HawbPLppField52: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'CHARGE_EXCISE'
+      FieldName = 'CHARGE_EXCISE'
+      FieldLength = 0
+      DataType = dtDouble
+      DisplayWidth = 10
+      Position = 51
+    end
+    object HawbPLppField53: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'CHARGE_IMPORT'
+      FieldName = 'CHARGE_IMPORT'
+      FieldLength = 0
+      DataType = dtDouble
+      DisplayWidth = 10
+      Position = 52
+    end
+    object HawbPLppField54: TppField
+      FieldAlias = 'INVOICABLE'
+      FieldName = 'INVOICABLE'
+      FieldLength = 1
+      DisplayWidth = 1
+      Position = 53
+    end
+    object HawbPLppField55: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'TOTAL_CHARGES'
+      FieldName = 'TOTAL_CHARGES'
+      FieldLength = 0
+      DataType = dtDouble
+      DisplayWidth = 10
+      Position = 54
+    end
+    object HawbPLppField56: TppField
+      FieldAlias = 'CUSTOMER_NAME'
+      FieldName = 'CUSTOMER_NAME'
+      FieldLength = 40
+      DisplayWidth = 40
+      Position = 55
+    end
+    object HawbPLppField57: TppField
+      FieldAlias = 'EDE_COMMENTS'
+      FieldName = 'EDE_COMMENTS'
+      FieldLength = 100
+      DisplayWidth = 100
+      Position = 56
+    end
+    object HawbPLppField58: TppField
+      FieldAlias = 'FK_MAWB_ID'
+      FieldName = 'FK_MAWB_ID'
+      FieldLength = 15
+      DisplayWidth = 15
+      Position = 57
+    end
+    object HawbPLppField59: TppField
+      FieldAlias = 'SIGNATORY_NAME'
+      FieldName = 'SIGNATORY_NAME'
+      FieldLength = 50
+      DisplayWidth = 50
+      Position = 58
+    end
+    object HawbPLppField60: TppField
+      FieldAlias = 'XML_HOUSE_ID'
+      FieldName = 'XML_HOUSE_ID'
+      FieldLength = 13
+      DisplayWidth = 13
+      Position = 59
+    end
+    object HawbPLppField61: TppField
+      FieldAlias = 'SENDER_NAME'
+      FieldName = 'SENDER_NAME'
+      FieldLength = 60
+      DisplayWidth = 60
+      Position = 60
+    end
+    object HawbPLppField62: TppField
+      FieldAlias = 'SENDER_ADDRESS_1'
+      FieldName = 'SENDER_ADDRESS_1'
+      FieldLength = 60
+      DisplayWidth = 60
+      Position = 61
+    end
+    object HawbPLppField63: TppField
+      FieldAlias = 'SENDER_ADDRESS_2'
+      FieldName = 'SENDER_ADDRESS_2'
+      FieldLength = 60
+      DisplayWidth = 60
+      Position = 62
+    end
+    object HawbPLppField64: TppField
+      FieldAlias = 'SENDER_ADDRESS_3'
+      FieldName = 'SENDER_ADDRESS_3'
+      FieldLength = 60
+      DisplayWidth = 60
+      Position = 63
+    end
+    object HawbPLppField65: TppField
+      FieldAlias = 'IS_PRIVATE'
+      FieldName = 'IS_PRIVATE'
+      FieldLength = 1
+      DisplayWidth = 1
+      Position = 64
+    end
+    object HawbPLppField66: TppField
+      FieldAlias = 'DELIVERY_ORDER_ID'
+      FieldName = 'DELIVERY_ORDER_ID'
+      FieldLength = 10
+      DisplayWidth = 10
+      Position = 65
+    end
+    object HawbPLppField67: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'OTHER4_CHARGE_AMOUNT'
+      FieldName = 'OTHER4_CHARGE_AMOUNT'
+      FieldLength = 0
+      DataType = dtDouble
+      DisplayWidth = 10
+      Position = 66
+    end
+    object HawbPLppField68: TppField
+      FieldAlias = 'FK_OTHER4_CHARGE'
+      FieldName = 'FK_OTHER4_CHARGE'
+      FieldLength = 3
+      DisplayWidth = 3
+      Position = 67
+    end
+    object HawbPLppField69: TppField
+      FieldAlias = 'IS_PAID'
+      FieldName = 'IS_PAID'
+      FieldLength = 1
+      DisplayWidth = 1
+      Position = 68
+    end
+    object HawbPLppField70: TppField
+      FieldAlias = 'PARTIAL_FLAG'
+      FieldName = 'PARTIAL_FLAG'
+      FieldLength = 1
+      DisplayWidth = 1
+      Position = 69
+    end
+    object HawbPLppField71: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'PARTIAL_WEIGHT'
+      FieldName = 'PARTIAL_WEIGHT'
+      FieldLength = 0
+      DataType = dtDouble
+      DisplayWidth = 10
+      Position = 70
+    end
+    object HawbPLppField72: TppField
+      FieldAlias = 'PARTIAL_DELIVERY_ORDER_ID'
+      FieldName = 'PARTIAL_DELIVERY_ORDER_ID'
+      FieldLength = 10
+      DisplayWidth = 10
+      Position = 71
+    end
+    object HawbPLppField73: TppField
+      FieldAlias = 'PARTIAL_MAWB_ID'
+      FieldName = 'PARTIAL_MAWB_ID'
+      FieldLength = 15
+      DisplayWidth = 15
+      Position = 72
+    end
+    object HawbPLppField74: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'PARTIAL_PIECES'
+      FieldName = 'PARTIAL_PIECES'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 73
+    end
+    object HawbPLppField75: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'PARTIAL_MAWB_REFER_NUMBER'
+      FieldName = 'PARTIAL_MAWB_REFER_NUMBER'
+      FieldLength = 0
+      DataType = dtInteger
+      DisplayWidth = 10
+      Position = 74
+    end
+    object HawbPLppField76: TppField
+      FieldAlias = 'STATUS_C'
+      FieldName = 'STATUS_C'
+      FieldLength = 1
+      DisplayWidth = 1
+      Position = 75
+    end
+    object HawbPLppField77: TppField
+      FieldAlias = 'IS_MEDIUM'
+      FieldName = 'IS_MEDIUM'
+      FieldLength = 1
+      DisplayWidth = 1
+      Position = 76
+    end
+    object HawbPLppField78: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'MEDIUM_VAT_RATE'
+      FieldName = 'MEDIUM_VAT_RATE'
+      FieldLength = 0
+      DataType = dtDouble
+      DisplayWidth = 10
+      Position = 77
+    end
+    object HawbPLppField79: TppField
+      FieldAlias = 'IS_CHARGED_DELIVERY'
+      FieldName = 'IS_CHARGED_DELIVERY'
+      FieldLength = 1
+      DisplayWidth = 1
+      Position = 78
+    end
+    object HawbPLppField80: TppField
+      FieldAlias = 'IS_VALID'
+      FieldName = 'IS_VALID'
+      FieldLength = 1
+      DisplayWidth = 1
+      Position = 79
+    end
+    object HawbPLppField81: TppField
+      FieldAlias = 'IS_PREPAID'
+      FieldName = 'IS_PREPAID'
+      FieldLength = 1
+      DisplayWidth = 1
+      Position = 80
+    end
+    object HawbPLppField82: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'OTHER5_CHARGE_AMOUNT'
+      FieldName = 'OTHER5_CHARGE_AMOUNT'
+      FieldLength = 0
+      DataType = dtDouble
+      DisplayWidth = 10
+      Position = 81
+    end
+    object HawbPLppField83: TppField
+      FieldAlias = 'FK_DUTY_RELIEVE'
+      FieldName = 'FK_DUTY_RELIEVE'
+      FieldLength = 5
+      DisplayWidth = 5
+      Position = 82
+    end
+    object HawbPLppField84: TppField
+      FieldAlias = 'SENDER_POST_CODE'
+      FieldName = 'SENDER_POST_CODE'
+      FieldLength = 60
+      DisplayWidth = 60
+      Position = 83
+    end
+    object HawbPLppField85: TppField
+      FieldAlias = 'SENDER_CITY'
+      FieldName = 'SENDER_CITY'
+      FieldLength = 60
+      DisplayWidth = 60
+      Position = 84
+    end
+    object HawbPLppField86: TppField
+      FieldAlias = 'SENDER_COUNTRY'
+      FieldName = 'SENDER_COUNTRY'
+      FieldLength = 60
+      DisplayWidth = 60
+      Position = 85
+    end
+    object HawbPLppField87: TppField
+      FieldAlias = 'CUSTOMER_VAT_ID'
+      FieldName = 'CUSTOMER_VAT_ID'
+      FieldLength = 30
+      DisplayWidth = 30
+      Position = 86
+    end
+    object HawbPLppField88: TppField
+      FieldAlias = 'CUSTOMER_AUTHORITY_TO_AGENT'
+      FieldName = 'CUSTOMER_AUTHORITY_TO_AGENT'
+      FieldLength = 20
+      DisplayWidth = 20
+      Position = 87
+    end
+    object HawbPLppField89: TppField
+      FieldAlias = 'IS_LOW'
+      FieldName = 'IS_LOW'
+      FieldLength = 1
+      DisplayWidth = 1
+      Position = 88
+    end
+    object HawbPLppField90: TppField
+      FieldAlias = 'DESTINATION_STATION'
+      FieldName = 'DESTINATION_STATION'
+      FieldLength = 20
+      DisplayWidth = 20
+      Position = 89
+    end
+    object HawbPLppField91: TppField
+      FieldAlias = 'IS_OVERRIDE_MEDIUM'
+      FieldName = 'IS_OVERRIDE_MEDIUM'
+      FieldLength = 1
+      DisplayWidth = 1
+      Position = 90
+    end
+    object HawbPLppField92: TppField
+      FieldAlias = 'COUNTRYNAME'
+      FieldName = 'COUNTRYNAME'
+      FieldLength = 40
+      DisplayWidth = 40
+      Position = 91
+    end
+    object HawbPLppField93: TppField
+      Alignment = taRightJustify
+      FieldAlias = 'WEIGHT_GROSS'
+      FieldName = 'WEIGHT_GROSS'
+      FieldLength = 0
+      DataType = dtDouble
+      DisplayWidth = 10
+      Position = 92
+    end
+    object HawbPLppField94: TppField
+      FieldAlias = 'IOSS'
+      FieldName = 'IOSS'
+      FieldLength = 20
+      DisplayWidth = 20
+      Position = 93
+    end
   end
   object HawbSRC: TIBCDataSource
     DataSet = HawbSQL

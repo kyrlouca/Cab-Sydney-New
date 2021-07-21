@@ -286,6 +286,9 @@ type
     ppLabel31: TppLabel;
     EmptyReportRPT: TppReport;
     HawbSQLWEIGHT_GROSS: TFloatField;
+    HawbSQLIOSS: TStringField;
+    ppLabel32: TppLabel;
+    ppDBText10: TppDBText;
     procedure Report1PreviewFormCreate(Sender: TObject);
     procedure CustomerNameLblPrint(Sender: TObject);
     procedure Description1LBLPrint(Sender: TObject);

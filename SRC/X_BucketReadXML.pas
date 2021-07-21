@@ -1,4 +1,3 @@
-
 unit X_BucketReadXML;
 
 // XMLNode has Childnodes , and you can use Node.Childnodes[0] or Node.ChildNodes['Hdr] to get child node
@@ -579,13 +578,13 @@ Function TX_BucketreadFileFRM.ReadFilesInFolderNew: integer;
 
     var
     fileFinder := TFileFinder.Create(srcFolder + '/*.*');
-//    var fileDetail: TfileDetails;
+    // var fileDetail: TfileDetails;
     try
 
       fileFinder.sortList();
 
       // var  list := fileFinder.FileList;
-      for var i: integer := 0 to fileFinder.FileList.Count-1 do
+      for var i: integer := 0 to fileFinder.FileList.Count - 1 do
 
       // for fileDetail in fileFinder.FileList do
       begin
@@ -858,7 +857,14 @@ procedure TX_BucketreadFileFRM.RzBitBtn2Click(Sender: TObject);
     // If a user has inserted a record 'Z00' delete it to start.
     var delSQL: string := 'delete from system_parameters sp where sp.parameter_id = :ParamId';
     ksExecSQLVar(cn, delSQL, ['Z00']);
-    ReadFilesInFolderNew();
+
+    var isStopped: boolean := false;
+    while not isStopped do
+    begin
+      ReadFilesInFolderNew();
+      isStopped := ksCountRecVarSQL(cn, 'select sp.parameter_id from system_parameters sp where sp.parameter_id =:ParamId', ['Z00']) > 0;
+      sleep(20000);
+    end;
 
   end;
 
