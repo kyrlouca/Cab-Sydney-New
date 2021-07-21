@@ -4112,6 +4112,10 @@ object V_MawbFRM: TV_MawbFRM
         Caption = 'Medium  H7 Declarations'
         OnClick = MediumH7Declarations1Click
       end
+      object MediumValueReport1: TMenuItem
+        Caption = 'Medium Value All Hawbs Report'
+        OnClick = MediumValueReport1Click
+      end
       object N1: TMenuItem
         Caption = '-'
       end
@@ -4122,10 +4126,6 @@ object V_MawbFRM: TV_MawbFRM
       object HawbsOnFlight1: TMenuItem
         Caption = 'Hawbs On Flight'
         OnClick = HawbsOnFlight1Click
-      end
-      object MediumValueReport1: TMenuItem
-        Caption = 'Medium Value Report'
-        OnClick = MediumValueReport1Click
       end
     end
     object PrintSelection1: TMenuItem
