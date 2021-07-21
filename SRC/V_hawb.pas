@@ -1253,16 +1253,15 @@ procedure TV_HawbFRM.ClearanceRGPChange(Sender: TObject);
   begin
 
     // Sydney
-    exit;
-    HawbSerial := v_hawbDataDML.HawbSQL.FieldByName('serial_number').AsInteger;
-    val := v_hawbDataDML.HawbSQL.FieldByName('FK_CLEARANCE_INSTRUCTION').AsString;
-    vax := ClearanceRGP.Value;
-
-    if v_hawbDataDML.HawbSQL.Active and (val <> vax) then
-    begin
-      WaitingReasonFLD.Value := '';
-      FillWaitingCodes(vax);
-    end;
+//    HawbSerial := v_hawbDataDML.HawbSQL.FieldByName('serial_number').AsInteger;
+//    val := v_hawbDataDML.HawbSQL.FieldByName('FK_CLEARANCE_INSTRUCTION').AsString;
+//    vax := ClearanceRGP.Value;
+//
+//    if v_hawbDataDML.HawbSQL.Active and (val <> vax) then
+//    begin
+//      WaitingReasonFLD.Value := '';
+//      FillWaitingCodes(vax);
+//    end;
 
   end;
 
@@ -1276,7 +1275,7 @@ procedure TV_HawbFRM.ClearanceRGPChanging(Sender: TObject; NewIndex: Integer; va
     if (rg.ItemIndex <> NewIndex) or (rg.Tag > 0) then
     begin // tag is set to 99 when user enters currency to force execution
 
-      if rg.ItemIndex > 0 then
+      if rg.ItemIndex > -1 then
       begin
         ClearingInstruction := rg.Values[NewIndex];
       end;

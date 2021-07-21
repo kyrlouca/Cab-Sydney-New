@@ -152,19 +152,18 @@ type
     Label1: TLabel;
     DateStartFLD: TwwDBDateTimePicker;
     DateEndFLD: TwwDBDateTimePicker;
-    FilterBTN: TRzBitBtn;
     CountLbl: TRzLabel;
     SearchTariffBTN: TSpeedButton;
     BucketsSQLIS_LOCKED: TStringField;
     BucketsSQLFILE_NAME: TStringField;
     UnlockHawbBTN: TRzBitBtn;
+    FilterAllBTN: TRzBitBtn;
+    Memo1: TMemo;
+    ClearBTN: TRzBitBtn;
     procedure FormCreate(Sender: TObject);
     procedure BitBtn2Click(Sender: TObject);
-    procedure FilterBTNClick(Sender: TObject);
     procedure DeleteRBTNClick(Sender: TObject);
-    procedure ClearanceFilterCloseUp(Sender: TwwDBComboBox; Select: Boolean);
     procedure SelectAllBTNClick(Sender: TObject);
-    procedure ReadyFilterChanging(Sender: TObject; NewIndex: Integer; var AllowChange: Boolean);
     procedure BucketsGRDDblClick(Sender: TObject);
     procedure BucketsSQLAfterOpen(DataSet: TDataSet);
     procedure FormActivate(Sender: TObject);
@@ -173,12 +172,18 @@ type
     procedure BucketsGRDDrawFooterCell(Sender: TObject; Canvas: TCanvas; FooterCellRect: TRect; Field: TField; FooterText: string; var DefaultDrawing: Boolean);
     procedure SearchTariffBTNClick(Sender: TObject);
     procedure UnlockHawbBTNClick(Sender: TObject);
+    procedure BucketsGRDTitleButtonClick(Sender: TObject; AFieldName: string);
+    procedure FilterAllBTNClick(Sender: TObject);
+    procedure ClearBTNClick(Sender: TObject);
   private
     { Private declarations }
     cn: TIBCConnection;
     PreviousSortedField: String;
 
     function CountRecords: Integer;
+
+    procedure FilterAllNew();
+    procedure FilterClear();
 
   public
     { Public declarations }
@@ -202,7 +207,7 @@ implementation
 
 {$R *.DFM}
 
-uses U_ClairDML, V_hawb;
+uses U_ClairDML, V_hawb, G_generalProcs;
 
 procedure TM_deleteBucketsFRM.FormActivate(Sender: TObject);
   begin
@@ -214,44 +219,7 @@ procedure TM_deleteBucketsFRM.FormCreate(Sender: TObject);
   begin
     cn := ClairDML.CabCOnnection;
     ksOpenTables([BucketsSQL]);
-    DateStartFLD.Date := now;
-  end;
-
-procedure TM_deleteBucketsFRM.ReadyFilterChanging(Sender: TObject; NewIndex: Integer; var AllowChange: Boolean);
-  begin
-    BucketsSQL.DisableControls;
-    BucketsGRD.UnselectAll;
-    var
-    HawbDS := BucketsSQL;
-
-    HawbDS.Filtered := false;
-    HawbDS.RestoreSQL;
-    HawbDS.Close;
-    HawbDS.Open;
-    HawbDS.Refresh;
-    HawbDS.Filtered := true;
-
-    var filterVal: string := '';
-
-    case NewIndex of
-      1:
-        begin
-          filterVal := 'fk_clearing_state =''1'' ';
-          HawbDS.Filter := filterVal;
-          HawbDS.Filtered := true;
-        end;
-      2:
-        begin
-          filterVal := 'fk_clearing_state =''0'' ';
-          HawbDS.Filter := filterVal;
-          HawbDS.Filtered := true;
-        end;
-    else
-      HawbDS.Filtered := false;
-    end;
-
-    BucketsSQL.First;
-    BucketsSQL.EnableControls;
+    // DateStartFLD.Date := now;
   end;
 
 procedure TM_deleteBucketsFRM.SearchTariffBTNClick(Sender: TObject);
@@ -294,7 +262,7 @@ procedure TM_deleteBucketsFRM.BucketsGRDDblClick(Sender: TObject);
     end;
 
     var isLock: Boolean := ksGetOneFieldValue(cn, 'select HA.is_locked from hawb ha where ha.serial_number=  :serial', 'IS_LOCKED', [hawbSerial]) = 'Y';
-        If isLock then
+    If isLock then
     begin
       MessageDlg('Record is LOCKED by another user ', mtInformation, [mbOK], 0);
       exit;
@@ -330,6 +298,23 @@ procedure TM_deleteBucketsFRM.BucketsGRDDrawFooterCell(Sender: TObject; Canvas: 
     var
     x := BucketsGRD.DataSource.DataSet.RecordCount;
     FooterText := '-------------------------------------' + x.ToString;
+  end;
+
+procedure TM_deleteBucketsFRM.BucketsGRDTitleButtonClick(Sender: TObject; AFieldName: string);
+
+  Var HawbDS: TIBCQuery; Bm: TBookmark; AscOrderPOs: Integer; DescOrderPOs: Integer; CurrentSortField: String; NewSOrt: String; ImageIndex: Integer; Bmp: TBitmap;
+    sortInfoHawb: TSortInfo; serial: Integer;
+
+  begin
+
+    HawbDS := BucketsSQL;
+    serial := HawbDS.FieldByName('Serial_number').AsInteger;
+
+    sortInfoHawb.Table := HawbDS;
+    G_generalProcs.SortGrid(HawbDS, AFieldName, sortInfoHawb);
+
+    HawbDS.LocateEx('Serial_number', serial, []);
+    BucketsGRD.SelectRecord;
   end;
 
 procedure TM_deleteBucketsFRM.BucketsSQLAfterOpen(DataSet: TDataSet);
@@ -374,11 +359,11 @@ procedure TM_deleteBucketsFRM.ShowTariffs(Const KeyType: String; TariffUsage: St
   end;
 
 procedure TM_deleteBucketsFRM.UnlockHawbBTNClick(Sender: TObject);
-begin
+  begin
     var hawbSerial: Integer := BucketsSQL.FieldByName('Serial_number').AsInteger;
     ksExecSQLVar(cn, 'update hawb set IS_LOCKED= ''N'' where SERIAL_NUMBER = :Serial', [hawbSerial]);
 
-end;
+  end;
 
 procedure TM_deleteBucketsFRM.wwIncrementalSearch1Enter(Sender: TObject);
   begin
@@ -403,54 +388,58 @@ procedure TM_deleteBucketsFRM.wwIncrementalSearch1Exit(Sender: TObject);
 
   end;
 
-procedure TM_deleteBucketsFRM.ClearanceFilterCloseUp(Sender: TwwDBComboBox; Select: Boolean);
+
+//
+procedure TM_deleteBucketsFRM.ClearBTNClick(Sender: TObject);
   begin
-    BucketsSQL.DisableControls;
-
-    BucketsGRD.UnselectAll;
-    BucketsSQL.RestoreSQL;
-    BucketsSQL.Open;
-    BucketsSQL.Refresh;
-
-    BucketsGRD.UnselectAll;
-    BucketsSQL.Filtered := true;
-    var
-    HawbDS := BucketsSQL;
-    var filterVal: String := '';
-    if (Sender.Value = '') Or (Sender.Value = 'All') then
-    begin
-      HawbDS.Filtered := false;
-      BucketsSQL.EnableControls;
-
-      exit;
-    end;
-
-    if Sender.Value = 'IT2' then
-    begin
-      filterVal := 'fk_clearance_instruction =''IM4'' OR fk_clearance_instruction = ''DO'' Or fk_clearance_instruction =''DOZ'' ';
-    end
-    else
-    begin
-      filterVal := 'fk_clearance_instruction = ' + QuotedStr(Sender.Value);
-    end;
-    HawbDS.Filter := filterVal;
-    BucketsSQL.EnableControls;
-
+    FilterClear();
   end;
 
-procedure TM_deleteBucketsFRM.FilterBTNClick(Sender: TObject);
+procedure TM_deleteBucketsFRM.FilterClear();
   begin
-    BucketsSQL.DisableControls;
+
+    ClearanceFilter.Value := '';
+
+    ReadyFilter.ItemIndex:=0;
+    DateStartFLD.ClearDateTime;
+    DateEndFLD.ClearDateTime;
+    FilterAllNew();
+  end;
+
+
+  procedure TM_deleteBucketsFRM.FilterAllBTNClick(Sender: TObject);
+  begin
+    FilterAllNew();
+  end;
+
+
+procedure TM_deleteBucketsFRM.FilterAllNew();
+  begin
     var StartDate: TDateTime := DateStartFLD.Date;
     var EndDate: TDateTime := DateEndFLD.Date;
+
+    BucketsSQL.DisableControls;
 
     With BucketsSQL do
     begin
       BucketsGRD.UnselectAll;
-      BucketsSQL.Filtered := false;
       Close;
       RestoreSQL;
-      BucketsSQL.Open;
+
+      var clearingInstruction: string := ClearanceFilter.Value;
+      if (clearingInstruction = 'All') or (trim(clearingInstruction) = '') then
+      begin
+
+        // Do nothing
+      end
+      else if clearingInstruction = 'IT2' then
+      begin
+        Addwhere('(fk_clearance_instruction =''IM4'' OR fk_clearance_instruction = ''DO'' Or fk_clearance_instruction =''DOZ'') ');
+      end
+      else
+      begin
+        Addwhere('fk_clearance_instruction =' + QuotedStr(clearingInstruction));
+      end;
 
       if StartDate > EncodeDate(2000, 1, 1) then
       begin
@@ -466,10 +455,27 @@ procedure TM_deleteBucketsFRM.FilterBTNClick(Sender: TObject);
 
       end;
 
+      var Cli: Integer := ReadyFilter.ItemIndex;
+
+      if Cli = 0 then
+      begin
+        // do nothing
+      end
+      else if Cli = 1 then
+      begin
+        Addwhere('fk_clearing_state =''1'' ');
+
+      end
+      else if Cli = 2 then
+      begin
+        Addwhere('fk_clearing_state =''0'' ');
+      end;
+
       If not prepared then
         prepare;
+      Memo1.Lines := BucketsSQL.SQL;
+      BucketsSQL.Open;
 
-      Open;
     end;
 
     BucketsSQL.EnableControls;

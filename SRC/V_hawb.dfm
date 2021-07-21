@@ -2091,6 +2091,7 @@ object V_HawbFRM: TV_HawbFRM
           OnCalcCellColors = ItemsGRDCalcCellColors
           OnTitleButtonClick = ItemsGRDTitleButtonClick
           OnDblClick = ItemsGRDDblClick
+          ExplicitTop = 29
           object ItemCountryFLD: TwwDBComboBox
             Left = 376
             Top = 91

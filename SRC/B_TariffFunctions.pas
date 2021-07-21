@@ -664,9 +664,11 @@ procedure HawbTariffsObject.RecreateHawbAllCharges();
 
       if (FClearingInstruction = 'MED') and ((FProcedureCode = 'F48') OR (FProcedureCode = 'C08')) then
       begin
+        //NO charges for Med when f48
+
+      end else begin
         CreateVatHawbChargesOnItems();
         InsertAllHawbCharges();
-
       end;
 
       UpdateHawbRelatedCharges();

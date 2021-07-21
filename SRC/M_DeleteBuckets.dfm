@@ -4,7 +4,7 @@ object M_deleteBucketsFRM: TM_deleteBucketsFRM
   BorderStyle = bsSingle
   Caption = 'M_deleteBucketsFRM'
   ClientHeight = 855
-  ClientWidth = 1344
+  ClientWidth = 1457
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -21,7 +21,7 @@ object M_deleteBucketsFRM: TM_deleteBucketsFRM
   object Panel1: TPanel
     Left = 0
     Top = 0
-    Width = 1344
+    Width = 1457
     Height = 65
     Align = alTop
     Caption = 'Bucket Processing'
@@ -38,12 +38,12 @@ object M_deleteBucketsFRM: TM_deleteBucketsFRM
   object Panel4: TPanel
     Left = 0
     Top = 808
-    Width = 1344
+    Width = 1457
     Height = 47
     Align = alBottom
     TabOrder = 1
     object Panel11: TRzPanel
-      Left = 1251
+      Left = 1364
       Top = 1
       Width = 92
       Height = 45
@@ -128,7 +128,7 @@ object M_deleteBucketsFRM: TM_deleteBucketsFRM
   object Panel2: TPanel
     Left = 0
     Top = 65
-    Width = 1344
+    Width = 1457
     Height = 40
     Align = alTop
     TabOrder = 2
@@ -238,14 +238,14 @@ object M_deleteBucketsFRM: TM_deleteBucketsFRM
   object Panel3: TPanel
     Left = 0
     Top = 105
-    Width = 1344
+    Width = 1457
     Height = 703
     Align = alClient
     TabOrder = 3
     object Panel6: TPanel
       Left = 1
       Top = 1
-      Width = 1342
+      Width = 1455
       Height = 16
       Align = alTop
       BevelOuter = bvNone
@@ -324,6 +324,7 @@ object M_deleteBucketsFRM: TM_deleteBucketsFRM
       TitleFont.Style = []
       TitleLines = 2
       TitleButtons = True
+      OnTitleButtonClick = BucketsGRDTitleButtonClick
       OnDblClick = BucketsGRDDblClick
       OnDrawFooterCell = BucketsGRDDrawFooterCell
       FooterColor = clAqua
@@ -400,19 +401,28 @@ object M_deleteBucketsFRM: TM_deleteBucketsFRM
         ImageIndex = -1
         ParentFont = False
       end
+      object Memo1: TMemo
+        Left = 936
+        Top = 401
+        Width = 105
+        Height = 80
+        Lines.Strings = (
+          'Memo1')
+        TabOrder = 0
+        Visible = False
+      end
     end
     object Panel8: TPanel
       Left = 1209
       Top = 17
-      Width = 279
+      Width = 229
       Height = 685
       Align = alLeft
       BevelOuter = bvNone
       TabOrder = 3
-      ExplicitLeft = 1185
       object Label6: TLabel
-        Left = 50
-        Top = 51
+        Left = 46
+        Top = 6
         Width = 57
         Height = 15
         Caption = 'Clearance'
@@ -425,9 +435,9 @@ object M_deleteBucketsFRM: TM_deleteBucketsFRM
       end
       object DeleteRBTN: TRzBitBtn
         AlignWithMargins = True
-        Left = 48
-        Top = 416
-        Width = 169
+        Left = 46
+        Top = 496
+        Width = 147
         Height = 34
         Alignment = taLeftJustify
         Caption = 'Delete Selected'
@@ -460,9 +470,9 @@ object M_deleteBucketsFRM: TM_deleteBucketsFRM
         Spacing = 8
       end
       object ClearanceFilter: TwwDBComboBox
-        Left = 110
-        Top = 48
-        Width = 140
+        Left = 46
+        Top = 27
+        Width = 147
         Height = 23
         ParentCustomHint = False
         BiDiMode = bdLeftToRight
@@ -496,14 +506,13 @@ object M_deleteBucketsFRM: TM_deleteBucketsFRM
         Sorted = False
         TabOrder = 1
         UnboundDataType = wwDefault
-        OnCloseUp = ClearanceFilterCloseUp
         DoubleBuffered = False
         ParentDoubleBuffered = False
       end
       object ReadyFilter: TRzRadioGroup
         Left = 46
-        Top = 85
-        Width = 140
+        Top = 69
+        Width = 147
         Height = 79
         Caption = 'Ready Status'
         Font.Charset = GREEK_CHARSET
@@ -520,13 +529,12 @@ object M_deleteBucketsFRM: TM_deleteBucketsFRM
         ParentFont = False
         TabOrder = 2
         VerticalSpacing = 6
-        OnChanging = ReadyFilterChanging
       end
       object GroupBox1: TGroupBox
         Left = 46
-        Top = 170
-        Width = 185
-        Height = 183
+        Top = 154
+        Width = 147
+        Height = 143
         Caption = 'Filter Dates'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -595,29 +603,11 @@ object M_deleteBucketsFRM: TM_deleteBucketsFRM
           TabOrder = 1
           DisplayFormat = 'dd/mm/yyyy'
         end
-        object FilterBTN: TRzBitBtn
-          AlignWithMargins = True
-          Left = 16
-          Top = 128
-          Width = 107
-          Height = 34
-          Alignment = taLeftJustify
-          Caption = 'Filter Dates'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -15
-          Font.Name = 'Calibri'
-          Font.Style = []
-          ParentFont = False
-          TabOrder = 2
-          OnClick = FilterBTNClick
-          Spacing = 8
-        end
       end
       object UnlockHawbBTN: TRzBitBtn
         Left = 46
-        Top = 622
-        Width = 115
+        Top = 614
+        Width = 147
         Height = 37
         Alignment = taLeftJustify
         Caption = 'Unlock'
@@ -634,6 +624,42 @@ object M_deleteBucketsFRM: TM_deleteBucketsFRM
         OnClick = UnlockHawbBTNClick
         Margin = -1
         NumGlyphs = 2
+      end
+      object FilterAllBTN: TRzBitBtn
+        AlignWithMargins = True
+        Left = 46
+        Top = 317
+        Width = 147
+        Height = 34
+        Alignment = taLeftJustify
+        Caption = 'Filter'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -15
+        Font.Name = 'Calibri'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 5
+        OnClick = FilterAllBTNClick
+        Spacing = 8
+      end
+      object ClearBTN: TRzBitBtn
+        AlignWithMargins = True
+        Left = 46
+        Top = 365
+        Width = 147
+        Height = 34
+        Alignment = taLeftJustify
+        Caption = 'Clear Filter'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -15
+        Font.Name = 'Calibri'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 6
+        OnClick = ClearBTNClick
+        Spacing = 8
       end
     end
   end
@@ -912,6 +938,7 @@ object M_deleteBucketsFRM: TM_deleteBucketsFRM
       DisplayWidth = 11
       FieldName = 'SENDERCUSTOMVALUE'
       ReadOnly = True
+      DisplayFormat = '0.00'
     end
     object BucketsSQLFK_CLEARANCE_INSTRUCTION: TStringField
       DisplayLabel = 'Type'

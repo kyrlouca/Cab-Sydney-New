@@ -839,7 +839,6 @@ object MainFRM: TMainFRM
         Caption = 'Charges'
         object SelectDHLTariffs1: TMenuItem
           Caption = 'DHL Charges'
-          OnClick = SelectDHLTariffs1Click
         end
         object SelectCustomTariffs1: TMenuItem
           Caption = 'Custom Charges'

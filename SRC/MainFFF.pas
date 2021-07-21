@@ -129,7 +129,7 @@ type
     procedure InsertaTariff2Click(Sender: TObject);
     procedure ariffGroups1Click(Sender: TObject);
     procedure SelectCustomTariffs1Click(Sender: TObject);
-    procedure FormCreate(Sender: TObject);
+//    procedure FormCreate(Sender: TObject);
     procedure BitBtn1Click(Sender: TObject);
     procedure CustomPayments2Click(Sender: TObject);
     procedure EditCheque1Click(Sender: TObject);
@@ -202,6 +202,8 @@ type
     procedure XMLparameters2Click(Sender: TObject);
     procedure ProcessHawbs1Click(Sender: TObject);
     procedure ProcessXmlTokens1Click(Sender: TObject);
+  published
+      procedure FormCreate(Sender: TObject);
   private
     { Private declarations }
     cn: TIBCCOnnection;
