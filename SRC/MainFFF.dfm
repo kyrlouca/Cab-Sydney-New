@@ -120,7 +120,7 @@ object MainFRM: TMainFRM
     Margins.Bottom = 0
     Align = alTop
     BorderOuter = fsGroove
-    Caption = 'Cab Sydney 2.81'
+    Caption = 'Cab Sydney 3.01'
     Ctl3D = False
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clBlue
@@ -259,31 +259,22 @@ object MainFRM: TMainFRM
         TabOrder = 0
         OnClick = Button4Click
       end
-      object Button2: TButton
-        Left = 110
-        Top = 112
-        Width = 75
-        Height = 25
-        Caption = 'Button2'
-        TabOrder = 1
-        OnClick = Button2Click
-      end
       object Button15: TButton
         Left = 126
         Top = 163
         Width = 75
         Height = 25
         Caption = 'Bucket Hawb'
-        TabOrder = 2
+        TabOrder = 1
         OnClick = Button15Click
       end
       object Button1: TButton
-        Left = 110
-        Top = 194
+        Left = 46
+        Top = 202
         Width = 75
         Height = 25
         Caption = 'Xml FIles'
-        TabOrder = 3
+        TabOrder = 2
         OnClick = Button1Click
       end
     end
@@ -559,14 +550,22 @@ object MainFRM: TMainFRM
       end
     end
     object Button3: TButton
-      Left = 166
-      Top = 313
+      Left = 22
+      Top = 305
       Width = 75
       Height = 25
       Caption = 'Button3'
       TabOrder = 3
-      Visible = False
       OnClick = Button3Click
+    end
+    object Button2: TButton
+      Left = 46
+      Top = 113
+      Width = 75
+      Height = 25
+      Caption = 'ProcCode'
+      TabOrder = 4
+      OnClick = Button2Click
     end
   end
   object MainMenu1: TMainMenu

@@ -3,7 +3,7 @@
         <ProjectGuid>{1A344599-1F0A-4FD6-B26C-9F17EC21AFE9}</ProjectGuid>
         <MainSource>CabSydney101.dpr</MainSource>
         <Base>True</Base>
-        <Config Condition="'$(Config)'==''">Release</Config>
+        <Config Condition="'$(Config)'==''">Debug</Config>
         <TargetedPlatforms>1</TargetedPlatforms>
         <AppType>Application</AppType>
         <FrameworkType>VCL</FrameworkType>
@@ -465,6 +465,14 @@
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="SRC\X_FileFinder.pas"/>
+        <DCCReference Include="SRC\M_ProcedureCodesNew.pas">
+            <Form>M_ProcedureCodesNewFRM</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="SRC\LN_RelievedCodes.pas">
+            <Form>LN_RelievedCodesFRM</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <None Include="CabSydney101.todo"/>
         <BuildConfiguration Include="Debug">
             <Key>Cfg_2</Key>

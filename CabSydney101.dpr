@@ -105,7 +105,9 @@ uses
   R_MediumDeclarations in 'SRC\R_MediumDeclarations.pas' {R_MediumDeclarationsFRM},
   R_nonReceivedInvoices in 'SRC\R_nonReceivedInvoices.pas' {R_nonReceivedInvoicesFRM},
   R_MediumHawb in 'SRC\R_MediumHawb.pas' {R_MediumHawbFRM},
-  X_FileFinder in 'SRC\X_FileFinder.pas';
+  X_FileFinder in 'SRC\X_FileFinder.pas',
+  M_ProcedureCodesNew in 'SRC\M_ProcedureCodesNew.pas' {M_ProcedureCodesNewFRM},
+  LN_RelievedCodes in 'SRC\LN_RelievedCodes.pas' {LN_RelievedCodesFRM};
 
 {$R *.RES}
 var
@@ -166,5 +168,7 @@ ReportMemoryLeaksOnShutdown := DebugHook <> 0;
   Application.CreateForm(TX_maintenanceScreenFRM, X_maintenanceScreenFRM);
   Application.CreateForm(TS_SelectTariffV1FRM, S_SelectTariffV1FRM);
   Application.CreateForm(TR_MediumHawbFRM, R_MediumHawbFRM);
+  Application.CreateForm(TM_ProcedureCodesNewFRM, M_ProcedureCodesNewFRM);
+  Application.CreateForm(TLN_RelievedCodesFRM, LN_RelievedCodesFRM);
   Application.Run;
 end.

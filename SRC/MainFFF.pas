@@ -96,7 +96,6 @@ type
     SendSoap1: TMenuItem;
     RzPanel1: TRzPanel;
     Button4: TButton;
-    Button2: TButton;
     Button15: TButton;
     Button1: TButton;
     UploadMediumExemptedTariffs1: TMenuItem;
@@ -111,6 +110,7 @@ type
     UploadMediumTariffs1: TMenuItem;
     Maintenance1: TMenuItem;
     ProcessHawbs1: TMenuItem;
+    Button2: TButton;
     procedure Button2Click(Sender: TObject);
     procedure Button6Click(Sender: TObject);
     procedure Button7Click(Sender: TObject);
@@ -247,7 +247,7 @@ uses M_BaseTariff, M_Units, V_hawb, MN_DutyTYpe,
   I_createInvoiceFile, M_CustomPaymentCodes, R_GlobalDhlInvoices,
   M_ChangeStatusBatch, M_STariffDelete, R_nonReceivedInvoices, X_BucketReadXML, B_XmlFilesUploaded, M_ProcedureCode, U_LowTables,
   B_StartCSharp, I_ReadMediumTariffsExempt, M_DeleteBuckets, M_ExemptTariffs, M_Exempt2, M_MediumTariffExempt, B_TariffFunctions,
-  I_LoadMediumTariffs, X_MaintenanceScreen;
+  I_LoadMediumTariffs, X_MaintenanceScreen, M_ProcedureCodesNew;
 
 {$R *.DFM}
 
@@ -300,7 +300,7 @@ procedure TMainFRM.Button1Click(Sender: TObject);
 
 procedure TMainFRM.Button2Click(Sender: TObject);
   begin
-    gpShowModal(TM_PortFRM);
+    gpShowModal(TM_ProcedureCodesNewFRM);
   end;
 
 procedure TMainFRM.Button3Click(Sender: TObject);
