@@ -499,7 +499,8 @@ procedure TV_MawbFRM.CancelBTNClick(Sender: TObject);
 
 procedure TV_MawbFRM.ChargesGRDKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
   begin
-    if Key = VK_f10 then ShowMessage('inner');
+    if Key = VK_f10 then
+      ShowMessage('inner');
   end;
 
 procedure TV_MawbFRM.OpenDatasets;
@@ -603,8 +604,10 @@ procedure TV_MawbFRM.BucketSettings(var isNOrmal: Boolean);
       FilterPanelPNL.Visible := false;
       FromBucketBtn.Visible := false;
 
-      for var I := 1 to MawbPC.PageCount - 1 do MawbPC.pages[I].TabVisible := false;
-      for var js := 0 to MainMenu1.Items.Count - 1 do MainMenu1.Items[js].Visible := false;
+      for var I := 1 to MawbPC.PageCount - 1 do
+        MawbPC.pages[I].TabVisible := false;
+      for var js := 0 to MainMenu1.Items.Count - 1 do
+        MainMenu1.Items[js].Visible := false;
 
     end
     else
@@ -617,8 +620,10 @@ procedure TV_MawbFRM.BucketSettings(var isNOrmal: Boolean);
       FilterPanelPNL.Visible := true;
       FromBucketBtn.Visible := true;
       BucketHawbsTS.Visible := true;
-      for var I := 1 to MawbPC.PageCount - 1 do MawbPC.pages[I].TabVisible := true;
-      for var js := 0 to MainMenu1.Items.Count - 1 do MainMenu1.Items[js].Visible := true;
+      for var I := 1 to MawbPC.PageCount - 1 do
+        MawbPC.pages[I].TabVisible := true;
+      for var js := 0 to MainMenu1.Items.Count - 1 do
+        MainMenu1.Items[js].Visible := true;
 
     end;
 
@@ -696,12 +701,10 @@ procedure TV_MawbFRM.wwSearchDialog1InitDialog(Dialog: TwwLookupDlg);
 procedure TV_MawbFRM.LowValueDocumentsDeliveryOrder1Click(Sender: TObject);
   var myForm: TR_DeliveryOrderLow1FRM; MawbReference: Integer;
   begin
-    if V_MawbDataDML.MawbSQL.State in [dsedit, dsinsert] then
-      V_MawbDataDML.MawbSQL.post;
+    if V_MawbDataDML.MawbSQL.State in [dsedit, dsinsert] then V_MawbDataDML.MawbSQL.post;
 
     MawbReference := V_MawbDataDML.MawbSQL.FieldByName('Reference_number').AsInteger;
-    if MawbReference < 1 then
-      exit;
+    if MawbReference < 1 then exit;
     try
       myForm := TR_DeliveryOrderLow1FRM.Create(nil);
       myForm.IN_FormType := 'LOW';
@@ -716,11 +719,9 @@ procedure TV_MawbFRM.LowValueDocumentsDeliveryOrder1Click(Sender: TObject);
 procedure TV_MawbFRM.MediumValueConsolidatedDeliveryOrder1Click(Sender: TObject);
   var myForm: TR_DeliveryOrderLow1FRM; MawbReference: Integer;
   begin
-    if V_MawbDataDML.MawbSQL.State in [dsedit, dsinsert] then
-      V_MawbDataDML.MawbSQL.post;
+    if V_MawbDataDML.MawbSQL.State in [dsedit, dsinsert] then V_MawbDataDML.MawbSQL.post;
     MawbReference := V_MawbDataDML.MawbSQL.FieldByName('Reference_number').AsInteger;
-    if MawbReference < 1 then
-      exit;
+    if MawbReference < 1 then exit;
     try
       myForm := TR_DeliveryOrderLow1FRM.Create(nil);
       myForm.IN_FormType := 'MED';
@@ -750,12 +751,10 @@ procedure TV_MawbFRM.MediumValueReport1Click(Sender: TObject);
 procedure TV_MawbFRM.HighValueItemsDeliveryOrder1Click(Sender: TObject);
   var myForm: TR_DeliveryOrderLow1FRM; MawbReference: Integer;
   begin
-    if V_MawbDataDML.MawbSQL.State in [dsedit, dsinsert] then
-      V_MawbDataDML.MawbSQL.post;
+    if V_MawbDataDML.MawbSQL.State in [dsedit, dsinsert] then V_MawbDataDML.MawbSQL.post;
 
     MawbReference := V_MawbDataDML.MawbSQL.FieldByName('Reference_number').AsInteger;
-    if MawbReference < 1 then
-      exit;
+    if MawbReference < 1 then exit;
     try
       myForm := TR_DeliveryOrderLow1FRM.Create(nil);
       myForm.IN_FormType := 'HIGH';
@@ -914,7 +913,8 @@ procedure TV_MawbFRM.RateCodeFLDCloseUp(Sender: TObject; LookupTable, FillTable:
 
 procedure TV_MawbFRM.wwDBNavigator1Insert1Click(Sender: TObject);
   begin
-    If MawbFLD.CanFocus then MawbFLD.SetFocus;
+    If MawbFLD.CanFocus then
+      MawbFLD.SetFocus;
   end;
 
 procedure TV_MawbFRM.FindHawbFLDEnter(Sender: TObject);
@@ -1050,11 +1050,9 @@ procedure TV_MawbFRM.HawbsToReceive1Click(Sender: TObject);
 
   var myForm: TR_HawbsToReceiveFRM; MawbReference: Integer;
   begin
-    if V_MawbDataDML.MawbSQL.State in [dsedit, dsinsert] then
-      V_MawbDataDML.MawbSQL.post;
+    if V_MawbDataDML.MawbSQL.State in [dsedit, dsinsert] then V_MawbDataDML.MawbSQL.post;
     MawbReference := V_MawbDataDML.MawbSQL.FieldByName('Reference_number').AsInteger;
-    if MawbReference < 1 then
-      exit;
+    if MawbReference < 1 then exit;
     try
       myForm := TR_HawbsToReceiveFRM.Create(nil);
       myForm.In_ReportType := 'NewIT2';
@@ -1073,11 +1071,9 @@ procedure TV_MawbFRM.HawbsToReceive1Click(Sender: TObject);
 procedure TV_MawbFRM.HawbsOnFlight1Click(Sender: TObject);
   var myForm: TR_HawbsToReceiveFRM; MawbReference: Integer;
   begin
-    if V_MawbDataDML.MawbSQL.State in [dsedit, dsinsert] then
-      V_MawbDataDML.MawbSQL.post;
+    if V_MawbDataDML.MawbSQL.State in [dsedit, dsinsert] then V_MawbDataDML.MawbSQL.post;
     MawbReference := V_MawbDataDML.MawbSQL.FieldByName('Reference_number').AsInteger;
-    if MawbReference < 1 then
-      exit;
+    if MawbReference < 1 then exit;
     try
       myForm := TR_HawbsToReceiveFRM.Create(nil);
       myForm.In_ReportType := 'OnFlight';
@@ -1100,7 +1096,8 @@ procedure TV_MawbFRM.wwDBNavigator1DeleteClick(Sender: TObject);
   var qr: TksQuery; Count: Integer; MawbSerial: Integer;
   begin
     MawbSerial := V_MawbDataDML.MawbSQL.FieldByName('reference_number').AsInteger;
-    if MawbSerial < 1 then abort;
+    if MawbSerial < 1 then
+      abort;
     try
       qr := TksQuery.Create(cn, 'select count(*) cnt from hawb where fk_mawb_refer_number = :MawbSerial');
       qr.ParamByName('mawbSerial').Value := MawbSerial;
@@ -1203,15 +1200,23 @@ procedure TV_MawbFRM.SendBTNClick(Sender: TObject);
 procedure TV_MawbFRM.SendCustomsBTNClick(Sender: TObject);
   begin
     var MawbSerial: Integer := V_MawbDataDML.MawbSQL.FieldByName('REFERENCE_NUMBER').AsInteger;
-    var sqlSelect: String := 'select ha.serial_number from hawb ha ' +
-           'where ha.fk_mawb_refer_number = :MawbSerial and ha.fk_clearance_instruction=''MED'' and ha.fk_clearing_state= ''1'' ';
+//    var sqlSelect: String := 'select ha.serial_number from hawb ha ' +
+//           'where ha.fk_mawb_refer_number = :MawbSerial and ha.fk_clearance_instruction=''MED'' and ha.fk_clearing_state= ''1'' ';
 
-    var qr: TibcQuery := TksQuery.Create(cn, sqlSelect);
+    var sqlStr: string := '';
+    sqlStr := sqlStr + ' left outer join low_pending lp on lp.hawb_serial_number = ha.serial_number ';
+    sqlStr := sqlStr + ' left outer join low_send ls on ls.hawb_serial_number =ha.serial_number ';
+    sqlStr := sqlStr + ' select ha.serial_number from hawb ha ';
+    sqlStr := sqlStr + ' where ha.fk_mawb_refer_number = :MawbSerial and ha.fk_clearance_insqlStruction=''MED'' and ha.fk_clearing_state= ''1'' ';
+    sqlStr := sqlStr + ' and lp.serial_number is null and ls.serial_number is null ';
+
+    var qr: TibcQuery := TksQuery.Create(cn, sqlStr);
     var transferObj: TTransferBuckets := B_TransferBuckets.TTransferBuckets.Create(cn, MawbSerial);
     try
       qr.ParamByName('MawbSerial').Value := MawbSerial;
       qr.open;
-      if qr.Isempty then exit;
+      if qr.Isempty then
+        exit;
 
       while not qr.Eof do
       begin
@@ -1273,7 +1278,8 @@ procedure TV_MawbFRM.MawbDetailsTSEnter(Sender: TObject);
 
 procedure TV_MawbFRM.MawbDetailsTSExit(Sender: TObject);
   begin
-    if V_MawbDataDML.MawbSQL.State in [dsedit, dsinsert] then V_MawbDataDML.MawbSQL.post;
+    if V_MawbDataDML.MawbSQL.State in [dsedit, dsinsert] then
+      V_MawbDataDML.MawbSQL.post;
   end;
 
 procedure TV_MawbFRM.PartialHawbTSEnter(Sender: TObject);
@@ -1331,7 +1337,8 @@ procedure TV_MawbFRM.InsertHawbBTNClick(Sender: TObject);
     with V_MawbDataDML do
     begin
 
-      if MawbSQL.State <> dsbrowse then MawbSQL.post;
+      if MawbSQL.State <> dsbrowse then
+        MawbSQL.post;
 
       MawbSerial := MawbSQL.FieldByName('REFERENCE_nUMBER').AsInteger;;
       if (MawbSerial = 0) then
@@ -1412,7 +1419,8 @@ procedure TV_MawbFRM.MawbSelectGRDTitleButtonClick(Sender: TObject; AFieldName: 
 procedure TV_MawbFRM.wwDBNavigator1InsertClick(Sender: TObject);
   begin
     V_MawbDataDML.MawbSelectSQL.Refresh;
-    If MawbFLD.CanFocus then MawbFLD.SetFocus;
+    If MawbFLD.CanFocus then
+      MawbFLD.SetFocus;
 
   end;
 
@@ -1550,13 +1558,13 @@ procedure TV_MawbFRM.ByMawbIDsFLDInvokeSearch(Sender: TObject);
       DeleteWhere;
       AddWhere('Mawb_ID starting with :MawbID');
       SetOrderBy('Mawb_ID ascending');
-      If not prepared then
-        prepare;
+      If not prepared then prepare;
       ParamByName('MawbId').AsString := Trim(ByMawbIDsFLD.Text);
       // SHowMessage(MawbSelectSQL.FinalSQL);
       open;
       FirstSErial := -1;
-      if not Isempty then FirstSErial := FieldByName('reference_number').AsInteger;
+      if not Isempty then
+        FirstSErial := FieldByName('reference_number').AsInteger;
       FindMawb(FirstSErial);
       EnableControls;
     end;
@@ -1578,8 +1586,7 @@ procedure TV_MawbFRM.ByRefFLDInvokeSearch(Sender: TObject);
       RestoreSQL;
       AddWhere('reference_number <=  :MawbSerial');
       SetOrderBy('REference_Number descending');
-      If not prepared then
-        prepare;
+      If not prepared then prepare;
       SerialNumber := -1;
       Try
         SerialNumber := StrToInt(ByRefFLD.Text);
@@ -1590,7 +1597,8 @@ procedure TV_MawbFRM.ByRefFLDInvokeSearch(Sender: TObject);
       // SHowMessage(MawbSelectSQL.FinalSQL);
       open;
       FirstSErial := -1;
-      if not Isempty then FirstSErial := FieldByName('reference_number').AsInteger;
+      if not Isempty then
+        FirstSErial := FieldByName('reference_number').AsInteger;
       FindMawb(FirstSErial);
       EnableControls;
     end;
@@ -1606,14 +1614,14 @@ procedure TV_MawbFRM.BYStartDateFLDCloseUp(Sender: TObject);
       close;
       DeleteWhere;
       AddWhere('Date_Arrived >= :DateArrived');
-      If not prepared then
-        prepare;
+      If not prepared then prepare;
       ParamByName('DateArrived').AsDate := StartDate;
       SetOrderBy('Date_Arrived');
       // SHowMessage(MawbSelectSQL.FinalSQL);
       open;
       FirstSErial := -1;
-      if not Isempty then FirstSErial := FieldByName('reference_number').AsInteger;
+      if not Isempty then
+        FirstSErial := FieldByName('reference_number').AsInteger;
       FindMawb(FirstSErial);
     end;
 
@@ -1649,7 +1657,8 @@ procedure TV_MawbFRM.BtnDeleteRecordClick(Sender: TObject);
   var qr: TksQuery; Count: Integer; MawbSerial: Integer;
   begin
     MawbSerial := V_MawbDataDML.MawbSQL.FieldByName('reference_number').AsInteger;
-    if MawbSerial < 1 then abort;
+    if MawbSerial < 1 then
+      abort;
     try
       qr := TksQuery.Create(cn, 'select count(*) cnt from hawb where fk_mawb_refer_number = :MawbSerial');
       qr.ParamByName('mawbSerial').Value := MawbSerial;
@@ -1670,9 +1679,11 @@ procedure TV_MawbFRM.BtnDeleteRecordClick(Sender: TObject);
 
 procedure TV_MawbFRM.BtnInsertRecordClick(Sender: TObject);
   begin
-    if V_MawbDataDML.MawbSQL.State in [dsinsert, dsedit] then V_MawbDataDML.MawbSQL.post;
+    if V_MawbDataDML.MawbSQL.State in [dsinsert, dsedit] then
+      V_MawbDataDML.MawbSQL.post;
     V_MawbDataDML.MawbSQL.INsert;
-    If MawbFLD.CanFocus then MawbFLD.SetFocus;
+    If MawbFLD.CanFocus then
+      MawbFLD.SetFocus;
     V_MawbDataDML.MawbSelectSQL.Refresh;
 
   end;
@@ -1738,7 +1749,8 @@ procedure TV_MawbFRM.PrintOneInvoice(Const hawbSerial: Integer);
     finally
       qr.free;
     end;
-    if InvoiceSerial < 1 then exit;
+    if InvoiceSerial < 1 then
+      exit;
 
     myForm := TR_PrintMultiInvoiceFRM.Create(nil);
     try
@@ -1873,7 +1885,8 @@ procedure TV_MawbFRM.MakeIm4(Const ClrType: String; LowDS: TibcQuery; HighDS: Ti
       exit;
     end;
 
-    If not LowDS.Isempty then ABookmark := LowDS.GetBookmark;
+    If not LowDS.Isempty then
+      ABookmark := LowDS.GetBookmark;
 
     hawbSerial := LowDS.FieldByName('Serial_Number').AsInteger;
     UpdateHawbStatus(hawbSerial, 0, Wd, 'Y', ClrType);
@@ -1881,7 +1894,8 @@ procedure TV_MawbFRM.MakeIm4(Const ClrType: String; LowDS: TibcQuery; HighDS: Ti
     HighDS.Refresh;
     HighDS.LocateEx('SErial_Number', hawbSerial, []);
 
-    If not LowDS.Isempty then LowDS.GotoBookmark(ABookmark);
+    If not LowDS.Isempty then
+      LowDS.GotoBookmark(ABookmark);
   end;
 
 procedure TV_MawbFRM.MakeLow(Const ClrType: String; LowDS: TibcQuery; HighDS: TibcQuery);
@@ -1892,7 +1906,8 @@ procedure TV_MawbFRM.MakeLow(Const ClrType: String; LowDS: TibcQuery; HighDS: Ti
     IsCleared := HighDS.FieldByName('FK_clearing_state').AsString > '0';
     If not(IsInvoiced or IsCleared) then
     begin
-      If not HighDS.Isempty then ABookmark := HighDS.GetBookmark;
+      If not HighDS.Isempty then
+        ABookmark := HighDS.GetBookmark;
 
       hawbSerial := HighDS.FieldByName('Serial_Number').AsInteger;
       MedVat := V_MawbHawbDML.GetDefaultMediumVatRate();
@@ -1902,7 +1917,8 @@ procedure TV_MawbFRM.MakeLow(Const ClrType: String; LowDS: TibcQuery; HighDS: Ti
       HighDS.Refresh;
       LowDS.LocateEx('SErial_Number', hawbSerial, []);
 
-      If not HighDS.Isempty then HighDS.GotoBookmark(ABookmark);
+      If not HighDS.Isempty then
+        HighDS.GotoBookmark(ABookmark);
 
       // If MediumGrd.CanFocus then
       // MediumGRD.SetFocus;
@@ -1930,11 +1946,9 @@ procedure TV_MawbFRM.MediumH7Declarations1Click(Sender: TObject);
 
   var myForm: TR_MediumDeclarationsFRM;
   begin
-    if V_MawbDataDML.MawbSQL.State in [dsedit, dsinsert] then
-      V_MawbDataDML.MawbSQL.post;
+    if V_MawbDataDML.MawbSQL.State in [dsedit, dsinsert] then V_MawbDataDML.MawbSQL.post;
     var MawbReference: Integer := V_MawbDataDML.MawbSQL.FieldByName('Reference_number').AsInteger;
-    if MawbReference < 1 then
-      exit;
+    if MawbReference < 1 then exit;
     try
       myForm := TR_MediumDeclarationsFRM.Create(nil);
       myForm.PrintMedium(MawbReference);
@@ -1987,8 +2001,7 @@ procedure TV_MawbFRM.SelectClearanceFLDCloseUp(Sender: TwwDBComboBox; Select: Bo
   var val: String; tbl: TibcQuery;
   begin
 
-    if not Select then
-      exit;
+    if not Select then exit;
     tbl := V_MawbDataDML.HawbStatusSQL;
     val := Sender.Value;
 
@@ -2061,7 +2074,8 @@ procedure TV_MawbFRM.MhawbsGRDDblClick(Sender: TObject);
   var hawbSerial: Integer;
 
   begin
-    if V_MawbDataDML.hawbSQL.State in [dsedit, dsinsert] then V_MawbDataDML.hawbSQL.post;
+    if V_MawbDataDML.hawbSQL.State in [dsedit, dsinsert] then
+      V_MawbDataDML.hawbSQL.post;
 
     hawbSerial := V_MawbDataDML.hawbSQL.FieldByName('Serial_number').AsInteger;
     if hawbSerial < 1 then
@@ -2102,7 +2116,8 @@ procedure TV_MawbFRM.MhawbsGRDDblClick(Sender: TObject);
 
 procedure TV_MawbFRM.ExapandChargesFLDKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
   begin
-    if Key = VK_f10 then ShowMessage('inner');
+    if Key = VK_f10 then
+      ShowMessage('inner');
   end;
 
 procedure TV_MawbFRM.DeleteHawbBTNClick(Sender: TObject);
@@ -2207,7 +2222,8 @@ procedure TV_MawbFRM.HawbImage1Click(Sender: TObject);
 procedure TV_MawbFRM.MawbPCChanging(Sender: TObject; var AllowChange: Boolean);
   begin
     try
-      if V_MawbDataDML.MawbSQL.State in [dsinsert, dsedit] then V_MawbDataDML.MawbSQL.post;
+      if V_MawbDataDML.MawbSQL.State in [dsinsert, dsedit] then
+        V_MawbDataDML.MawbSQL.post;
 
     except
       AllowChange := false;
@@ -2341,7 +2357,8 @@ procedure TV_MawbFRM.MhawbsGRDCalcCellColors(Sender: TObject; Field: TField; Sta
     var
     hab := gridData.FieldByName('hab_id').AsString;
 
-    if not(isIm4 or isMed) then exit;
+    if not(isIm4 or isMed) then
+      exit;
 
     If (UpperCase(Field.FieldName) = 'SERIAL_NUMBER') then
     begin
@@ -2350,15 +2367,12 @@ procedure TV_MawbFRM.MhawbsGRDCalcCellColors(Sender: TObject; Field: TField; Sta
       var SentSerial: Integer := Field.DataSet.FieldByName('SENT_SERIAL').AsInteger;
       var FailedSerial: Integer := Field.DataSet.FieldByName('FAILED_SERIAL').AsInteger;
 
-      if PendingSerial > 0 then
-        ABrush.Color := $0000A5FF
-      else if SentSerial > 0 then
-        ABrush.Color := clGreen
-      else if FailedSerial > 0 then
-        ABrush.Color := clRed
-      else if isClear then
-        ABrush.Color := clYellow
-      else ABrush.Color := clwindow;
+      if PendingSerial > 0 then ABrush.Color := $0000A5FF
+      else if SentSerial > 0 then ABrush.Color := clGreen
+      else if FailedSerial > 0 then ABrush.Color := clRed
+      else if isClear then ABrush.Color := clYellow
+      else
+        ABrush.Color := clwindow;
 
     end;
 
@@ -2441,7 +2455,8 @@ procedure TV_MawbFRM.PrintSelected(ReportType: String; OnPrinter: Boolean);
 
     SelectedCount := MhawbsGRD.SelectedList.Count;
     TheDataset := MhawbsGRD.DataSource.DataSet;
-    if SelectedCount < 1 then exit;
+    if SelectedCount < 1 then
+      exit;
 
     EmptyRep.ShowPrintDialog := true;
     EmptyRep.DeviceType := dtPrinter;
@@ -2476,7 +2491,8 @@ procedure TV_MawbFRM.PrintSelected(ReportType: String; OnPrinter: Boolean);
         hawbId := TheDataset.FieldByName('Hab_id').AsString;
         hawbSerial := TheDataset.FieldByName('Serial_number').AsInteger;
         Clearance := TheDataset.FieldByName('FK_CLEARANCE_INSTRUCTION').AsString;
-        if Clearance <> 'IM4' then continue;
+        if Clearance <> 'IM4' then
+          continue;
 
         // ShowMessage(intToStr(hawbSerial)+'--'+hawbId);
 

@@ -101,7 +101,6 @@ object V_MawbFRM: TV_MawbFRM
         BevelOuter = bvNone
         ParentBackground = False
         TabOrder = 0
-        ExplicitTop = 178
         object RzDBLabel1: TRzDBLabel
           Left = 464
           Top = 152
