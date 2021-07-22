@@ -647,6 +647,24 @@ procedure TV_HawbFRM.FormActivate(Sender: TObject);
   Const Max = 3;
   Var TheDataset: TDataset; HawbDataset: TIBCQuery; SenderInvoiceDS: TDataset;
   begin
+
+    var
+    rec := G_generalProcs.GetTheSystemParameter(cn, 'IG3');
+    MinMediumValue := rec.P_Integer1;
+
+    ksfillComboF1(cn, RelievedFLD, 'DUTY_RELIEVE', 'CODE', 'DESCRIPTION', 'description', true, false);
+    ksfillComboF1(cn, UnitsFLD, 'UNIT_MEASURE', 'UNIT', 'UNIT');
+    ksfillComboF1(cn, InvoiceCurrencyFLD, 'CURRENCY', 'CURRENCY_CODE', 'CURRENCY_CODE');
+
+    setClearanceInstruction();
+
+    // ksfillComboF1(cn, MediumVatFLD, 'VAT_CATEGORY', 'Rate', 'Description', 'code');
+    ksfillComboF1(cn, IncoFLD, 'DELIVERY_TERM', 'code', '');
+    ksfillComboF1(cn, ItemCountryFLD, 'country', 'number', 'name');
+
+    ksfillComboF1(cn, ProcedureFLD, 'Procedure_code', 'Procedure_code', 'Procedure_code');
+
+
     // The form can be used to edit either normal or bucket hawbs
     // if the MAWB is bucket then change the property isBucket. The side effects of setting tghe property will take care
     ClearLineFields();
@@ -712,24 +730,24 @@ procedure TV_HawbFRM.FormClose(Sender: TObject; var Action: TCloseAction);
   end;
 
 procedure TV_HawbFRM.FormCreate(Sender: TObject);
-  var qr: TksQuery;
+//  var qr: TksQuery;
   begin
     cn := ClairDML.CabCOnnection;
-    var
-    rec := G_generalProcs.GetTheSystemParameter(cn, 'IG3');
-    MinMediumValue := rec.P_Integer1;
-
-    ksfillComboF1(cn, RelievedFLD, 'DUTY_RELIEVE', 'CODE', 'DESCRIPTION', 'description', true, false);
-    ksfillComboF1(cn, UnitsFLD, 'UNIT_MEASURE', 'UNIT', 'UNIT');
-    ksfillComboF1(cn, InvoiceCurrencyFLD, 'CURRENCY', 'CURRENCY_CODE', 'CURRENCY_CODE');
-
-    setClearanceInstruction();
-
-    // ksfillComboF1(cn, MediumVatFLD, 'VAT_CATEGORY', 'Rate', 'Description', 'code');
-    ksfillComboF1(cn, IncoFLD, 'DELIVERY_TERM', 'code', '');
-    ksfillComboF1(cn, ItemCountryFLD, 'country', 'number', 'name');
-
-    ksfillComboF1(cn, ProcedureFLD, 'Procedure_code', 'Procedure_code', 'Procedure_code');
+//    var
+//    rec := G_generalProcs.GetTheSystemParameter(cn, 'IG3');
+//    MinMediumValue := rec.P_Integer1;
+//
+//    ksfillComboF1(cn, RelievedFLD, 'DUTY_RELIEVE', 'CODE', 'DESCRIPTION', 'description', true, false);
+//    ksfillComboF1(cn, UnitsFLD, 'UNIT_MEASURE', 'UNIT', 'UNIT');
+//    ksfillComboF1(cn, InvoiceCurrencyFLD, 'CURRENCY', 'CURRENCY_CODE', 'CURRENCY_CODE');
+//
+//    setClearanceInstruction();
+//
+//    // ksfillComboF1(cn, MediumVatFLD, 'VAT_CATEGORY', 'Rate', 'Description', 'code');
+//    ksfillComboF1(cn, IncoFLD, 'DELIVERY_TERM', 'code', '');
+//    ksfillComboF1(cn, ItemCountryFLD, 'country', 'number', 'name');
+//
+//    ksfillComboF1(cn, ProcedureFLD, 'Procedure_code', 'Procedure_code', 'Procedure_code');
   end;
 
 procedure TV_HawbFRM.FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
