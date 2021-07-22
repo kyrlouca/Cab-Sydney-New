@@ -86,7 +86,6 @@ type
     wwNavButton9: TwwNavButton;
     wwNavButton10: TwwNavButton;
     wwDBGrid2: TwwDBGrid;
-    wwDBLookupCombo1: TwwDBLookupCombo;
     ProcedureXmlSQL: TIBCQuery;
     ProcedureXmlSRC: TIBCDataSource;
     ProcedureXmlSQLSERIAL_NUMBER: TIntegerField;
@@ -169,7 +168,7 @@ procedure TM_ProcedureCodesNewFRM.FormActivate(Sender: TObject);
     Tables: array [1 .. 1] of TIBCQuery;
     I: Integer;
   begin
-    ksOpenTables([TableSQL, DetailSQL, DutyTypeSQL, ClearanceSQL]);
+    ksOpenTables([TableSQL, DetailSQL, ProcedureXMLSQL, DutyTypeSQL, ClearanceSQL]);
   end;
 
 procedure TM_ProcedureCodesNewFRM.AddDetailBTNClick(Sender: TObject);

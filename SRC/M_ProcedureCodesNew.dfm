@@ -29,7 +29,6 @@ object M_ProcedureCodesNewFRM: TM_ProcedureCodesNewFRM
     Font.Style = [fsBold]
     ParentFont = False
     TabOrder = 0
-    ExplicitWidth = 1013
     object Label1: TLabel
       Left = 1
       Top = 1
@@ -49,7 +48,6 @@ object M_ProcedureCodesNewFRM: TM_ProcedureCodesNewFRM
     Height = 43
     Align = alBottom
     TabOrder = 1
-    ExplicitWidth = 1013
     object BitBtn3: TBitBtn
       Left = 7
       Top = 4
@@ -130,7 +128,6 @@ object M_ProcedureCodesNewFRM: TM_ProcedureCodesNewFRM
     Height = 634
     Align = alClient
     TabOrder = 2
-    ExplicitWidth = 1013
     object Panel5: TPanel
       Left = 1
       Top = 1
@@ -139,8 +136,6 @@ object M_ProcedureCodesNewFRM: TM_ProcedureCodesNewFRM
       Align = alClient
       BevelOuter = bvNone
       TabOrder = 0
-      ExplicitLeft = 0
-      ExplicitTop = 6
       object wwDBGrid1: TwwDBGrid
         Left = 0
         Top = 0
@@ -187,7 +182,6 @@ object M_ProcedureCodesNewFRM: TM_ProcedureCodesNewFRM
         UseTFields = False
         OnDblClick = wwDBGrid1DblClick
         OnExit = wwDBGrid1Exit
-        ExplicitHeight = 389
         object ClearanceFLD: TwwDBLookupCombo
           Left = 425
           Top = 248
@@ -201,6 +195,7 @@ object M_ProcedureCodesNewFRM: TM_ProcedureCodesNewFRM
           DataSource = TableSRC
           LookupTable = ClearanceSQL
           LookupField = 'CODE'
+          Style = csDropDownList
           TabOrder = 0
           AutoDropDown = False
           ShowButton = True
@@ -245,6 +240,12 @@ object M_ProcedureCodesNewFRM: TM_ProcedureCodesNewFRM
         Height = 225
         ActivePage = TabSheet1
         Align = alClient
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Calibri'
+        Font.Style = []
+        ParentFont = False
         TabOrder = 0
         object TabSheet1: TTabSheet
           Caption = 'Exemptions'
@@ -356,7 +357,7 @@ object M_ProcedureCodesNewFRM: TM_ProcedureCodesNewFRM
             Left = 0
             Top = 42
             Width = 731
-            Height = 155
+            Height = 149
             ControlType.Strings = (
               'VALID_IOSS;CheckBox;Y;N'
               'DUTY_TYPE;CustomEdit;DutyTypeFLD;F'
@@ -390,8 +391,9 @@ object M_ProcedureCodesNewFRM: TM_ProcedureCodesNewFRM
             TitleLines = 1
             TitleButtons = False
             OnDblClick = Grid1DblClick
-            ExplicitLeft = 512
-            ExplicitTop = -18
+            ExplicitLeft = 2
+            ExplicitTop = 41
+            ExplicitHeight = 155
             object DutyTypeFLD: TwwDBLookupCombo
               Left = 117
               Top = 96
@@ -404,6 +406,7 @@ object M_ProcedureCodesNewFRM: TM_ProcedureCodesNewFRM
               DataSource = DetailSRC
               LookupTable = DutyTypeSQL
               LookupField = 'DUTY_CODE'
+              Style = csDropDownList
               TabOrder = 0
               AutoDropDown = False
               ShowButton = True
@@ -524,7 +527,7 @@ object M_ProcedureCodesNewFRM: TM_ProcedureCodesNewFRM
             Left = 0
             Top = 42
             Width = 731
-            Height = 155
+            Height = 149
             ControlType.Strings = (
               'VALID_IOSS;CheckBox;Y;N'
               'DUTY_TYPE;CustomEdit;DutyTypeFLD;F'
@@ -559,25 +562,6 @@ object M_ProcedureCodesNewFRM: TM_ProcedureCodesNewFRM
             TitleLines = 1
             TitleButtons = False
             OnDblClick = Grid1DblClick
-            object wwDBLookupCombo1: TwwDBLookupCombo
-              Left = 117
-              Top = 96
-              Width = 121
-              Height = 22
-              DropDownAlignment = taLeftJustify
-              Selected.Strings = (
-                'DUTY_CODE'#9'3'#9'DUTY_CODE'#9#9)
-              DataField = 'DUTY_TYPE'
-              DataSource = DetailSRC
-              LookupTable = DutyTypeSQL
-              LookupField = 'DUTY_CODE'
-              TabOrder = 0
-              AutoDropDown = False
-              ShowButton = True
-              PreciseEditRegion = False
-              AllowClearKey = False
-              ShowMatchText = True
-            end
           end
         end
       end
@@ -732,7 +716,6 @@ object M_ProcedureCodesNewFRM: TM_ProcedureCodesNewFRM
     Align = alTop
     BevelOuter = bvNone
     TabOrder = 3
-    ExplicitWidth = 1013
     object wwDBNavigator2: TwwDBNavigator
       Left = 0
       Top = 0
@@ -1280,8 +1263,8 @@ object M_ProcedureCodesNewFRM: TM_ProcedureCodesNewFRM
     DetailFields = 'FK_PROCEDURE_CODE'
     MasterSource = TableSRC
     Active = True
-    Left = 337
-    Top = 605
+    Left = 265
+    Top = 629
     ParamData = <
       item
         DataType = ftFixedChar
@@ -1315,7 +1298,7 @@ object M_ProcedureCodesNewFRM: TM_ProcedureCodesNewFRM
   end
   object ProcedureXmlSRC: TIBCDataSource
     DataSet = ProcedureXmlSQL
-    Left = 448
-    Top = 604
+    Left = 344
+    Top = 644
   end
 end
