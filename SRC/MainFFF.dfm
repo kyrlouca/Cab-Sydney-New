@@ -556,6 +556,7 @@ object MainFRM: TMainFRM
       Height = 25
       Caption = 'Button3'
       TabOrder = 3
+      Visible = False
       OnClick = Button3Click
     end
     object Button2: TButton
@@ -565,6 +566,7 @@ object MainFRM: TMainFRM
       Height = 25
       Caption = 'ProcCode'
       TabOrder = 4
+      Visible = False
       OnClick = Button2Click
     end
   end
@@ -801,6 +803,7 @@ object MainFRM: TMainFRM
         end
         object ProcedureCodeExemptions1: TMenuItem
           Caption = 'Procedure Code Exemptions'
+          OnClick = ProcedureCodeExemptions1Click
         end
         object ExemptedMediumTariffs1: TMenuItem
           Caption = 'Exempted Medium Tariffs'

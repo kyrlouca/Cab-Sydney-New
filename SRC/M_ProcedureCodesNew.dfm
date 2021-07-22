@@ -3,7 +3,7 @@ object M_ProcedureCodesNewFRM: TM_ProcedureCodesNewFRM
   Top = 315
   Caption = 'Instructor'
   ClientHeight = 776
-  ClientWidth = 1013
+  ClientWidth = 1119
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -19,7 +19,7 @@ object M_ProcedureCodesNewFRM: TM_ProcedureCodesNewFRM
   object Panel1: TPanel
     Left = 0
     Top = 0
-    Width = 1013
+    Width = 1119
     Height = 53
     Align = alTop
     Font.Charset = DEFAULT_CHARSET
@@ -29,10 +29,11 @@ object M_ProcedureCodesNewFRM: TM_ProcedureCodesNewFRM
     Font.Style = [fsBold]
     ParentFont = False
     TabOrder = 0
+    ExplicitWidth = 1013
     object Label1: TLabel
       Left = 1
       Top = 1
-      Width = 1011
+      Width = 1117
       Height = 51
       Align = alClient
       Alignment = taCenter
@@ -44,11 +45,11 @@ object M_ProcedureCodesNewFRM: TM_ProcedureCodesNewFRM
   object Panel4: TPanel
     Left = 0
     Top = 733
-    Width = 1013
+    Width = 1119
     Height = 43
     Align = alBottom
     TabOrder = 1
-    ExplicitTop = 606
+    ExplicitWidth = 1013
     object BitBtn3: TBitBtn
       Left = 7
       Top = 4
@@ -125,26 +126,26 @@ object M_ProcedureCodesNewFRM: TM_ProcedureCodesNewFRM
   object Panel3: TPanel
     Left = 0
     Top = 99
-    Width = 1013
+    Width = 1119
     Height = 634
     Align = alClient
     TabOrder = 2
-    ExplicitTop = 92
-    ExplicitHeight = 514
+    ExplicitWidth = 1013
     object Panel5: TPanel
       Left = 1
       Top = 1
-      Width = 1011
-      Height = 389
+      Width = 1117
+      Height = 407
       Align = alClient
       BevelOuter = bvNone
       TabOrder = 0
-      ExplicitHeight = 232
+      ExplicitLeft = 0
+      ExplicitTop = 6
       object wwDBGrid1: TwwDBGrid
         Left = 0
         Top = 0
         Width = 735
-        Height = 389
+        Height = 407
         ControlType.Strings = (
           'CODE;CustomEdit;CodeFLD;F'
           'FK_CLEARANCE_INSTRUCTION;CustomEdit;ClearanceFLD;F'
@@ -186,7 +187,7 @@ object M_ProcedureCodesNewFRM: TM_ProcedureCodesNewFRM
         UseTFields = False
         OnDblClick = wwDBGrid1DblClick
         OnExit = wwDBGrid1Exit
-        ExplicitTop = -6
+        ExplicitHeight = 389
         object ClearanceFLD: TwwDBLookupCombo
           Left = 425
           Top = 248
@@ -231,69 +232,353 @@ object M_ProcedureCodesNewFRM: TM_ProcedureCodesNewFRM
     end
     object Panel6: TPanel
       Left = 1
-      Top = 432
-      Width = 1011
-      Height = 201
+      Top = 408
+      Width = 1117
+      Height = 225
       Align = alBottom
       BevelOuter = bvNone
       TabOrder = 1
-      ExplicitTop = 431
-      object Grid1: TwwDBGrid
+      object PageControl1: TPageControl
         Left = 0
         Top = 0
-        Width = 735
-        Height = 201
-        ControlType.Strings = (
-          'VALID_IOSS;CheckBox;Y;N'
-          'DUTY_TYPE;CustomEdit;DutyTypeFLD;F'
-          'VALID_IF_IOSS;CheckBox;Y;N')
-        Selected.Strings = (
-          'SERIAL_NUMBER'#9'10'#9'S/N'#9'T'#9
-          'DUTY_TYPE'#9'11'#9'Duty Type'#9'F'#9)
-        IniAttributes.Delimiter = ';;'
-        IniAttributes.UnicodeIniFile = False
-        TitleColor = clBtnFace
-        FixedCols = 1
-        ShowHorzScrollBar = True
-        EditControlOptions = [ecoCheckboxSingleClick, ecoSearchOwnerForm]
-        Align = alLeft
-        Color = 12713983
-        DataSource = DetailSRC
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -11
-        Font.Name = 'Arial'
-        Font.Style = []
-        Options = [dgEditing, dgAlwaysShowEditor, dgTitles, dgIndicator, dgColumnResize, dgColLines, dgTabs, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit, dgWordWrap]
-        ParentFont = False
+        Width = 1117
+        Height = 225
+        ActivePage = TabSheet1
+        Align = alClient
         TabOrder = 0
-        TitleAlignment = taLeftJustify
-        TitleFont.Charset = DEFAULT_CHARSET
-        TitleFont.Color = clWindowText
-        TitleFont.Height = -13
-        TitleFont.Name = 'Arial'
-        TitleFont.Style = []
-        TitleLines = 1
-        TitleButtons = False
-        OnDblClick = Grid1DblClick
-        object DutyTypeFLD: TwwDBLookupCombo
-          Left = 117
-          Top = 96
-          Width = 121
-          Height = 22
-          DropDownAlignment = taLeftJustify
-          Selected.Strings = (
-            'DUTY_CODE'#9'3'#9'DUTY_CODE'#9#9)
-          DataField = 'DUTY_TYPE'
-          DataSource = DetailSRC
-          LookupTable = DutyTypeSQL
-          LookupField = 'DUTY_CODE'
-          TabOrder = 0
-          AutoDropDown = False
-          ShowButton = True
-          PreciseEditRegion = False
-          AllowClearKey = False
-          ShowMatchText = True
+        object TabSheet1: TTabSheet
+          Caption = 'Exemptions'
+          object RzPanel1: TRzPanel
+            Left = 0
+            Top = 0
+            Width = 1109
+            Height = 42
+            Align = alTop
+            BorderOuter = fsNone
+            TabOrder = 0
+            object wwDBNavigator1: TwwDBNavigator
+              Left = 0
+              Top = 0
+              Width = 193
+              Height = 42
+              AutosizeStyle = asSizeNavButtons
+              DataSource = DetailSRC
+              RepeatInterval.InitialDelay = 500
+              RepeatInterval.Interval = 100
+              BackgroundOptions.IndentX = 0
+              BackgroundOptions.IndentY = 0
+              Align = alLeft
+              object wwDBNavigator1Insert: TwwNavButton
+                Left = 0
+                Top = 0
+                Width = 39
+                Height = 42
+                Hint = 'Insert new record'
+                ImageIndex = -1
+                NumGlyphs = 2
+                Spacing = 4
+                Transparent = False
+                Caption = 'wwDBNavigator1Insert'
+                DisabledTextColors.ShadeColor = clGray
+                DisabledTextColors.HighlightColor = clBtnHighlight
+                Index = 0
+                Style = nbsInsert
+              end
+              object wwDBNavigator1Delete: TwwNavButton
+                Left = 39
+                Top = 0
+                Width = 39
+                Height = 42
+                Hint = 'Delete current record'
+                ImageIndex = -1
+                NumGlyphs = 2
+                Spacing = 4
+                Transparent = False
+                Caption = 'wwDBNavigator1Delete'
+                DisabledTextColors.ShadeColor = clGray
+                DisabledTextColors.HighlightColor = clBtnHighlight
+                Index = 1
+                Style = nbsDelete
+              end
+              object wwDBNavigator1Post: TwwNavButton
+                Left = 78
+                Top = 0
+                Width = 39
+                Height = 42
+                Hint = 'Post changes of current record'
+                ImageIndex = -1
+                NumGlyphs = 2
+                Spacing = 4
+                Transparent = False
+                Caption = 'wwDBNavigator1Post'
+                Enabled = False
+                DisabledTextColors.ShadeColor = clGray
+                DisabledTextColors.HighlightColor = clBtnHighlight
+                Index = 2
+                Style = nbsPost
+              end
+              object wwDBNavigator1Cancel: TwwNavButton
+                Left = 117
+                Top = 0
+                Width = 38
+                Height = 42
+                Hint = 'Cancel changes made to current record'
+                ImageIndex = -1
+                NumGlyphs = 2
+                Spacing = 4
+                Transparent = False
+                Caption = 'wwDBNavigator1Cancel'
+                Enabled = False
+                DisabledTextColors.ShadeColor = clGray
+                DisabledTextColors.HighlightColor = clBtnHighlight
+                Index = 3
+                Style = nbsCancel
+              end
+              object wwDBNavigator1Refresh: TwwNavButton
+                Left = 155
+                Top = 0
+                Width = 38
+                Height = 42
+                Hint = 'Refresh the contents of the dataset'
+                ImageIndex = -1
+                NumGlyphs = 2
+                Spacing = 4
+                Transparent = False
+                Caption = 'wwDBNavigator1Refresh'
+                DisabledTextColors.ShadeColor = clGray
+                DisabledTextColors.HighlightColor = clBtnHighlight
+                Index = 4
+                Style = nbsRefresh
+              end
+            end
+          end
+          object Grid1: TwwDBGrid
+            Left = 0
+            Top = 42
+            Width = 731
+            Height = 155
+            ControlType.Strings = (
+              'VALID_IOSS;CheckBox;Y;N'
+              'DUTY_TYPE;CustomEdit;DutyTypeFLD;F'
+              'VALID_IF_IOSS;CheckBox;Y;N')
+            Selected.Strings = (
+              'SERIAL_NUMBER'#9'10'#9'S/N'#9'T'#9
+              'DUTY_TYPE'#9'11'#9'Duty Type'#9'F'#9)
+            IniAttributes.Delimiter = ';;'
+            IniAttributes.UnicodeIniFile = False
+            TitleColor = clBtnFace
+            FixedCols = 1
+            ShowHorzScrollBar = True
+            EditControlOptions = [ecoCheckboxSingleClick, ecoSearchOwnerForm]
+            Align = alLeft
+            Color = 12713983
+            DataSource = DetailSRC
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'Arial'
+            Font.Style = []
+            Options = [dgEditing, dgAlwaysShowEditor, dgTitles, dgIndicator, dgColumnResize, dgColLines, dgTabs, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit, dgWordWrap]
+            ParentFont = False
+            TabOrder = 1
+            TitleAlignment = taLeftJustify
+            TitleFont.Charset = DEFAULT_CHARSET
+            TitleFont.Color = clWindowText
+            TitleFont.Height = -13
+            TitleFont.Name = 'Arial'
+            TitleFont.Style = []
+            TitleLines = 1
+            TitleButtons = False
+            OnDblClick = Grid1DblClick
+            ExplicitLeft = 512
+            ExplicitTop = -18
+            object DutyTypeFLD: TwwDBLookupCombo
+              Left = 117
+              Top = 96
+              Width = 121
+              Height = 22
+              DropDownAlignment = taLeftJustify
+              Selected.Strings = (
+                'DUTY_CODE'#9'3'#9'DUTY_CODE'#9#9)
+              DataField = 'DUTY_TYPE'
+              DataSource = DetailSRC
+              LookupTable = DutyTypeSQL
+              LookupField = 'DUTY_CODE'
+              TabOrder = 0
+              AutoDropDown = False
+              ShowButton = True
+              PreciseEditRegion = False
+              AllowClearKey = False
+              ShowMatchText = True
+            end
+          end
+        end
+        object TabSheet2: TTabSheet
+          Caption = 'XML Codes'
+          object RzPanel2: TRzPanel
+            Left = 0
+            Top = 0
+            Width = 1109
+            Height = 42
+            Align = alTop
+            BorderOuter = fsNone
+            TabOrder = 0
+            object wwDBNavigator3: TwwDBNavigator
+              Left = 0
+              Top = 0
+              Width = 193
+              Height = 42
+              AutosizeStyle = asSizeNavButtons
+              DataSource = ProcedureXmlSRC
+              RepeatInterval.InitialDelay = 500
+              RepeatInterval.Interval = 100
+              BackgroundOptions.IndentX = 0
+              BackgroundOptions.IndentY = 0
+              Align = alLeft
+              object wwNavButton6: TwwNavButton
+                Left = 0
+                Top = 0
+                Width = 39
+                Height = 42
+                Hint = 'Insert new record'
+                ImageIndex = -1
+                NumGlyphs = 2
+                Spacing = 4
+                Transparent = False
+                Caption = 'wwDBNavigator1Insert'
+                DisabledTextColors.ShadeColor = clGray
+                DisabledTextColors.HighlightColor = clBtnHighlight
+                Index = 0
+                Style = nbsInsert
+              end
+              object wwNavButton7: TwwNavButton
+                Left = 39
+                Top = 0
+                Width = 39
+                Height = 42
+                Hint = 'Delete current record'
+                ImageIndex = -1
+                NumGlyphs = 2
+                Spacing = 4
+                Transparent = False
+                Caption = 'wwDBNavigator1Delete'
+                Enabled = False
+                DisabledTextColors.ShadeColor = clGray
+                DisabledTextColors.HighlightColor = clBtnHighlight
+                Index = 1
+                Style = nbsDelete
+              end
+              object wwNavButton8: TwwNavButton
+                Left = 78
+                Top = 0
+                Width = 39
+                Height = 42
+                Hint = 'Post changes of current record'
+                ImageIndex = -1
+                NumGlyphs = 2
+                Spacing = 4
+                Transparent = False
+                Caption = 'wwDBNavigator1Post'
+                Enabled = False
+                DisabledTextColors.ShadeColor = clGray
+                DisabledTextColors.HighlightColor = clBtnHighlight
+                Index = 2
+                Style = nbsPost
+              end
+              object wwNavButton9: TwwNavButton
+                Left = 117
+                Top = 0
+                Width = 38
+                Height = 42
+                Hint = 'Cancel changes made to current record'
+                ImageIndex = -1
+                NumGlyphs = 2
+                Spacing = 4
+                Transparent = False
+                Caption = 'wwDBNavigator1Cancel'
+                Enabled = False
+                DisabledTextColors.ShadeColor = clGray
+                DisabledTextColors.HighlightColor = clBtnHighlight
+                Index = 3
+                Style = nbsCancel
+              end
+              object wwNavButton10: TwwNavButton
+                Left = 155
+                Top = 0
+                Width = 38
+                Height = 42
+                Hint = 'Refresh the contents of the dataset'
+                ImageIndex = -1
+                NumGlyphs = 2
+                Spacing = 4
+                Transparent = False
+                Caption = 'wwDBNavigator1Refresh'
+                DisabledTextColors.ShadeColor = clGray
+                DisabledTextColors.HighlightColor = clBtnHighlight
+                Index = 4
+                Style = nbsRefresh
+              end
+            end
+          end
+          object wwDBGrid2: TwwDBGrid
+            Left = 0
+            Top = 42
+            Width = 731
+            Height = 155
+            ControlType.Strings = (
+              'VALID_IOSS;CheckBox;Y;N'
+              'DUTY_TYPE;CustomEdit;DutyTypeFLD;F'
+              'VALID_IF_IOSS;CheckBox;Y;N')
+            Selected.Strings = (
+              'SERIAL_NUMBER'#9'10'#9'S/N'#9'T'#9
+              'XML_CODE'#9'28'#9'Code'
+              'XML_VALUE'#9'33'#9'Value')
+            IniAttributes.Delimiter = ';;'
+            IniAttributes.UnicodeIniFile = False
+            TitleColor = clBtnFace
+            FixedCols = 1
+            ShowHorzScrollBar = True
+            EditControlOptions = [ecoCheckboxSingleClick, ecoSearchOwnerForm]
+            Align = alLeft
+            Color = 12713983
+            DataSource = ProcedureXmlSRC
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'Arial'
+            Font.Style = []
+            Options = [dgEditing, dgAlwaysShowEditor, dgTitles, dgIndicator, dgColumnResize, dgColLines, dgTabs, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit, dgWordWrap]
+            ParentFont = False
+            TabOrder = 1
+            TitleAlignment = taLeftJustify
+            TitleFont.Charset = DEFAULT_CHARSET
+            TitleFont.Color = clWindowText
+            TitleFont.Height = -13
+            TitleFont.Name = 'Arial'
+            TitleFont.Style = []
+            TitleLines = 1
+            TitleButtons = False
+            OnDblClick = Grid1DblClick
+            object wwDBLookupCombo1: TwwDBLookupCombo
+              Left = 117
+              Top = 96
+              Width = 121
+              Height = 22
+              DropDownAlignment = taLeftJustify
+              Selected.Strings = (
+                'DUTY_CODE'#9'3'#9'DUTY_CODE'#9#9)
+              DataField = 'DUTY_TYPE'
+              DataSource = DetailSRC
+              LookupTable = DutyTypeSQL
+              LookupField = 'DUTY_CODE'
+              TabOrder = 0
+              AutoDropDown = False
+              ShowButton = True
+              PreciseEditRegion = False
+              AllowClearKey = False
+              ShowMatchText = True
+            end
+          end
         end
       end
     end
@@ -438,123 +723,16 @@ object M_ProcedureCodesNewFRM: TM_ProcedureCodesNewFRM
       Visible = False
       OnClick = DeleteDetailBTNClick
     end
-    object RzPanel1: TRzPanel
-      Left = 1
-      Top = 390
-      Width = 1011
-      Height = 42
-      Align = alBottom
-      BorderOuter = fsNone
-      TabOrder = 5
-      ExplicitTop = 375
-      object wwDBNavigator1: TwwDBNavigator
-        Left = 0
-        Top = 0
-        Width = 193
-        Height = 42
-        AutosizeStyle = asSizeNavButtons
-        DataSource = DetailSRC
-        RepeatInterval.InitialDelay = 500
-        RepeatInterval.Interval = 100
-        BackgroundOptions.IndentX = 0
-        BackgroundOptions.IndentY = 0
-        Align = alLeft
-        ExplicitLeft = 6
-        ExplicitTop = -2
-        ExplicitHeight = 38
-        object wwDBNavigator1Insert: TwwNavButton
-          Left = 0
-          Top = 0
-          Width = 39
-          Height = 42
-          Hint = 'Insert new record'
-          ImageIndex = -1
-          NumGlyphs = 2
-          Spacing = 4
-          Transparent = False
-          Caption = 'wwDBNavigator1Insert'
-          DisabledTextColors.ShadeColor = clGray
-          DisabledTextColors.HighlightColor = clBtnHighlight
-          Index = 0
-          Style = nbsInsert
-        end
-        object wwDBNavigator1Delete: TwwNavButton
-          Left = 39
-          Top = 0
-          Width = 39
-          Height = 42
-          Hint = 'Delete current record'
-          ImageIndex = -1
-          NumGlyphs = 2
-          Spacing = 4
-          Transparent = False
-          Caption = 'wwDBNavigator1Delete'
-          DisabledTextColors.ShadeColor = clGray
-          DisabledTextColors.HighlightColor = clBtnHighlight
-          Index = 1
-          Style = nbsDelete
-        end
-        object wwDBNavigator1Post: TwwNavButton
-          Left = 78
-          Top = 0
-          Width = 39
-          Height = 42
-          Hint = 'Post changes of current record'
-          ImageIndex = -1
-          NumGlyphs = 2
-          Spacing = 4
-          Transparent = False
-          Caption = 'wwDBNavigator1Post'
-          Enabled = False
-          DisabledTextColors.ShadeColor = clGray
-          DisabledTextColors.HighlightColor = clBtnHighlight
-          Index = 2
-          Style = nbsPost
-        end
-        object wwDBNavigator1Cancel: TwwNavButton
-          Left = 117
-          Top = 0
-          Width = 38
-          Height = 42
-          Hint = 'Cancel changes made to current record'
-          ImageIndex = -1
-          NumGlyphs = 2
-          Spacing = 4
-          Transparent = False
-          Caption = 'wwDBNavigator1Cancel'
-          Enabled = False
-          DisabledTextColors.ShadeColor = clGray
-          DisabledTextColors.HighlightColor = clBtnHighlight
-          Index = 3
-          Style = nbsCancel
-        end
-        object wwDBNavigator1Refresh: TwwNavButton
-          Left = 155
-          Top = 0
-          Width = 38
-          Height = 42
-          Hint = 'Refresh the contents of the dataset'
-          ImageIndex = -1
-          NumGlyphs = 2
-          Spacing = 4
-          Transparent = False
-          Caption = 'wwDBNavigator1Refresh'
-          DisabledTextColors.ShadeColor = clGray
-          DisabledTextColors.HighlightColor = clBtnHighlight
-          Index = 4
-          Style = nbsRefresh
-        end
-      end
-    end
   end
   object Panel2: TPanel
     Left = 0
     Top = 53
-    Width = 1013
+    Width = 1119
     Height = 46
     Align = alTop
     BevelOuter = bvNone
     TabOrder = 3
+    ExplicitWidth = 1013
     object wwDBNavigator2: TwwDBNavigator
       Left = 0
       Top = 0
@@ -567,9 +745,6 @@ object M_ProcedureCodesNewFRM: TM_ProcedureCodesNewFRM
       BackgroundOptions.IndentX = 0
       BackgroundOptions.IndentY = 0
       Align = alLeft
-      ExplicitLeft = 1
-      ExplicitTop = 1
-      ExplicitHeight = 37
       object wwNavButton1: TwwNavButton
         Left = 0
         Top = 0
@@ -898,8 +1073,8 @@ object M_ProcedureCodesNewFRM: TM_ProcedureCodesNewFRM
     Connection = ClairDML.CabCOnnection
     SQL.Strings = (
       'select * from Duty_type')
-    Left = 331
-    Top = 517
+    Left = 299
+    Top = 381
     object DutyTypeSQLDUTY_CODE: TStringField
       DisplayWidth = 3
       FieldName = 'DUTY_CODE'
@@ -1055,7 +1230,92 @@ object M_ProcedureCodesNewFRM: TM_ProcedureCodesNewFRM
   end
   object ClearanceSRC: TDataSource
     DataSet = ClearanceSQL
-    Left = 499
-    Top = 245
+    Left = 779
+    Top = 341
+  end
+  object ProcedureXmlSQL: TIBCQuery
+    KeyFields = 'SERIAL_NUMBER'
+    KeyGenerator = 'GEN_PROCEDURE_CODE_XML_ID'
+    SQLInsert.Strings = (
+      'INSERT INTO PROCEDURE_CODE_XML'
+      '  (SERIAL_NUMBER, FK_PROCEDURE_CODE, XML_CODE, XML_VALUE)'
+      'VALUES'
+      '  (:SERIAL_NUMBER, :FK_PROCEDURE_CODE, :XML_CODE, :XML_VALUE)')
+    SQLDelete.Strings = (
+      'DELETE FROM PROCEDURE_CODE_XML'
+      'WHERE'
+      '  SERIAL_NUMBER = :Old_SERIAL_NUMBER')
+    SQLUpdate.Strings = (
+      'UPDATE PROCEDURE_CODE_XML'
+      'SET'
+      
+        '  SERIAL_NUMBER = :SERIAL_NUMBER, FK_PROCEDURE_CODE = :FK_PROCED' +
+        'URE_CODE, XML_CODE = :XML_CODE, XML_VALUE = :XML_VALUE'
+      'WHERE'
+      '  SERIAL_NUMBER = :Old_SERIAL_NUMBER')
+    SQLRefresh.Strings = (
+      
+        'SELECT SERIAL_NUMBER, FK_PROCEDURE_CODE, XML_CODE, XML_VALUE FRO' +
+        'M PROCEDURE_CODE_XML'
+      'WHERE'
+      '  SERIAL_NUMBER = :SERIAL_NUMBER')
+    SQLLock.Strings = (
+      'SELECT NULL FROM PROCEDURE_CODE_XML'
+      'WHERE'
+      'SERIAL_NUMBER = :Old_SERIAL_NUMBER'
+      'FOR UPDATE WITH LOCK')
+    SQLRecCount.Strings = (
+      'SELECT COUNT(*) FROM ('
+      'SELECT 1 AS C  FROM PROCEDURE_CODE_XML'
+      ''
+      ') q')
+    Connection = ClairDML.CabCOnnection
+    Transaction = ReadTrans
+    UpdateTransaction = WriteTrans
+    SQL.Strings = (
+      'SELECT'
+      '*'
+      'FROM PROCEDURE_CODE_XML')
+    MasterFields = 'PROCEDURE_CODE'
+    DetailFields = 'FK_PROCEDURE_CODE'
+    MasterSource = TableSRC
+    Active = True
+    Left = 337
+    Top = 605
+    ParamData = <
+      item
+        DataType = ftFixedChar
+        Name = 'PROCEDURE_CODE'
+        ParamType = ptInput
+        Value = 'C07'
+      end>
+    object ProcedureXmlSQLSERIAL_NUMBER: TIntegerField
+      DisplayLabel = 'S/N'
+      DisplayWidth = 10
+      FieldName = 'SERIAL_NUMBER'
+    end
+    object ProcedureXmlSQLXML_CODE: TStringField
+      DisplayLabel = 'Code'
+      DisplayWidth = 28
+      FieldName = 'XML_CODE'
+      Size = 50
+    end
+    object ProcedureXmlSQLXML_VALUE: TStringField
+      DisplayLabel = 'Value'
+      DisplayWidth = 33
+      FieldName = 'XML_VALUE'
+      Size = 50
+    end
+    object ProcedureXmlSQLFK_PROCEDURE_CODE: TStringField
+      FieldName = 'FK_PROCEDURE_CODE'
+      Visible = False
+      FixedChar = True
+      Size = 5
+    end
+  end
+  object ProcedureXmlSRC: TIBCDataSource
+    DataSet = ProcedureXmlSQL
+    Left = 448
+    Top = 604
   end
 end

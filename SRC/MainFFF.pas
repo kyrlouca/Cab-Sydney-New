@@ -203,6 +203,7 @@ type
     procedure XMLparameters2Click(Sender: TObject);
     procedure ProcessHawbs1Click(Sender: TObject);
     procedure ProcessXmlTokens1Click(Sender: TObject);
+    procedure ProcedureCodeExemptions1Click(Sender: TObject);
   published
       procedure FormCreate(Sender: TObject);
   private
@@ -577,6 +578,11 @@ procedure TMainFRM.Ports1Click(Sender: TObject);
   begin
     gpShowModal(TM_PortFRM);
   end;
+
+procedure TMainFRM.ProcedureCodeExemptions1Click(Sender: TObject);
+begin
+    gpShowModal(TM_ProcedureCodesNewFRM);
+end;
 
 procedure TMainFRM.ProcedureMNTClick(Sender: TObject);
   begin

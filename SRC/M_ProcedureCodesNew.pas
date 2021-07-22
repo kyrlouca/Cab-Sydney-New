@@ -6,7 +6,8 @@ uses
   Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms, Dialogs,
   StdCtrls, Mask, DBCtrls, Db, wwSpeedButton, wwDBNavigator,
   wwclearpanel, Buttons, ExtCtrls, wwdblook, Wwkeycb, Grids,
-  DBAccess, IBC, MemDS, Wwdbigrd, Wwdbgrid, wwdbedit, RzPanel, vcl.wwdotdot, vcl.wwdbcomb, RzButton, RzRadChk, RzDBChk, vcl.wwcheckbox;
+  DBAccess, IBC, MemDS, Wwdbigrd, Wwdbgrid, wwdbedit, RzPanel, vcl.wwdotdot, vcl.wwdbcomb, RzButton, RzRadChk, RzDBChk, vcl.wwcheckbox,
+  Vcl.ComCtrls;
 
 type
   TM_ProcedureCodesNewFRM = class(TForm)
@@ -28,13 +29,6 @@ type
     EditDetailBTN: TBitBtn;
     DeleteDetailBTN: TBitBtn;
     Panel2: TPanel;
-    RzPanel1: TRzPanel;
-    wwDBNavigator1: TwwDBNavigator;
-    wwDBNavigator1Insert: TwwNavButton;
-    wwDBNavigator1Delete: TwwNavButton;
-    wwDBNavigator1Post: TwwNavButton;
-    wwDBNavigator1Cancel: TwwNavButton;
-    wwDBNavigator1Refresh: TwwNavButton;
     DutyTypeSQL: TIBCQuery;
     DutyTypeSQLDUTY_CODE: TStringField;
     DutyTypeSQLIS_ACTIVE: TStringField;
@@ -70,10 +64,35 @@ type
     DetailSQLSERIAL_NUMBER: TIntegerField;
     DetailSQLDUTY_TYPE: TStringField;
     DetailSQLFK_PROCEDURE_CODE: TStringField;
-    Grid1: TwwDBGrid;
-    DutyTypeFLD: TwwDBLookupCombo;
     TableSQLIOSS_REQUIRED: TStringField;
     wwDBComboBox1: TwwDBComboBox;
+    PageControl1: TPageControl;
+    TabSheet1: TTabSheet;
+    RzPanel1: TRzPanel;
+    wwDBNavigator1: TwwDBNavigator;
+    wwDBNavigator1Insert: TwwNavButton;
+    wwDBNavigator1Delete: TwwNavButton;
+    wwDBNavigator1Post: TwwNavButton;
+    wwDBNavigator1Cancel: TwwNavButton;
+    wwDBNavigator1Refresh: TwwNavButton;
+    Grid1: TwwDBGrid;
+    DutyTypeFLD: TwwDBLookupCombo;
+    TabSheet2: TTabSheet;
+    RzPanel2: TRzPanel;
+    wwDBNavigator3: TwwDBNavigator;
+    wwNavButton6: TwwNavButton;
+    wwNavButton7: TwwNavButton;
+    wwNavButton8: TwwNavButton;
+    wwNavButton9: TwwNavButton;
+    wwNavButton10: TwwNavButton;
+    wwDBGrid2: TwwDBGrid;
+    wwDBLookupCombo1: TwwDBLookupCombo;
+    ProcedureXmlSQL: TIBCQuery;
+    ProcedureXmlSRC: TIBCDataSource;
+    ProcedureXmlSQLSERIAL_NUMBER: TIntegerField;
+    ProcedureXmlSQLFK_PROCEDURE_CODE: TStringField;
+    ProcedureXmlSQLXML_CODE: TStringField;
+    ProcedureXmlSQLXML_VALUE: TStringField;
     procedure BitBtn2Click(Sender: TObject);
     procedure TableSQLBeforeEdit(DataSet: TDataSet);
     procedure FormActivate(Sender: TObject);
