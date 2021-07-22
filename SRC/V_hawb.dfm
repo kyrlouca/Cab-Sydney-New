@@ -3716,7 +3716,7 @@ object V_HawbFRM: TV_HawbFRM
       Width = 102
       Height = 37
       Alignment = taLeftJustify
-      Caption = 'View'
+      Caption = 'Sherlock'
       DoubleBuffered = True
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText

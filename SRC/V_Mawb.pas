@@ -222,7 +222,6 @@ type
     RzDBLabel1: TRzDBLabel;
     WebSentFilter: TRzRadioGroup;
     SendCustomsBTN: TRzBitBtn;
-    FromBucketBtn: TRzBitBtn;
     CreateMediumXMLWarehouse1: TMenuItem;
     MediumValueReport1: TMenuItem;
     EmptyRep: TppReport;
@@ -236,6 +235,8 @@ type
     Buckets1: TMenuItem;
     FetchBuckets1: TMenuItem;
     UnlockHawbBTN: TRzBitBtn;
+    SendCustoms1: TMenuItem;
+    SendToCustoms1: TMenuItem;
     procedure AcceptBTNClick(Sender: TObject);
     procedure CancelBTNClick(Sender: TObject);
     procedure FormActivate(Sender: TObject);
@@ -336,12 +337,12 @@ type
     procedure BucketHawbsTSEnter(Sender: TObject);
     procedure RzBitBtn3Click(Sender: TObject);
     procedure WebSentFilterChanging(Sender: TObject; NewIndex: Integer; var AllowChange: Boolean);
-    procedure SendCustomsBTNClick(Sender: TObject);
     procedure CreateMediumXMLWarehouse1Click(Sender: TObject);
     procedure MediumValueReport1Click(Sender: TObject);
     procedure MediumH7Declarations1Click(Sender: TObject);
     procedure FetchBuckets1Click(Sender: TObject);
     procedure UnlockHawbBTNClick(Sender: TObject);
+    procedure SendToCustoms1Click(Sender: TObject);
   private
     { Private declarations }
     cn: TIBCConnection;
@@ -374,6 +375,7 @@ type
     procedure BucketSettings(var isNOrmal: Boolean);
 
     procedure PrintSelected(ReportType: String; OnPrinter: Boolean);
+    procedure SendToCustoms();
 
   public
 
@@ -601,7 +603,7 @@ procedure TV_MawbFRM.BucketSettings(var isNOrmal: Boolean);
       ToolbarPNL.Visible := false;
       MiddlePanelPNL.Visible := false;
       FilterPanelPNL.Visible := false;
-      FromBucketBtn.Visible := false;
+//      FromBucketBtn.Visible := false;
 
       for var I := 1 to MawbPC.PageCount - 1 do MawbPC.pages[I].TabVisible := false;
       for var js := 0 to MainMenu1.Items.Count - 1 do MainMenu1.Items[js].Visible := false;
@@ -615,7 +617,7 @@ procedure TV_MawbFRM.BucketSettings(var isNOrmal: Boolean);
       ToolbarPNL.Visible := true;
       MiddlePanelPNL.Visible := true;
       FilterPanelPNL.Visible := true;
-      FromBucketBtn.Visible := true;
+//      FromBucketBtn.Visible := true;
       BucketHawbsTS.Visible := true;
       for var I := 1 to MawbPC.PageCount - 1 do MawbPC.pages[I].TabVisible := true;
       for var js := 0 to MainMenu1.Items.Count - 1 do MainMenu1.Items[js].Visible := true;
@@ -1214,18 +1216,24 @@ procedure TV_MawbFRM.SendBTNClick(Sender: TObject);
 
   end;
 
-procedure TV_MawbFRM.SendCustomsBTNClick(Sender: TObject);
+procedure TV_MawbFRM.SendToCustoms();
   begin
     var MawbSerial: Integer := V_MawbDataDML.MawbSQL.FieldByName('REFERENCE_NUMBER').AsInteger;
       // var sqlSelect: String := 'select ha.serial_number from hawb ha ' +
       // 'where ha.fk_mawb_refer_number = :MawbSerial and ha.fk_clearance_instruction=''MED'' and ha.fk_clearing_state= ''1'' ';
 
     var sqlStr: string := '';
+    sqlStr := sqlStr + ' select ha.serial_number  from hawb ha ';
     sqlStr := sqlStr + ' left outer join low_pending lp on lp.hawb_serial_number = ha.serial_number ';
     sqlStr := sqlStr + ' left outer join low_send ls on ls.hawb_serial_number =ha.serial_number ';
-    sqlStr := sqlStr + ' select ha.serial_number from hawb ha ';
-    sqlStr := sqlStr + ' where ha.fk_mawb_refer_number = :MawbSerial and ha.fk_clearance_insqlStruction=''MED'' and ha.fk_clearing_state= ''1'' ';
+    sqlStr := sqlStr + ' where ha.fk_mawb_refer_number = :MawbSerial and ha.fk_clearance_instruction=''MED'' and ha.fk_clearing_state= ''1'' ';
     sqlStr := sqlStr + ' and lp.serial_number is null and ls.serial_number is null ';
+
+    // sqlStr := sqlStr + ' left outer join low_pending lp on lp.hawb_serial_number = ha.serial_number ';
+    // sqlStr := sqlStr + ' left outer join low_send ls on ls.hawb_serial_number =ha.serial_number ';
+    // sqlStr := sqlStr + ' select ha.serial_number from hawb ha ';
+    // sqlStr := sqlStr + ' where ha.fk_mawb_refer_number = :MawbSerial and ha.fk_clearance_insqlStruction=''MED'' and ha.fk_clearing_state= ''1'' ';
+    // sqlStr := sqlStr + ' and lp.serial_number is null and ls.serial_number is null ';
 
     var qr: TibcQuery := TksQuery.Create(cn, sqlStr);
     var transferObj: TTransferBuckets := B_TransferBuckets.TTransferBuckets.Create(cn, MawbSerial);
@@ -1249,6 +1257,11 @@ procedure TV_MawbFRM.SendCustomsBTNClick(Sender: TObject);
 
     V_MawbDataDML.hawbSQL.Refresh;
     // TwwDBGrid(sender).DataSource.DataSet.Refresh;
+  end;
+
+procedure TV_MawbFRM.SendToCustoms1Click(Sender: TObject);
+  begin
+    SendToCustoms();
   end;
 
 procedure TV_MawbFRM.CopyToClipBoardBTNClick(Sender: TObject);

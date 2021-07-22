@@ -120,7 +120,7 @@ object MainFRM: TMainFRM
     Margins.Bottom = 0
     Align = alTop
     BorderOuter = fsGroove
-    Caption = 'Cab Sydney 2.81'
+    Caption = 'Cab Sydney 2.82'
     Ctl3D = False
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clBlue
@@ -168,7 +168,7 @@ object MainFRM: TMainFRM
     end
     object LoginBTN: TRzBitBtn
       Left = 22
-      Top = 189
+      Top = 197
       Width = 131
       Height = 76
       Caption = 'Login'
