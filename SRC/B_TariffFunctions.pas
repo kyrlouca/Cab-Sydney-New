@@ -23,6 +23,8 @@ uses IBC, Classes, System.SysUtils, Data.DB, Math, System.Generics.Collections;
 
 Type
 
+
+
   TbHawbInfo = Record
     ClearingInstruction: string;
     RelieveCode: string;
@@ -173,12 +175,7 @@ Function HawbTariffsObject.FindProcedureExemption(DutyType: String): boolean;
       qr.ParamByName('procCode').Value := FProcedureCode;
       qr.ParamByName('DutyType').Value := DutyType;
       qr.Open;
-      if qr.IsEmpty then
-      begin
-        result := false;
-        exit;
-      end;
-
+      result:= not qr.IsEmpty;
     Finally
       qr.Free;
     End;

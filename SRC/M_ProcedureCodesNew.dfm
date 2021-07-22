@@ -124,17 +124,18 @@ object M_ProcedureCodesNewFRM: TM_ProcedureCodesNewFRM
   end
   object Panel3: TPanel
     Left = 0
-    Top = 92
+    Top = 99
     Width = 1013
-    Height = 641
+    Height = 634
     Align = alClient
     TabOrder = 2
+    ExplicitTop = 92
     ExplicitHeight = 514
     object Panel5: TPanel
       Left = 1
       Top = 1
       Width = 1011
-      Height = 374
+      Height = 389
       Align = alClient
       BevelOuter = bvNone
       TabOrder = 0
@@ -143,15 +144,17 @@ object M_ProcedureCodesNewFRM: TM_ProcedureCodesNewFRM
         Left = 0
         Top = 0
         Width = 735
-        Height = 374
+        Height = 389
         ControlType.Strings = (
           'CODE;CustomEdit;CodeFLD;F'
-          'FK_CLEARANCE_INSTRUCTION;CustomEdit;ClearanceFLD;F')
+          'FK_CLEARANCE_INSTRUCTION;CustomEdit;ClearanceFLD;F'
+          'IOSS_REQUIRED;CustomEdit;wwDBComboBox1;F')
         Selected.Strings = (
           'PROCEDURE_CODE'#9'9'#9'Code'#9'F'#9
+          'FK_CLEARANCE_INSTRUCTION'#9'10'#9'Clr'#9'F'#9
+          'IOSS_REQUIRED'#9'12'#9'Ioss Required'#9#9
           'XML_CODE'#9'13'#9'Xml Code'#9'F'#9
           'DESCRIPTION'#9'22'#9'Description'#9'F'#9
-          'FK_CLEARANCE_INSTRUCTION'#9'10'#9'Clr'#9'F'
           'FROM_AMOUNT'#9'13'#9'From Amount'#9#9
           'UPTO_AMOUNT'#9'12'#9'Upto Amount'#9#9)
         IniAttributes.Delimiter = ';;'
@@ -180,14 +183,13 @@ object M_ProcedureCodesNewFRM: TM_ProcedureCodesNewFRM
         TitleFont.Style = []
         TitleLines = 1
         TitleButtons = False
+        UseTFields = False
         OnDblClick = wwDBGrid1DblClick
         OnExit = wwDBGrid1Exit
-        ExplicitLeft = 34
-        ExplicitTop = 5
-        ExplicitHeight = 185
+        ExplicitTop = -6
         object ClearanceFLD: TwwDBLookupCombo
-          Left = 105
-          Top = 112
+          Left = 425
+          Top = 248
           Width = 121
           Height = 22
           DropDownAlignment = taLeftJustify
@@ -205,18 +207,37 @@ object M_ProcedureCodesNewFRM: TM_ProcedureCodesNewFRM
           AllowClearKey = False
           ShowMatchText = True
         end
+        object wwDBComboBox1: TwwDBComboBox
+          Left = 128
+          Top = 248
+          Width = 121
+          Height = 22
+          ShowButton = True
+          Style = csDropDown
+          MapList = False
+          AllowClearKey = False
+          DataField = 'IOSS_REQUIRED'
+          DataSource = TableSRC
+          DropDownCount = 8
+          ItemHeight = 0
+          Items.Strings = (
+            'N'
+            'Y')
+          Sorted = False
+          TabOrder = 1
+          UnboundDataType = wwDefault
+        end
       end
     end
     object Panel6: TPanel
       Left = 1
-      Top = 439
+      Top = 432
       Width = 1011
       Height = 201
       Align = alBottom
       BevelOuter = bvNone
-      Caption = 'Panel6'
       TabOrder = 1
-      ExplicitTop = 312
+      ExplicitTop = 431
       object Grid1: TwwDBGrid
         Left = 0
         Top = 0
@@ -228,8 +249,7 @@ object M_ProcedureCodesNewFRM: TM_ProcedureCodesNewFRM
           'VALID_IF_IOSS;CheckBox;Y;N')
         Selected.Strings = (
           'SERIAL_NUMBER'#9'10'#9'S/N'#9'T'#9
-          'DUTY_TYPE'#9'11'#9'Duty Type'#9'F'#9
-          'VALID_IF_IOSS'#9'17'#9'Exempt If IOSS'#9'F')
+          'DUTY_TYPE'#9'11'#9'Duty Type'#9'F'#9)
         IniAttributes.Delimiter = ';;'
         IniAttributes.UnicodeIniFile = False
         TitleColor = clBtnFace
@@ -420,28 +440,33 @@ object M_ProcedureCodesNewFRM: TM_ProcedureCodesNewFRM
     end
     object RzPanel1: TRzPanel
       Left = 1
-      Top = 375
+      Top = 390
       Width = 1011
-      Height = 64
+      Height = 42
       Align = alBottom
+      BorderOuter = fsNone
       TabOrder = 5
-      ExplicitTop = 233
+      ExplicitTop = 375
       object wwDBNavigator1: TwwDBNavigator
-        Left = 24
-        Top = 16
+        Left = 0
+        Top = 0
         Width = 193
-        Height = 25
+        Height = 42
         AutosizeStyle = asSizeNavButtons
         DataSource = DetailSRC
         RepeatInterval.InitialDelay = 500
         RepeatInterval.Interval = 100
         BackgroundOptions.IndentX = 0
         BackgroundOptions.IndentY = 0
+        Align = alLeft
+        ExplicitLeft = 6
+        ExplicitTop = -2
+        ExplicitHeight = 38
         object wwDBNavigator1Insert: TwwNavButton
           Left = 0
           Top = 0
           Width = 39
-          Height = 25
+          Height = 42
           Hint = 'Insert new record'
           ImageIndex = -1
           NumGlyphs = 2
@@ -457,7 +482,7 @@ object M_ProcedureCodesNewFRM: TM_ProcedureCodesNewFRM
           Left = 39
           Top = 0
           Width = 39
-          Height = 25
+          Height = 42
           Hint = 'Delete current record'
           ImageIndex = -1
           NumGlyphs = 2
@@ -473,7 +498,7 @@ object M_ProcedureCodesNewFRM: TM_ProcedureCodesNewFRM
           Left = 78
           Top = 0
           Width = 39
-          Height = 25
+          Height = 42
           Hint = 'Post changes of current record'
           ImageIndex = -1
           NumGlyphs = 2
@@ -490,7 +515,7 @@ object M_ProcedureCodesNewFRM: TM_ProcedureCodesNewFRM
           Left = 117
           Top = 0
           Width = 38
-          Height = 25
+          Height = 42
           Hint = 'Cancel changes made to current record'
           ImageIndex = -1
           NumGlyphs = 2
@@ -507,7 +532,7 @@ object M_ProcedureCodesNewFRM: TM_ProcedureCodesNewFRM
           Left = 155
           Top = 0
           Width = 38
-          Height = 25
+          Height = 42
           Hint = 'Refresh the contents of the dataset'
           ImageIndex = -1
           NumGlyphs = 2
@@ -526,25 +551,30 @@ object M_ProcedureCodesNewFRM: TM_ProcedureCodesNewFRM
     Left = 0
     Top = 53
     Width = 1013
-    Height = 39
+    Height = 46
     Align = alTop
+    BevelOuter = bvNone
     TabOrder = 3
     object wwDBNavigator2: TwwDBNavigator
-      Left = 35
-      Top = 5
-      Width = 193
-      Height = 25
+      Left = 0
+      Top = 0
+      Width = 228
+      Height = 46
       AutosizeStyle = asSizeNavButtons
       DataSource = TableSRC
       RepeatInterval.InitialDelay = 500
       RepeatInterval.Interval = 100
       BackgroundOptions.IndentX = 0
       BackgroundOptions.IndentY = 0
+      Align = alLeft
+      ExplicitLeft = 1
+      ExplicitTop = 1
+      ExplicitHeight = 37
       object wwNavButton1: TwwNavButton
         Left = 0
         Top = 0
-        Width = 39
-        Height = 25
+        Width = 46
+        Height = 46
         Hint = 'Insert new record'
         ImageIndex = -1
         NumGlyphs = 2
@@ -557,10 +587,10 @@ object M_ProcedureCodesNewFRM: TM_ProcedureCodesNewFRM
         Style = nbsInsert
       end
       object wwNavButton2: TwwNavButton
-        Left = 39
+        Left = 46
         Top = 0
-        Width = 39
-        Height = 25
+        Width = 46
+        Height = 46
         Hint = 'Delete current record'
         ImageIndex = -1
         NumGlyphs = 2
@@ -573,10 +603,10 @@ object M_ProcedureCodesNewFRM: TM_ProcedureCodesNewFRM
         Style = nbsDelete
       end
       object wwNavButton3: TwwNavButton
-        Left = 78
+        Left = 92
         Top = 0
-        Width = 39
-        Height = 25
+        Width = 46
+        Height = 46
         Hint = 'Post changes of current record'
         ImageIndex = -1
         NumGlyphs = 2
@@ -590,10 +620,10 @@ object M_ProcedureCodesNewFRM: TM_ProcedureCodesNewFRM
         Style = nbsPost
       end
       object wwNavButton4: TwwNavButton
-        Left = 117
+        Left = 138
         Top = 0
-        Width = 38
-        Height = 25
+        Width = 45
+        Height = 46
         Hint = 'Cancel changes made to current record'
         ImageIndex = -1
         NumGlyphs = 2
@@ -607,10 +637,10 @@ object M_ProcedureCodesNewFRM: TM_ProcedureCodesNewFRM
         Style = nbsCancel
       end
       object wwNavButton5: TwwNavButton
-        Left = 155
+        Left = 183
         Top = 0
-        Width = 38
-        Height = 25
+        Width = 45
+        Height = 46
         Hint = 'Refresh the contents of the dataset'
         ImageIndex = -1
         NumGlyphs = 2
@@ -634,11 +664,11 @@ object M_ProcedureCodesNewFRM: TM_ProcedureCodesNewFRM
       'INSERT INTO PROCEDURE_CODE'
       
         '  (PROCEDURE_CODE, DESCRIPTION, XML_CODE, FROM_AMOUNT, UPTO_AMOU' +
-        'NT, FK_CLEARANCE_INSTRUCTION)'
+        'NT, FK_CLEARANCE_INSTRUCTION, IOSS_REQUIRED)'
       'VALUES'
       
         '  (:PROCEDURE_CODE, :DESCRIPTION, :XML_CODE, :FROM_AMOUNT, :UPTO' +
-        '_AMOUNT, :FK_CLEARANCE_INSTRUCTION)')
+        '_AMOUNT, :FK_CLEARANCE_INSTRUCTION, :IOSS_REQUIRED)')
     SQLDelete.Strings = (
       'DELETE FROM PROCEDURE_CODE'
       'WHERE'
@@ -650,13 +680,14 @@ object M_ProcedureCodesNewFRM: TM_ProcedureCodesNewFRM
         '  PROCEDURE_CODE = :PROCEDURE_CODE, DESCRIPTION = :DESCRIPTION, ' +
         'XML_CODE = :XML_CODE, FROM_AMOUNT = :FROM_AMOUNT, UPTO_AMOUNT = ' +
         ':UPTO_AMOUNT, FK_CLEARANCE_INSTRUCTION = :FK_CLEARANCE_INSTRUCTI' +
-        'ON'
+        'ON, IOSS_REQUIRED = :IOSS_REQUIRED'
       'WHERE'
       '  PROCEDURE_CODE = :Old_PROCEDURE_CODE')
     SQLRefresh.Strings = (
       
         'SELECT PROCEDURE_CODE, DESCRIPTION, XML_CODE, FROM_AMOUNT, UPTO_' +
-        'AMOUNT, FK_CLEARANCE_INSTRUCTION FROM PROCEDURE_CODE'
+        'AMOUNT, FK_CLEARANCE_INSTRUCTION, IOSS_REQUIRED FROM PROCEDURE_C' +
+        'ODE'
       'WHERE'
       '  PROCEDURE_CODE = :PROCEDURE_CODE')
     SQLLock.Strings = (
@@ -680,6 +711,8 @@ object M_ProcedureCodesNewFRM: TM_ProcedureCodesNewFRM
       'ORDER BY PROCEDURE_CODE asc')
     Active = True
     BeforeInsert = TableSQLBeforeInsert
+    AfterInsert = TableSQLAfterInsert
+    BeforePost = TableSQLBeforePost
     Left = 449
     Top = 37
     object TableSQLPROCEDURE_CODE: TStringField
@@ -689,6 +722,19 @@ object M_ProcedureCodesNewFRM: TM_ProcedureCodesNewFRM
       Required = True
       FixedChar = True
       Size = 5
+    end
+    object TableSQLFK_CLEARANCE_INSTRUCTION: TStringField
+      DisplayLabel = 'Clr'
+      DisplayWidth = 10
+      FieldName = 'FK_CLEARANCE_INSTRUCTION'
+      FixedChar = True
+      Size = 5
+    end
+    object TableSQLIOSS_REQUIRED: TStringField
+      DisplayLabel = 'Ioss Required'
+      DisplayWidth = 12
+      FieldName = 'IOSS_REQUIRED'
+      Size = 1
     end
     object TableSQLXML_CODE: TStringField
       DisplayLabel = 'Xml Code'
@@ -703,13 +749,6 @@ object M_ProcedureCodesNewFRM: TM_ProcedureCodesNewFRM
       FieldName = 'DESCRIPTION'
       FixedChar = True
       Size = 30
-    end
-    object TableSQLFK_CLEARANCE_INSTRUCTION: TStringField
-      DisplayLabel = 'Clr'
-      DisplayWidth = 10
-      FieldName = 'FK_CLEARANCE_INSTRUCTION'
-      FixedChar = True
-      Size = 5
     end
     object TableSQLFROM_AMOUNT: TFloatField
       DisplayLabel = 'From Amount'
@@ -738,11 +777,9 @@ object M_ProcedureCodesNewFRM: TM_ProcedureCodesNewFRM
     KeyGenerator = 'GEN_PROCEDURE_CODE_EXEMPTION_ID'
     SQLInsert.Strings = (
       'INSERT INTO PROCEDURE_CODE_EXEMPTION'
-      '  (SERIAL_NUMBER, DUTY_TYPE, FK_PROCEDURE_CODE, VALID_IF_IOSS)'
+      '  (SERIAL_NUMBER, DUTY_TYPE, FK_PROCEDURE_CODE)'
       'VALUES'
-      
-        '  (:SERIAL_NUMBER, :DUTY_TYPE, :FK_PROCEDURE_CODE, :VALID_IF_IOS' +
-        'S)')
+      '  (:SERIAL_NUMBER, :DUTY_TYPE, :FK_PROCEDURE_CODE)')
     SQLDelete.Strings = (
       'DELETE FROM PROCEDURE_CODE_EXEMPTION'
       'WHERE'
@@ -752,13 +789,13 @@ object M_ProcedureCodesNewFRM: TM_ProcedureCodesNewFRM
       'SET'
       
         '  SERIAL_NUMBER = :SERIAL_NUMBER, DUTY_TYPE = :DUTY_TYPE, FK_PRO' +
-        'CEDURE_CODE = :FK_PROCEDURE_CODE, VALID_IF_IOSS = :VALID_IF_IOSS'
+        'CEDURE_CODE = :FK_PROCEDURE_CODE'
       'WHERE'
       '  SERIAL_NUMBER = :Old_SERIAL_NUMBER')
     SQLRefresh.Strings = (
       
-        'SELECT SERIAL_NUMBER, DUTY_TYPE, FK_PROCEDURE_CODE, VALID_IF_IOS' +
-        'S FROM PROCEDURE_CODE_EXEMPTION'
+        'SELECT SERIAL_NUMBER, DUTY_TYPE, FK_PROCEDURE_CODE FROM PROCEDUR' +
+        'E_CODE_EXEMPTION'
       'WHERE'
       '  SERIAL_NUMBER = :SERIAL_NUMBER')
     SQLLock.Strings = (
@@ -782,7 +819,6 @@ object M_ProcedureCodesNewFRM: TM_ProcedureCodesNewFRM
     DetailFields = 'FK_PROCEDURE_CODE'
     MasterSource = TableSRC
     Active = True
-    AfterInsert = DetailSQLAfterInsert
     Left = 585
     Top = 397
     ParamData = <
@@ -804,14 +840,6 @@ object M_ProcedureCodesNewFRM: TM_ProcedureCodesNewFRM
       Required = True
       FixedChar = True
       Size = 3
-    end
-    object DetailSQLVALID_IF_IOSS: TStringField
-      DisplayLabel = 'Exempt If IOSS'
-      DisplayWidth = 17
-      FieldName = 'VALID_IF_IOSS'
-      Required = True
-      FixedChar = True
-      Size = 1
     end
     object DetailSQLFK_PROCEDURE_CODE: TStringField
       DisplayWidth = 5

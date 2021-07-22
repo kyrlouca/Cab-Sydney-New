@@ -6,7 +6,7 @@ uses
   Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms, Dialogs,
   StdCtrls, Mask, DBCtrls, Db, wwSpeedButton, wwDBNavigator,
   wwclearpanel, Buttons, ExtCtrls, wwdblook, Wwkeycb, Grids,
-  DBAccess, IBC, MemDS, Wwdbigrd, Wwdbgrid, wwdbedit, RzPanel, vcl.wwdotdot, vcl.wwdbcomb;
+  DBAccess, IBC, MemDS, Wwdbigrd, Wwdbgrid, wwdbedit, RzPanel, vcl.wwdotdot, vcl.wwdbcomb, RzButton, RzRadChk, RzDBChk, vcl.wwcheckbox;
 
 type
   TM_ProcedureCodesNewFRM = class(TForm)
@@ -70,9 +70,10 @@ type
     DetailSQLSERIAL_NUMBER: TIntegerField;
     DetailSQLDUTY_TYPE: TStringField;
     DetailSQLFK_PROCEDURE_CODE: TStringField;
-    DetailSQLVALID_IF_IOSS: TStringField;
     Grid1: TwwDBGrid;
     DutyTypeFLD: TwwDBLookupCombo;
+    TableSQLIOSS_REQUIRED: TStringField;
+    wwDBComboBox1: TwwDBComboBox;
     procedure BitBtn2Click(Sender: TObject);
     procedure TableSQLBeforeEdit(DataSet: TDataSet);
     procedure FormActivate(Sender: TObject);
@@ -83,7 +84,8 @@ type
     procedure wwDBGrid1DblClick(Sender: TObject);
     procedure TableSQLBeforeInsert(DataSet: TDataSet);
     procedure wwDBGrid1Exit(Sender: TObject);
-    procedure DetailSQLAfterInsert(DataSet: TDataSet);
+    procedure TableSQLAfterInsert(DataSet: TDataSet);
+    procedure TableSQLBeforePost(DataSet: TDataSet);
   private
     { Private declarations }
   public
@@ -105,6 +107,11 @@ procedure TM_ProcedureCodesNewFRM.BitBtn2Click(Sender: TObject);
     close;
   end;
 
+procedure TM_ProcedureCodesNewFRM.TableSQLAfterInsert(DataSet: TDataSet);
+  begin
+    DataSet.FieldByName('IOSS_REQUIRED').value := 'N';
+  end;
+
 procedure TM_ProcedureCodesNewFRM.TableSQLBeforeEdit(DataSet: TDataSet);
   begin
     DataSet.FieldByName('Procedure_code').ReadOnly := true;
@@ -114,6 +121,16 @@ procedure TM_ProcedureCodesNewFRM.TableSQLBeforeInsert(DataSet: TDataSet);
   begin
     DataSet.FieldByName('Procedure_code').ReadOnly := false;
   end;
+
+procedure TM_ProcedureCodesNewFRM.TableSQLBeforePost(DataSet: TDataSet);
+begin
+     if DataSet.FieldByName('IOSS_REQUIRED').IsNull Or (trim(DataSet.FieldByName('IOSS_REQUIRED').AsString)='') then
+    begin
+      DataSet.FieldByName('IOSS_REQUIRED').value := 'N';
+    end;
+
+
+end;
 
 procedure TM_ProcedureCodesNewFRM.wwDBGrid1DblClick(Sender: TObject);
   begin
@@ -207,10 +224,5 @@ procedure TM_ProcedureCodesNewFRM.DeleteDetailBTNClick(Sender: TObject);
     // TableSQL.Refresh;
 
   end;
-
-procedure TM_ProcedureCodesNewFRM.DetailSQLAfterInsert(DataSet: TDataSet);
-begin
-    DataSet.FieldByName('VALID_IF_IOSS').value := 'N';
-end;
 
 End.

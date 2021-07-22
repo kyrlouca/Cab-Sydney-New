@@ -1629,7 +1629,7 @@ function TV_MawbHawbDML.ClearhawbNew(Const HawbSerial: integer): string;
 
     var str: string := '';
     str := str +
-         ' SELECT ha.FK_MAWB_REFER_NUMBER, ha.hab_id, ha.fk_customer_code, ha.fk_invoice_status, ha.fk_clearing_state, ha.fk_clearance_instruction, ha.CLEARANCE_WAITING_CODE, DUTY_BILLING_ACCOUNT, ';
+         ' SELECT ha.FK_MAWB_REFER_NUMBER, ha.hab_id, ha.fk_customer_code, ha.fk_invoice_status, ha.fk_clearing_state, ha.fk_clearance_instruction, ha.CLEARANCE_WAITING_CODE, DUTY_BILLING_ACCOUNT, ha.Ioss,  ';
     str := str +
          ' ha.description, ha.fk_delivery_term, ha.procedure_code, ha.weight, ha.weight_gross, ha.sender_name, ha.sender_address_1, ha.sender_city, ha.sender_country, ha.description, ha.fk_country_origin, ';
     str := str + ' ssi.pre_discount_amount, ssi.invoice_number, ssi.currency, ssi.EXCHANGE_RATE,  ';
@@ -1867,7 +1867,7 @@ function TV_MawbHawbDML.ClearhawbNew(Const HawbSerial: integer): string;
 Function TV_MawbHawbDML.FindProcedureExemption(ProcedureCode: string): ThdProcedureInfo;
   begin
     var
-    sqlStr := 'select PC.PROCEDURE_CODE, PC.DESCRIPTION, PC.XML_CODE, PC.FROM_AMOUNT, PC.UPTO_AMOUNT, PC.FK_CLEARANCE_INSTRUCTION, PC.IOSS_REQUIRED  rom PROCEDURE_CODE PC where pc.procedure_code = :proc';
+    sqlStr := 'select PC.PROCEDURE_CODE, PC.DESCRIPTION, PC.XML_CODE, PC.FROM_AMOUNT, PC.UPTO_AMOUNT, PC.FK_CLEARANCE_INSTRUCTION, PC.IOSS_REQUIRED  From PROCEDURE_CODE PC where pc.procedure_code = :proc';
     var qr: TIBCQuery := TksQuery.Create(cn, sqlStr);
     Try
       qr.ParamByName('proc').Value := ProcedureCode;
