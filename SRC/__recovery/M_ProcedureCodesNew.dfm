@@ -124,17 +124,18 @@ object M_ProcedureCodesNewFRM: TM_ProcedureCodesNewFRM
   end
   object Panel3: TPanel
     Left = 0
-    Top = 92
+    Top = 99
     Width = 1013
-    Height = 641
+    Height = 634
     Align = alClient
     TabOrder = 2
+    ExplicitTop = 92
     ExplicitHeight = 514
     object Panel5: TPanel
       Left = 1
       Top = 1
       Width = 1011
-      Height = 374
+      Height = 389
       Align = alClient
       BevelOuter = bvNone
       TabOrder = 0
@@ -143,7 +144,7 @@ object M_ProcedureCodesNewFRM: TM_ProcedureCodesNewFRM
         Left = 0
         Top = 0
         Width = 735
-        Height = 374
+        Height = 389
         ControlType.Strings = (
           'CODE;CustomEdit;CodeFLD;F'
           'FK_CLEARANCE_INSTRUCTION;CustomEdit;ClearanceFLD;F')
@@ -209,14 +210,13 @@ object M_ProcedureCodesNewFRM: TM_ProcedureCodesNewFRM
     end
     object Panel6: TPanel
       Left = 1
-      Top = 439
+      Top = 432
       Width = 1011
       Height = 201
       Align = alBottom
       BevelOuter = bvNone
-      Caption = 'Panel6'
       TabOrder = 1
-      ExplicitTop = 312
+      ExplicitTop = 431
       object Grid1: TwwDBGrid
         Left = 0
         Top = 0
@@ -420,28 +420,33 @@ object M_ProcedureCodesNewFRM: TM_ProcedureCodesNewFRM
     end
     object RzPanel1: TRzPanel
       Left = 1
-      Top = 375
+      Top = 390
       Width = 1011
-      Height = 64
+      Height = 42
       Align = alBottom
+      BorderOuter = fsNone
       TabOrder = 5
-      ExplicitTop = 233
+      ExplicitTop = 375
       object wwDBNavigator1: TwwDBNavigator
-        Left = 24
-        Top = 16
+        Left = 0
+        Top = 0
         Width = 193
-        Height = 25
+        Height = 42
         AutosizeStyle = asSizeNavButtons
         DataSource = DetailSRC
         RepeatInterval.InitialDelay = 500
         RepeatInterval.Interval = 100
         BackgroundOptions.IndentX = 0
         BackgroundOptions.IndentY = 0
+        Align = alLeft
+        ExplicitLeft = 6
+        ExplicitTop = -2
+        ExplicitHeight = 38
         object wwDBNavigator1Insert: TwwNavButton
           Left = 0
           Top = 0
           Width = 39
-          Height = 25
+          Height = 42
           Hint = 'Insert new record'
           ImageIndex = -1
           NumGlyphs = 2
@@ -457,7 +462,7 @@ object M_ProcedureCodesNewFRM: TM_ProcedureCodesNewFRM
           Left = 39
           Top = 0
           Width = 39
-          Height = 25
+          Height = 42
           Hint = 'Delete current record'
           ImageIndex = -1
           NumGlyphs = 2
@@ -473,7 +478,7 @@ object M_ProcedureCodesNewFRM: TM_ProcedureCodesNewFRM
           Left = 78
           Top = 0
           Width = 39
-          Height = 25
+          Height = 42
           Hint = 'Post changes of current record'
           ImageIndex = -1
           NumGlyphs = 2
@@ -490,7 +495,7 @@ object M_ProcedureCodesNewFRM: TM_ProcedureCodesNewFRM
           Left = 117
           Top = 0
           Width = 38
-          Height = 25
+          Height = 42
           Hint = 'Cancel changes made to current record'
           ImageIndex = -1
           NumGlyphs = 2
@@ -507,7 +512,7 @@ object M_ProcedureCodesNewFRM: TM_ProcedureCodesNewFRM
           Left = 155
           Top = 0
           Width = 38
-          Height = 25
+          Height = 42
           Hint = 'Refresh the contents of the dataset'
           ImageIndex = -1
           NumGlyphs = 2
@@ -526,25 +531,30 @@ object M_ProcedureCodesNewFRM: TM_ProcedureCodesNewFRM
     Left = 0
     Top = 53
     Width = 1013
-    Height = 39
+    Height = 46
     Align = alTop
+    BevelOuter = bvNone
     TabOrder = 3
     object wwDBNavigator2: TwwDBNavigator
-      Left = 35
-      Top = 5
-      Width = 193
-      Height = 25
+      Left = 0
+      Top = 0
+      Width = 228
+      Height = 46
       AutosizeStyle = asSizeNavButtons
       DataSource = TableSRC
       RepeatInterval.InitialDelay = 500
       RepeatInterval.Interval = 100
       BackgroundOptions.IndentX = 0
       BackgroundOptions.IndentY = 0
+      Align = alLeft
+      ExplicitLeft = 1
+      ExplicitTop = 1
+      ExplicitHeight = 37
       object wwNavButton1: TwwNavButton
         Left = 0
         Top = 0
-        Width = 39
-        Height = 25
+        Width = 46
+        Height = 46
         Hint = 'Insert new record'
         ImageIndex = -1
         NumGlyphs = 2
@@ -557,10 +567,10 @@ object M_ProcedureCodesNewFRM: TM_ProcedureCodesNewFRM
         Style = nbsInsert
       end
       object wwNavButton2: TwwNavButton
-        Left = 39
+        Left = 46
         Top = 0
-        Width = 39
-        Height = 25
+        Width = 46
+        Height = 46
         Hint = 'Delete current record'
         ImageIndex = -1
         NumGlyphs = 2
@@ -573,10 +583,10 @@ object M_ProcedureCodesNewFRM: TM_ProcedureCodesNewFRM
         Style = nbsDelete
       end
       object wwNavButton3: TwwNavButton
-        Left = 78
+        Left = 92
         Top = 0
-        Width = 39
-        Height = 25
+        Width = 46
+        Height = 46
         Hint = 'Post changes of current record'
         ImageIndex = -1
         NumGlyphs = 2
@@ -590,10 +600,10 @@ object M_ProcedureCodesNewFRM: TM_ProcedureCodesNewFRM
         Style = nbsPost
       end
       object wwNavButton4: TwwNavButton
-        Left = 117
+        Left = 138
         Top = 0
-        Width = 38
-        Height = 25
+        Width = 45
+        Height = 46
         Hint = 'Cancel changes made to current record'
         ImageIndex = -1
         NumGlyphs = 2
@@ -607,10 +617,10 @@ object M_ProcedureCodesNewFRM: TM_ProcedureCodesNewFRM
         Style = nbsCancel
       end
       object wwNavButton5: TwwNavButton
-        Left = 155
+        Left = 183
         Top = 0
-        Width = 38
-        Height = 25
+        Width = 45
+        Height = 46
         Hint = 'Refresh the contents of the dataset'
         ImageIndex = -1
         NumGlyphs = 2

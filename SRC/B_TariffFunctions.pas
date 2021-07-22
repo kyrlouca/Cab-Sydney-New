@@ -207,7 +207,8 @@ constructor HawbTariffsObject.Create(DbConnection: TIBCConnection; HawbSerial: i
 destructor HawbTariffsObject.Destroy;
   begin
     { Finalize the static FList member }
-    for var i := FHawbCharges.Count - 1 downto 0 do FHawbCharges.Delete(i);
+    for var i := FHawbCharges.Count - 1 downto 0 do
+      FHawbCharges.Delete(i);
     // I think deleting the members of the list (FHaawbCharges) would not be nessessary because FHawbCharges is a TList of  records
     // the  memory of a record is freed anyway when it is  not referenced
     // and the destructor will remove all members of TList
@@ -331,8 +332,7 @@ Function HawbTariffsObject.UpdateHawbCharge(Const hc: Tbt_HawbCharge): boolean;
 
       with qr do
       begin
-        if qr.State in [dsBrowse] then
-          qr.Edit;
+        if qr.State in [dsBrowse] then qr.Edit;
 
         FieldByName('fk_Tariff_usage').Value := hc.TariffUsage;
         FieldByName('fk_tariff_line').Value := hc.TariffSerial;
@@ -510,10 +510,8 @@ Function HawbTariffsObject.CalcHawbCharge(Const HawbItem: Tbt_HawbItemRecord; Co
     begin
       if hc.UnitsNotCharged > 0 then
       begin
-        if hc.PreDiscountAmount > hc.UnitsNotCharged then
-          hc.AmountGross := hc.TariffUnitRate
-        else
-          hc.AmountGross := 0;
+        if hc.PreDiscountAmount > hc.UnitsNotCharged then hc.AmountGross := hc.TariffUnitRate
+        else hc.AmountGross := 0;
       end
       else
       begin
@@ -537,11 +535,9 @@ Function HawbTariffsObject.CalcHawbCharge(Const HawbItem: Tbt_HawbItemRecord; Co
       hc.AmountGross := hc.CustomsValue * hc.TariffUnitRate / 100;
     end;
 
-    if TariffLine.MinCharge > 0 then
-      hc.AmountGross := max(hc.AmountGross, TariffLine.MinCharge);
+    if TariffLine.MinCharge > 0 then hc.AmountGross := max(hc.AmountGross, TariffLine.MinCharge);
 
-    if TariffLine.MaxCharge > 0 then
-      hc.AmountGross := min(hc.AmountGross, TariffLine.MaxCharge);
+    if TariffLine.MaxCharge > 0 then hc.AmountGross := min(hc.AmountGross, TariffLine.MaxCharge);
 
     hc.AmountRelieved := hc.AmountGross * hc.TariffRelievedRate / 100;
     hc.AmountNet := max(0, hc.AmountGross - hc.AmountRelieved);
@@ -656,10 +652,9 @@ procedure HawbTariffsObject.RecreateHawbAllCharges();
       exit;
     end;
 
-
-      // Ask THanasis
-      // isCompany := (clearingInfo.IsCompanyOrPerson = 'C');
-      // isDTP := (clearingInfo.IsPrePaid = 'Y');
+    // Ask THanasis
+    // isCompany := (clearingInfo.IsCompanyOrPerson = 'C');
+    // isDTP := (clearingInfo.IsPrePaid = 'Y');
     UpdateFactor();
 
     // Delete hawb item charges -due to tariffs (the customs and dhl charges will NOT be deleted)
@@ -678,7 +673,7 @@ procedure HawbTariffsObject.RecreateHawbAllCharges();
 
       // ********************************************************
       // Delete the hawbcharges that are exempted because of the procedure_code
-      //for each tariff charge, check if there is a matching procedure exemption (same duty type)
+      // for each tariff charge, check if there is a matching procedure exemption (same duty type)
       // if found, delete the record and hope that the memory is Freed :)
       // 999
 
@@ -687,14 +682,16 @@ procedure HawbTariffsObject.RecreateHawbAllCharges();
 
         var chargeDutyType: String := FHawbCharges[i].DutyType;
         var isFound: boolean := FindProcedureExemption(chargeDutyType);
-        if isFound then FHawbCharges.Delete(i);
+        if isFound then
+          FHawbCharges.Delete(i);
 
       end;
 
       InsertAllHawbCharges();
 
       // the charges where inserted so now delete from the list so that you can place the vat in the array
-      for var i := FHawbCharges.Count - 1 downto 0 do FHawbCharges.Delete(i);
+      for var i := FHawbCharges.Count - 1 downto 0 do
+        FHawbCharges.Delete(i);
 
       var isVatExempted: boolean := FindProcedureExemption('VAT');
       if not isVatExempted then
@@ -856,8 +853,7 @@ Function HawbTariffsObject.UpdateFactor(): boolean;
             try
               Factor := ((TotalForeignAmount / TheRate) + FreightCYP) / AfterDiscountAmount;
             except
-              on EMathError do
-                Factor := 0;
+              on EMathError do Factor := 0;
             end;
           end
           else
@@ -866,8 +862,7 @@ Function HawbTariffsObject.UpdateFactor(): boolean;
           end;
         end;
 
-        If SEnderInvoiceDS.State in [dsBrowse] then
-          SEnderInvoiceDS.Edit;
+        If SEnderInvoiceDS.State in [dsBrowse] then SEnderInvoiceDS.Edit;
         FieldByName('TOTAL_AMOUNT').Value := TotalForeignAmount;
         FieldByName('FACTOR_NUMERIC').Value := Factor;
         FieldByName('INVOICE_AMOUNT').Value := AfterDiscountAmount;
