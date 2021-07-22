@@ -154,9 +154,9 @@ object M_ProcedureCodesNewFRM: TM_ProcedureCodesNewFRM
           'PROCEDURE_CODE'#9'9'#9'Code'#9'F'#9
           'XML_CODE'#9'13'#9'Xml Code'#9'F'#9
           'DESCRIPTION'#9'22'#9'Description'#9'F'#9
-          'FK_CLEARANCE_INSTRUCTION'#9'20'#9'Clearance Instruction'#9'F'#9
-          'AMOUNT_ABOVE'#9'11'#9'Above Amount'#9'F'#9
-          'AMOUNT_BELOW'#9'11'#9'Below amount'#9'F'#9)
+          'FK_CLEARANCE_INSTRUCTION'#9'10'#9'Clr'#9'F'
+          'FROM_AMOUNT'#9'13'#9'From Amount'#9#9
+          'UPTO_AMOUNT'#9'12'#9'Upto Amount'#9#9)
         IniAttributes.Delimiter = ';;'
         IniAttributes.UnicodeIniFile = False
         TitleColor = clBtnFace
@@ -212,11 +212,12 @@ object M_ProcedureCodesNewFRM: TM_ProcedureCodesNewFRM
       Height = 216
       ControlType.Strings = (
         'VALID_IOSS;CheckBox;Y;N'
-        'DUTY_TYPE;CustomEdit;DutyTypeFLD;F')
+        'DUTY_TYPE;CustomEdit;DutyTypeFLD;F'
+        'VALID_IF_IOSS;CheckBox;Y;N')
       Selected.Strings = (
-        'SERIAL_NUMBER'#9'10'#9'S/N'#9'T'#9
-        'DUTY_TYPE'#9'12'#9'Duty type'#9'F'#9
-        'VALID_IOSS'#9'16'#9'Requires IOSS'#9'F'#9)
+        'SERIAL_NUMBER'#9'10'#9'S/N'#9'T'
+        'DUTY_TYPE'#9'11'#9'Duty Type'#9'F'
+        'VALID_IF_IOSS'#9'17'#9'Valid If IOSS'#9'F')
       IniAttributes.Delimiter = ';;'
       IniAttributes.UnicodeIniFile = False
       TitleColor = clBtnFace
@@ -635,12 +636,12 @@ object M_ProcedureCodesNewFRM: TM_ProcedureCodesNewFRM
     SQLInsert.Strings = (
       'INSERT INTO PROCEDURE_CODE'
       
-        '  (PROCEDURE_CODE, DESCRIPTION, XML_CODE, AMOUNT_BELOW, AMOUNT_A' +
-        'BOVE, FK_CLEARANCE_INSTRUCTION)'
+        '  (PROCEDURE_CODE, DESCRIPTION, XML_CODE, FROM_AMOUNT, UPTO_AMOU' +
+        'NT, FK_CLEARANCE_INSTRUCTION)'
       'VALUES'
       
-        '  (:PROCEDURE_CODE, :DESCRIPTION, :XML_CODE, :AMOUNT_BELOW, :AMO' +
-        'UNT_ABOVE, :FK_CLEARANCE_INSTRUCTION)')
+        '  (:PROCEDURE_CODE, :DESCRIPTION, :XML_CODE, :FROM_AMOUNT, :UPTO' +
+        '_AMOUNT, :FK_CLEARANCE_INSTRUCTION)')
     SQLDelete.Strings = (
       'DELETE FROM PROCEDURE_CODE'
       'WHERE'
@@ -650,15 +651,15 @@ object M_ProcedureCodesNewFRM: TM_ProcedureCodesNewFRM
       'SET'
       
         '  PROCEDURE_CODE = :PROCEDURE_CODE, DESCRIPTION = :DESCRIPTION, ' +
-        'XML_CODE = :XML_CODE, AMOUNT_BELOW = :AMOUNT_BELOW, AMOUNT_ABOVE' +
-        ' = :AMOUNT_ABOVE, FK_CLEARANCE_INSTRUCTION = :FK_CLEARANCE_INSTR' +
-        'UCTION'
+        'XML_CODE = :XML_CODE, FROM_AMOUNT = :FROM_AMOUNT, UPTO_AMOUNT = ' +
+        ':UPTO_AMOUNT, FK_CLEARANCE_INSTRUCTION = :FK_CLEARANCE_INSTRUCTI' +
+        'ON'
       'WHERE'
       '  PROCEDURE_CODE = :Old_PROCEDURE_CODE')
     SQLRefresh.Strings = (
       
-        'SELECT PROCEDURE_CODE, DESCRIPTION, XML_CODE, AMOUNT_BELOW, AMOU' +
-        'NT_ABOVE, FK_CLEARANCE_INSTRUCTION FROM PROCEDURE_CODE'
+        'SELECT PROCEDURE_CODE, DESCRIPTION, XML_CODE, FROM_AMOUNT, UPTO_' +
+        'AMOUNT, FK_CLEARANCE_INSTRUCTION FROM PROCEDURE_CODE'
       'WHERE'
       '  PROCEDURE_CODE = :PROCEDURE_CODE')
     SQLLock.Strings = (
@@ -708,21 +709,21 @@ object M_ProcedureCodesNewFRM: TM_ProcedureCodesNewFRM
       Size = 30
     end
     object TableSQLFK_CLEARANCE_INSTRUCTION: TStringField
-      DisplayLabel = 'Clearance Instruction'
-      DisplayWidth = 20
+      DisplayLabel = 'Clr'
+      DisplayWidth = 10
       FieldName = 'FK_CLEARANCE_INSTRUCTION'
       FixedChar = True
       Size = 5
     end
-    object TableSQLAMOUNT_ABOVE: TFloatField
-      DisplayLabel = 'Above Amount'
-      DisplayWidth = 11
-      FieldName = 'AMOUNT_ABOVE'
+    object TableSQLFROM_AMOUNT: TFloatField
+      DisplayLabel = 'From Amount'
+      DisplayWidth = 13
+      FieldName = 'FROM_AMOUNT'
     end
-    object TableSQLAMOUNT_BELOW: TFloatField
-      DisplayLabel = 'Below amount'
-      DisplayWidth = 11
-      FieldName = 'AMOUNT_BELOW'
+    object TableSQLUPTO_AMOUNT: TFloatField
+      DisplayLabel = 'Upto Amount'
+      DisplayWidth = 12
+      FieldName = 'UPTO_AMOUNT'
     end
   end
   object WriteTrans: TIBCTransaction
@@ -741,9 +742,11 @@ object M_ProcedureCodesNewFRM: TM_ProcedureCodesNewFRM
     KeyGenerator = 'GEN_PROCEDURE_CODE_EXEMPTION_ID'
     SQLInsert.Strings = (
       'INSERT INTO PROCEDURE_CODE_EXEMPTION'
-      '  (SERIAL_NUMBER, DUTY_TYPE, FK_PROCEDURE_CODE, VALID_IOSS)'
+      '  (SERIAL_NUMBER, DUTY_TYPE, FK_PROCEDURE_CODE, VALID_IF_IOSS)'
       'VALUES'
-      '  (:SERIAL_NUMBER, :DUTY_TYPE, :FK_PROCEDURE_CODE, :VALID_IOSS)')
+      
+        '  (:SERIAL_NUMBER, :DUTY_TYPE, :FK_PROCEDURE_CODE, :VALID_IF_IOS' +
+        'S)')
     SQLDelete.Strings = (
       'DELETE FROM PROCEDURE_CODE_EXEMPTION'
       'WHERE'
@@ -753,13 +756,13 @@ object M_ProcedureCodesNewFRM: TM_ProcedureCodesNewFRM
       'SET'
       
         '  SERIAL_NUMBER = :SERIAL_NUMBER, DUTY_TYPE = :DUTY_TYPE, FK_PRO' +
-        'CEDURE_CODE = :FK_PROCEDURE_CODE, VALID_IOSS = :VALID_IOSS'
+        'CEDURE_CODE = :FK_PROCEDURE_CODE, VALID_IF_IOSS = :VALID_IF_IOSS'
       'WHERE'
       '  SERIAL_NUMBER = :Old_SERIAL_NUMBER')
     SQLRefresh.Strings = (
       
-        'SELECT SERIAL_NUMBER, DUTY_TYPE, FK_PROCEDURE_CODE, VALID_IOSS F' +
-        'ROM PROCEDURE_CODE_EXEMPTION'
+        'SELECT SERIAL_NUMBER, DUTY_TYPE, FK_PROCEDURE_CODE, VALID_IF_IOS' +
+        'S FROM PROCEDURE_CODE_EXEMPTION'
       'WHERE'
       '  SERIAL_NUMBER = :SERIAL_NUMBER')
     SQLLock.Strings = (
@@ -784,14 +787,14 @@ object M_ProcedureCodesNewFRM: TM_ProcedureCodesNewFRM
     MasterSource = TableSRC
     Active = True
     AfterInsert = TableSQLAfterInsert
-    Left = 889
-    Top = 237
+    Left = 585
+    Top = 397
     ParamData = <
       item
         DataType = ftFixedChar
         Name = 'PROCEDURE_CODE'
         ParamType = ptInput
-        Value = 'F49'
+        Value = 'abb'
       end>
     object DetailSQLSERIAL_NUMBER: TIntegerField
       DisplayLabel = 'S/N'
@@ -799,24 +802,23 @@ object M_ProcedureCodesNewFRM: TM_ProcedureCodesNewFRM
       FieldName = 'SERIAL_NUMBER'
     end
     object DetailSQLDUTY_TYPE: TStringField
-      DisplayLabel = 'Duty type'
-      DisplayWidth = 12
+      DisplayLabel = 'Duty Type'
+      DisplayWidth = 11
       FieldName = 'DUTY_TYPE'
       Required = True
       FixedChar = True
       Size = 3
     end
-    object DetailSQLVALID_IOSS: TStringField
-      DisplayLabel = 'Requires IOSS'
-      DisplayWidth = 16
-      FieldName = 'VALID_IOSS'
+    object DetailSQLVALID_IF_IOSS: TStringField
+      DisplayLabel = 'Valid If IOSS'
+      DisplayWidth = 17
+      FieldName = 'VALID_IF_IOSS'
       Required = True
       FixedChar = True
       Size = 1
     end
     object DetailSQLFK_PROCEDURE_CODE: TStringField
-      DisplayLabel = 'Proc'
-      DisplayWidth = 10
+      DisplayWidth = 5
       FieldName = 'FK_PROCEDURE_CODE'
       Required = True
       Visible = False
@@ -826,8 +828,8 @@ object M_ProcedureCodesNewFRM: TM_ProcedureCodesNewFRM
   end
   object DetailSRC: TIBCDataSource
     DataSet = DetailSQL
-    Left = 816
-    Top = 236
+    Left = 648
+    Top = 404
   end
   object DutyTypeSQL: TIBCQuery
     SQLInsert.Strings = (

@@ -133,6 +133,7 @@ Type
     FClearingInstruction: string;
     FProcedureCode: String;
     FisOnlyVat: boolean;
+    FHawbBaseEuroValue: Double;
     Function CreateHawbTariffCharges(): integer;
     Function CreateVatHawbChargesOnItems(): integer;
 
@@ -152,6 +153,7 @@ Type
 
     Function InsertHawbCharge(Const hc: Tbt_HawbCharge): boolean;
     Function InsertAllHawbCharges(): boolean;
+    Function FindProcedureExemption(DutyType: string): boolean;
 
     { private fields }
     { private methods }
@@ -160,6 +162,28 @@ Type
 implementation
 
 uses U_ClairDML, G_KyrSQL;
+
+Function HawbTariffsObject.FindProcedureExemption(DutyType: String): boolean;
+  begin
+    var
+    sqlStr := 'select pce.serial_number from procedure_code pc join procedure_code_exemption pce on pc.procedure_code=pce.fk_procedure_code ' +
+         '  where pc.procedure_code= :procCode and pce.duty_type =:dutyType ';
+    var qr: TIBCQuery := TksQuery.Create(cn, sqlStr);
+    Try
+      qr.ParamByName('procCode').Value := FProcedureCode;
+      qr.ParamByName('DutyType').Value := DutyType;
+      qr.Open;
+      if qr.IsEmpty then
+      begin
+        result := false;
+        exit;
+      end;
+
+    Finally
+      qr.Free;
+    End;
+
+  end;
 
 constructor HawbTariffsObject.Create(DbConnection: TIBCConnection; HawbSerial: integer);
   begin
@@ -175,16 +199,19 @@ constructor HawbTariffsObject.Create(DbConnection: TIBCConnection; HawbSerial: i
     FProcedureCode := hawbInfo.ProcedureCode;
     FisOnlyVat := (FProcedureCode = 'C07') OR (FClearingInstruction = 'MED');
     FHawbCharges := TList<Tbt_HawbCharge>.Create();
+    // todo calulate the base value
+    FHawbBaseEuroValue := 999;
 
   end;
 
 destructor HawbTariffsObject.Destroy;
   begin
     { Finalize the static FList member }
-    for var i := FHawbCharges.Count - 1 downto 0 do
-      FHawbCharges.Delete(i);
+    for var i := FHawbCharges.Count - 1 downto 0 do FHawbCharges.Delete(i);
+    // I think deleting the members of the list (FHaawbCharges) would not be nessessary because FHawbCharges is a TList of  records
+    // the  memory of a record is freed anyway when it is  not referenced
+    // and the destructor will remove all members of TList
 
-    // FHawbCharges.Clear;
     FHawbCharges.Free;
     inherited Destroy;
   end;
@@ -235,14 +262,14 @@ Function HawbTariffsObject.CreateHawbTariffCharges(): integer;
   end;
 
 Function HawbTariffsObject.UpdateHawbRelatedCharges(): boolean;
-  // Drop charges will NOT be updated because user might have changed it
+  // Drop charges will NOT be updated because user might have added or deleted some
   // **** WORKING ON TIS
   Begin
     var QrTariffViewSQL: TksQuery := TksQuery.Create(cn, 'select * from tariff_view tv where tv.serial_number = :lineSerial');
     var qrSQL: TksQuery := TksQuery.Create(cn, 'select * from hawb_charge where fk_hawb = :hawbSerial and fk_hawb_item is null');
     Try
       // update  hawb charges NOT associated with hawb item
-      result := False;
+      result := false;
 
       qrSQL.ParamByName('HawbSerial').Value := FhawbSerial;
       qrSQL.Open;
@@ -296,15 +323,16 @@ Function HawbTariffsObject.UpdateHawbCharge(Const hc: Tbt_HawbCharge): boolean;
       qr.ParamByName('ChargeSerial').Value := hc.chargeSerial;
       qr.Open;
 
-      if qr.ISeMPTY then
+      if qr.IsEmpty then
       begin
-        result := False;
+        result := false;
         exit;
       end;
 
       with qr do
       begin
-        if qr.State in [dsBrowse] then qr.Edit;
+        if qr.State in [dsBrowse] then
+          qr.Edit;
 
         FieldByName('fk_Tariff_usage').Value := hc.TariffUsage;
         FieldByName('fk_tariff_line').Value := hc.TariffSerial;
@@ -355,17 +383,17 @@ Function HawbTariffsObject.PopulateTariffRecord(TariffViewSQL: TDataset): TBT_Ta
 
     result.TariffUnit := TariffViewSQL.FieldByName('TARIFF_UNIT').AsString;
     result.TariffUnitIncrement := TariffViewSQL.FieldByName('TARIFF_UNIT_INCREMENT').AsInteger;
-    result.TariffUnitRate := TariffViewSQL.FieldByName('TARIFF_UNIT_RATE').AsFloat;
+    result.TariffUnitRate := TariffViewSQL.FieldByName('TARIFF_UNIT_RATE').Asfloat;
     result.TariffUnitsNotCharged := TariffViewSQL.FieldByName('UNITS_NOT_CHARGED').AsInteger;
 
-    result.MinCharge := TariffViewSQL.FieldByName('MIN_CHARGE').AsFloat;
-    result.MaxCharge := TariffViewSQL.FieldByName('MAX_CHARGE').AsFloat;
+    result.MinCharge := TariffViewSQL.FieldByName('MIN_CHARGE').Asfloat;
+    result.MaxCharge := TariffViewSQL.FieldByName('MAX_CHARGE').Asfloat;
 
     result.TariffChargingMethod := TariffViewSQL.FieldByName('CHARGING_METHOD').AsString;
     // result.IsVatApply:=TariffViewSQL.FieldByName('IS_VAT_APPLIES').AsString='Y';
     result.IsVatApply := true;
     result.CanbeRelieved := TariffViewSQL.FieldByName('can_be_relieved').AsString = 'Y';
-    result.vatRate := TariffViewSQL.FieldByName('vat_rate').AsFloat;
+    result.vatRate := TariffViewSQL.FieldByName('vat_rate').Asfloat;
     result.VatCode := TariffViewSQL.FieldByName('fk_vat_code').AsString;
 
     // codesite.Send(TTariffLineRec,'hey',result);
@@ -415,7 +443,7 @@ function HawbTariffsObject.FindRelievedRate(Const DutyType: String): Double;
         ParamByName('DutyType').Value := DutyType;
         ParamByName('RelCode').Value := FHouseRelieveCode;
         Open;
-        result := FieldByName('percentage_relieve').AsFloat;
+        result := FieldByName('percentage_relieve').Asfloat;
 
       end;
 
@@ -482,8 +510,10 @@ Function HawbTariffsObject.CalcHawbCharge(Const HawbItem: Tbt_HawbItemRecord; Co
     begin
       if hc.UnitsNotCharged > 0 then
       begin
-        if hc.PreDiscountAmount > hc.UnitsNotCharged then hc.AmountGross := hc.TariffUnitRate
-        else hc.AmountGross := 0;
+        if hc.PreDiscountAmount > hc.UnitsNotCharged then
+          hc.AmountGross := hc.TariffUnitRate
+        else
+          hc.AmountGross := 0;
       end
       else
       begin
@@ -507,9 +537,11 @@ Function HawbTariffsObject.CalcHawbCharge(Const HawbItem: Tbt_HawbItemRecord; Co
       hc.AmountGross := hc.CustomsValue * hc.TariffUnitRate / 100;
     end;
 
-    if TariffLine.MinCharge > 0 then hc.AmountGross := max(hc.AmountGross, TariffLine.MinCharge);
+    if TariffLine.MinCharge > 0 then
+      hc.AmountGross := max(hc.AmountGross, TariffLine.MinCharge);
 
-    if TariffLine.MaxCharge > 0 then hc.AmountGross := min(hc.AmountGross, TariffLine.MaxCharge);
+    if TariffLine.MaxCharge > 0 then
+      hc.AmountGross := min(hc.AmountGross, TariffLine.MaxCharge);
 
     hc.AmountRelieved := hc.AmountGross * hc.TariffRelievedRate / 100;
     hc.AmountNet := max(0, hc.AmountGross - hc.AmountRelieved);
@@ -536,11 +568,11 @@ Function HawbTariffsObject.PopulateHawbData(Const HawbSerial: integer): Tbt_Hawb
       qr.ParamByName('hawbSerial').Value := HawbSerial;
       qr.Open;
       result.RelieveCode := qr.FieldByName('FK_DUTY_RELIEVE').AsString;
-      result.PreDiscountAmount := qr.FieldByName('pre_discount_amount').AsFloat;
-      result.CustomsValue := qr.FieldByName('customs_value').AsFloat;
+      result.PreDiscountAmount := qr.FieldByName('pre_discount_amount').Asfloat;
+      result.CustomsValue := qr.FieldByName('customs_value').Asfloat;
       result.Quantity := CountHawbItems(HawbSerial);
-      result.Weight := qr.FieldByName('weight').AsFloat;
-      result.WeightGross := qr.FieldByName('weight_gross').AsFloat;
+      result.Weight := qr.FieldByName('weight').Asfloat;
+      result.WeightGross := qr.FieldByName('weight_gross').Asfloat;
 
     finally
       qr.Free;
@@ -564,9 +596,9 @@ Function HawbTariffsObject.PopulateHawbItemData(Const HawbItemSerial: integer): 
       result.HawbItemSerial := HawbItemSerial;
       result.HawbSerial := MakeDs.FieldByName('FK_HAWB_SERIAL').AsInteger;
       result.TariffCode := MakeDs.FieldByName('fk_tariff_code').AsString;
-      result.CustomsValue := MakeDs.FieldByName('CUSTOMS_VALUE').AsFloat;
-      result.Weight := MakeDs.FieldByName('WEIGHT_NET').AsFloat;
-      result.WeightGross := MakeDs.FieldByName('WEIGHT_GROSS').AsFloat;
+      result.CustomsValue := MakeDs.FieldByName('CUSTOMS_VALUE').Asfloat;
+      result.Weight := MakeDs.FieldByName('WEIGHT_NET').Asfloat;
+      result.WeightGross := MakeDs.FieldByName('WEIGHT_GROSS').Asfloat;
       result.Quantity := MakeDs.FieldByName('NET_QUANTITY').AsInteger;
       // RelieveCode := MakeDs.FieldByName('fk_duty_relieve').AsString;
       MakeDs.close;
@@ -625,55 +657,71 @@ procedure HawbTariffsObject.RecreateHawbAllCharges();
     end;
 
 
-    // V_MawbHawbDML.UpdateFactor(fHawbSerial); keep
-    // clearingInfo := FindClearingInstructionInfo(HawbSerial);
-
-    var IsOverrideMedium: boolean := False;
-
       // Ask THanasis
-      // IsOverrideMedium := (clearingInfo.IsOverrideMedium = 'Y');
       // isCompany := (clearingInfo.IsCompanyOrPerson = 'C');
       // isDTP := (clearingInfo.IsPrePaid = 'Y');
     UpdateFactor();
+
+    // Delete hawb item charges -due to tariffs (the customs and dhl charges will NOT be deleted)
+    ksExecSQLVar(cn, 'delete from hawb_charge where fk_hawb_item is not null and fk_hawb = :hawb_serial', [FhawbSerial]);
+
     if (FClearingInstruction = 'DO') or (FClearingInstruction = 'DOZ') then
     begin
-      // no charges for DO and DOZ. DTP does have charges but they were paid by sender
-      ksExecSQLVar(cn, 'delete from hawb_charge where fk_hawb_item is not null and fk_hawb = :hawb_serial', [FhawbSerial]);
-      UpdateHawbRelatedCharges();
+      // no tariff charges for DO and DOZ. DTP does have charges but they were paid by sender
     end
     else
     begin
 
-      // Delete hawb item charges first and leave the customs and dhl charges
-      ksExecSQLVar(cn, 'delete from hawb_charge where fk_hawb_item is not null and fk_hawb = :hawb_serial', [FhawbSerial]);
       // *********************************************
-      // We ONLY create Hawb Item Tariff Charges if  NOT C07 OR Med
-      if not FisOnlyVat then
+      // Create All tariff charges again
+      CreateHawbTariffCharges();
+
+      // ********************************************************
+      // Delete the hawbcharges that are exempted because of the procedure_code
+      //for each tariff charge, check if there is a matching procedure exemption (same duty type)
+      // if found, delete the record and hope that the memory is Freed :)
+      // 999
+
+      for var i := FHawbCharges.Count - 1 downto 0 do
       begin
 
-        CreateHawbTariffCharges();
+        var chargeDutyType: String := FHawbCharges[i].DutyType;
+        var isFound: boolean := FindProcedureExemption(chargeDutyType);
+        if isFound then FHawbCharges.Delete(i);
+
+      end;
+
+      InsertAllHawbCharges();
+
+      // the charges where inserted so now delete from the list so that you can place the vat in the array
+      for var i := FHawbCharges.Count - 1 downto 0 do FHawbCharges.Delete(i);
+
+      var isVatExempted: boolean := FindProcedureExemption('VAT');
+      if not isVatExempted then
+      begin
+        CreateVatHawbChargesOnItems();
         InsertAllHawbCharges();
 
       end;
 
-      // delete from the array so that you can place the vat in the array
-      for var i := FHawbCharges.Count - 1 downto 0 do
-        FHawbCharges.Delete(i);
+      // *********************************************** Old method
       /// ///////////////////////// New Rule to avoid creating VAT for F48, c07
       /// if we have a MEdium which is F48 or C08 we do NOT create VAT charges
 
-      if (FClearingInstruction = 'MED') and ((FProcedureCode = 'F48') OR (FProcedureCode = 'C08')) then
-      begin
-        //NO charges for Med when f48
+      // if (FClearingInstruction = 'MED') and ((FProcedureCode = 'F48') OR (FProcedureCode = 'C08')) then
+      // begin
+      //
+      //
+      // end
+      // else
+      // begin
+      // CreateVatHawbChargesOnItems();
+      // InsertAllHawbCharges();
+      // end;
+      // *********************************************** Old method
 
-      end else begin
-        CreateVatHawbChargesOnItems();
-        InsertAllHawbCharges();
-      end;
-
-      UpdateHawbRelatedCharges();
     end;
-
+    UpdateHawbRelatedCharges();
   end;
 
 Function HawbTariffsObject.InsertAllHawbCharges(): boolean;
@@ -766,10 +814,10 @@ Function HawbTariffsObject.UpdateFactor(): boolean;
       SEnderInvoiceDS.ParamByName('SerialNumber').Value := FhawbSerial;
       SEnderInvoiceDS.Open;
 
-      If SEnderInvoiceDS.ISeMPTY then
+      If SEnderInvoiceDS.IsEmpty then
       begin
         Raise Exception.Create('KR: Invoice for hawb : ' + IntToStr(FhawbSerial) + 'Not Found');
-        result := False;
+        result := false;
         exit;
       end;
 
@@ -777,18 +825,18 @@ Function HawbTariffsObject.UpdateFactor(): boolean;
 
       With SEnderInvoiceDS do
       begin
-        TheDiscountRate := FieldByName('DISCOUNT_RATE').AsFloat;
-        PreDiscountAmount := FieldByName('PRE_DISCOUNT_AMOUNT').AsFloat;
-        FreightAmount := FieldByName('FREIGHT_AMOUNT').AsFloat;
-        InsuranceAmount := FieldByName('INSURANCE_AMOUNT').AsFloat;
+        TheDiscountRate := FieldByName('DISCOUNT_RATE').Asfloat;
+        PreDiscountAmount := FieldByName('PRE_DISCOUNT_AMOUNT').Asfloat;
+        FreightAmount := FieldByName('FREIGHT_AMOUNT').Asfloat;
+        InsuranceAmount := FieldByName('INSURANCE_AMOUNT').Asfloat;
         /// /////////////////////////////////////////////
         // OtherChargesAmount:=FieldByName('OTHER_CHARGES_AMOUNT').AsFloat;
         // OtherChargesAmount:= CalcCustomCharges(HawbSerial); //this is not correct!
         OtherChargesAmount := 0; // I dont think that there are any addiotional custom charges affecting the factor
         /// //////////////////////////////////////////
 
-        TheRate := FieldByName('EXCHANGE_RATE').AsFloat;
-        FreightCYP := FieldByName('FREIGHT_CYP_AMOUNT').AsFloat;
+        TheRate := FieldByName('EXCHANGE_RATE').Asfloat;
+        FreightCYP := FieldByName('FREIGHT_CYP_AMOUNT').Asfloat;
 
         TheDiscount := TheDiscountRate * PreDiscountAmount / 100.00;
         AfterDiscountAmount := PreDiscountAmount - TheDiscount;
@@ -808,7 +856,8 @@ Function HawbTariffsObject.UpdateFactor(): boolean;
             try
               Factor := ((TotalForeignAmount / TheRate) + FreightCYP) / AfterDiscountAmount;
             except
-              on EMathError do Factor := 0;
+              on EMathError do
+                Factor := 0;
             end;
           end
           else
@@ -817,11 +866,12 @@ Function HawbTariffsObject.UpdateFactor(): boolean;
           end;
         end;
 
-        If SEnderInvoiceDS.State in [dsBrowse] then SEnderInvoiceDS.Edit;
+        If SEnderInvoiceDS.State in [dsBrowse] then
+          SEnderInvoiceDS.Edit;
         FieldByName('TOTAL_AMOUNT').Value := TotalForeignAmount;
         FieldByName('FACTOR_NUMERIC').Value := Factor;
         FieldByName('INVOICE_AMOUNT').Value := AfterDiscountAmount;
-        FieldByName('CUSTOMS_VALUE').AsFloat := Round(AfterDiscountAmount * Factor);
+        FieldByName('CUSTOMS_VALUE').Asfloat := Round(AfterDiscountAmount * Factor);
 
         SEnderInvoiceDS.Post;
         result := Factor > 0;
@@ -872,13 +922,13 @@ Function HawbTariffsObject.CreateVatHawbChargesOnItems(): integer;
       while not qrItems.Eof do
       begin
         var HawbItemSerial: integer := qrItems.FieldByName('serial_number').AsInteger;
-        var CustomsVat: Double := qrItems.FieldByName('CustomsVat').AsFloat;
+        var CustomsVat: Double := qrItems.FieldByName('CustomsVat').Asfloat;
 
         qrHawbChargesSum.close;
         qrHawbChargesSum.ParamByName('itemSerial').Value := HawbItemSerial;
         qrHawbChargesSum.Open;
 
-        var chargesVat: Double := qrHawbChargesSum.FieldByName('ChargesVat').AsFloat; // vat ONLY on charges, not on item custom value
+        var chargesVat: Double := qrHawbChargesSum.FieldByName('ChargesVat').Asfloat; // vat ONLY on charges, not on item custom value
 
         var totalVat: Double := chargesVat + CustomsVat;
 
@@ -895,14 +945,14 @@ Function HawbTariffsObject.CreateVatHawbChargesOnItems(): integer;
           vatHc.DutyType := 'VAT';
           vatHc.TariffCode := qrItems.FieldByName('fk_tariff_code').AsString;
           vatHc.VatCode := qrItems.FieldByName('fk_vat_code').AsString;
-          vatHc.vatRate := qrItems.FieldByName('rate').AsFloat;
+          vatHc.vatRate := qrItems.FieldByName('rate').Asfloat;
 
-          vatHc.TariffUnitRate := qrItems.FieldByName('rate').AsFloat;
+          vatHc.TariffUnitRate := qrItems.FieldByName('rate').Asfloat;
 
           vatHc.HawbSerial := FhawbSerial;
           vatHc.HawbItemSerial := HawbItemSerial;
 
-          vatHc.CustomsValue := qrItems.FieldByName('customs_value').AsFloat;
+          vatHc.CustomsValue := qrItems.FieldByName('customs_value').Asfloat;
           vatHc.AmountGross := totalVat;
 
           vatHc.TariffRelievedRate := VatRelieveRate;
