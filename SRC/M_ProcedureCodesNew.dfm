@@ -391,9 +391,6 @@ object M_ProcedureCodesNewFRM: TM_ProcedureCodesNewFRM
             TitleLines = 1
             TitleButtons = False
             OnDblClick = Grid1DblClick
-            ExplicitLeft = 2
-            ExplicitTop = 41
-            ExplicitHeight = 155
             object DutyTypeFLD: TwwDBLookupCombo
               Left = 117
               Top = 96
@@ -465,7 +462,6 @@ object M_ProcedureCodesNewFRM: TM_ProcedureCodesNewFRM
                 Spacing = 4
                 Transparent = False
                 Caption = 'wwDBNavigator1Delete'
-                Enabled = False
                 DisabledTextColors.ShadeColor = clGray
                 DisabledTextColors.HighlightColor = clBtnHighlight
                 Index = 1
@@ -870,6 +866,7 @@ object M_ProcedureCodesNewFRM: TM_ProcedureCodesNewFRM
     Active = True
     BeforeInsert = TableSQLBeforeInsert
     AfterInsert = TableSQLAfterInsert
+    BeforeEdit = TableSQLBeforeEdit
     BeforePost = TableSQLBeforePost
     Left = 449
     Top = 37

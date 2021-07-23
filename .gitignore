@@ -8,6 +8,6 @@
 *.~*
 *.stat
 *.cache
-TariffsProject.identcache
-TariffsProject.stat
-TariffsProject.dproj.local
+*.identcache
+*.stat
+*.dproj.local
