@@ -698,24 +698,8 @@ procedure HawbTariffsObject.RecreateHawbAllCharges();
 
       end;
 
-      // *********************************************** Old method
-      /// ///////////////////////// New Rule to avoid creating VAT for F48, c07
-      /// if we have a MEdium which is F48 or C08 we do NOT create VAT charges
-
-      // if (FClearingInstruction = 'MED') and ((FProcedureCode = 'F48') OR (FProcedureCode = 'C08')) then
-      // begin
-      //
-      //
-      // end
-      // else
-      // begin
-      // CreateVatHawbChargesOnItems();
-      // InsertAllHawbCharges();
-      // end;
-      // *********************************************** Old method
-
     end;
-    UpdateHawbRelatedCharges();
+//    UpdateHawbRelatedCharges();    no nn
   end;
 
 Function HawbTariffsObject.InsertAllHawbCharges(): boolean;
