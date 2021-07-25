@@ -74,11 +74,13 @@ type
     BitBtn1: TRzBitBtn;
     DelBucketBtn: TRzButton;
     StopLoadBTN: TRzButton;
+    SoapBTN: TRzButton;
     procedure FormCreate(Sender: TObject);
     procedure PrintRBtnClick(Sender: TObject);
     procedure BitBtn1Click(Sender: TObject);
     procedure DelBucketBtnClick(Sender: TObject);
     procedure StopLoadBTNClick(Sender: TObject);
+    procedure SoapBTNClick(Sender: TObject);
   private
     { Private declarations }
     cn: TIBCConnection;
@@ -130,6 +132,13 @@ procedure TX_maintenanceScreenFRM.PrintRBtnClick(Sender: TObject);
 
     end;
   end;
+
+procedure TX_maintenanceScreenFRM.SoapBTNClick(Sender: TObject);
+begin
+    var sqlInsert: string := 'insert into SYSTEM_PARAMETERS (PARAMETER_ID, INT_1) values (:PARAMETER_ID, :INT_1)';
+    ksExecSQLVar(cn, sqlInsert, ['Z02',100]);
+
+end;
 
 procedure TX_maintenanceScreenFRM.StopLoadBTNClick(Sender: TObject);
   begin

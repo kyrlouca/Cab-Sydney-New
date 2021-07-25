@@ -45,8 +45,8 @@ procedure TStartCSharpFRM.RzBitBtn2Click(Sender: TObject);
     var currentDir: string := System.IOUtils.TDirectory.GetCurrentDirectory();
     var exeFile: string := currentDir + '\DhlSoapService.exe';
       // showMessage(exeFile);
-    LaunchSoap.FileName := exeFile;
-    LaunchSoap.Launch;
+//    LaunchSoap.FileName := exeFile;
+//    LaunchSoap.Launch;
 
     var delSQL: string := 'delete from system_parameters sp where sp.parameter_id = :ParamId';
     ksExecSQLVar(cn, delSQL, [sysKey]);
@@ -55,6 +55,9 @@ procedure TStartCSharpFRM.RzBitBtn2Click(Sender: TObject);
     while not isStopped do
     begin
       // ReadFilesInFolderNew();
+      LaunchSoap.FileName := exeFile;
+      LaunchSoap.Launch;
+
       isStopped := ksCountRecVarSQL(cn, 'select sp.parameter_id from system_parameters sp where sp.parameter_id =:ParamId', [sysKey]) > 0;
       sleep(2000);
     end;

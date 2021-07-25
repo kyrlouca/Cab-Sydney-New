@@ -858,7 +858,7 @@ procedure TX_BucketreadFileFRM.RzBitBtn2Click(Sender: TObject);
     begin
       ReadFilesInFolderNew();
       isStopped := ksCountRecVarSQL(cn, 'select sp.parameter_id from system_parameters sp where sp.parameter_id =:ParamId', ['Z00']) > 0;
-      sleep(20000);
+      sleep(5000);
     end;
 
   end;
