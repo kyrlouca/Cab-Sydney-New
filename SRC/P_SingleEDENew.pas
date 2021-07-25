@@ -201,7 +201,6 @@ type
     FloatField1: TFloatField;
     StringField22: TStringField;
     StringField23: TStringField;
-    IntegerField4: TIntegerField;
     FloatField2: TFloatField;
     FloatField3: TFloatField;
     FloatField4: TFloatField;
@@ -474,6 +473,7 @@ type
     VirtualHawbChargecustoms_value: TFloatField;
     VirtualHawbChargerelieved_flag: TStringField;
     VirtualHawbChargeCharge: TFloatField;
+    HawbItemSQLNET_QUANTITY: TFloatField;
     procedure ppVariable2Calc(Sender: TObject; var Value: Variant);
     procedure ImportPayCodeFLDCalc(Sender: TObject; var Value: Variant);
     procedure DeliveryPayCodeFLDCalc(Sender: TObject; var Value: Variant);

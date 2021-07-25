@@ -344,7 +344,7 @@ object V_HawbDataDML: TV_HawbDataDML
       DisplayWidth = 12
       FieldName = 'FK_COUNTRY_ORIGIN'
     end
-    object HawbItemSQLNET_QUANTITY: TIntegerField
+    object HawbItemSQLNET_QUANTITY: TFloatField
       DisplayLabel = 'Units'
       DisplayWidth = 10
       FieldName = 'NET_QUANTITY'

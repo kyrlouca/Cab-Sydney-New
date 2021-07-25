@@ -48,7 +48,7 @@ Type
 
     CustomsValue: Double;
     PreDiscountAmount: Double;
-    Quantity: integer;
+    Quantity: double;
     Origin: String;
     UnitMeasure: String;
     WeightGross: Double;
@@ -104,7 +104,7 @@ Type
     DutyType: String;
     PreDiscountAmount: Double;
     CustomsValue: Double;
-    Quantity: integer;
+    Quantity: double;
     UnitsNotCharged: integer;
     Weight: Double;
     WeightGross: Double;
@@ -458,7 +458,7 @@ Function HawbTariffsObject.CalcHawbCharge(Const HawbItem: Tbt_HawbItemRecord; Co
   // do the calculations and populate and return the hawb_charge rec
   var
     hc: Tbt_HawbCharge;
-    unitsCharged: integer;
+    unitsCharged: double;
     MaxCharge, MinCharge: Double;
 
   begin
@@ -592,7 +592,7 @@ Function HawbTariffsObject.PopulateHawbItemData(Const HawbItemSerial: integer): 
       result.CustomsValue := MakeDs.FieldByName('CUSTOMS_VALUE').Asfloat;
       result.Weight := MakeDs.FieldByName('WEIGHT_NET').Asfloat;
       result.WeightGross := MakeDs.FieldByName('WEIGHT_GROSS').Asfloat;
-      result.Quantity := MakeDs.FieldByName('NET_QUANTITY').AsInteger;
+      result.Quantity := MakeDs.FieldByName('NET_QUANTITY').asFloat;
       // RelieveCode := MakeDs.FieldByName('fk_duty_relieve').AsString;
       MakeDs.close;
     finally

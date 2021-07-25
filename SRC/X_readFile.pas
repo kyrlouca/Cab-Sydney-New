@@ -69,7 +69,6 @@ type
     HawbItemSQLINVOICE_VALUE: TFloatField;
     HawbItemSQLDUTY_TYPE: TStringField;
     HawbItemSQLTARIFF_DESCRIPTION: TStringField;
-    HawbItemSQLNET_QUANTITY: TIntegerField;
     HawbItemSQLIMPORT_DUTY_RATE: TFloatField;
     HawbItemSQLRELIEVED_IMPORT_DUTY: TFloatField;
     HawbItemSQLEXCISE_DUTY_RATE: TFloatField;
@@ -267,6 +266,7 @@ type
     MawbSQLMOVEMENT_NUMBER: TStringField;
     MawbSQLDATE_DEPART: TDateField;
     MessagesMemo: TRzMemo;
+    HawbItemSQLNET_QUANTITY: TFloatField;
     procedure Button1Click(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure RzBitBtn2Click(Sender: TObject);

@@ -572,7 +572,6 @@ type
     HawbItemSQLINVOICE_VALUE: TFloatField;
     HawbItemSQLDUTY_TYPE: TStringField;
     HawbItemSQLTARIFF_DESCRIPTION: TStringField;
-    HawbItemSQLNET_QUANTITY: TIntegerField;
     HawbItemSQLIMPORT_DUTY_RATE: TFloatField;
     HawbItemSQLRELIEVED_IMPORT_DUTY: TFloatField;
     HawbItemSQLEXCISE_DUTY_RATE: TFloatField;
@@ -612,6 +611,9 @@ type
     HawbItemSQLWEIGHT_NET: TFloatField;
     HawbItemSQLUNIT: TStringField;
     CntItemsFLD: TppVariable;
+    HawbItemSQLNET_QUANTITY: TFloatField;
+    HawbItemSQLBUCKET_TARIFF: TStringField;
+    HawbItemSQLWEIGHT_GROSS: TFloatField;
     procedure ppVariable2Calc(Sender: TObject; var Value: Variant);
     procedure ImportPayCodeFLDCalc(Sender: TObject; var Value: Variant);
     procedure TrlPayCodeFLDCalc(Sender: TObject; var Value: Variant);

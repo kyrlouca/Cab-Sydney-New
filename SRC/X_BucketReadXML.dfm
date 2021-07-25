@@ -1498,9 +1498,6 @@ object X_BucketreadFileFRM: TX_BucketreadFileFRM
       FieldName = 'TARIFF_DESCRIPTION'
       Size = 50
     end
-    object HawbItemSQLNET_QUANTITY: TIntegerField
-      FieldName = 'NET_QUANTITY'
-    end
     object HawbItemSQLIMPORT_DUTY_RATE: TFloatField
       FieldName = 'IMPORT_DUTY_RATE'
     end
@@ -1648,6 +1645,9 @@ object X_BucketreadFileFRM: TX_BucketreadFileFRM
     end
     object HawbItemSQLWEIGHT_GROSS: TFloatField
       FieldName = 'WEIGHT_GROSS'
+    end
+    object e: TFloatField
+      FieldName = 'NET_QUANTITY'
     end
   end
   object OpenFileDLG: TOpenDialog

@@ -93,7 +93,6 @@ type
     HawbItemSQLINVOICE_VALUE: TFloatField;
     HawbItemSQLDUTY_TYPE: TStringField;
     HawbItemSQLTARIFF_DESCRIPTION: TStringField;
-    HawbItemSQLNET_QUANTITY: TIntegerField;
     HawbItemSQLIMPORT_DUTY_RATE: TFloatField;
     HawbItemSQLRELIEVED_IMPORT_DUTY: TFloatField;
     HawbItemSQLEXCISE_DUTY_RATE: TFloatField;
@@ -313,6 +312,7 @@ type
     HawbSQLIS_LOCKED: TStringField;
     HawbSQLFILE_NAME: TStringField;
     RzFieldStatus1: TRzFieldStatus;
+    e: TFloatField;
     procedure Button1Click(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure RzBitBtn2Click(Sender: TObject);
@@ -502,14 +502,11 @@ Function TX_BucketreadFileFRM.ReadFilesInFolder: integer;
       var movedFile: string := destFolder + '\' + TPath.GetFileName(processingFile);
 
       var ext: string := TPath.GetExtension(srcFile);
-      if trim(ext) <> '' then
-        continue;
+      if trim(ext) <> '' then continue;
 
       // Rename the source file to prevent racing
-      if (not FileExists(srcFile)) then
-        continue;
-      if FileExists(processingFile) then
-        Tfile.Delete(processingFile);
+      if (not FileExists(srcFile)) then continue;
+      if FileExists(processingFile) then Tfile.Delete(processingFile);
       If not RenameFile(srcFile, processingFile) then
       begin
         continue;
@@ -591,7 +588,8 @@ Function TX_BucketreadFileFRM.ReadFilesInFolderNew: integer;
 
         // *********************** For Loop***********************
         var isStopped: boolean := ksCountRecVarSQL(cn, 'select sp.parameter_id from system_parameters sp where sp.parameter_id = :ParamId', ['Z00']) > 0;
-        if isStopped then exit;
+        if isStopped then
+          exit;
         var
         FileName := fileFinder.FileList[i].Name;
         if (FileName = '.') or (FileName = '..') then
@@ -600,8 +598,7 @@ Function TX_BucketreadFileFRM.ReadFilesInFolderNew: integer;
         end;
 
         var ext: string := TPath.GetExtension(FileName);
-        if trim(ext) <> '' then
-          continue;
+        if trim(ext) <> '' then continue;
 
 
         // Only process the files with no extention
@@ -615,10 +612,8 @@ Function TX_BucketreadFileFRM.ReadFilesInFolderNew: integer;
         var cleanFile: string := TPath.ChangeExtension(sourceFile, 'xyz');
         var movedFile: string := destFolder + '\' + TPath.GetFileName(processingFile);
 
-        if (not FileExists(sourceFile)) then
-          continue;
-        if FileExists(processingFile) then
-          Tfile.Delete(processingFile);
+        if (not FileExists(sourceFile)) then continue;
+        if FileExists(processingFile) then Tfile.Delete(processingFile);
         If not RenameFile(sourceFile, processingFile) then
         begin
           continue;
@@ -1042,9 +1037,9 @@ function TX_BucketreadFileFRM.ProcessOneMawb(HeaderNode: IXMLNode; mawbNode: IXM
             try
               HawbSerial := CreateHawb(mawbSerial, hawbNode, isMawbBucket, FileName);
             except
-              on E: Exception do
+              on e: Exception do
               begin
-                ShowMessage('Error: File' + FileName + 'hawb' + hawb + '  Exception:' + E.Message);
+                ShowMessage('Error: File' + FileName + 'hawb' + hawb + '  Exception:' + e.Message);
                 continue;
               end;
 
@@ -1163,10 +1158,8 @@ function TX_BucketreadFileFRM.ProcessOneMawb(HeaderNode: IXMLNode; mawbNode: IXM
 
     end;
 
-    if isNewMawb then
-      MawbMessage := 'New Mawb:'
-    else
-      MawbMessage := 'Existing Mawb:';
+    if isNewMawb then MawbMessage := 'New Mawb:'
+    else MawbMessage := 'Existing Mawb:';
 
     if (not isMawbBucket) then
     begin
@@ -1198,8 +1191,7 @@ function TX_BucketreadFileFRM.CreateMawb(Const MawbId: String; Const HeaderNode:
     MsgTime: TDateTime;
   begin
 
-    if MawbSQL.Active then
-      MawbSQL.close;
+    if MawbSQL.Active then MawbSQL.close;
 
     MawbSQL.Open;
     MawbSQL.Edit;
@@ -1348,8 +1340,7 @@ function TX_BucketreadFileFRM.CreateHawb(Const mawbSerial: integer; const hawbNo
       var
       bucketReference := GetBucketReferenceFromNode(hawbNode);
 
-      if isBucket then
-        qr.FieldByName('IS_FROM_BUCKET').value := 'Y';
+      if isBucket then qr.FieldByName('IS_FROM_BUCKET').value := 'Y';
 
       qr.FieldByName('Hab_id').value := HawbId;
 
@@ -1379,7 +1370,8 @@ function TX_BucketreadFileFRM.CreateHawb(Const mawbSerial: integer; const hawbNo
       /// /////////////////////////////////////////////////////////////////////
 
       temp := trim(hawbNode.ChildNodes['Incoterms'].text);
-      if temp = '' then temp := FindDefaultDelivery();
+      if temp = '' then
+        temp := FindDefaultDelivery();
       qr.FieldByName('FK_DELIVERY_TERM').value := temp;
 
       qr.FieldByName('date_registered').value := now;
@@ -1390,8 +1382,7 @@ function TX_BucketreadFileFRM.CreateHawb(Const mawbSerial: integer; const hawbNo
 
       var totalPieces: integer := StrToIntDef(hawbNode.ChildNodes['SDPieces'].text, 0);
       var piecesArrived: integer := StrToIntDef(hawbNode.ChildNodes['ManifestedPieces'].text, 0);
-      if isBucket then
-        piecesArrived := totalPieces; // BUcket
+      if isBucket then piecesArrived := totalPieces; // BUcket
       qr.FieldByName('NUMBER_OF_PARCELS').value := totalPieces;
       qr.FieldByName('NUM_OF_PIECES_ARRIVED').value := piecesArrived;
 
@@ -1401,7 +1392,8 @@ function TX_BucketreadFileFRM.CreateHawb(Const mawbSerial: integer; const hawbNo
       var customerWeight: Double := ConvertDecimalF(hawbNode.ChildNodes['GrossWgt'].text); // declared weight
 
       var hawbWeightGross: Double := DhlWeight;
-      if hawbWeightGross = 0 then hawbWeightGross := customerWeight; // if the weight measured by dhl is zero, take the declared weight
+      if hawbWeightGross = 0 then
+        hawbWeightGross := customerWeight; // if the weight measured by dhl is zero, take the declared weight
 
       qr.FieldByName('weight').value := 0; // hawb net weight is calculated later as the sum of the items net weight
       qr.FieldByName('weight_Gross').value := RoundTo(hawbWeightGross, -2);
@@ -1446,7 +1438,8 @@ function TX_BucketreadFileFRM.CreateHawb(Const mawbSerial: integer; const hawbNo
       // IOSS  and Procedure code
       var Ioss: string := '';
       var agencyCode: String := hawbNode.ChildNodes['ShpCnsgnr'].ChildNodes['TraderRef'].ChildNodes['TraderRefIssAgncyCd'].text;
-      if agencyCode.trim() = 'SDT' then Ioss := hawbNode.ChildNodes['ShpCnsgnr'].ChildNodes['TraderRef'].ChildNodes['TraderRefId'].text;
+      if agencyCode.trim() = 'SDT' then
+        Ioss := hawbNode.ChildNodes['ShpCnsgnr'].ChildNodes['TraderRef'].ChildNodes['TraderRefId'].text;
       qr.FieldByName('IOSS').value := Ioss;
       // var ProcedureCode: String := '';
       // if String.IsNullOrWhiteSpace(Ioss) then
@@ -1462,9 +1455,9 @@ function TX_BucketreadFileFRM.CreateHawb(Const mawbSerial: integer; const hawbNo
 
       qr.post;
     except
-      on E: Exception do
+      on e: Exception do
       begin
-        CreateXMLInfoItem(XML_file_INFO_SERIAL, HawbId, 'Hawb insert error---' + E.Message);
+        CreateXMLInfoItem(XML_file_INFO_SERIAL, HawbId, 'Hawb insert error---' + e.Message);
         qr.Cancel;
         result := 0;
         exit;
@@ -1497,15 +1490,16 @@ function TX_BucketreadFileFRM.CreateHawb(Const mawbSerial: integer; const hawbNo
 
       siSQL.FieldByName('invoice_amount').value := 0.00;
       var invoiceAmountCyp: Double := 0;
-      if exchangeRate > 0 then invoiceAmountCyp := invoiceAmountForeign / exchangeRate;
+      if exchangeRate > 0 then
+        invoiceAmountCyp := invoiceAmountForeign / exchangeRate;
       siSQL.FieldByName('invoice_amount_Cyp').value := invoiceAmountCyp;
 
       siSQL.post;
     except
-      on E: Exception do
+      on e: Exception do
       begin
 
-        CreateXMLInfoItem(XML_file_INFO_SERIAL, HawbId, 'Sender Invoice Error : ' + HawbId + E.Message);
+        CreateXMLInfoItem(XML_file_INFO_SERIAL, HawbId, 'Sender Invoice Error : ' + HawbId + e.Message);
         siSQL.Cancel;
         result := 0;
         exit;
@@ -1564,7 +1558,7 @@ function TX_BucketreadFileFRM.CreatePartialHawb(Const HawbId: String; Const mawb
         qr.close;
         oh.close;
       except
-        on E: Exception do
+        on e: Exception do
         begin
 
         end;
@@ -1599,19 +1593,15 @@ function TX_BucketreadFileFRM.UpdateCustomer(Const HawbSerial: integer; const Tr
       var deviceType1: string := FirstcontactNode.ChildNodes['DeviceType'].text;
       var devNumber1: string := FirstcontactNode.ChildNodes['DeviceDtls'].text;
 
-      if (deviceType1 = 'TEL') then
-        phone := devNumber1
-      else if deviceType1 = 'EML' then
-        email := devNumber1;
+      if (deviceType1 = 'TEL') then phone := devNumber1
+      else if deviceType1 = 'EML' then email := devNumber1;
       var SecondNode: IXMLNode := FirstcontactNode.NextSibling;
       if SecondNode <> NIl then
       begin
         var deviceType2: String := SecondNode.ChildNodes['DeviceType'].text;
         var devNumber2: string := SecondNode.ChildNodes['DeviceDtls'].text;
-        if (deviceType2 = 'TEL') then
-          phone := devNumber2
-        else if deviceType2 = 'EML' then
-          email := devNumber2;
+        if (deviceType2 = 'TEL') then phone := devNumber2
+        else if deviceType2 = 'EML' then email := devNumber2;
 
       end;
     end;
@@ -1631,27 +1621,18 @@ function TX_BucketreadFileFRM.UpdateCustomer(Const HawbSerial: integer; const Tr
       qr.ParamByName('CustomerCode').value := TraderId;
       qr.Open;
 
-      if qr.IsEmpty then
-        exit;
+      if qr.IsEmpty then exit;
       qr.Edit;
-      if not addr1.IsEmpty then
-        qr.FieldByName('Address1').value := addr1;
-      if not addr2.IsEmpty then
-        qr.FieldByName('Address2').value := addr2;
-      if not addr3.IsEmpty then
-        qr.FieldByName('Address3').value := addr3;
+      if not addr1.IsEmpty then qr.FieldByName('Address1').value := addr1;
+      if not addr2.IsEmpty then qr.FieldByName('Address2').value := addr2;
+      if not addr3.IsEmpty then qr.FieldByName('Address3').value := addr3;
 
-      if not postCode.IsEmpty then
-        qr.FieldByName('ADDRESS_POST_CODE').value := postCode;
-      if not city.IsEmpty then
-        qr.FieldByName('ADDRESS_CITY').value := city;
-      if not countryCode.IsEmpty then
-        qr.FieldByName('ADDRESS_COUNTRY').value := countryCode;
+      if not postCode.IsEmpty then qr.FieldByName('ADDRESS_POST_CODE').value := postCode;
+      if not city.IsEmpty then qr.FieldByName('ADDRESS_CITY').value := city;
+      if not countryCode.IsEmpty then qr.FieldByName('ADDRESS_COUNTRY').value := countryCode;
 
-      if not((email.IsEmpty) OR (email = 'N/A')) then
-        qr.FieldByName('EMAIL_TO_NOTIFY').value := email;
-      if not((phone.IsEmpty) or (phone = 'N/A')) then
-        qr.FieldByName('TEL_NO1').value := phone;
+      if not((email.IsEmpty) OR (email = 'N/A')) then qr.FieldByName('EMAIL_TO_NOTIFY').value := email;
+      if not((phone.IsEmpty) or (phone = 'N/A')) then qr.FieldByName('TEL_NO1').value := phone;
       qr.post;
 
     Finally
@@ -1687,14 +1668,16 @@ function TX_BucketreadFileFRM.CreateHawbItem(Const mawbSerial: integer; Const Ha
 
       var invoiceNum: string := hawbItemNode.ChildNodes['AddDocInfo'].ChildNodes['DocRefNo'].text;
       var invType: string := hawbItemNode.ChildNodes['AddDocInfo'].ChildNodes['DocType'].text;
-      if (invType.trim = 'INV') then HawbItemRecord.invoice := invoiceNum;
+      if (invType.trim = 'INV') then
+        HawbItemRecord.invoice := invoiceNum;
 
 
 
       // AddDocInfo
 
-      //
-      HawbItemSQL.FieldByName('NET_QUANTITY').value := Math.Ceil(ConvertDecimalF(hawbItemNode.ChildNodes['TariffQnty'].text));
+      // todo net quantity is float now
+      // HawbItemSQL.FieldByName('NET_QUANTITY').value := Math.Ceil(ConvertDecimalF(hawbItemNode.ChildNodes['TariffQnty'].text));
+      HawbItemSQL.FieldByName('NET_QUANTITY').value := ConvertDecimalF(hawbItemNode.ChildNodes['TariffQnty'].text);
       HawbItemSQL.FieldByName('CURRENCY').value := hawbItemNode.ChildNodes['InvCrncyCd'].text;
 
       hawbNode := hawbItemNode.ParentNode.ParentNode;
@@ -1717,10 +1700,10 @@ function TX_BucketreadFileFRM.CreateHawbItem(Const mawbSerial: integer; Const Ha
       HawbItemRecord.HawbItemSerial := HawbItemSQL.FieldByName('Serial_Number').AsInteger;
       result := HawbItemRecord;
     except
-      on E: Exception do
+      on e: Exception do
       begin
 
-        CreateXMLInfoItem(XML_file_INFO_SERIAL, IntToStr(HawbSerial), 'HawbItem error :' + E.Message);
+        CreateXMLInfoItem(XML_file_INFO_SERIAL, IntToStr(HawbSerial), 'HawbItem error :' + e.Message);
         HawbItemSQL.Cancel;
         HawbItemRecord.HawbItemSerial := 0;
         result := HawbItemRecord;
@@ -2007,10 +1990,8 @@ function TX_BucketreadFileFRM.UpdateClearingInstructionNew(HawbSerial: integer):
         begin
           clearance := 'MED';
           var Ioss: string := qr.FieldByName('ioss').asString.trim;
-          if (Ioss.IsEmpty) then
-            ProcedureCode := 'C07'
-          else
-            ProcedureCode := 'F48';
+          if (Ioss.IsEmpty) then ProcedureCode := 'C07'
+          else ProcedureCode := 'F48';
         end
         else
         begin
@@ -2043,16 +2024,19 @@ function TX_BucketreadFileFRM.GetBucketReferenceFromNode(hawbNode: IXMLNode): st
       var nodeGrp: IXMLNode := hawbNode.ChildNodes.Get(jj);
       var Name: string := nodeGrp.NodeName;
 
-      if not(name = 'DatElGrp') then continue;
+      if not(name = 'DatElGrp') then
+        continue;
       var cdString: string := nodeGrp.Attributes['Cd'];
-      if (cdString <> 'Ref') then continue;
+      if (cdString <> 'Ref') then
+        continue;
 
       for var KK := 0 to nodeGrp.ChildNodes.Count - 1 do
       begin
         // check all DatEl Nodes for the one with a child node cd="Ref"
         var nodeDatE1: IXMLNode := nodeGrp.ChildNodes.Get(KK);
         var cdNodeText: string := nodeDatE1.ChildNodes['Cd'].text;
-        if cdNodeText <> 'Ref' then continue;
+        if cdNodeText <> 'Ref' then
+          continue;
         result := nodeDatE1.ChildNodes['Val'].text;
 
       end;
@@ -2205,19 +2189,15 @@ function TX_BucketreadFileFRM.CreateCustomer(ShpCnsgneNode: IXMLNode): integer;
         var deviceType1: string := FirstcontactNode.ChildNodes['DeviceType'].text;
         var devNumber1: string := FirstcontactNode.ChildNodes['DeviceDtls'].text;
 
-        if (deviceType1 = 'TEL') then
-          phone := devNumber1
-        else if deviceType1 = 'EML' then
-          email := devNumber1;
+        if (deviceType1 = 'TEL') then phone := devNumber1
+        else if deviceType1 = 'EML' then email := devNumber1;
         var SecondNode: IXMLNode := FirstcontactNode.NextSibling;
         if SecondNode <> NIl then
         begin
           var deviceType2: String := SecondNode.ChildNodes['DeviceType'].text;
           var devNumber2: string := SecondNode.ChildNodes['DeviceDtls'].text;
-          if (deviceType2 = 'TEL') then
-            phone := devNumber2
-          else if deviceType2 = 'EML' then
-            email := devNumber2;
+          if (deviceType2 = 'TEL') then phone := devNumber2
+          else if deviceType2 = 'EML' then email := devNumber2;
 
         end;
       end;

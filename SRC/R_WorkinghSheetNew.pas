@@ -19,7 +19,6 @@ type
     HawbItemSQLDUTY_TYPE: TStringField;
     HawbItemSQLDESCRIPTION: TStringField;
     HawbItemSQLINVOICE_VALUE: TFloatField;
-    HawbItemSQLNET_QUANTITY: TIntegerField;
     HawbItemSQLIMPORT_DUTY_RATE: TFloatField;
     HawbItemSQLTRL_RATE: TFloatField;
     HawbItemSQLINVOICE_LINE: TIntegerField;
@@ -265,6 +264,7 @@ type
     SenderInvoiceSRC: TIBCDataSource;
     ImportDutyFLD: TppVariable;
     ImpRateFLD: TppLabel;
+    HawbItemSQLNET_QUANTITY: TFloatField;
     procedure FormatFloatValue(Sender: TObject; DisplayFormat: String;
       DataType: TppDataType; Value: Variant; var Text: String);
     procedure SenderInvoiceSQLCalcFields(DataSet: TDataSet);

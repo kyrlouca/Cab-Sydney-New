@@ -204,7 +204,6 @@ type
     StringField18: TStringField;
     HawbItemSQLDUTY_TYPE: TStringField;
     HawbItemSQLFK_TARIFF_CODE: TStringField;
-    HawbItemSQLNET_QUANTITY: TIntegerField;
     HawbItemSQLCUSTOMS_VALUE: TFloatField;
     GridOriginCountrySQL: TIBCQuery;
     StringField19: TStringField;
@@ -259,6 +258,7 @@ type
     FailedLineSQLERROR_PROPERTY_NAME: TStringField;
     HawbSQLIS_LOCKED: TStringField;
     HawbSQLFILE_NAME: TStringField;
+    HawbItemSQLNET_QUANTITY: TFloatField;
     procedure DataModuleCreate(Sender: TObject);
     procedure HawbChargeCustomsSQLTARIFF_UNIT_RATEGetText(Sender: TField; var Text: string; DisplayText: Boolean);
     procedure HawbSQLBeforeEdit(DataSet: TDataSet);

@@ -114,7 +114,7 @@ begin
     SMTP.Host := ServerInfo.Host; //'mail-out.cytanet.com.cy';
     SMTP.Port := ServerInfo.Port; //587;
     SMTP.Username := ServerInfo.UserName; // 'louca@cytanet.com.cy';
-    SMTP.Password := ServerInfo.UserPassword; // 'Welcome123';
+    SMTP.Password := ServerInfo.UserPassword; //
     SMTP.UseTLS := utUseExplicitTLS;
 
     Email.From.Address := ServerInfo.SenderEmail; //'louca@cytanet.com.cy';

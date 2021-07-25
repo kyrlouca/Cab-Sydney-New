@@ -24,6 +24,102 @@ object R_WorkingSheetNewFRM: TR_WorkingSheetNewFRM
     TabOrder = 0
   end
   object HawbItemSQL: TIBCQuery
+    SQLInsert.Strings = (
+      'INSERT INTO HAWB_ITEM'
+      
+        '  (SERIAL_NUMBER, FK_MAWB, FK_HAWB_SERIAL, FK_SENDER_INVOICE_SER' +
+        'IAL, FK_COUNTRY_ORIGIN, FK_TARIFF_CODE, DESCRIPTION, FK_RELIEF_C' +
+        'ODE, FK_IMPORT_TYPE, INVOICE_VALUE, DUTY_TYPE, TARIFF_DESCRIPTIO' +
+        'N, NET_QUANTITY, IMPORT_DUTY_RATE, RELIEVED_IMPORT_DUTY, EXCISE_' +
+        'DUTY_RATE, EXCISE_RELIEVED, TRL_RATE, TRL_RELEIVED, VAT_CODE, VA' +
+        'T_RATE, VAT_RELEIVED, CUSTOMS_VALUE, CURRENCY_RATE, CURRENCY, FK' +
+        '_VAT_CODE, FK_TARIFF_C_CODE, IMPORT_DUTY_RATE_UNIT, IMPORT_DUTY_' +
+        'RATE_QUANT, IMPORT_DUTY_RATE_BASE, DUTY_IMPORT_PAY, DUTY_TRL_PAY' +
+        ', DUTY_EXCISE_PAY, DUTY_VAT_PAY, DUTY_IMPORT_TOTAL, DUTY_EXCISE_' +
+        'TOTAL, DUTY_TRL_TOTAL, DUTY_VAT_TOTAL, TOTAL_VALUE_FOR_VAT, DUTY' +
+        '_TOTAL_CHARGES, FK_EXCISE_CODE, EURO1, EURO2, POSOSTOSIS, EURO_P' +
+        'ENDING, MULTI_ITEMS_INVOICE, INVOICE_LINE, PRE_DISCOUNT_AMOUNT, ' +
+        'WEIGHT_NET, UNIT, BUCKET_TARIFF, WEIGHT_GROSS)'
+      'VALUES'
+      
+        '  (:SERIAL_NUMBER, :FK_MAWB, :FK_HAWB_SERIAL, :FK_SENDER_INVOICE' +
+        '_SERIAL, :FK_COUNTRY_ORIGIN, :FK_TARIFF_CODE, :DESCRIPTION, :FK_' +
+        'RELIEF_CODE, :FK_IMPORT_TYPE, :INVOICE_VALUE, :DUTY_TYPE, :TARIF' +
+        'F_DESCRIPTION, :NET_QUANTITY, :IMPORT_DUTY_RATE, :RELIEVED_IMPOR' +
+        'T_DUTY, :EXCISE_DUTY_RATE, :EXCISE_RELIEVED, :TRL_RATE, :TRL_REL' +
+        'EIVED, :VAT_CODE, :VAT_RATE, :VAT_RELEIVED, :CUSTOMS_VALUE, :CUR' +
+        'RENCY_RATE, :CURRENCY, :FK_VAT_CODE, :FK_TARIFF_C_CODE, :IMPORT_' +
+        'DUTY_RATE_UNIT, :IMPORT_DUTY_RATE_QUANT, :IMPORT_DUTY_RATE_BASE,' +
+        ' :DUTY_IMPORT_PAY, :DUTY_TRL_PAY, :DUTY_EXCISE_PAY, :DUTY_VAT_PA' +
+        'Y, :DUTY_IMPORT_TOTAL, :DUTY_EXCISE_TOTAL, :DUTY_TRL_TOTAL, :DUT' +
+        'Y_VAT_TOTAL, :TOTAL_VALUE_FOR_VAT, :DUTY_TOTAL_CHARGES, :FK_EXCI' +
+        'SE_CODE, :EURO1, :EURO2, :POSOSTOSIS, :EURO_PENDING, :MULTI_ITEM' +
+        'S_INVOICE, :INVOICE_LINE, :PRE_DISCOUNT_AMOUNT, :WEIGHT_NET, :UN' +
+        'IT, :BUCKET_TARIFF, :WEIGHT_GROSS)')
+    SQLDelete.Strings = (
+      'DELETE FROM HAWB_ITEM'
+      'WHERE'
+      '  SERIAL_NUMBER = :Old_SERIAL_NUMBER')
+    SQLUpdate.Strings = (
+      'UPDATE HAWB_ITEM'
+      'SET'
+      
+        '  SERIAL_NUMBER = :SERIAL_NUMBER, FK_MAWB = :FK_MAWB, FK_HAWB_SE' +
+        'RIAL = :FK_HAWB_SERIAL, FK_SENDER_INVOICE_SERIAL = :FK_SENDER_IN' +
+        'VOICE_SERIAL, FK_COUNTRY_ORIGIN = :FK_COUNTRY_ORIGIN, FK_TARIFF_' +
+        'CODE = :FK_TARIFF_CODE, DESCRIPTION = :DESCRIPTION, FK_RELIEF_CO' +
+        'DE = :FK_RELIEF_CODE, FK_IMPORT_TYPE = :FK_IMPORT_TYPE, INVOICE_' +
+        'VALUE = :INVOICE_VALUE, DUTY_TYPE = :DUTY_TYPE, TARIFF_DESCRIPTI' +
+        'ON = :TARIFF_DESCRIPTION, NET_QUANTITY = :NET_QUANTITY, IMPORT_D' +
+        'UTY_RATE = :IMPORT_DUTY_RATE, RELIEVED_IMPORT_DUTY = :RELIEVED_I' +
+        'MPORT_DUTY, EXCISE_DUTY_RATE = :EXCISE_DUTY_RATE, EXCISE_RELIEVE' +
+        'D = :EXCISE_RELIEVED, TRL_RATE = :TRL_RATE, TRL_RELEIVED = :TRL_' +
+        'RELEIVED, VAT_CODE = :VAT_CODE, VAT_RATE = :VAT_RATE, VAT_RELEIV' +
+        'ED = :VAT_RELEIVED, CUSTOMS_VALUE = :CUSTOMS_VALUE, CURRENCY_RAT' +
+        'E = :CURRENCY_RATE, CURRENCY = :CURRENCY, FK_VAT_CODE = :FK_VAT_' +
+        'CODE, FK_TARIFF_C_CODE = :FK_TARIFF_C_CODE, IMPORT_DUTY_RATE_UNI' +
+        'T = :IMPORT_DUTY_RATE_UNIT, IMPORT_DUTY_RATE_QUANT = :IMPORT_DUT' +
+        'Y_RATE_QUANT, IMPORT_DUTY_RATE_BASE = :IMPORT_DUTY_RATE_BASE, DU' +
+        'TY_IMPORT_PAY = :DUTY_IMPORT_PAY, DUTY_TRL_PAY = :DUTY_TRL_PAY, ' +
+        'DUTY_EXCISE_PAY = :DUTY_EXCISE_PAY, DUTY_VAT_PAY = :DUTY_VAT_PAY' +
+        ', DUTY_IMPORT_TOTAL = :DUTY_IMPORT_TOTAL, DUTY_EXCISE_TOTAL = :D' +
+        'UTY_EXCISE_TOTAL, DUTY_TRL_TOTAL = :DUTY_TRL_TOTAL, DUTY_VAT_TOT' +
+        'AL = :DUTY_VAT_TOTAL, TOTAL_VALUE_FOR_VAT = :TOTAL_VALUE_FOR_VAT' +
+        ', DUTY_TOTAL_CHARGES = :DUTY_TOTAL_CHARGES, FK_EXCISE_CODE = :FK' +
+        '_EXCISE_CODE, EURO1 = :EURO1, EURO2 = :EURO2, POSOSTOSIS = :POSO' +
+        'STOSIS, EURO_PENDING = :EURO_PENDING, MULTI_ITEMS_INVOICE = :MUL' +
+        'TI_ITEMS_INVOICE, INVOICE_LINE = :INVOICE_LINE, PRE_DISCOUNT_AMO' +
+        'UNT = :PRE_DISCOUNT_AMOUNT, WEIGHT_NET = :WEIGHT_NET, UNIT = :UN' +
+        'IT, BUCKET_TARIFF = :BUCKET_TARIFF, WEIGHT_GROSS = :WEIGHT_GROSS'
+      'WHERE'
+      '  SERIAL_NUMBER = :Old_SERIAL_NUMBER')
+    SQLRefresh.Strings = (
+      
+        'SELECT SERIAL_NUMBER, FK_MAWB, FK_HAWB_SERIAL, FK_SENDER_INVOICE' +
+        '_SERIAL, FK_COUNTRY_ORIGIN, FK_TARIFF_CODE, DESCRIPTION, FK_RELI' +
+        'EF_CODE, FK_IMPORT_TYPE, INVOICE_VALUE, DUTY_TYPE, TARIFF_DESCRI' +
+        'PTION, NET_QUANTITY, IMPORT_DUTY_RATE, RELIEVED_IMPORT_DUTY, EXC' +
+        'ISE_DUTY_RATE, EXCISE_RELIEVED, TRL_RATE, TRL_RELEIVED, VAT_CODE' +
+        ', VAT_RATE, VAT_RELEIVED, CUSTOMS_VALUE, CURRENCY_RATE, CURRENCY' +
+        ', FK_VAT_CODE, FK_TARIFF_C_CODE, IMPORT_DUTY_RATE_UNIT, IMPORT_D' +
+        'UTY_RATE_QUANT, IMPORT_DUTY_RATE_BASE, DUTY_IMPORT_PAY, DUTY_TRL' +
+        '_PAY, DUTY_EXCISE_PAY, DUTY_VAT_PAY, DUTY_IMPORT_TOTAL, DUTY_EXC' +
+        'ISE_TOTAL, DUTY_TRL_TOTAL, DUTY_VAT_TOTAL, TOTAL_VALUE_FOR_VAT, ' +
+        'DUTY_TOTAL_CHARGES, FK_EXCISE_CODE, EURO1, EURO2, POSOSTOSIS, EU' +
+        'RO_PENDING, MULTI_ITEMS_INVOICE, INVOICE_LINE, PRE_DISCOUNT_AMOU' +
+        'NT, WEIGHT_NET, UNIT, BUCKET_TARIFF, WEIGHT_GROSS FROM HAWB_ITEM'
+      'WHERE'
+      '  SERIAL_NUMBER = :SERIAL_NUMBER')
+    SQLLock.Strings = (
+      'SELECT NULL FROM HAWB_ITEM'
+      'WHERE'
+      'SERIAL_NUMBER = :Old_SERIAL_NUMBER'
+      'FOR UPDATE WITH LOCK')
+    SQLRecCount.Strings = (
+      'SELECT COUNT(*) FROM ('
+      'SELECT 1 AS C  FROM HAWB_ITEM'
+      ''
+      ') q')
     Connection = ClairDML.CabCOnnection
     Transaction = ReadTrans
     UpdateTransaction = WriteTrans
@@ -38,6 +134,7 @@ object R_WorkingSheetNewFRM: TR_WorkingSheetNewFRM
     DetailFields = 'FK_HAWB_SERIAL;FK_SENDER_INVOICE_SERIAL'
     MasterSource = SenderInvoiceSRC
     ReadOnly = True
+    Active = True
     Left = 264
     Top = 16
     ParamData = <
@@ -90,11 +187,6 @@ object R_WorkingSheetNewFRM: TR_WorkingSheetNewFRM
       DisplayWidth = 10
       FieldName = 'INVOICE_VALUE'
       Origin = 'HAWB_ITEM.DESCRIPTION'
-    end
-    object HawbItemSQLNET_QUANTITY: TIntegerField
-      DisplayWidth = 10
-      FieldName = 'NET_QUANTITY'
-      Origin = 'HAWB_ITEM.FK_RELIEF_CODE'
     end
     object HawbItemSQLIMPORT_DUTY_RATE: TFloatField
       DisplayWidth = 10
@@ -259,6 +351,9 @@ object R_WorkingSheetNewFRM: TR_WorkingSheetNewFRM
     end
     object HawbItemSQLWEIGHT_NET: TFloatField
       FieldName = 'WEIGHT_NET'
+    end
+    object HawbItemSQLNET_QUANTITY: TFloatField
+      FieldName = 'NET_QUANTITY'
     end
   end
   object SenderInvoiceSQL: TIBCQuery
@@ -874,12 +969,14 @@ object R_WorkingSheetNewFRM: TR_WorkingSheetNewFRM
       GuidCollationType = gcString
       DetailFieldName = 'FK_HAWB_SERIAL'
       DetailSortOrder = soAscending
+      IgnoreTrailingSpaces = False
     end
     object HItemPIPppMasterFieldLink2: TppMasterFieldLink
       MasterFieldName = 'INVOICE_SERIAL'
       GuidCollationType = gcString
       DetailFieldName = 'FK_SENDER_INVOICE_SERIAL'
       DetailSortOrder = soAscending
+      IgnoreTrailingSpaces = False
     end
   end
   object SenderInvoicePIP: TppDBPipeline
@@ -1138,6 +1235,9 @@ object R_WorkingSheetNewFRM: TR_WorkingSheetNewFRM
     DeviceType = 'Screen'
     DefaultFileDeviceType = 'PDF'
     EmailSettings.ReportFormat = 'PDF'
+    EmailSettings.ConnectionSettings.MailService = 'SMTP'
+    EmailSettings.ConnectionSettings.EnableMultiPlugin = False
+    EmailSettings.OAuth2 = {0E010C5265646972656374506F727402000000}
     LanguageID = 'Default'
     OnPreviewFormCreate = ppReport1PreviewFormCreate
     OpenFile = False
@@ -1148,6 +1248,8 @@ object R_WorkingSheetNewFRM: TR_WorkingSheetNewFRM
     ThumbnailSettings.Enabled = True
     ThumbnailSettings.Visible = True
     ThumbnailSettings.DeadSpace = 30
+    ThumbnailSettings.PageHighlight.Width = 3
+    ThumbnailSettings.ThumbnailSize = tsSmall
     PDFSettings.EmbedFontOptions = [efUseSubset]
     PDFSettings.EncryptSettings.AllowCopy = True
     PDFSettings.EncryptSettings.AllowInteract = True
@@ -1159,8 +1261,11 @@ object R_WorkingSheetNewFRM: TR_WorkingSheetNewFRM
     PDFSettings.EncryptSettings.Enabled = False
     PDFSettings.EncryptSettings.KeyLength = kl40Bit
     PDFSettings.EncryptSettings.EncryptionType = etRC4
+    PDFSettings.DigitalSignatureSettings.SignPDF = False
     PDFSettings.FontEncoding = feAnsi
     PDFSettings.ImageCompressionLevel = 25
+    PDFSettings.PDFAFormat = pafNone
+    PreviewFormSettings.PageBorder.mmPadding = 0
     RTFSettings.DefaultFont.Charset = DEFAULT_CHARSET
     RTFSettings.DefaultFont.Color = clWindowText
     RTFSettings.DefaultFont.Height = -13
@@ -1174,13 +1279,20 @@ object R_WorkingSheetNewFRM: TR_WorkingSheetNewFRM
     XLSSettings.Subject = 'Report'
     XLSSettings.Title = 'Report'
     XLSSettings.WorksheetName = 'Report'
+    CloudDriveSettings.DropBoxSettings.OAuth2.RedirectPort = 0
+    CloudDriveSettings.DropBoxSettings.DirectorySupport = True
+    CloudDriveSettings.GoogleDriveSettings.OAuth2.RedirectPort = 0
+    CloudDriveSettings.GoogleDriveSettings.DirectorySupport = False
+    CloudDriveSettings.OneDriveSettings.OAuth2.RedirectPort = 0
+    CloudDriveSettings.OneDriveSettings.DirectorySupport = True
     Left = 224
     Top = 293
-    Version = '18.01'
+    Version = '21.0'
     mmColumnWidth = 0
     DataPipelineName = 'SenderInvoicePIP'
     object ppHeaderBand1: TppHeaderBand
       Background.Brush.Style = bsClear
+      Border.mmPadding = 0
       mmBottomOffset = 0
       mmHeight = 22490
       mmPrintPosition = 0
@@ -1188,6 +1300,7 @@ object R_WorkingSheetNewFRM: TR_WorkingSheetNewFRM
         DesignLayer = ppDesignLayer2
         UserName = 'SystemVariable1'
         HyperlinkEnabled = False
+        Border.mmPadding = 0
         VarType = vtDateTime
         DisplayFormat = 'dd/mm/yyyy '
         Font.Charset = ANSI_CHARSET
@@ -1208,6 +1321,7 @@ object R_WorkingSheetNewFRM: TR_WorkingSheetNewFRM
         DesignLayer = ppDesignLayer2
         UserName = 'SystemVariable2'
         HyperlinkEnabled = False
+        Border.mmPadding = 0
         VarType = vtPageSetDesc
         Font.Charset = ANSI_CHARSET
         Font.Color = clBlack
@@ -1227,12 +1341,15 @@ object R_WorkingSheetNewFRM: TR_WorkingSheetNewFRM
         DesignLayer = ppDesignLayer2
         UserName = 'Label5'
         HyperlinkEnabled = False
+        Border.mmPadding = 0
         Caption = #934#973#955#955#959' '#917#961#947#945#963#943#945#962' '#916#953#945#963#945#966#951#963#951#962
         Font.Charset = GREEK_CHARSET
         Font.Color = clBlack
         Font.Name = 'Arial'
         Font.Size = 18
         Font.Style = [fsBold]
+        FormFieldSettings.FormSubmitInfo.SubmitMethod = fstPost
+        FormFieldSettings.FormFieldType = fftNone
         Transparent = True
         mmHeight = 7673
         mmLeft = 58473
@@ -1244,6 +1361,7 @@ object R_WorkingSheetNewFRM: TR_WorkingSheetNewFRM
       object ppLine1: TppLine
         DesignLayer = ppDesignLayer2
         UserName = 'Line1'
+        Border.mmPadding = 0
         Pen.Width = 2
         ParentWidth = True
         Weight = 1.500000000000000000
@@ -1259,12 +1377,15 @@ object R_WorkingSheetNewFRM: TR_WorkingSheetNewFRM
         UserName = 'Label9'
         HyperlinkEnabled = False
         AutoSize = False
+        Border.mmPadding = 0
         Caption = #932#973#960#959#962' '#916#953#945#963#940#966'.'
         Font.Charset = GREEK_CHARSET
         Font.Color = clBlack
         Font.Name = 'Arial'
         Font.Size = 8
         Font.Style = []
+        FormFieldSettings.FormSubmitInfo.SubmitMethod = fstPost
+        FormFieldSettings.FormFieldType = fftNone
         Transparent = True
         mmHeight = 3175
         mmLeft = 165894
@@ -1278,12 +1399,15 @@ object R_WorkingSheetNewFRM: TR_WorkingSheetNewFRM
         UserName = 'Label14'
         HyperlinkEnabled = False
         AutoSize = False
+        Border.mmPadding = 0
         Caption = #928#945#961#945#955#942#960#964#951#962' :'
         Font.Charset = GREEK_CHARSET
         Font.Color = clBlack
         Font.Name = 'Arial'
         Font.Size = 8
         Font.Style = []
+        FormFieldSettings.FormSubmitInfo.SubmitMethod = fstPost
+        FormFieldSettings.FormFieldType = fftNone
         Transparent = True
         mmHeight = 3175
         mmLeft = 57150
@@ -1296,12 +1420,15 @@ object R_WorkingSheetNewFRM: TR_WorkingSheetNewFRM
         DesignLayer = ppDesignLayer2
         UserName = 'Label15'
         HyperlinkEnabled = False
+        Border.mmPadding = 0
         Caption = #908#961#959#953' '#928#945#961#940#948#959#963#951#962' :'
         Font.Charset = GREEK_CHARSET
         Font.Color = clBlack
         Font.Name = 'Arial'
         Font.Size = 8
         Font.Style = []
+        FormFieldSettings.FormSubmitInfo.SubmitMethod = fstPost
+        FormFieldSettings.FormFieldType = fftNone
         Transparent = True
         mmHeight = 3302
         mmLeft = 3175
@@ -1314,12 +1441,15 @@ object R_WorkingSheetNewFRM: TR_WorkingSheetNewFRM
         DesignLayer = ppDesignLayer2
         UserName = 'Label16'
         HyperlinkEnabled = False
+        Border.mmPadding = 0
         Caption = #924#949#953#954#964#942' '#924#940#950#945' :'
         Font.Charset = GREEK_CHARSET
         Font.Color = clBlack
         Font.Name = 'Arial'
         Font.Size = 8
         Font.Style = []
+        FormFieldSettings.FormSubmitInfo.SubmitMethod = fstPost
+        FormFieldSettings.FormFieldType = fftNone
         Transparent = True
         mmHeight = 3302
         mmLeft = 39158
@@ -1332,6 +1462,7 @@ object R_WorkingSheetNewFRM: TR_WorkingSheetNewFRM
         DesignLayer = ppDesignLayer2
         UserName = 'DBText7'
         HyperlinkEnabled = False
+        Border.mmPadding = 0
         DataField = 'FK_DELIVERY_TERM'
         DataPipeline = HawbPIP
         Font.Charset = GREEK_CHARSET
@@ -1353,6 +1484,7 @@ object R_WorkingSheetNewFRM: TR_WorkingSheetNewFRM
         DesignLayer = ppDesignLayer2
         UserName = 'DBText8'
         HyperlinkEnabled = False
+        Border.mmPadding = 0
         DataField = 'CUSTOMER_NAME'
         DataPipeline = HawbPIP
         Font.Charset = GREEK_CHARSET
@@ -1374,6 +1506,7 @@ object R_WorkingSheetNewFRM: TR_WorkingSheetNewFRM
         DesignLayer = ppDesignLayer2
         UserName = 'DBText9'
         HyperlinkEnabled = False
+        Border.mmPadding = 0
         DataField = 'FK_CLEARANCE_TYPE'
         DataPipeline = HawbPIP
         Font.Charset = GREEK_CHARSET
@@ -1395,6 +1528,7 @@ object R_WorkingSheetNewFRM: TR_WorkingSheetNewFRM
         DesignLayer = ppDesignLayer2
         UserName = 'DBText10'
         HyperlinkEnabled = False
+        Border.mmPadding = 0
         DataField = 'WEIGHT'
         DataPipeline = HawbPIP
         DisplayFormat = '#,0.00;-#,0.00'
@@ -1417,12 +1551,15 @@ object R_WorkingSheetNewFRM: TR_WorkingSheetNewFRM
         DesignLayer = ppDesignLayer2
         UserName = 'Label1'
         HyperlinkEnabled = False
+        Border.mmPadding = 0
         Caption = 'Hause Airway Bill :'
         Font.Charset = GREEK_CHARSET
         Font.Color = clBlack
         Font.Name = 'Arial'
         Font.Size = 8
         Font.Style = [fsBold]
+        FormFieldSettings.FormSubmitInfo.SubmitMethod = fstPost
+        FormFieldSettings.FormFieldType = fftNone
         Transparent = True
         mmHeight = 3302
         mmLeft = 3175
@@ -1435,6 +1572,7 @@ object R_WorkingSheetNewFRM: TR_WorkingSheetNewFRM
         DesignLayer = ppDesignLayer2
         UserName = 'DBText101'
         HyperlinkEnabled = False
+        Border.mmPadding = 0
         DataField = 'HAB_ID'
         DataPipeline = HawbPIP
         Font.Charset = GREEK_CHARSET
@@ -1456,12 +1594,15 @@ object R_WorkingSheetNewFRM: TR_WorkingSheetNewFRM
         DesignLayer = ppDesignLayer2
         UserName = 'Label2'
         HyperlinkEnabled = False
+        Border.mmPadding = 0
         Caption = #954#953#955#940
         Font.Charset = GREEK_CHARSET
         Font.Color = clBlack
         Font.Name = 'Arial'
         Font.Size = 8
         Font.Style = []
+        FormFieldSettings.FormSubmitInfo.SubmitMethod = fstPost
+        FormFieldSettings.FormFieldType = fftNone
         Transparent = True
         mmHeight = 3175
         mmLeft = 68792
@@ -1473,6 +1614,7 @@ object R_WorkingSheetNewFRM: TR_WorkingSheetNewFRM
       object ppLine7: TppLine
         DesignLayer = ppDesignLayer2
         UserName = 'Line7'
+        Border.mmPadding = 0
         Pen.Width = 2
         ParentWidth = True
         Weight = 1.500000000000000000
@@ -1487,12 +1629,15 @@ object R_WorkingSheetNewFRM: TR_WorkingSheetNewFRM
         DesignLayer = ppDesignLayer2
         UserName = 'Label37'
         HyperlinkEnabled = False
+        Border.mmPadding = 0
         Caption = 'DHL Cyprus LTD'
         Font.Charset = GREEK_CHARSET
         Font.Color = clBlack
         Font.Name = 'Arial'
         Font.Size = 12
         Font.Style = [fsBold]
+        FormFieldSettings.FormSubmitInfo.SubmitMethod = fstPost
+        FormFieldSettings.FormFieldType = fftNone
         Transparent = True
         mmHeight = 5292
         mmLeft = 265
@@ -1505,6 +1650,7 @@ object R_WorkingSheetNewFRM: TR_WorkingSheetNewFRM
     object ppDetailBand1: TppDetailBand
       Background1.Brush.Style = bsClear
       Background2.Brush.Style = bsClear
+      Border.mmPadding = 0
       PrintHeight = phDynamic
       mmBottomOffset = 0
       mmHeight = 55033
@@ -1546,17 +1692,19 @@ object R_WorkingSheetNewFRM: TR_WorkingSheetNewFRM
           PrinterSetup.PaperSize = 9
           Left = 448
           Top = 320
-          Version = '18.01'
+          Version = '21.0'
           mmColumnWidth = 0
           DataPipelineName = 'HawbItemPIP'
           object ppTitleBand1: TppTitleBand
             Background.Brush.Style = bsClear
+            Border.mmPadding = 0
             mmBottomOffset = 0
             mmHeight = 2910
             mmPrintPosition = 0
             object ppLine2: TppLine
               DesignLayer = ppDesignLayer1
               UserName = 'Line2'
+              Border.mmPadding = 0
               Pen.Style = psDot
               ParentWidth = True
               Position = lpBottom
@@ -1572,6 +1720,7 @@ object R_WorkingSheetNewFRM: TR_WorkingSheetNewFRM
           object ppDetailBand2: TppDetailBand
             Background1.Brush.Style = bsClear
             Background2.Brush.Style = bsClear
+            Border.mmPadding = 0
             mmBottomOffset = 0
             mmHeight = 18785
             mmPrintPosition = 0
@@ -1580,12 +1729,15 @@ object R_WorkingSheetNewFRM: TR_WorkingSheetNewFRM
               UserName = 'Label25'
               HyperlinkEnabled = False
               AutoSize = False
+              Border.mmPadding = 0
               Caption = #915#961#945#956#956#942
               Font.Charset = GREEK_CHARSET
               Font.Color = clBlack
               Font.Name = 'Arial'
               Font.Size = 8
               Font.Style = []
+              FormFieldSettings.FormSubmitInfo.SubmitMethod = fstPost
+              FormFieldSettings.FormFieldType = fftNone
               Transparent = True
               mmHeight = 3175
               mmLeft = 1058
@@ -1599,12 +1751,15 @@ object R_WorkingSheetNewFRM: TR_WorkingSheetNewFRM
               UserName = 'Label26'
               HyperlinkEnabled = False
               AutoSize = False
+              Border.mmPadding = 0
               Caption = #932#953#956#959#955'. '#913#958#943#945
               Font.Charset = GREEK_CHARSET
               Font.Color = clBlack
               Font.Name = 'Arial'
               Font.Size = 8
               Font.Style = []
+              FormFieldSettings.FormSubmitInfo.SubmitMethod = fstPost
+              FormFieldSettings.FormFieldType = fftNone
               Transparent = True
               mmHeight = 3175
               mmLeft = 17992
@@ -1618,12 +1773,15 @@ object R_WorkingSheetNewFRM: TR_WorkingSheetNewFRM
               UserName = 'Label27'
               HyperlinkEnabled = False
               AutoSize = False
+              Border.mmPadding = 0
               Caption = #928#959#963#972#964#951#964#945
               Font.Charset = GREEK_CHARSET
               Font.Color = clBlack
               Font.Name = 'Arial'
               Font.Size = 8
               Font.Style = []
+              FormFieldSettings.FormSubmitInfo.SubmitMethod = fstPost
+              FormFieldSettings.FormFieldType = fftNone
               Transparent = True
               mmHeight = 3175
               mmLeft = 44979
@@ -1637,12 +1795,15 @@ object R_WorkingSheetNewFRM: TR_WorkingSheetNewFRM
               UserName = 'Label28'
               HyperlinkEnabled = False
               AutoSize = False
+              Border.mmPadding = 0
               Caption = #932#949#955#969#957'. '#913#958#943#945
               Font.Charset = GREEK_CHARSET
               Font.Color = clBlack
               Font.Name = 'Arial'
               Font.Size = 8
               Font.Style = []
+              FormFieldSettings.FormSubmitInfo.SubmitMethod = fstPost
+              FormFieldSettings.FormFieldType = fftNone
               Transparent = True
               mmHeight = 3175
               mmLeft = 70379
@@ -1656,12 +1817,15 @@ object R_WorkingSheetNewFRM: TR_WorkingSheetNewFRM
               UserName = 'Label29'
               HyperlinkEnabled = False
               AutoSize = False
+              Border.mmPadding = 0
               Caption = #917#953#963#945#947'. '#916#945#963#956#972#962' @'
               Font.Charset = GREEK_CHARSET
               Font.Color = clBlack
               Font.Name = 'Arial'
               Font.Size = 8
               Font.Style = []
+              FormFieldSettings.FormSubmitInfo.SubmitMethod = fstPost
+              FormFieldSettings.FormFieldType = fftNone
               Transparent = True
               mmHeight = 3175
               mmLeft = 104511
@@ -1675,12 +1839,15 @@ object R_WorkingSheetNewFRM: TR_WorkingSheetNewFRM
               UserName = 'Label31'
               HyperlinkEnabled = False
               AutoSize = False
+              Border.mmPadding = 0
               Caption = #922#969#948'. '#917#956#960#959#961'.'
               Font.Charset = GREEK_CHARSET
               Font.Color = clBlack
               Font.Name = 'Arial'
               Font.Size = 8
               Font.Style = [fsBold]
+              FormFieldSettings.FormSubmitInfo.SubmitMethod = fstPost
+              FormFieldSettings.FormFieldType = fftNone
               Transparent = True
               mmHeight = 3969
               mmLeft = 1058
@@ -1694,12 +1861,15 @@ object R_WorkingSheetNewFRM: TR_WorkingSheetNewFRM
               UserName = 'Label32'
               HyperlinkEnabled = False
               AutoSize = False
+              Border.mmPadding = 0
               Caption = #935#974#961#945' '#922#945#964#945#947#969#947#942#962
               Font.Charset = GREEK_CHARSET
               Font.Color = clBlack
               Font.Name = 'Arial'
               Font.Size = 8
               Font.Style = []
+              FormFieldSettings.FormSubmitInfo.SubmitMethod = fstPost
+              FormFieldSettings.FormFieldType = fftNone
               Transparent = True
               mmHeight = 3969
               mmLeft = 56092
@@ -1713,12 +1883,15 @@ object R_WorkingSheetNewFRM: TR_WorkingSheetNewFRM
               UserName = 'Label34'
               HyperlinkEnabled = False
               AutoSize = False
+              Border.mmPadding = 0
               Caption = #928#949#961#953#947#961#945#966#942
               Font.Charset = GREEK_CHARSET
               Font.Color = clBlack
               Font.Name = 'Arial'
               Font.Size = 8
               Font.Style = []
+              FormFieldSettings.FormSubmitInfo.SubmitMethod = fstPost
+              FormFieldSettings.FormFieldType = fftNone
               Transparent = True
               mmHeight = 3969
               mmLeft = 794
@@ -1731,6 +1904,7 @@ object R_WorkingSheetNewFRM: TR_WorkingSheetNewFRM
               DesignLayer = ppDesignLayer1
               UserName = 'DBText33'
               HyperlinkEnabled = False
+              Border.mmPadding = 0
               DataField = 'FK_TARIFF_CODE'
               DataPipeline = HawbItemPIP
               Font.Charset = DEFAULT_CHARSET
@@ -1751,6 +1925,7 @@ object R_WorkingSheetNewFRM: TR_WorkingSheetNewFRM
               DesignLayer = ppDesignLayer1
               UserName = 'DBText4'
               HyperlinkEnabled = False
+              Border.mmPadding = 0
               DataField = 'INVOICE_LINE'
               DataPipeline = HawbItemPIP
               Font.Charset = DEFAULT_CHARSET
@@ -1771,6 +1946,7 @@ object R_WorkingSheetNewFRM: TR_WorkingSheetNewFRM
               DesignLayer = ppDesignLayer1
               UserName = 'DBText6'
               HyperlinkEnabled = False
+              Border.mmPadding = 0
               DataField = 'INVOICE_VALUE'
               DataPipeline = HawbItemPIP
               DisplayFormat = '#,0.00;-#,0.00'
@@ -1792,6 +1968,7 @@ object R_WorkingSheetNewFRM: TR_WorkingSheetNewFRM
               DesignLayer = ppDesignLayer1
               UserName = 'DBText5'
               HyperlinkEnabled = False
+              Border.mmPadding = 0
               DataField = 'NET_QUANTITY'
               DataPipeline = HawbItemPIP
               Font.Charset = DEFAULT_CHARSET
@@ -1812,6 +1989,7 @@ object R_WorkingSheetNewFRM: TR_WorkingSheetNewFRM
               DesignLayer = ppDesignLayer1
               UserName = 'DBText28'
               HyperlinkEnabled = False
+              Border.mmPadding = 0
               DataField = 'CUSTOMS_VALUE'
               DataPipeline = HawbItemPIP
               DisplayFormat = '#,0;-#,0'
@@ -1833,6 +2011,7 @@ object R_WorkingSheetNewFRM: TR_WorkingSheetNewFRM
               DesignLayer = ppDesignLayer1
               UserName = 'DBText34'
               HyperlinkEnabled = False
+              Border.mmPadding = 0
               DataField = 'DESCRIPTION'
               DataPipeline = HawbItemPIP
               Font.Charset = DEFAULT_CHARSET
@@ -1853,6 +2032,7 @@ object R_WorkingSheetNewFRM: TR_WorkingSheetNewFRM
               DesignLayer = ppDesignLayer1
               UserName = 'DBText35'
               HyperlinkEnabled = False
+              Border.mmPadding = 0
               DataField = 'OriginCountry'
               DataPipeline = HawbItemPIP
               Font.Charset = DEFAULT_CHARSET
@@ -1875,12 +2055,15 @@ object R_WorkingSheetNewFRM: TR_WorkingSheetNewFRM
               UserName = 'Label35'
               HyperlinkEnabled = False
               AutoSize = False
+              Border.mmPadding = 0
               Caption = '='
               Font.Charset = GREEK_CHARSET
               Font.Color = clBlack
               Font.Name = 'Arial'
               Font.Size = 8
               Font.Style = []
+              FormFieldSettings.FormSubmitInfo.SubmitMethod = fstPost
+              FormFieldSettings.FormFieldType = fftNone
               Transparent = True
               mmHeight = 3175
               mmLeft = 139171
@@ -1892,6 +2075,7 @@ object R_WorkingSheetNewFRM: TR_WorkingSheetNewFRM
             object ppLine6: TppLine
               DesignLayer = ppDesignLayer1
               UserName = 'Line6'
+              Border.mmPadding = 0
               Pen.Style = psDot
               ParentWidth = True
               Position = lpBottom
@@ -1907,6 +2091,7 @@ object R_WorkingSheetNewFRM: TR_WorkingSheetNewFRM
               DesignLayer = ppDesignLayer1
               UserName = 'PreferencialFLD'
               HyperlinkEnabled = False
+              Border.mmPadding = 0
               BlankWhenZero = False
               CalcOrder = 0
               Font.Charset = GREEK_CHARSET
@@ -1926,6 +2111,7 @@ object R_WorkingSheetNewFRM: TR_WorkingSheetNewFRM
             object ImportDutyFLD: TppVariable
               DesignLayer = ppDesignLayer1
               UserName = 'ImportDutyFLD'
+              Border.mmPadding = 0
               BlankWhenZero = False
               CalcOrder = 1
               DataType = dtDouble
@@ -1947,12 +2133,15 @@ object R_WorkingSheetNewFRM: TR_WorkingSheetNewFRM
             object ImpRateFLD: TppLabel
               DesignLayer = ppDesignLayer1
               UserName = 'ImpRateFLD'
+              Border.mmPadding = 0
               Caption = 'ImpRateFLD'
               Font.Charset = DEFAULT_CHARSET
               Font.Color = clBlack
               Font.Name = 'Arial'
               Font.Size = 8
               Font.Style = []
+              FormFieldSettings.FormSubmitInfo.SubmitMethod = fstPost
+              FormFieldSettings.FormFieldType = fftNone
               Transparent = True
               mmHeight = 3175
               mmLeft = 128852
@@ -1964,12 +2153,14 @@ object R_WorkingSheetNewFRM: TR_WorkingSheetNewFRM
           end
           object ppSummaryBand2: TppSummaryBand
             Background.Brush.Style = bsClear
+            Border.mmPadding = 0
             mmBottomOffset = 0
             mmHeight = 2117
             mmPrintPosition = 0
             object ppLine5: TppLine
               DesignLayer = ppDesignLayer1
               UserName = 'Line5'
+              Border.mmPadding = 0
               ParentWidth = True
               Weight = 0.750000000000000000
               mmHeight = 1323
@@ -1994,12 +2185,15 @@ object R_WorkingSheetNewFRM: TR_WorkingSheetNewFRM
         UserName = 'Label3'
         HyperlinkEnabled = False
         AutoSize = False
+        Border.mmPadding = 0
         Caption = #913#961'. '#932#953#956#959#955#959#947#943#945#959#965' :'
         Font.Charset = GREEK_CHARSET
         Font.Color = clBlack
         Font.Name = 'Arial'
         Font.Size = 8
         Font.Style = []
+        FormFieldSettings.FormSubmitInfo.SubmitMethod = fstPost
+        FormFieldSettings.FormFieldType = fftNone
         Transparent = True
         mmHeight = 3175
         mmLeft = 3175
@@ -2013,12 +2207,15 @@ object R_WorkingSheetNewFRM: TR_WorkingSheetNewFRM
         UserName = 'Label4'
         HyperlinkEnabled = False
         AutoSize = False
+        Border.mmPadding = 0
         Caption = #913'/'#913' '#932#953#956#959#955#959#947#943#945#959#965' :'
         Font.Charset = GREEK_CHARSET
         Font.Color = clBlack
         Font.Name = 'Arial'
         Font.Size = 8
         Font.Style = []
+        FormFieldSettings.FormSubmitInfo.SubmitMethod = fstPost
+        FormFieldSettings.FormFieldType = fftNone
         Transparent = True
         mmHeight = 3175
         mmLeft = 3175
@@ -2032,12 +2229,15 @@ object R_WorkingSheetNewFRM: TR_WorkingSheetNewFRM
         UserName = 'Label6'
         HyperlinkEnabled = False
         AutoSize = False
+        Border.mmPadding = 0
         Caption = #925#972#956#953#963#956#945' :'
         Font.Charset = GREEK_CHARSET
         Font.Color = clBlack
         Font.Name = 'Arial'
         Font.Size = 8
         Font.Style = []
+        FormFieldSettings.FormSubmitInfo.SubmitMethod = fstPost
+        FormFieldSettings.FormFieldType = fftNone
         Transparent = True
         mmHeight = 3175
         mmLeft = 3175
@@ -2051,12 +2251,15 @@ object R_WorkingSheetNewFRM: TR_WorkingSheetNewFRM
         UserName = 'Label7'
         HyperlinkEnabled = False
         AutoSize = False
+        Border.mmPadding = 0
         Caption = #931#965#957#964'. '#921#963#959#964#953#956#943#945#962' :'
         Font.Charset = GREEK_CHARSET
         Font.Color = clBlack
         Font.Name = 'Arial'
         Font.Size = 8
         Font.Style = []
+        FormFieldSettings.FormSubmitInfo.SubmitMethod = fstPost
+        FormFieldSettings.FormFieldType = fftNone
         Transparent = True
         mmHeight = 3175
         mmLeft = 3175
@@ -2070,12 +2273,15 @@ object R_WorkingSheetNewFRM: TR_WorkingSheetNewFRM
         UserName = 'Label8'
         HyperlinkEnabled = False
         AutoSize = False
+        Border.mmPadding = 0
         Caption = 'Factor :'
         Font.Charset = GREEK_CHARSET
         Font.Color = clBlack
         Font.Name = 'Arial'
         Font.Size = 8
         Font.Style = []
+        FormFieldSettings.FormSubmitInfo.SubmitMethod = fstPost
+        FormFieldSettings.FormFieldType = fftNone
         Transparent = True
         mmHeight = 3175
         mmLeft = 3175
@@ -2088,12 +2294,15 @@ object R_WorkingSheetNewFRM: TR_WorkingSheetNewFRM
         DesignLayer = ppDesignLayer2
         UserName = 'Label10'
         HyperlinkEnabled = False
+        Border.mmPadding = 0
         Caption = #913#958#943#945' '#917#956#960#959#961#949#965#956#940#964#969#957
         Font.Charset = GREEK_CHARSET
         Font.Color = clBlack
         Font.Name = 'Arial'
         Font.Size = 8
         Font.Style = []
+        FormFieldSettings.FormSubmitInfo.SubmitMethod = fstPost
+        FormFieldSettings.FormFieldType = fftNone
         Transparent = True
         mmHeight = 3175
         mmLeft = 127529
@@ -2106,12 +2315,15 @@ object R_WorkingSheetNewFRM: TR_WorkingSheetNewFRM
         DesignLayer = ppDesignLayer2
         UserName = 'Label101'
         HyperlinkEnabled = False
+        Border.mmPadding = 0
         Caption = #904#954#960#964#969#963#951
         Font.Charset = GREEK_CHARSET
         Font.Color = clBlack
         Font.Name = 'Arial'
         Font.Size = 8
         Font.Style = []
+        FormFieldSettings.FormSubmitInfo.SubmitMethod = fstPost
+        FormFieldSettings.FormFieldType = fftNone
         Transparent = True
         mmHeight = 3175
         mmLeft = 127529
@@ -2124,12 +2336,15 @@ object R_WorkingSheetNewFRM: TR_WorkingSheetNewFRM
         DesignLayer = ppDesignLayer2
         UserName = 'Label102'
         HyperlinkEnabled = False
+        Border.mmPadding = 0
         Caption = #928#959#963#972' '#925#945#973#955#959#965' '#932#953#956#959#955#959#947#943#959#965
         Font.Charset = GREEK_CHARSET
         Font.Color = clBlack
         Font.Name = 'Arial'
         Font.Size = 8
         Font.Style = []
+        FormFieldSettings.FormSubmitInfo.SubmitMethod = fstPost
+        FormFieldSettings.FormFieldType = fftNone
         Transparent = True
         mmHeight = 3175
         mmLeft = 127529
@@ -2142,12 +2357,15 @@ object R_WorkingSheetNewFRM: TR_WorkingSheetNewFRM
         DesignLayer = ppDesignLayer2
         UserName = 'Label103'
         HyperlinkEnabled = False
+        Border.mmPadding = 0
         Caption = #913#963#966#940#955#953#963#964#961#945
         Font.Charset = GREEK_CHARSET
         Font.Color = clBlack
         Font.Name = 'Arial'
         Font.Size = 8
         Font.Style = []
+        FormFieldSettings.FormSubmitInfo.SubmitMethod = fstPost
+        FormFieldSettings.FormFieldType = fftNone
         Transparent = True
         mmHeight = 3175
         mmLeft = 127529
@@ -2160,12 +2378,15 @@ object R_WorkingSheetNewFRM: TR_WorkingSheetNewFRM
         DesignLayer = ppDesignLayer2
         UserName = 'Label104'
         HyperlinkEnabled = False
+        Border.mmPadding = 0
         Caption = #902#955#955#949#962' '#935#961#949#974#963#949#953#962
         Font.Charset = GREEK_CHARSET
         Font.Color = clBlack
         Font.Name = 'Arial'
         Font.Size = 8
         Font.Style = []
+        FormFieldSettings.FormSubmitInfo.SubmitMethod = fstPost
+        FormFieldSettings.FormFieldType = fftNone
         Transparent = True
         mmHeight = 3175
         mmLeft = 127529
@@ -2178,12 +2399,15 @@ object R_WorkingSheetNewFRM: TR_WorkingSheetNewFRM
         DesignLayer = ppDesignLayer2
         UserName = 'Label105'
         HyperlinkEnabled = False
+        Border.mmPadding = 0
         Caption = #931#965#957#959#955#953#954#942' '#913#958#943#945' '#932#953#956#959#955'.'
         Font.Charset = GREEK_CHARSET
         Font.Color = clBlack
         Font.Name = 'Arial'
         Font.Size = 8
         Font.Style = []
+        FormFieldSettings.FormSubmitInfo.SubmitMethod = fstPost
+        FormFieldSettings.FormFieldType = fftNone
         Transparent = True
         mmHeight = 3175
         mmLeft = 127529
@@ -2196,12 +2420,15 @@ object R_WorkingSheetNewFRM: TR_WorkingSheetNewFRM
         DesignLayer = ppDesignLayer2
         UserName = 'Label106'
         HyperlinkEnabled = False
+        Border.mmPadding = 0
         Caption = #931#965#957#959#955#953#954#942' '#913#958#943#945' '#932#953#956'. EUR'
         Font.Charset = GREEK_CHARSET
         Font.Color = clBlack
         Font.Name = 'Arial'
         Font.Size = 8
         Font.Style = []
+        FormFieldSettings.FormSubmitInfo.SubmitMethod = fstPost
+        FormFieldSettings.FormFieldType = fftNone
         Transparent = True
         mmHeight = 3260
         mmLeft = 127529
@@ -2214,12 +2441,15 @@ object R_WorkingSheetNewFRM: TR_WorkingSheetNewFRM
         DesignLayer = ppDesignLayer2
         UserName = 'Label107'
         HyperlinkEnabled = False
+        Border.mmPadding = 0
         Caption = #928#959#963#972' '#925#945#973#955#959#965
         Font.Charset = GREEK_CHARSET
         Font.Color = clBlack
         Font.Name = 'Arial'
         Font.Size = 8
         Font.Style = []
+        FormFieldSettings.FormSubmitInfo.SubmitMethod = fstPost
+        FormFieldSettings.FormFieldType = fftNone
         Transparent = True
         mmHeight = 3175
         mmLeft = 127529
@@ -2232,12 +2462,15 @@ object R_WorkingSheetNewFRM: TR_WorkingSheetNewFRM
         DesignLayer = ppDesignLayer2
         UserName = 'Label108'
         HyperlinkEnabled = False
+        Border.mmPadding = 0
         Caption = #931#965#957#959#955#953#954#942' '#913#958#943#945' '#923#922
         Font.Charset = GREEK_CHARSET
         Font.Color = clBlack
         Font.Name = 'Arial'
         Font.Size = 8
         Font.Style = []
+        FormFieldSettings.FormSubmitInfo.SubmitMethod = fstPost
+        FormFieldSettings.FormFieldType = fftNone
         Transparent = True
         mmHeight = 3175
         mmLeft = 127529
@@ -2250,6 +2483,7 @@ object R_WorkingSheetNewFRM: TR_WorkingSheetNewFRM
         DesignLayer = ppDesignLayer2
         UserName = 'DBText12'
         HyperlinkEnabled = False
+        Border.mmPadding = 0
         DataField = 'PRE_DISCOUNT_AMOUNT'
         DataPipeline = SenderInvoicePIP
         DisplayFormat = '#,0.000;-#,0.000'
@@ -2273,6 +2507,7 @@ object R_WorkingSheetNewFRM: TR_WorkingSheetNewFRM
         DesignLayer = ppDesignLayer2
         UserName = 'DBText13'
         HyperlinkEnabled = False
+        Border.mmPadding = 0
         DataField = 'DISCOUNT_AMOUNT'
         DataPipeline = SenderInvoicePIP
         DisplayFormat = '#,0.000;-#,0.000'
@@ -2296,6 +2531,7 @@ object R_WorkingSheetNewFRM: TR_WorkingSheetNewFRM
         DesignLayer = ppDesignLayer2
         UserName = 'DBText14'
         HyperlinkEnabled = False
+        Border.mmPadding = 0
         DataField = 'FREIGHT_AMOUNT'
         DataPipeline = SenderInvoicePIP
         DisplayFormat = '#,0.000;-#,0.000'
@@ -2319,6 +2555,7 @@ object R_WorkingSheetNewFRM: TR_WorkingSheetNewFRM
         DesignLayer = ppDesignLayer2
         UserName = 'DBText15'
         HyperlinkEnabled = False
+        Border.mmPadding = 0
         DataField = 'INSURANCE_AMOUNT'
         DataPipeline = SenderInvoicePIP
         DisplayFormat = '#,0.000;-#,0.000'
@@ -2342,6 +2579,7 @@ object R_WorkingSheetNewFRM: TR_WorkingSheetNewFRM
         DesignLayer = ppDesignLayer2
         UserName = 'DBText16'
         HyperlinkEnabled = False
+        Border.mmPadding = 0
         DataField = 'OTHER_CHARGES_AMOUNT'
         DataPipeline = SenderInvoicePIP
         DisplayFormat = '#,0.000;-#,0.000'
@@ -2365,6 +2603,7 @@ object R_WorkingSheetNewFRM: TR_WorkingSheetNewFRM
         DesignLayer = ppDesignLayer2
         UserName = 'DBText17'
         HyperlinkEnabled = False
+        Border.mmPadding = 0
         DataField = 'TOTAL_AMOUNT'
         DataPipeline = SenderInvoicePIP
         DisplayFormat = '#,0.000;-#,0.000'
@@ -2388,6 +2627,7 @@ object R_WorkingSheetNewFRM: TR_WorkingSheetNewFRM
         DesignLayer = ppDesignLayer2
         UserName = 'DBText19'
         HyperlinkEnabled = False
+        Border.mmPadding = 0
         DataField = 'FREIGHT_CYP_AMOUNT'
         DataPipeline = SenderInvoicePIP
         DisplayFormat = '#,0.000;-#,0.000'
@@ -2411,6 +2651,7 @@ object R_WorkingSheetNewFRM: TR_WorkingSheetNewFRM
         DesignLayer = ppDesignLayer2
         UserName = 'DBText20'
         HyperlinkEnabled = False
+        Border.mmPadding = 0
         DataField = 'CUSTOMS_VALUE'
         DataPipeline = SenderInvoicePIP
         DisplayFormat = '#,0.000;-#,0.000'
@@ -2434,6 +2675,7 @@ object R_WorkingSheetNewFRM: TR_WorkingSheetNewFRM
         DesignLayer = ppDesignLayer2
         UserName = 'DBText18'
         HyperlinkEnabled = False
+        Border.mmPadding = 0
         DataField = 'CURRENCY'
         DataPipeline = SenderInvoicePIP
         Font.Charset = GREEK_CHARSET
@@ -2454,6 +2696,7 @@ object R_WorkingSheetNewFRM: TR_WorkingSheetNewFRM
         DesignLayer = ppDesignLayer2
         UserName = 'DBText21'
         HyperlinkEnabled = False
+        Border.mmPadding = 0
         DataField = 'CURRENCY'
         DataPipeline = SenderInvoicePIP
         Font.Charset = GREEK_CHARSET
@@ -2474,6 +2717,7 @@ object R_WorkingSheetNewFRM: TR_WorkingSheetNewFRM
         DesignLayer = ppDesignLayer2
         UserName = 'DBText22'
         HyperlinkEnabled = False
+        Border.mmPadding = 0
         DataField = 'CURRENCY'
         DataPipeline = SenderInvoicePIP
         Font.Charset = GREEK_CHARSET
@@ -2494,6 +2738,7 @@ object R_WorkingSheetNewFRM: TR_WorkingSheetNewFRM
         DesignLayer = ppDesignLayer2
         UserName = 'DBText23'
         HyperlinkEnabled = False
+        Border.mmPadding = 0
         DataField = 'CURRENCY'
         DataPipeline = SenderInvoicePIP
         Font.Charset = GREEK_CHARSET
@@ -2514,6 +2759,7 @@ object R_WorkingSheetNewFRM: TR_WorkingSheetNewFRM
         DesignLayer = ppDesignLayer2
         UserName = 'DBText24'
         HyperlinkEnabled = False
+        Border.mmPadding = 0
         DataField = 'CURRENCY'
         DataPipeline = SenderInvoicePIP
         Font.Charset = GREEK_CHARSET
@@ -2534,6 +2780,7 @@ object R_WorkingSheetNewFRM: TR_WorkingSheetNewFRM
         DesignLayer = ppDesignLayer2
         UserName = 'DBText25'
         HyperlinkEnabled = False
+        Border.mmPadding = 0
         DataField = 'CURRENCY'
         DataPipeline = SenderInvoicePIP
         Font.Charset = GREEK_CHARSET
@@ -2554,6 +2801,7 @@ object R_WorkingSheetNewFRM: TR_WorkingSheetNewFRM
         DesignLayer = ppDesignLayer2
         UserName = 'DBText26'
         HyperlinkEnabled = False
+        Border.mmPadding = 0
         DataField = 'CURRENCY'
         DataPipeline = SenderInvoicePIP
         Font.Charset = GREEK_CHARSET
@@ -2574,6 +2822,7 @@ object R_WorkingSheetNewFRM: TR_WorkingSheetNewFRM
         DesignLayer = ppDesignLayer2
         UserName = 'DBText27'
         HyperlinkEnabled = False
+        Border.mmPadding = 0
         DataField = 'INVOICE_SERIAL'
         DataPipeline = SenderInvoicePIP
         Font.Charset = GREEK_CHARSET
@@ -2595,6 +2844,7 @@ object R_WorkingSheetNewFRM: TR_WorkingSheetNewFRM
         DesignLayer = ppDesignLayer2
         UserName = 'DBText1'
         HyperlinkEnabled = False
+        Border.mmPadding = 0
         DataField = 'INVOICE_NUMBER'
         DataPipeline = SenderInvoicePIP
         Font.Charset = GREEK_CHARSET
@@ -2616,6 +2866,7 @@ object R_WorkingSheetNewFRM: TR_WorkingSheetNewFRM
         DesignLayer = ppDesignLayer2
         UserName = 'DBText2'
         HyperlinkEnabled = False
+        Border.mmPadding = 0
         DataField = 'FACTOR_NUMERIC'
         DataPipeline = SenderInvoicePIP
         DisplayFormat = '#,0.000000;-#,0.000000'
@@ -2638,6 +2889,7 @@ object R_WorkingSheetNewFRM: TR_WorkingSheetNewFRM
         DesignLayer = ppDesignLayer2
         UserName = 'DBText3'
         HyperlinkEnabled = False
+        Border.mmPadding = 0
         DataField = 'EXCHANGE_RATE'
         DataPipeline = SenderInvoicePIP
         DisplayFormat = '#,0.0000;-#,0.0000'
@@ -2659,6 +2911,7 @@ object R_WorkingSheetNewFRM: TR_WorkingSheetNewFRM
       object ppLine3: TppLine
         DesignLayer = ppDesignLayer2
         UserName = 'Line3'
+        Border.mmPadding = 0
         Position = lpBottom
         Weight = 0.500000000000000000
         mmHeight = 1323
@@ -2671,6 +2924,7 @@ object R_WorkingSheetNewFRM: TR_WorkingSheetNewFRM
       object ppLine4: TppLine
         DesignLayer = ppDesignLayer2
         UserName = 'Line4'
+        Border.mmPadding = 0
         Position = lpBottom
         Weight = 0.500000000000000000
         mmHeight = 1323
@@ -2684,12 +2938,15 @@ object R_WorkingSheetNewFRM: TR_WorkingSheetNewFRM
         DesignLayer = ppDesignLayer2
         UserName = 'Label11'
         HyperlinkEnabled = False
+        Border.mmPadding = 0
         Caption = 'EUR'
         Font.Charset = GREEK_CHARSET
         Font.Color = clBlack
         Font.Name = 'Arial'
         Font.Size = 8
         Font.Style = []
+        FormFieldSettings.FormSubmitInfo.SubmitMethod = fstPost
+        FormFieldSettings.FormFieldType = fftNone
         TextAlignment = taRightJustified
         Transparent = True
         mmHeight = 3175
@@ -2703,12 +2960,15 @@ object R_WorkingSheetNewFRM: TR_WorkingSheetNewFRM
         DesignLayer = ppDesignLayer2
         UserName = 'Label23'
         HyperlinkEnabled = False
+        Border.mmPadding = 0
         Caption = 'EUR'
         Font.Charset = GREEK_CHARSET
         Font.Color = clBlack
         Font.Name = 'Arial'
         Font.Size = 8
         Font.Style = []
+        FormFieldSettings.FormSubmitInfo.SubmitMethod = fstPost
+        FormFieldSettings.FormFieldType = fftNone
         TextAlignment = taRightJustified
         Transparent = True
         mmHeight = 3175
@@ -2722,12 +2982,15 @@ object R_WorkingSheetNewFRM: TR_WorkingSheetNewFRM
         DesignLayer = ppDesignLayer2
         UserName = 'Label24'
         HyperlinkEnabled = False
+        Border.mmPadding = 0
         Caption = 'EUR'
         Font.Charset = GREEK_CHARSET
         Font.Color = clBlack
         Font.Name = 'Arial'
         Font.Size = 8
         Font.Style = []
+        FormFieldSettings.FormSubmitInfo.SubmitMethod = fstPost
+        FormFieldSettings.FormFieldType = fftNone
         TextAlignment = taRightJustified
         Transparent = True
         mmHeight = 3175
@@ -2741,6 +3004,7 @@ object R_WorkingSheetNewFRM: TR_WorkingSheetNewFRM
         DesignLayer = ppDesignLayer2
         UserName = 'DBText36'
         HyperlinkEnabled = False
+        Border.mmPadding = 0
         DataField = 'TotalCyp'
         DataPipeline = SenderInvoicePIP
         Font.Charset = DEFAULT_CHARSET
@@ -2762,6 +3026,7 @@ object R_WorkingSheetNewFRM: TR_WorkingSheetNewFRM
     end
     object ppSummaryBand1: TppSummaryBand
       Background.Brush.Style = bsClear
+      Border.mmPadding = 0
       mmBottomOffset = 0
       mmHeight = 0
       mmPrintPosition = 0
@@ -3247,6 +3512,7 @@ object R_WorkingSheetNewFRM: TR_WorkingSheetNewFRM
     SQL.Strings = (
       'Select * from Country')
     ReadOnly = True
+    Active = True
     Left = 400
     Top = 16
     object CountrySQLNUMBER: TIntegerField

@@ -78,7 +78,7 @@ type
 
     CustomsValue: double;
     PreDiscountAmount: double;
-    Quantity: integer;
+    Quantity: double;
     Origin: String;
     UnitMeasure: String;
     WeightGross: double;
@@ -133,7 +133,7 @@ type
     DutyType: String;
     PreDiscountAmount: double;
     CustomsValue: double;
-    Quantity: integer;
+    Quantity: double;
     UnitsNotCharged: integer;
     Weight: double;
     WeightGross: double;
@@ -667,7 +667,7 @@ Function TV_MawbHawbDML.CalcHawbCharge(Const HawbItem: ThdHawbItemRecord; Const 
   // do the calculations and populate and return the hawb_charge rec
   var
     hc: ThdHawbCharge;
-    unitsCharged: integer;
+    unitsCharged: double;
     MaxCharge, MinCharge: double;
 
   begin
@@ -1250,7 +1250,7 @@ Function TV_MawbHawbDML.CalcHawbItemVat(Const HawbItem: integer): boolean;
       HawbCustomsValue := MakeDs.FieldByName('CUSTOMS_VALUE').AsFloat;
       HawbItemRec.Weight := MakeDs.FieldByName('WEIGHT_NET').AsFloat;
       HawbItemRec.WeightGross := MakeDs.FieldByName('WEIGHT_GROSS').AsFloat;
-      HawbItemRec.Quantity := MakeDs.FieldByName('NET_QUANTITY').AsInteger;
+      HawbItemRec.Quantity := MakeDs.FieldByName('NET_QUANTITY').AsFloat;
       RelieveCode := MakeDs.FieldByName('fk_duty_relieve').AsString;
       MakeDs.close;
     finally
@@ -1373,7 +1373,7 @@ procedure TV_MawbHawbDML.CreateHawbItemCharges(Const HawbItemSerial: integer);
       HiRec.PreDiscountAmount := qr.FieldByName('PRE_DISCOUNT_AMOUNT').AsFloat;
       HiRec.CustomsValue := qr.FieldByName('customs_value').AsFloat;
       HiRec.TariffCode := qr.FieldByName('fk_Tariff_code').AsString;
-      HiRec.Quantity := qr.FieldByName('NET_QUANTITY').AsInteger;
+      HiRec.Quantity := qr.FieldByName('NET_QUANTITY').AsFloat;
       HiRec.Weight := qr.FieldByName('WEIGHT_NET').AsFloat;
       HiRec.WeightGross := qr.FieldByName('WEIGHT_gross').AsFloat;
 

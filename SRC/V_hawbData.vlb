@@ -145,9 +145,6 @@ Coordinates=1003,261,130,33
 [CountrySQLCODE]
 Coordinates=920,313,104,33
 
-[HawbItemSQLNET_QUANTITY]
-Coordinates=1003,365,163,33
-
 [SenderInvoiceSQLEXCHANGE_RATE]
 Coordinates=1003,417,198,33
 
@@ -689,4 +686,7 @@ Coordinates=1505,2029,199,33
 ModelLayerNames=
 ActiveLayerNames=
 EditingLayerName=NewLayer0
+
+[]
+Coordinates=1003,365,163,33
 

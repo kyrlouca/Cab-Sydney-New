@@ -1946,6 +1946,7 @@ object V_hawbItemFRM4: TV_hawbItemFRM4
       'left outer join hawb ha on ha.serial_number = hi.fk_hawb_serial'
       ' where'
       'hi.serial_number= :ItemSerial')
+    Active = True
     OnCalcFields = HawbItemSQLCalcFields
     Left = 201
     Top = 17
@@ -1959,12 +1960,22 @@ object V_hawbItemFRM4: TV_hawbItemFRM4
       FieldName = 'SERIAL_NUMBER'
       Required = True
     end
+    object HawbItemSQLFK_MAWB: TIntegerField
+      FieldName = 'FK_MAWB'
+    end
     object HawbItemSQLFK_HAWB_SERIAL: TIntegerField
       FieldName = 'FK_HAWB_SERIAL'
       Required = True
     end
+    object HawbItemSQLFK_SENDER_INVOICE_SERIAL: TIntegerField
+      FieldName = 'FK_SENDER_INVOICE_SERIAL'
+    end
     object HawbItemSQLFK_COUNTRY_ORIGIN: TIntegerField
       FieldName = 'FK_COUNTRY_ORIGIN'
+    end
+    object HawbItemSQLFK_TARIFF_CODE: TStringField
+      FieldName = 'FK_TARIFF_CODE'
+      Size = 17
     end
     object HawbItemSQLDESCRIPTION: TStringField
       FieldName = 'DESCRIPTION'
@@ -1991,6 +2002,9 @@ object V_hawbItemFRM4: TV_hawbItemFRM4
       FieldName = 'TARIFF_DESCRIPTION'
       Size = 50
     end
+    object HawbItemSQLNET_QUANTITY: TFloatField
+      FieldName = 'NET_QUANTITY'
+    end
     object HawbItemSQLIMPORT_DUTY_RATE: TFloatField
       FieldName = 'IMPORT_DUTY_RATE'
     end
@@ -2009,6 +2023,11 @@ object V_hawbItemFRM4: TV_hawbItemFRM4
     object HawbItemSQLTRL_RELEIVED: TFloatField
       FieldName = 'TRL_RELEIVED'
     end
+    object HawbItemSQLVAT_CODE: TStringField
+      FieldName = 'VAT_CODE'
+      FixedChar = True
+      Size = 3
+    end
     object HawbItemSQLVAT_RATE: TFloatField
       FieldName = 'VAT_RATE'
     end
@@ -2017,7 +2036,6 @@ object V_hawbItemFRM4: TV_hawbItemFRM4
     end
     object HawbItemSQLCUSTOMS_VALUE: TFloatField
       FieldName = 'CUSTOMS_VALUE'
-      DisplayFormat = '0.00'
     end
     object HawbItemSQLCURRENCY_RATE: TFloatField
       FieldName = 'CURRENCY_RATE'
@@ -2027,19 +2045,12 @@ object V_hawbItemFRM4: TV_hawbItemFRM4
       FixedChar = True
       Size = 3
     end
-    object HawbItemSQLFK_MAWB: TIntegerField
-      FieldName = 'FK_MAWB'
-    end
     object HawbItemSQLFK_VAT_CODE: TIntegerField
       FieldName = 'FK_VAT_CODE'
     end
     object HawbItemSQLFK_TARIFF_C_CODE: TStringField
       FieldName = 'FK_TARIFF_C_CODE'
       FixedChar = True
-      Size = 17
-    end
-    object HawbItemSQLFK_TARIFF_CODE: TStringField
-      FieldName = 'FK_TARIFF_CODE'
       Size = 17
     end
     object HawbItemSQLIMPORT_DUTY_RATE_UNIT: TStringField
@@ -2096,8 +2107,15 @@ object V_hawbItemFRM4: TV_hawbItemFRM4
       FieldName = 'EURO2'
       FixedChar = True
     end
-    object HawbItemSQLFK_SENDER_INVOICE_SERIAL: TIntegerField
-      FieldName = 'FK_SENDER_INVOICE_SERIAL'
+    object HawbItemSQLPOSOSTOSIS: TStringField
+      FieldName = 'POSOSTOSIS'
+      FixedChar = True
+      Size = 1
+    end
+    object HawbItemSQLEURO_PENDING: TStringField
+      FieldName = 'EURO_PENDING'
+      FixedChar = True
+      Size = 1
     end
     object HawbItemSQLMULTI_ITEMS_INVOICE: TStringField
       FieldName = 'MULTI_ITEMS_INVOICE'
@@ -2112,36 +2130,9 @@ object V_hawbItemFRM4: TV_hawbItemFRM4
     end
     object HawbItemSQLWEIGHT_NET: TFloatField
       FieldName = 'WEIGHT_NET'
-      DisplayFormat = '0.00'
     end
     object HawbItemSQLUNIT: TStringField
       FieldName = 'UNIT'
-      FixedChar = True
-      Size = 3
-    end
-    object HawbItemSQLFACTOR_NUMERIC: TFloatField
-      FieldName = 'FACTOR_NUMERIC'
-      ReadOnly = True
-      DisplayFormat = '0.000000'
-    end
-    object HawbItemSQLCURRENCYINV: TStringField
-      FieldName = 'CURRENCYINV'
-      ReadOnly = True
-      FixedChar = True
-      Size = 3
-    end
-    object HawbItemSQLPOSOSTOSIS: TStringField
-      FieldName = 'POSOSTOSIS'
-      FixedChar = True
-      Size = 1
-    end
-    object HawbItemSQLEURO_PENDING: TStringField
-      FieldName = 'EURO_PENDING'
-      FixedChar = True
-      Size = 1
-    end
-    object HawbItemSQLVAT_CODE: TStringField
-      FieldName = 'VAT_CODE'
       FixedChar = True
       Size = 3
     end
@@ -2152,14 +2143,21 @@ object V_hawbItemFRM4: TV_hawbItemFRM4
     object HawbItemSQLWEIGHT_GROSS: TFloatField
       FieldName = 'WEIGHT_GROSS'
     end
+    object HawbItemSQLFACTOR_NUMERIC: TFloatField
+      FieldName = 'FACTOR_NUMERIC'
+      ReadOnly = True
+    end
+    object HawbItemSQLCURRENCYINV: TStringField
+      FieldName = 'CURRENCYINV'
+      ReadOnly = True
+      FixedChar = True
+      Size = 3
+    end
     object HawbItemSQLFK_CLEARANCE_INSTRUCTION: TStringField
       FieldName = 'FK_CLEARANCE_INSTRUCTION'
       ReadOnly = True
       FixedChar = True
       Size = 5
-    end
-    object HawbItemSQLNET_QUANTITY: TFloatField
-      FieldName = 'NET_QUANTITY'
     end
   end
 end
