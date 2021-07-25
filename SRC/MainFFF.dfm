@@ -131,6 +131,7 @@ object MainFRM: TMainFRM
     ParentFont = False
     SizeBarWidth = 1
     TabOrder = 1
+    ExplicitTop = 5
     object PanelButtonsBTN: TPanel
       Left = 2
       Top = 2

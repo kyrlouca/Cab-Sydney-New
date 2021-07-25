@@ -1991,9 +1991,6 @@ object V_hawbItemFRM4: TV_hawbItemFRM4
       FieldName = 'TARIFF_DESCRIPTION'
       Size = 50
     end
-    object HawbItemSQLNET_QUANTITY: TIntegerField
-      FieldName = 'NET_QUANTITY'
-    end
     object HawbItemSQLIMPORT_DUTY_RATE: TFloatField
       FieldName = 'IMPORT_DUTY_RATE'
     end
@@ -2160,6 +2157,9 @@ object V_hawbItemFRM4: TV_hawbItemFRM4
       ReadOnly = True
       FixedChar = True
       Size = 5
+    end
+    object HawbItemSQLNET_QUANTITY: TFloatField
+      FieldName = 'NET_QUANTITY'
     end
   end
 end

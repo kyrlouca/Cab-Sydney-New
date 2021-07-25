@@ -67,7 +67,6 @@ type
     HawbItemSQLINVOICE_VALUE: TFloatField;
     HawbItemSQLDUTY_TYPE: TStringField;
     HawbItemSQLTARIFF_DESCRIPTION: TStringField;
-    HawbItemSQLNET_QUANTITY: TIntegerField;
     HawbItemSQLIMPORT_DUTY_RATE: TFloatField;
     HawbItemSQLRELIEVED_IMPORT_DUTY: TFloatField;
     HawbItemSQLEXCISE_DUTY_RATE: TFloatField;
@@ -168,6 +167,7 @@ type
     NetWeightFLD: TwwDBEdit;
     HawbItemSQLWEIGHT_GROSS: TFloatField;
     HawbItemSQLFK_CLEARANCE_INSTRUCTION: TStringField;
+    HawbItemSQLNET_QUANTITY: TFloatField;
     procedure FormActivate(Sender: TObject);
     procedure BitBtn1Click(Sender: TObject);
     procedure SpeedButton1Click(Sender: TObject);
