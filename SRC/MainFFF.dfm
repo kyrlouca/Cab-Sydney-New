@@ -120,7 +120,7 @@ object MainFRM: TMainFRM
     Margins.Bottom = 0
     Align = alTop
     BorderOuter = fsGroove
-    Caption = 'Cab Sydney 3.02'
+    Caption = 'Cab Sydney 3.12'
     Ctl3D = False
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clBlue
@@ -131,7 +131,6 @@ object MainFRM: TMainFRM
     ParentFont = False
     SizeBarWidth = 1
     TabOrder = 1
-    ExplicitTop = 5
     object PanelButtonsBTN: TPanel
       Left = 2
       Top = 2
@@ -845,6 +844,7 @@ object MainFRM: TMainFRM
         Caption = 'Charges'
         object SelectDHLTariffs1: TMenuItem
           Caption = 'DHL Charges'
+          OnClick = SelectDHLTariffs1Click
         end
         object SelectCustomTariffs1: TMenuItem
           Caption = 'Custom Charges'

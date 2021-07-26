@@ -59,9 +59,6 @@ Coordinates=2361,2370,62,33
 [wwNavButton13]
 Coordinates=2244,2370,93,33
 
-[CreateBTN]
-Coordinates=2155,2370,67,33
-
 [Panel20]
 Coordinates=3240,10,53,51
 
@@ -643,7 +640,7 @@ Coordinates=263,2168,82,33
 Coordinates=254,10,178,1761
 
 []
-Coordinates=1213,2410,106,33
+Coordinates=2155,2370,67,33
 
 [ReadyFilter]
 Coordinates=586,2234,92,51

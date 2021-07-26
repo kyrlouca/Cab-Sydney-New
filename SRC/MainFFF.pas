@@ -204,6 +204,7 @@ type
     procedure ProcessHawbs1Click(Sender: TObject);
     procedure ProcessXmlTokens1Click(Sender: TObject);
     procedure ProcedureCodeExemptions1Click(Sender: TObject);
+    procedure SelectDHLTariffs1Click(Sender: TObject);
   published
       procedure FormCreate(Sender: TObject);
   private
@@ -658,6 +659,15 @@ procedure TMainFRM.SelectCustomTariffs1Click(Sender: TObject);
 
   end;
 
+
+procedure TMainFRM.SelectDHLTariffs1Click(Sender: TObject);
+begin
+    S_SelectTariffV1FRM.IN_TariffUsage := 'DHL';
+    S_SelectTariffV1FRM.In_ForSelection := 'N';
+
+    S_SelectTariffV1FRM.showModal;
+
+end;
 
 procedure TMainFRM.SelectNormalTariffs1Click(Sender: TObject);
   begin
