@@ -66,8 +66,8 @@ object StartCSharpFRM: TStartCSharpFRM
       AlignWithMargins = True
       Left = 5
       Top = 5
-      Width = 715
-      Height = 43
+      Width = 360
+      Height = 32
       Align = alClient
       Alignment = taCenter
       Caption = 'Send Web Xml To Customs'
@@ -75,8 +75,6 @@ object StartCSharpFRM: TStartCSharpFRM
       ParentColor = False
       Transparent = False
       Layout = tlCenter
-      ExplicitWidth = 360
-      ExplicitHeight = 32
     end
   end
   object LaunchSoap: TRzLauncher
