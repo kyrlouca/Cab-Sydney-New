@@ -27,7 +27,6 @@ object StartCSharpFRM: TStartCSharpFRM
     Align = alClient
     BorderOuter = fsNone
     TabOrder = 1
-    ExplicitTop = 54
     object RzBitBtn2: TRzBitBtn
       Left = 56
       Top = 127

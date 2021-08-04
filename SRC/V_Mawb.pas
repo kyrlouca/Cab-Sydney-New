@@ -1258,9 +1258,10 @@ procedure TV_MawbFRM.SendMediumToCustoms1Click(Sender: TObject);
 
 Function TV_MawbFRM.SendToCustoms(): Integer;
   begin
+   //Actually it will just create entries in low_pending.
+   //Send only  medium, cleared and low_pending, low_sent does NOT exist
     var MawbSerial: Integer := V_MawbDataDML.MawbSQL.FieldByName('REFERENCE_NUMBER').AsInteger;
-      // var sqlSelect: String := 'select ha.serial_number from hawb ha ' +
-      // 'where ha.fk_mawb_refer_number = :MawbSerial and ha.fk_clearance_instruction=''MED'' and ha.fk_clearing_state= ''1'' ';
+
 
     var sqlStr: string := '';
     sqlStr := sqlStr + ' select ha.serial_number  from hawb ha ';
@@ -1269,11 +1270,6 @@ Function TV_MawbFRM.SendToCustoms(): Integer;
     sqlStr := sqlStr + ' where ha.fk_mawb_refer_number = :MawbSerial and ha.fk_clearance_instruction=''MED'' and ha.fk_clearing_state= ''1'' ';
     sqlStr := sqlStr + ' and lp.serial_number is null and ls.serial_number is null ';
 
-    // sqlStr := sqlStr + ' left outer join low_pending lp on lp.hawb_serial_number = ha.serial_number ';
-    // sqlStr := sqlStr + ' left outer join low_send ls on ls.hawb_serial_number =ha.serial_number ';
-    // sqlStr := sqlStr + ' select ha.serial_number from hawb ha ';
-    // sqlStr := sqlStr + ' where ha.fk_mawb_refer_number = :MawbSerial and ha.fk_clearance_insqlStruction=''MED'' and ha.fk_clearing_state= ''1'' ';
-    // sqlStr := sqlStr + ' and lp.serial_number is null and ls.serial_number is null ';
 
     var Count: Integer := 0;
     var qr: TibcQuery := TksQuery.Create(cn, sqlStr);
