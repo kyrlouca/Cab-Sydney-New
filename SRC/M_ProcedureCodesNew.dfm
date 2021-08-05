@@ -571,7 +571,6 @@ object M_ProcedureCodesNewFRM: TM_ProcedureCodesNewFRM
             Align = alTop
             BorderOuter = fsNone
             TabOrder = 0
-            ExplicitTop = 8
             object wwDBNavigator4: TwwDBNavigator
               Left = 0
               Top = 0
@@ -681,6 +680,7 @@ object M_ProcedureCodesNewFRM: TM_ProcedureCodesNewFRM
             Selected.Strings = (
               'SERIAL_NUMBER'#9'10'#9'S/N'#9'T'#9
               'CERTIFICATE_CODE'#9'20'#9'Certificate code'#9'F'#9
+              'CERTIFICATE_NUMBER'#9'23'#9'Certificate Number'
               'CERTIFICATE_VALUE'#9'31'#9'Certificate Value'#9'F'#9)
             IniAttributes.Delimiter = ';;'
             IniAttributes.UnicodeIniFile = False
@@ -708,7 +708,6 @@ object M_ProcedureCodesNewFRM: TM_ProcedureCodesNewFRM
             TitleLines = 1
             TitleButtons = False
             OnDblClick = Grid1DblClick
-            ExplicitTop = 45
           end
         end
       end
@@ -1456,11 +1455,11 @@ object M_ProcedureCodesNewFRM: TM_ProcedureCodesNewFRM
       'INSERT INTO PROCEDURE_CODE_CERTIFICATE'
       
         '  (SERIAL_NUMBER, FK_PROCEDURED_CODE, CERTIFICATE_CODE, CERTIFIC' +
-        'ATE_VALUE)'
+        'ATE_VALUE, CERTIFICATE_NUMBER)'
       'VALUES'
       
         '  (:SERIAL_NUMBER, :FK_PROCEDURED_CODE, :CERTIFICATE_CODE, :CERT' +
-        'IFICATE_VALUE)')
+        'IFICATE_VALUE, :CERTIFICATE_NUMBER)')
     SQLDelete.Strings = (
       'DELETE FROM PROCEDURE_CODE_CERTIFICATE'
       'WHERE'
@@ -1471,13 +1470,15 @@ object M_ProcedureCodesNewFRM: TM_ProcedureCodesNewFRM
       
         '  SERIAL_NUMBER = :SERIAL_NUMBER, FK_PROCEDURED_CODE = :FK_PROCE' +
         'DURED_CODE, CERTIFICATE_CODE = :CERTIFICATE_CODE, CERTIFICATE_VA' +
-        'LUE = :CERTIFICATE_VALUE'
+        'LUE = :CERTIFICATE_VALUE, CERTIFICATE_NUMBER = :CERTIFICATE_NUMB' +
+        'ER'
       'WHERE'
       '  SERIAL_NUMBER = :Old_SERIAL_NUMBER')
     SQLRefresh.Strings = (
       
         'SELECT SERIAL_NUMBER, FK_PROCEDURED_CODE, CERTIFICATE_CODE, CERT' +
-        'IFICATE_VALUE FROM PROCEDURE_CODE_CERTIFICATE'
+        'IFICATE_VALUE, CERTIFICATE_NUMBER FROM PROCEDURE_CODE_CERTIFICAT' +
+        'E'
       'WHERE'
       '  SERIAL_NUMBER = :SERIAL_NUMBER')
     SQLLock.Strings = (
@@ -1519,6 +1520,12 @@ object M_ProcedureCodesNewFRM: TM_ProcedureCodesNewFRM
       DisplayLabel = 'Certificate code'
       DisplayWidth = 20
       FieldName = 'CERTIFICATE_CODE'
+      Size = 50
+    end
+    object ProcedureCertificateSQLCERTIFICATE_NUMBER: TStringField
+      DisplayLabel = 'Certificate Number'
+      DisplayWidth = 23
+      FieldName = 'CERTIFICATE_NUMBER'
       Size = 50
     end
     object ProcedureCertificateSQLCERTIFICATE_VALUE: TStringField

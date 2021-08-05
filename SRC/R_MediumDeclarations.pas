@@ -84,6 +84,10 @@ type
     HawbMediumSQLFK_CLEARING_STATE: TStringField;
     myDBCheckBox1: TmyDBCheckBox;
     ppVariable1: TppVariable;
+    HawbMediumSQLWEIGHT_GROSS: TFloatField;
+    ppLabel10: TppLabel;
+    ppDBText1: TppDBText;
+    ppDBCalc2: TppDBCalc;
     procedure BitBtn2Click(Sender: TObject);
     procedure ppReport1PreviewFormCreate(Sender: TObject);
     procedure RzBitBtn1Click(Sender: TObject);

@@ -107,6 +107,7 @@ type
     ProcedureCertificateSQLFK_PROCEDURED_CODE: TStringField;
     ProcedureCertificateSQLCERTIFICATE_CODE: TStringField;
     ProcedureCertificateSQLCERTIFICATE_VALUE: TStringField;
+    ProcedureCertificateSQLCERTIFICATE_NUMBER: TStringField;
     procedure BitBtn2Click(Sender: TObject);
     procedure TableSQLBeforeEdit(DataSet: TDataSet);
     procedure FormActivate(Sender: TObject);

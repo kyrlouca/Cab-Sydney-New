@@ -98,8 +98,8 @@ procedure TStartCSharpFRM.RzBitBtn2Click(Sender: TObject);
       // RunExecutable(AddQuotesIfNeeded(exeFile),[configFile],AddQuotesIfNeeded(currentDir),false );
       ///
 
-    LaunchSoap.FileName := exeFile;
-    LaunchSoap.Parameters := configFile;
+//    LaunchSoap.FileName := exeFile;
+//    LaunchSoap.Parameters := configFile;
 
     var delSQL: string := 'delete from system_parameters sp where sp.parameter_id = :ParamId';
     ksExecSQLVar(cn, delSQL, [sysKey]);
