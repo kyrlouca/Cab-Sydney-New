@@ -92,6 +92,21 @@ type
     ProcedureXmlSQLFK_PROCEDURE_CODE: TStringField;
     ProcedureXmlSQLXML_CODE: TStringField;
     ProcedureXmlSQLXML_VALUE: TStringField;
+    Certificates: TTabSheet;
+    RzPanel3: TRzPanel;
+    wwDBNavigator4: TwwDBNavigator;
+    wwNavButton11: TwwNavButton;
+    wwNavButton12: TwwNavButton;
+    wwNavButton13: TwwNavButton;
+    wwNavButton14: TwwNavButton;
+    wwNavButton15: TwwNavButton;
+    wwDBGrid3: TwwDBGrid;
+    ProcedureCertificateSQL: TIBCQuery;
+    ProcedureCertificateSRC: TIBCDataSource;
+    ProcedureCertificateSQLSERIAL_NUMBER: TIntegerField;
+    ProcedureCertificateSQLFK_PROCEDURED_CODE: TStringField;
+    ProcedureCertificateSQLCERTIFICATE_CODE: TStringField;
+    ProcedureCertificateSQLCERTIFICATE_VALUE: TStringField;
     procedure BitBtn2Click(Sender: TObject);
     procedure TableSQLBeforeEdit(DataSet: TDataSet);
     procedure FormActivate(Sender: TObject);
@@ -168,7 +183,7 @@ procedure TM_ProcedureCodesNewFRM.FormActivate(Sender: TObject);
     Tables: array [1 .. 1] of TIBCQuery;
     I: Integer;
   begin
-    ksOpenTables([TableSQL, DetailSQL, ProcedureXMLSQL, DutyTypeSQL, ClearanceSQL]);
+    ksOpenTables([TableSQL, DetailSQL, ProcedureXMLSQL,ProcedureCertificateSQL, DutyTypeSQL, ClearanceSQL]);
   end;
 
 procedure TM_ProcedureCodesNewFRM.AddDetailBTNClick(Sender: TObject);

@@ -238,7 +238,7 @@ object M_ProcedureCodesNewFRM: TM_ProcedureCodesNewFRM
         Top = 0
         Width = 1117
         Height = 225
-        ActivePage = TabSheet1
+        ActivePage = Certificates
         Align = alClient
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -558,6 +558,157 @@ object M_ProcedureCodesNewFRM: TM_ProcedureCodesNewFRM
             TitleLines = 1
             TitleButtons = False
             OnDblClick = Grid1DblClick
+          end
+        end
+        object Certificates: TTabSheet
+          Caption = 'Certificates'
+          ImageIndex = 2
+          object RzPanel3: TRzPanel
+            Left = 0
+            Top = 0
+            Width = 1109
+            Height = 42
+            Align = alTop
+            BorderOuter = fsNone
+            TabOrder = 0
+            ExplicitTop = 8
+            object wwDBNavigator4: TwwDBNavigator
+              Left = 0
+              Top = 0
+              Width = 193
+              Height = 42
+              AutosizeStyle = asSizeNavButtons
+              DataSource = ProcedureCertificateSRC
+              RepeatInterval.InitialDelay = 500
+              RepeatInterval.Interval = 100
+              BackgroundOptions.IndentX = 0
+              BackgroundOptions.IndentY = 0
+              Align = alLeft
+              object wwNavButton11: TwwNavButton
+                Left = 0
+                Top = 0
+                Width = 39
+                Height = 42
+                Hint = 'Insert new record'
+                ImageIndex = -1
+                NumGlyphs = 2
+                Spacing = 4
+                Transparent = False
+                Caption = 'wwDBNavigator1Insert'
+                DisabledTextColors.ShadeColor = clGray
+                DisabledTextColors.HighlightColor = clBtnHighlight
+                Index = 0
+                Style = nbsInsert
+              end
+              object wwNavButton12: TwwNavButton
+                Left = 39
+                Top = 0
+                Width = 39
+                Height = 42
+                Hint = 'Delete current record'
+                ImageIndex = -1
+                NumGlyphs = 2
+                Spacing = 4
+                Transparent = False
+                Caption = 'wwDBNavigator1Delete'
+                Enabled = False
+                DisabledTextColors.ShadeColor = clGray
+                DisabledTextColors.HighlightColor = clBtnHighlight
+                Index = 1
+                Style = nbsDelete
+              end
+              object wwNavButton13: TwwNavButton
+                Left = 78
+                Top = 0
+                Width = 39
+                Height = 42
+                Hint = 'Post changes of current record'
+                ImageIndex = -1
+                NumGlyphs = 2
+                Spacing = 4
+                Transparent = False
+                Caption = 'wwDBNavigator1Post'
+                Enabled = False
+                DisabledTextColors.ShadeColor = clGray
+                DisabledTextColors.HighlightColor = clBtnHighlight
+                Index = 2
+                Style = nbsPost
+              end
+              object wwNavButton14: TwwNavButton
+                Left = 117
+                Top = 0
+                Width = 38
+                Height = 42
+                Hint = 'Cancel changes made to current record'
+                ImageIndex = -1
+                NumGlyphs = 2
+                Spacing = 4
+                Transparent = False
+                Caption = 'wwDBNavigator1Cancel'
+                Enabled = False
+                DisabledTextColors.ShadeColor = clGray
+                DisabledTextColors.HighlightColor = clBtnHighlight
+                Index = 3
+                Style = nbsCancel
+              end
+              object wwNavButton15: TwwNavButton
+                Left = 155
+                Top = 0
+                Width = 38
+                Height = 42
+                Hint = 'Refresh the contents of the dataset'
+                ImageIndex = -1
+                NumGlyphs = 2
+                Spacing = 4
+                Transparent = False
+                Caption = 'wwDBNavigator1Refresh'
+                DisabledTextColors.ShadeColor = clGray
+                DisabledTextColors.HighlightColor = clBtnHighlight
+                Index = 4
+                Style = nbsRefresh
+              end
+            end
+          end
+          object wwDBGrid3: TwwDBGrid
+            Left = 0
+            Top = 42
+            Width = 731
+            Height = 149
+            ControlType.Strings = (
+              'VALID_IOSS;CheckBox;Y;N'
+              'DUTY_TYPE;CustomEdit;DutyTypeFLD;F'
+              'VALID_IF_IOSS;CheckBox;Y;N')
+            Selected.Strings = (
+              'SERIAL_NUMBER'#9'10'#9'S/N'#9'T'#9
+              'CERTIFICATE_CODE'#9'20'#9'Certificate code'#9'F'#9
+              'CERTIFICATE_VALUE'#9'31'#9'Certificate Value'#9'F'#9)
+            IniAttributes.Delimiter = ';;'
+            IniAttributes.UnicodeIniFile = False
+            TitleColor = clBtnFace
+            FixedCols = 1
+            ShowHorzScrollBar = True
+            EditControlOptions = [ecoCheckboxSingleClick, ecoSearchOwnerForm]
+            Align = alLeft
+            Color = 12713983
+            DataSource = ProcedureCertificateSRC
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -11
+            Font.Name = 'Arial'
+            Font.Style = []
+            Options = [dgEditing, dgAlwaysShowEditor, dgTitles, dgIndicator, dgColumnResize, dgColLines, dgTabs, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit, dgWordWrap]
+            ParentFont = False
+            TabOrder = 1
+            TitleAlignment = taLeftJustify
+            TitleFont.Charset = DEFAULT_CHARSET
+            TitleFont.Color = clWindowText
+            TitleFont.Height = -13
+            TitleFont.Name = 'Arial'
+            TitleFont.Style = []
+            TitleLines = 1
+            TitleButtons = False
+            OnDblClick = Grid1DblClick
+            ExplicitTop = 45
           end
         end
       end
@@ -1260,8 +1411,8 @@ object M_ProcedureCodesNewFRM: TM_ProcedureCodesNewFRM
     DetailFields = 'FK_PROCEDURE_CODE'
     MasterSource = TableSRC
     Active = True
-    Left = 265
-    Top = 629
+    Left = 89
+    Top = 637
     ParamData = <
       item
         DataType = ftFixedChar
@@ -1295,7 +1446,98 @@ object M_ProcedureCodesNewFRM: TM_ProcedureCodesNewFRM
   end
   object ProcedureXmlSRC: TIBCDataSource
     DataSet = ProcedureXmlSQL
-    Left = 344
-    Top = 644
+    Left = 160
+    Top = 636
+  end
+  object ProcedureCertificateSQL: TIBCQuery
+    KeyFields = 'SERIAL_NUMBER'
+    KeyGenerator = 'GEN_PROCEDURE_CODE_CERTIF_ID'
+    SQLInsert.Strings = (
+      'INSERT INTO PROCEDURE_CODE_CERTIFICATE'
+      
+        '  (SERIAL_NUMBER, FK_PROCEDURED_CODE, CERTIFICATE_CODE, CERTIFIC' +
+        'ATE_VALUE)'
+      'VALUES'
+      
+        '  (:SERIAL_NUMBER, :FK_PROCEDURED_CODE, :CERTIFICATE_CODE, :CERT' +
+        'IFICATE_VALUE)')
+    SQLDelete.Strings = (
+      'DELETE FROM PROCEDURE_CODE_CERTIFICATE'
+      'WHERE'
+      '  SERIAL_NUMBER = :Old_SERIAL_NUMBER')
+    SQLUpdate.Strings = (
+      'UPDATE PROCEDURE_CODE_CERTIFICATE'
+      'SET'
+      
+        '  SERIAL_NUMBER = :SERIAL_NUMBER, FK_PROCEDURED_CODE = :FK_PROCE' +
+        'DURED_CODE, CERTIFICATE_CODE = :CERTIFICATE_CODE, CERTIFICATE_VA' +
+        'LUE = :CERTIFICATE_VALUE'
+      'WHERE'
+      '  SERIAL_NUMBER = :Old_SERIAL_NUMBER')
+    SQLRefresh.Strings = (
+      
+        'SELECT SERIAL_NUMBER, FK_PROCEDURED_CODE, CERTIFICATE_CODE, CERT' +
+        'IFICATE_VALUE FROM PROCEDURE_CODE_CERTIFICATE'
+      'WHERE'
+      '  SERIAL_NUMBER = :SERIAL_NUMBER')
+    SQLLock.Strings = (
+      'SELECT NULL FROM PROCEDURE_CODE_CERTIFICATE'
+      'WHERE'
+      'SERIAL_NUMBER = :Old_SERIAL_NUMBER'
+      'FOR UPDATE WITH LOCK')
+    SQLRecCount.Strings = (
+      'SELECT COUNT(*) FROM ('
+      'SELECT 1 AS C  FROM PROCEDURE_CODE_CERTIFICATE'
+      ''
+      ') q')
+    Connection = ClairDML.CabCOnnection
+    Transaction = ReadTrans
+    UpdateTransaction = WriteTrans
+    SQL.Strings = (
+      'SELECT'
+      '*'
+      'FROM PROCEDURE_CODE_CERTIFICATE')
+    MasterFields = 'PROCEDURE_CODE'
+    DetailFields = 'FK_PROCEDURED_CODE'
+    MasterSource = TableSRC
+    Active = True
+    Left = 345
+    Top = 653
+    ParamData = <
+      item
+        DataType = ftFixedChar
+        Name = 'PROCEDURE_CODE'
+        ParamType = ptInput
+        Value = 'C07'
+      end>
+    object ProcedureCertificateSQLSERIAL_NUMBER: TIntegerField
+      DisplayLabel = 'S/N'
+      DisplayWidth = 10
+      FieldName = 'SERIAL_NUMBER'
+    end
+    object ProcedureCertificateSQLCERTIFICATE_CODE: TStringField
+      DisplayLabel = 'Certificate code'
+      DisplayWidth = 20
+      FieldName = 'CERTIFICATE_CODE'
+      Size = 50
+    end
+    object ProcedureCertificateSQLCERTIFICATE_VALUE: TStringField
+      DisplayLabel = 'Certificate Value'
+      DisplayWidth = 31
+      FieldName = 'CERTIFICATE_VALUE'
+      Size = 50
+    end
+    object ProcedureCertificateSQLFK_PROCEDURED_CODE: TStringField
+      DisplayWidth = 5
+      FieldName = 'FK_PROCEDURED_CODE'
+      Visible = False
+      FixedChar = True
+      Size = 5
+    end
+  end
+  object ProcedureCertificateSRC: TIBCDataSource
+    DataSet = ProcedureCertificateSQL
+    Left = 436
+    Top = 652
   end
 end
