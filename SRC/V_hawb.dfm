@@ -1166,7 +1166,7 @@ object V_HawbFRM: TV_HawbFRM
         StyleElements = []
         object Label4: TLabel
           Left = 34
-          Top = 54
+          Top = 60
           Width = 46
           Height = 15
           Caption = 'Hawb ID'
@@ -1180,7 +1180,7 @@ object V_HawbFRM: TV_HawbFRM
           ParentFont = False
         end
         object Label10: TLabel
-          Left = 80
+          Left = 77
           Top = 67
           Width = 3
           Height = 15
@@ -1192,7 +1192,7 @@ object V_HawbFRM: TV_HawbFRM
           ParentFont = False
         end
         object Label29: TLabel
-          Left = 31
+          Left = 25
           Top = 204
           Width = 55
           Height = 15
@@ -1257,7 +1257,7 @@ object V_HawbFRM: TV_HawbFRM
           ParentFont = False
         end
         object Label16: TLabel
-          Left = 57
+          Left = 51
           Top = 166
           Width = 29
           Height = 15
@@ -1338,7 +1338,7 @@ object V_HawbFRM: TV_HawbFRM
         end
         object Label26: TLabel
           Left = 61
-          Top = 83
+          Top = 81
           Width = 19
           Height = 15
           Caption = 'Ref'
@@ -1368,7 +1368,7 @@ object V_HawbFRM: TV_HawbFRM
           ParentFont = False
         end
         object Label32: TLabel
-          Left = 29
+          Left = 23
           Top = 233
           Width = 57
           Height = 15
@@ -1385,7 +1385,7 @@ object V_HawbFRM: TV_HawbFRM
           WordWrap = True
         end
         object Label33: TLabel
-          Left = 58
+          Left = 52
           Top = 260
           Width = 28
           Height = 15
@@ -1418,7 +1418,7 @@ object V_HawbFRM: TV_HawbFRM
           WordWrap = True
         end
         object HawbFLD: TwwDBEdit
-          Left = 90
+          Left = 89
           Top = 51
           Width = 94
           Height = 23
@@ -1688,7 +1688,7 @@ object V_HawbFRM: TV_HawbFRM
         end
         object OriginCountryHawbFLD: TwwDBLookupCombo
           Left = 90
-          Top = 134
+          Top = 137
           Width = 185
           Height = 23
           AutoSize = False
@@ -1766,7 +1766,7 @@ object V_HawbFRM: TV_HawbFRM
         end
         object wwDBEdit7: TwwDBEdit
           Left = 89
-          Top = 81
+          Top = 80
           Width = 186
           Height = 19
           TabStop = False
@@ -1776,7 +1776,7 @@ object V_HawbFRM: TV_HawbFRM
           DataSource = V_HawbDataDML.HawbSRC
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clWindowText
-          Font.Height = -12
+          Font.Height = -11
           Font.Name = 'Arial'
           Font.Style = []
           ParentFont = False

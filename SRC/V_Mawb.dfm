@@ -472,8 +472,6 @@ object V_MawbFRM: TV_MawbFRM
         Height = 304
         Align = alClient
         TabOrder = 1
-        ExplicitTop = 446
-        ExplicitHeight = 267
         object RzPanel7: TRzPanel
           Left = 1388
           Top = 2
@@ -481,7 +479,6 @@ object V_MawbFRM: TV_MawbFRM
           Height = 300
           Align = alRight
           TabOrder = 0
-          ExplicitHeight = 301
           object InsertHawbBTN: TRzBitBtn
             Left = 6
             Top = 5
@@ -730,7 +727,6 @@ object V_MawbFRM: TV_MawbFRM
           OnDblClick = MhawbsGRDDblClick
           OnKeyDown = MhawbsGRDKeyDown
           TitleImageList = ImageList2
-          ExplicitHeight = 223
           object wwIButton1: TwwIButton
             Left = 0
             Top = 0
@@ -813,7 +809,6 @@ object V_MawbFRM: TV_MawbFRM
         Height = 409
         Align = alTop
         TabOrder = 2
-        ExplicitTop = 1
         object RzPanel10: TRzPanel
           Left = 2
           Top = 2
@@ -822,7 +817,6 @@ object V_MawbFRM: TV_MawbFRM
           Align = alLeft
           BorderOuter = fsNone
           TabOrder = 0
-          ExplicitHeight = 442
           object UpperPanelxPNL: TRzPanel
             Left = 0
             Top = 0
@@ -831,9 +825,6 @@ object V_MawbFRM: TV_MawbFRM
             Align = alTop
             BorderOuter = fsNone
             TabOrder = 0
-            ExplicitLeft = 2
-            ExplicitTop = 2
-            ExplicitWidth = 645
             object FilterPanelPNL: TRzGroupBox
               Left = 465
               Top = 8
@@ -1102,9 +1093,6 @@ object V_MawbFRM: TV_MawbFRM
             BevelOuter = bvNone
             ParentBackground = False
             TabOrder = 1
-            ExplicitLeft = 3
-            ExplicitTop = 172
-            ExplicitWidth = 819
             object RzDBLabel1: TRzDBLabel
               Left = 655
               Top = 121
@@ -1729,8 +1717,6 @@ object V_MawbFRM: TV_MawbFRM
           Align = alLeft
           BevelOuter = bvNone
           TabOrder = 1
-          ExplicitLeft = 757
-          ExplicitHeight = 438
           object Label6: TLabel
             Left = 46
             Top = 8

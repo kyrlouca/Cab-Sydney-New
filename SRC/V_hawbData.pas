@@ -259,6 +259,7 @@ type
     HawbSQLIS_LOCKED: TStringField;
     HawbSQLFILE_NAME: TStringField;
     HawbItemSQLNET_QUANTITY: TFloatField;
+    SortedHawbsSQL: TIBCQuery;
     procedure DataModuleCreate(Sender: TObject);
     procedure HawbChargeCustomsSQLTARIFF_UNIT_RATEGetText(Sender: TField; var Text: string; DisplayText: Boolean);
     procedure HawbSQLBeforeEdit(DataSet: TDataSet);

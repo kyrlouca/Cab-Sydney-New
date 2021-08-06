@@ -293,7 +293,7 @@ type
 
     procedure FillWaitingCodes(Const ClrType: String);
 
-    procedure MoveRec(const HawbId: String; const MawbSerial: Integer; Const Direction: string);
+    procedure MoveRec(Const Direction: string);
     procedure SelectCustomer;
     Function ClearLineFields(): Boolean;
     procedure DisplayClearanceStatus;
@@ -329,6 +329,7 @@ type
     IN_Serial: Integer;
     IN_MawbFIlter: String;
     OUT_HawbSerial: Integer;
+    IN_sortedSQL: String;
 
     property SpecialHawbSerial: Integer
          read GetSpecialHawbSerial
@@ -427,8 +428,7 @@ procedure TV_HawbFRM.CalcDuties();
     begin
       v_hawbDataDML.HawbSQL.Post;
     end;
-    If (v_hawbDataDML.SenderInvoiceSQL.State in [dsEdit, dsInsert]) then
-      v_hawbDataDML.SenderInvoiceSQL.Post;
+    If (v_hawbDataDML.SenderInvoiceSQL.State in [dsEdit, dsInsert]) then v_hawbDataDML.SenderInvoiceSQL.Post;
 
     isInvoiced := (v_hawbDataDML.HawbSQL.FieldByName('FK_INVOICE_STATUS').AsString > '0');
     isCleared := (v_hawbDataDML.HawbSQL.FieldByName('FK_CLEARING_STATE').AsString > '0');
@@ -459,10 +459,8 @@ procedure TV_HawbFRM.Add2BTNClick(Sender: TObject);
 
   begin
 
-    If (v_hawbDataDML.HawbSQL.State in [dsEdit, dsInsert]) then
-      v_hawbDataDML.HawbSQL.Post;
-    If (v_hawbDataDML.SenderInvoiceSQL.State in [dsEdit, dsInsert]) then
-      v_hawbDataDML.SenderInvoiceSQL.Post;
+    If (v_hawbDataDML.HawbSQL.State in [dsEdit, dsInsert]) then v_hawbDataDML.HawbSQL.Post;
+    If (v_hawbDataDML.SenderInvoiceSQL.State in [dsEdit, dsInsert]) then v_hawbDataDML.SenderInvoiceSQL.Post;
 
     if not CheckHawbItemFields then
     begin
@@ -487,15 +485,13 @@ procedure TV_HawbFRM.Add2BTNClick(Sender: TObject);
 
     V_MawbHawbDML.InsertCertificates(TariffCode, HawbItemSerial);
 
-    if SelectTariffFLD.CanFocus then
-      SelectTariffFLD.SetFocus;
+    if SelectTariffFLD.CanFocus then SelectTariffFLD.SetFocus;
 
   end;
 
 procedure TV_HawbFRM.Add2BTNKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
   begin
-    if Key = VK_RETURN then
-      Add2BTN.Click;
+    if Key = VK_RETURN then Add2BTN.Click;
   end;
 
 procedure TV_HawbFRM.BitBtn1Click(Sender: TObject);
@@ -526,7 +522,7 @@ procedure TV_HawbFRM.BtnLeftClick(Sender: TObject);
 
     HawbId := v_hawbDataDML.HawbSQL.FieldByName('hab_id').AsString;
     MawbSerial := v_hawbDataDML.HawbSQL.FieldByName('FK_Mawb_refer_number').AsInteger;
-    MoveRec(HawbId, MawbSerial, 'P');
+    MoveRec('P');
 
   end;
 
@@ -545,11 +541,9 @@ procedure TV_HawbFRM.BtnPostClick(Sender: TObject);
 
 procedure TV_HawbFRM.BtnRefreshClick(Sender: TObject);
   begin
-    if v_hawbDataDML.HawbSQL.State in [dsEdit] then
-      v_hawbDataDML.HawbSQL.Post;
+    if v_hawbDataDML.HawbSQL.State in [dsEdit] then v_hawbDataDML.HawbSQL.Post;
 
-    if v_hawbDataDML.HawbSQL.State in [dsInsert] then
-      exit;
+    if v_hawbDataDML.HawbSQL.State in [dsInsert] then exit;
 
     v_hawbDataDML.HawbSQL.Refresh;
     v_hawbDataDML.HawbItemSQL.Refresh;
@@ -565,7 +559,7 @@ procedure TV_HawbFRM.BtnRightClick(Sender: TObject);
 
     HawbId := v_hawbDataDML.HawbSQL.FieldByName('hab_id').AsString;
     MawbSerial := v_hawbDataDML.HawbSQL.FieldByName('FK_Mawb_refer_number').AsInteger;
-    MoveRec(HawbId, MawbSerial, 'N');
+    MoveRec('N');
 
   end;
 
@@ -573,7 +567,8 @@ procedure TV_HawbFRM.CreateWarehouseXML1Click(Sender: TObject);
   var HawbSerial: Integer;
   begin
     HawbSerial := v_hawbDataDML.HawbSQL.FieldByName('serial_number').AsInteger;
-    if HawbSerial < 1 then exit;
+    if HawbSerial < 1 then
+      exit;
     V_MawbHawbDML.CreatewarehouseXML(HawbSerial);
     MessageDlg('XML Warehouse File created ', mtInformation, [mbOK], 0);
   end;
@@ -638,8 +633,7 @@ procedure TV_HawbFRM.FindTariffBTNClick(Sender: TObject);
     UnitsFLD.Text := 'UNI';
 
     self.ModalResult := mrNone;
-    if AmountFLD.CanFocus then
-      AmountFLD.SetFocus;
+    if AmountFLD.CanFocus then AmountFLD.SetFocus;
 
   end;
 
@@ -647,6 +641,18 @@ procedure TV_HawbFRM.FormActivate(Sender: TObject);
   Const Max = 3;
   Var TheDataset: TDataset; HawbDataset: TIBCQuery; SenderInvoiceDS: TDataset;
   begin
+
+    if 1 = 1 then
+    begin
+      // copy the sql on the hawb used by mawb to sortSQL for navigation
+      v_hawbDataDML.SortedHawbsSQL.close;
+      v_hawbDataDML.SortedHawbsSQL.sql.Clear;
+      v_hawbDataDML.SortedHawbsSQL.sql.Add(IN_sortedSQL);
+      // ShowMessage(v_hawbDataDML.SortedHawbsSQL.FinalSQL);
+      v_hawbDataDML.SortedHawbsSQL.ParamByName('REFERENCE_NUMBER').Value := IN_MawbSerial;
+      // v_hawbDataDML.SortedHawbsSQL.Open;
+
+    end;
 
     var
     rec := G_generalProcs.GetTheSystemParameter(cn, 'IG3');
@@ -664,13 +670,13 @@ procedure TV_HawbFRM.FormActivate(Sender: TObject);
 
     ksfillComboF1(cn, ProcedureFLD, 'Procedure_code', 'Procedure_code', 'Procedure_code');
 
-
     // The form can be used to edit either normal or bucket hawbs
     // if the MAWB is bucket then change the property isBucket. The side effects of setting tghe property will take care
     ClearLineFields();
     If (IN_Action = 'INSERT') then
     begin
-      if IN_MawbSerial = 0 then close;
+      if IN_MawbSerial = 0 then
+        close;
 
       var qr: TIBCQuery := TksQuery.Create(cn, 'Select MAWB_ID, IS_BUCKET from mawb where reference_number= :MawbSerial');
       try
@@ -687,13 +693,13 @@ procedure TV_HawbFRM.FormActivate(Sender: TObject);
 
       JInsertHawbNew;
 
-      If HawbFLD.CanFocus then
-        HawbFLD.SetFocus;
+      If HawbFLD.CanFocus then HawbFLD.SetFocus;
     end
     else if (IN_Action = 'EDIT') then
     begin
 
-      if IN_HawbSerial = 0 then close;
+      if IN_HawbSerial = 0 then
+        close;
 
       var HawbSerial: Integer := v_hawbDataDML.HawbSQL.FieldByName('serial_number').AsInteger;
       ksExecSQLVar(cn, 'update hawb set IS_LOCKED= ''Y'' where SERIAL_NUMBER = :Serial', [IN_HawbSerial]);
@@ -730,24 +736,24 @@ procedure TV_HawbFRM.FormClose(Sender: TObject; var Action: TCloseAction);
   end;
 
 procedure TV_HawbFRM.FormCreate(Sender: TObject);
-//  var qr: TksQuery;
+  // var qr: TksQuery;
   begin
     cn := ClairDML.CabCOnnection;
-//    var
-//    rec := G_generalProcs.GetTheSystemParameter(cn, 'IG3');
-//    MinMediumValue := rec.P_Integer1;
-//
-//    ksfillComboF1(cn, RelievedFLD, 'DUTY_RELIEVE', 'CODE', 'DESCRIPTION', 'description', true, false);
-//    ksfillComboF1(cn, UnitsFLD, 'UNIT_MEASURE', 'UNIT', 'UNIT');
-//    ksfillComboF1(cn, InvoiceCurrencyFLD, 'CURRENCY', 'CURRENCY_CODE', 'CURRENCY_CODE');
-//
-//    setClearanceInstruction();
-//
-//    // ksfillComboF1(cn, MediumVatFLD, 'VAT_CATEGORY', 'Rate', 'Description', 'code');
-//    ksfillComboF1(cn, IncoFLD, 'DELIVERY_TERM', 'code', '');
-//    ksfillComboF1(cn, ItemCountryFLD, 'country', 'number', 'name');
-//
-//    ksfillComboF1(cn, ProcedureFLD, 'Procedure_code', 'Procedure_code', 'Procedure_code');
+    // var
+    // rec := G_generalProcs.GetTheSystemParameter(cn, 'IG3');
+    // MinMediumValue := rec.P_Integer1;
+    //
+    // ksfillComboF1(cn, RelievedFLD, 'DUTY_RELIEVE', 'CODE', 'DESCRIPTION', 'description', true, false);
+    // ksfillComboF1(cn, UnitsFLD, 'UNIT_MEASURE', 'UNIT', 'UNIT');
+    // ksfillComboF1(cn, InvoiceCurrencyFLD, 'CURRENCY', 'CURRENCY_CODE', 'CURRENCY_CODE');
+    //
+    // setClearanceInstruction();
+    //
+    // // ksfillComboF1(cn, MediumVatFLD, 'VAT_CATEGORY', 'Rate', 'Description', 'code');
+    // ksfillComboF1(cn, IncoFLD, 'DELIVERY_TERM', 'code', '');
+    // ksfillComboF1(cn, ItemCountryFLD, 'country', 'number', 'name');
+    //
+    // ksfillComboF1(cn, ProcedureFLD, 'Procedure_code', 'Procedure_code', 'Procedure_code');
   end;
 
 procedure TV_HawbFRM.FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
@@ -798,7 +804,8 @@ procedure TV_HawbFRM.CustomerCodeFLDChange(Sender: TObject);
 
   var Customerserial: Integer;
   begin
-    if (not SenderNameFLD.CanFocus) then exit;
+    if (not SenderNameFLD.CanFocus) then
+      exit;
 
     Customerserial := StrToIntDef(CustomerCodeFLD.Text, 0);
 
@@ -829,7 +836,7 @@ procedure TV_HawbFRM.wwNavButton16Click(Sender: TObject);
 
     HawbId := v_hawbDataDML.HawbSQL.FieldByName('hab_id').AsString;
     MawbSerial := v_hawbDataDML.HawbSQL.FieldByName('FK_Mawb_refer_number').AsInteger;
-    MoveRec(HawbId, MawbSerial, 'P');
+    MoveRec('P');
     abort;
   end;
 
@@ -905,7 +912,8 @@ procedure TV_HawbFRM.WaitingReasonFLDCloseUp(Sender: TwwDBComboBox; Select: Bool
   var HawbSerial: Integer; ClrCode: String;
   begin
 
-    if not Select then exit;
+    if not Select then
+      exit;
 
     if WaitingReasonFLD.Text = WaitingReasonFLD.Field.AsString then
     begin
@@ -914,14 +922,15 @@ procedure TV_HawbFRM.WaitingReasonFLDCloseUp(Sender: TwwDBComboBox; Select: Bool
     end;
 
     // showMessage(WaitingReasonFLD.Value);
-    if (v_hawbDataDML.HawbSQL.State in [dsEdit, dsInsert]) then
-      v_hawbDataDML.HawbSQL.Post;
+    if (v_hawbDataDML.HawbSQL.State in [dsEdit, dsInsert]) then v_hawbDataDML.HawbSQL.Post;
 
     ClrCode := Sender.Value;
-    if (ClrCode = '') or (ClrCode = 'None') then exit;
+    if (ClrCode = '') or (ClrCode = 'None') then
+      exit;
 
     HawbSerial := v_hawbDataDML.HawbSQL.FieldByName('serial_number').AsInteger;
-    if HawbSerial < 1 then exit;
+    if HawbSerial < 1 then
+      exit;
 
     V_MawbHawbDML.CreatewarehouseXML(HawbSerial);
     MessageDlg('XML Warehouse File created ', mtInformation, [mbOK], 0);
@@ -931,8 +940,7 @@ procedure TV_HawbFRM.WorksheetSelected1Click(Sender: TObject);
   var myForm: TR_WorkingSheetNewFRM; HawbSerial: Integer;
   begin
     HawbSerial := v_hawbDataDML.HawbSQL.FieldByName('Serial_Number').AsInteger;
-    if HawbSerial < 1 then
-      exit;
+    if HawbSerial < 1 then exit;
 
     myForm := TR_WorkingSheetNewFRM.Create(nil);
     try
@@ -956,8 +964,7 @@ procedure TV_HawbFRM.Invoice1Click(Sender: TObject);
     finally
       qr.free;
     end;
-    if InvoiceSerial < 1 then
-      exit;
+    if InvoiceSerial < 1 then exit;
 
     myForm := TR_PrintMultiInvoiceFRM.Create(nil);
     try
@@ -971,8 +978,7 @@ procedure TV_HawbFRM.Invoice1Click(Sender: TObject);
 procedure TV_HawbFRM.InvoiceCurrencyFLDCloseUp(Sender: TwwDBComboBox; Select: Boolean);
   var FillTable: TIBCQuery; qr: TksQuery; rate: double; currency: String;
   begin
-    if not Select then
-      exit;
+    if not Select then exit;
 
     FillTable := v_hawbDataDML.SenderInvoiceSQL;
 
@@ -987,18 +993,16 @@ procedure TV_HawbFRM.InvoiceCurrencyFLDCloseUp(Sender: TwwDBComboBox; Select: Bo
       qr.free;
     end;
 
-    iF FillTable.State = dsBrowse then FillTable.Edit;
+    iF FillTable.State = dsBrowse then
+      FillTable.Edit;
     FillTable.FieldByName('EXCHANGE_RATE').Value := rate;
 
-    If (v_hawbDataDML.HawbSQL.State in [dsEdit, dsInsert]) then
-      v_hawbDataDML.HawbSQL.Post;
+    If (v_hawbDataDML.HawbSQL.State in [dsEdit, dsInsert]) then v_hawbDataDML.HawbSQL.Post;
 
-    If (v_hawbDataDML.SenderInvoiceSQL.State in [dsEdit, dsInsert]) then
-      v_hawbDataDML.SenderInvoiceSQL.Post;
+    If (v_hawbDataDML.SenderInvoiceSQL.State in [dsEdit, dsInsert]) then v_hawbDataDML.SenderInvoiceSQL.Post;
 
     ClearanceRGP.Tag := 99;
-    if v_hawbDataDML.HawbSQL.State = dsBrowse then
-      v_hawbDataDML.HawbSQL.Edit;
+    if v_hawbDataDML.HawbSQL.State = dsBrowse then v_hawbDataDML.HawbSQL.Edit;
 
     self.ModalResult := mrNone;
 
@@ -1099,8 +1103,7 @@ procedure TV_HawbFRM.HawbFLDExit(Sender: TObject);
     IsFound: Boolean; MakeDS: TIBCQuery; qr: TIBCQuery; HawbPartialForm: TH_HawbPartialFRM;
   begin
 
-    If (not HawbFLD.Modified) then
-      exit;
+    If (not HawbFLD.Modified) then exit;
 
     HawbId := HawbFLD.Text;
     try
@@ -1185,8 +1188,7 @@ procedure TV_HawbFRM.Delete2BTNClick(Sender: TObject);
 procedure TV_HawbFRM.ShippedPiecesArrivedFLDChange(Sender: TObject);
   var arrived: Integer; total: Integer;
   begin
-    if (not ParcelsOnDocumentFLD.CanFocus) Or (not ShippedPiecesArrivedFLD.CanFocus) then
-      exit;
+    if (not ParcelsOnDocumentFLD.CanFocus) Or (not ShippedPiecesArrivedFLD.CanFocus) then exit;
 
     arrived := StrToIntDef(ParcelsOnDocumentFLD.Text, 0);
     total := StrToIntDef(ShippedPiecesArrivedFLD.Text, 0);
@@ -1214,8 +1216,7 @@ procedure TV_HawbFRM.SpeedButton2Click(Sender: TObject);
       begin
         CustomerRecord := M_customerNewFRM.GOutCustomerRecord;
         HawbDataset := v_hawbDataDML.HawbSQL;
-        If HawbDataset.State = dsBrowse then
-          HawbDataset.Edit;
+        If HawbDataset.State = dsBrowse then HawbDataset.Edit;
         HawbDataset.FieldByName('CUSTOMER_NAME').Value := CustomerRecord.Name;
       end;
 
@@ -1230,8 +1231,7 @@ procedure TV_HawbFRM.SpeedButton2Click(Sender: TObject);
         CustomerRecord := M_customerNewFRM.GOutCustomerRecord;
 
         HawbDataset := v_hawbDataDML.HawbSQL;
-        If HawbDataset.State = dsBrowse then
-          HawbDataset.Edit;
+        If HawbDataset.State = dsBrowse then HawbDataset.Edit;
 
         HawbDataset.FieldByName('FK_CUSTOMER_CODE').Value := CustomerRecord.Code;
         HawbDataset.FieldByName('FK_CUSTOMER_Account').Value := CustomerRecord.CustomerAccount;
@@ -1254,8 +1254,10 @@ procedure TV_HawbFRM.ModifyCharge(Const grid: TwwDBGrid);
   begin
     hc := grid.DataSource.DataSet.FieldByName('serial_number').AsInteger;
     hcType := grid.DataSource.DataSet.FieldByName('TARIFF_CHARGING_METHOD').AsString;
-    if hcType <> 'DR' then exit;
-    if hc < 1 then exit;
+    if hcType <> 'DR' then
+      exit;
+    if hc < 1 then
+      exit;
 
     Frm := TM_HawbChargeFRM.Create(nil);
     try
@@ -1402,7 +1404,8 @@ Function TV_HawbFRM.OpenHawb(Const HawbSerial: Integer): Boolean;
     begin
       HawbSQL.close;
       ParamByName('SerialNumber').Value := HawbSerial;
-      if not prepared then prepare;
+      if not prepared then
+        prepare;
       Open;
     end;
   end;
@@ -1422,10 +1425,8 @@ procedure TV_HawbFRM.PickCharge(Const TariffUsage: String);
     TariffCode := S_SelectTariffV1FRM.OutSelectedTariffCode;
     if TariffCode > '' then
     begin
-      if v_hawbDataDML.HawbSQL.State in [dsInsert, dsEdit] then
-        v_hawbDataDML.HawbSQL.Post;
-      if v_hawbDataDML.SenderInvoiceSQL.State in [dsInsert, dsEdit] then
-        v_hawbDataDML.SenderInvoiceSQL.Post;
+      if v_hawbDataDML.HawbSQL.State in [dsInsert, dsEdit] then v_hawbDataDML.HawbSQL.Post;
+      if v_hawbDataDML.SenderInvoiceSQL.State in [dsInsert, dsEdit] then v_hawbDataDML.SenderInvoiceSQL.Post;
 
       HawbItem := V_MawbHawbDML.GetHawbData(HawbSerial);
 
@@ -1469,57 +1470,39 @@ function TV_HawbFRM.FillHawbItemRec(): ThdHawbItemRecord;
 
   end;
 
-procedure TV_HawbFRM.MoveRec(const HawbId: String; const MawbSerial: Integer; Const Direction: string);
+procedure TV_HawbFRM.MoveRec(Const Direction: string);
   var qr: TksQuery; str: String; nextHawbSerial: Integer; nextHawbId: String; ClrType: string; clrFilter: String; orderBystr: String;
   begin
-    ClrType := IN_MawbFIlter;
 
-    clrFilter := '';
-    if (ClrType = '') Or (ClrType = 'All') then
-    begin
-    end
-    else if ClrType = 'IT2' then
-    begin
-      clrFilter := ' and (fk_clearance_instruction =''IM4'' OR fk_clearance_instruction = ''DO'' Or fk_clearance_instruction =''DOZ'' )';
-    end
-    else
-    begin
-      clrFilter := ' and fk_clearance_instruction = ' + QuotedStr(ClrType);
-    end;
+    if not v_hawbDataDML.SortedHawbsSQL.Active then
+      v_hawbDataDML.SortedHawbsSQL.Open;
 
     if Direction = 'N' then
     begin
-      // next =N
-      orderBystr := 'order by hab_id asc';
-      str := 'select first 1 ha.serial_number, hab_id from hawb ha where ha.hab_id > :hawbId and ha.fk_mawb_refer_number= :mawbSerial '
+      if v_hawbDataDML.SortedHawbsSQL.Eof then
+      begin
+        exit;
+      end;
+
+      v_hawbDataDML.SortedHawbsSQL.Next;
+      nextHawbSerial := v_hawbDataDML.SortedHawbsSQL.FieldByName('serial_number').AsInteger;
     end
     else
     begin
       // prior=P
-      orderBystr := 'order by hab_id desc';
-      str := 'select first 1 ha.serial_number, hab_id from hawb ha where ha.hab_id < :hawbId and ha.fk_mawb_refer_number= :mawbSerial '
-    end;
+      if v_hawbDataDML.SortedHawbsSQL.Bof then
+      begin
+        exit;
+      end;
 
-    str := str + clrFilter + orderBystr;
-
-    qr := TksQuery.Create(cn, str);
-    try
-      qr.ParamByName('hawbId').Value := HawbId;
-      qr.ParamByName('MawbSerial').Value := MawbSerial;
-      qr.Open;
-      nextHawbSerial := qr.FieldByName('serial_number').AsInteger;
-      qr.close;
-
-    finally
-      qr.free;
+      v_hawbDataDML.SortedHawbsSQL.Prior;
+      nextHawbSerial := v_hawbDataDML.SortedHawbsSQL.FieldByName('serial_number').AsInteger;
     end;
 
     if (nextHawbSerial > 0) then
     begin
-      if v_hawbDataDML.HawbSQL.State in [dsEdit] then
-        v_hawbDataDML.HawbSQL.Post;
-      if v_hawbDataDML.SenderInvoiceSQL.State in [dsEdit] then
-        v_hawbDataDML.SenderInvoiceSQL.Post;
+      if v_hawbDataDML.HawbSQL.State in [dsEdit] then v_hawbDataDML.HawbSQL.Post;
+      if v_hawbDataDML.SenderInvoiceSQL.State in [dsEdit] then v_hawbDataDML.SenderInvoiceSQL.Post;
       JEditHawb(nextHawbSerial);
       SelectNameFLd.Clear;
     end;
@@ -1535,8 +1518,7 @@ procedure TV_HawbFRM.SelectTariff;
 procedure TV_HawbFRM.SelectTariffFLDKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
   begin
 
-    if Key = VK_RETURN then
-      FindTariffBTN.Click;
+    if Key = VK_RETURN then FindTariffBTN.Click;
   end;
 
 procedure TV_HawbFRM.SendCustomsBTNClick(Sender: TObject);
@@ -1700,8 +1682,7 @@ procedure TV_HawbFRM.EDESelected1Click(Sender: TObject);
       v_hawbDataDML.HawbSQL.Post;
     end;
 
-    If (v_hawbDataDML.SenderInvoiceSQL.State in [dsEdit, dsInsert]) then
-      v_hawbDataDML.SenderInvoiceSQL.Post;
+    If (v_hawbDataDML.SenderInvoiceSQL.State in [dsEdit, dsInsert]) then v_hawbDataDML.SenderInvoiceSQL.Post;
 
     IsClear := v_hawbDataDML.HawbSQL.FieldByName('fk_clearing_state').AsString > '0';
 
@@ -1735,15 +1716,12 @@ procedure TV_HawbFRM.ItemsGRDCalcCellColors(Sender: TObject; Field: TField; Stat
 procedure TV_HawbFRM.ItemsGRDDblClick(Sender: TObject);
   var Serial: Integer;
   begin
-    if v_hawbDataDML.SenderInvoiceSQL.State in [dsInsert, dsEdit] then
-      v_hawbDataDML.SenderInvoiceSQL.Post;
+    if v_hawbDataDML.SenderInvoiceSQL.State in [dsInsert, dsEdit] then v_hawbDataDML.SenderInvoiceSQL.Post;
 
-    if v_hawbDataDML.HawbSQL.State in [dsInsert, dsEdit] then
-      v_hawbDataDML.HawbSQL.Post;
+    if v_hawbDataDML.HawbSQL.State in [dsInsert, dsEdit] then v_hawbDataDML.HawbSQL.Post;
 
     Serial := ItemsGRD.DataSource.DataSet.FieldByName('serial_number').AsInteger;
-    If Serial > 0 then
-      DisplayHawbItem(Serial);
+    If Serial > 0 then DisplayHawbItem(Serial);
 
     ksOpenTables([v_hawbDataDML.HawbItemSQL]);
 
@@ -1768,8 +1746,7 @@ procedure TV_HawbFRM.CusChargeGRDDblClick(Sender: TObject);
 
     TariffLineSerial := (Sender as TwwDBGrid).DataSource.DataSet.FieldByName('fk_tariff_line').AsInteger;
     // TariffLineSerial:=HawbChargeSQL.FieldByName('fk_tariff_line').AsInteger;
-    if TariffLineSerial < 1 then
-      exit;
+    if TariffLineSerial < 1 then exit;
 
     try
       form := TM_tariffLineFRM.Create(nil); // you can use nil if you Free it in here
@@ -1811,8 +1788,7 @@ Function TV_HawbFRM.CheckHawbItemFields(): Boolean;
       begin
         ShowMessage('Field ' + cField.Name + ' Cannot be Empty');
         IsError := true;
-        if cField.CanFocus then
-          cField.SetFocus;
+        if cField.CanFocus then cField.SetFocus;
         break;
       end;
     end;
@@ -1860,8 +1836,7 @@ Procedure TV_HawbFRM.JEditHawb(Const HawbSerial: Integer);
 
     FillWaitingCodes(ClrType);
 
-    if HawbFLD.CanFocus then
-      HawbFLD.SetFocus;
+    if HawbFLD.CanFocus then HawbFLD.SetFocus;
 
   End;
 
@@ -1919,8 +1894,7 @@ Procedure TV_HawbFRM.JInsertHawbNew;
     // ************** Sender
     With SIDataset do
     begin
-      if not Active then
-        Open;
+      if not Active then Open;
       Insert;
       FieldByName('INVOICE_SERIAL').AsInteger := HawbSerial; // only one Sender Invoice, hence serial= hawb serial
       FieldByName('Fk_HAWB_SERIAL').Value := HawbSerial;
@@ -1983,8 +1957,7 @@ procedure TV_HawbFRM.SelectCustomer;
     if CustomerRecord.Code > 0 then
     begin
       HawbDataset := v_hawbDataDML.HawbSQL;
-      If HawbDataset.State = dsBrowse then
-        HawbDataset.Edit;
+      If HawbDataset.State = dsBrowse then HawbDataset.Edit;
 
       HawbDataset.FieldByName('FK_CUSTOMER_CODE').Value := CustomerRecord.Code;
       HawbDataset.FieldByName('FK_CUSTOMER_ACCOUNT').Value := CustomerRecord.CustomerAccount;

@@ -2170,7 +2170,9 @@ procedure TV_MawbFRM.MhawbsGRDDblClick(Sender: TObject);
     V_HawbFRM.IN_hawbSerial := hawbSerial;
 
     V_HawbFRM.IN_Action := 'EDIT';
-    // V_HawbFRM.IN_MawbFIlter := FilterBox.Value;
+        V_HawbFRM.IN_sortedSQL := V_MawbDataDML.HawbSQL.FinalSQL;
+        v_hawbFRM.IN_MawbSerial:=V_MawbDataDML.MawbSQL.FieldByName('REFERENCE_NUMBER').AsInteger;
+//here
 
     V_HawbFRM.ShowModal;
     hawbSerial := V_HawbFRM.OUT_HawbSerial;
