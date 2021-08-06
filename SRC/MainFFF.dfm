@@ -120,7 +120,7 @@ object MainFRM: TMainFRM
     Margins.Bottom = 0
     Align = alTop
     BorderOuter = fsGroove
-    Caption = 'Cab Sydney 3.14'
+    Caption = 'Cab Sydney 3.15'
     Ctl3D = False
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clBlue
@@ -152,6 +152,7 @@ object MainFRM: TMainFRM
     Caption = '`````'
     SizeBarWidth = 1
     TabOrder = 2
+    ExplicitTop = 82
     object dbName: TRzLabel
       Left = 115
       Top = 80
@@ -560,7 +561,7 @@ object MainFRM: TMainFRM
       OnClick = Button3Click
     end
     object Button2: TButton
-      Left = 46
+      Left = 64
       Top = 113
       Width = 75
       Height = 25
