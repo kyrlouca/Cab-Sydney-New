@@ -230,7 +230,6 @@ type
     FormDateDLG: TwwDBDateTimePicker;
     CountryFLD: TwwDBComboBox;
     EditHawbBTN: TButton;
-    IdCompressorZLib1: TIdCompressorZLib;
     Panel7: TPanel;
     Label6: TLabel;
     ClearanceFilter: TwwDBComboBox;

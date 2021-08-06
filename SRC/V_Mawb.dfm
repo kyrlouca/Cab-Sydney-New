@@ -1106,8 +1106,8 @@ object V_MawbFRM: TV_MawbFRM
             ExplicitTop = 172
             ExplicitWidth = 819
             object RzDBLabel1: TRzDBLabel
-              Left = 699
-              Top = 48
+              Left = 655
+              Top = 121
               Width = 65
               Height = 17
               Alignment = taRightJustify
@@ -1711,8 +1711,8 @@ object V_MawbFRM: TV_MawbFRM
               end
             end
             object EditHawbBTN: TButton
-              Left = 711
-              Top = 95
+              Left = 655
+              Top = 144
               Width = 60
               Height = 20
               Caption = 'Edit Hawb'
@@ -5142,9 +5142,5 @@ object V_MawbFRM: TV_MawbFRM
     end
     object ppParameterList1: TppParameterList
     end
-  end
-  object IdCompressorZLib1: TIdCompressorZLib
-    Left = 1044
-    Top = 143
   end
 end
