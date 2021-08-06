@@ -8,7 +8,7 @@ uses
   ppClass, ppReport, ppComm, ppRelatv, ppDB, ppDBPipe, ppCtrls, ppPrnabl,
   ppBands, ppCache, StdCtrls, wwDialog, wwrcdvw, ppVar, ppStrtch,
   ppMemo, pptypes, ExtCtrls, ppViewr, ppRegion, jpeg, ppBarCod, ppDesignLayer,
-  ppParameter, RzEdit, G_OtherProcs;
+  ppParameter, RzEdit, G_OtherProcs, Vcl.Imaging.pngimage;
 
 {
   ppCtrls, ppDB, ppDBPipe, ppDBBDE, Db, ppPrnabl, ppClass,
@@ -289,6 +289,10 @@ type
     HawbSQLIOSS: TStringField;
     ppLabel32: TppLabel;
     ppDBText10: TppDBText;
+    prepImg: TppImage;
+    ppHeaderBand1: TppHeaderBand;
+    ppDetailBand2: TppDetailBand;
+    ppFooterBand2: TppFooterBand;
     procedure Report1PreviewFormCreate(Sender: TObject);
     procedure CustomerNameLblPrint(Sender: TObject);
     procedure Description1LBLPrint(Sender: TObject);
@@ -307,6 +311,7 @@ type
     procedure Button4Click(Sender: TObject);
     procedure NumOfPack2PPPrint(Sender: TObject);
     procedure XmlIDlblPrint(Sender: TObject);
+    procedure prepImgPrint(Sender: TObject);
     // procedure BarCode1LblPrint(Sender: TObject);
   private
     { Private declarations }
@@ -727,6 +732,11 @@ procedure TDeliveryOrderFRM.ppDBText2GetText(Sender: TObject; var Text: string);
       Text := FindPartialHawbSQL.FieldByName('PARTIAL_DELIVERY_ORDER_ID').AsString;
     end;
   end;
+
+procedure TDeliveryOrderFRM.prepImgPrint(Sender: TObject);
+begin
+  TppImage(sender).Visible:=hawbSQL.FieldByName('iS_PRepaid').AsString='Y';
+end;
 
 procedure TDeliveryOrderFRM.Description3lblPrint(Sender: TObject);
   begin

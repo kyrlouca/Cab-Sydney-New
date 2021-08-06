@@ -130,7 +130,7 @@ procedure TStartCSharpFRM.RzBitBtn2Click(Sender: TObject);
     var exeFile: string := Tpath.Combine(currentDir, 'DhlSoapService.exe');
     var configFile: string := Tpath.Combine(currentDir, 'ConfigData.json');
     var logFile: string := Tpath.Combine(currentDir, 'logger99.txt');
-    ShowMessage(exeFile);
+//    ShowMessage(exeFile);
     // ShowMessage(configFile);
     // ShowMessage(currentDir);
 
