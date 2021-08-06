@@ -120,7 +120,7 @@ object MainFRM: TMainFRM
     Margins.Bottom = 0
     Align = alTop
     BorderOuter = fsGroove
-    Caption = 'Cab Sydney 3.12'
+    Caption = 'Cab Sydney 3.14'
     Ctl3D = False
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clBlue
@@ -551,7 +551,7 @@ object MainFRM: TMainFRM
     end
     object Button3: TButton
       Left = 22
-      Top = 305
+      Top = 313
       Width = 75
       Height = 25
       Caption = 'Button3'

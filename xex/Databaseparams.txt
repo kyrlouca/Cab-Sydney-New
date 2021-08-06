@@ -1,0 +1,6 @@
+localhost
+C:\Users\kyrlo\soft\Delphi\Databases\Cab\CabDhl_V320.FDB
+C:\Users\kyrlo\soft\Delphi\Databases\Cab\DHLLATEST_V310.FDB
+
+C:\Users\kyrlo\soft\Delphi\Databases\Cab\DHLLATEST_V300.FDB
+
