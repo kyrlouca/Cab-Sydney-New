@@ -36,8 +36,8 @@ object V_MawbFRM: TV_MawbFRM
     ParentFont = False
     TabOrder = 0
     object Memo1: TMemo
-      Left = 857
-      Top = 9
+      Left = 1041
+      Top = 19
       Width = 32
       Height = 26
       Lines.Strings = (
@@ -92,651 +92,6 @@ object V_MawbFRM: TV_MawbFRM
       Caption = 'Mawb Details'
       OnEnter = MawbDetailsTSEnter
       OnExit = MawbDetailsTSExit
-      object MiddlePanelPNL: TPanel
-        Left = 0
-        Top = 177
-        Width = 1623
-        Height = 231
-        Align = alTop
-        BevelOuter = bvNone
-        ParentBackground = False
-        TabOrder = 0
-        object RzDBLabel1: TRzDBLabel
-          Left = 464
-          Top = 152
-          Width = 65
-          Height = 17
-          Alignment = taRightJustify
-          BorderOuter = fsGroove
-          DataField = 'SERIAL_NUMBER'
-          DataSource = V_MawbDataDML.HawbSRC
-        end
-        object PortsPNL: TGroupBox
-          Left = 252
-          Top = 112
-          Width = 189
-          Height = 106
-          Caption = 'Ports'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -12
-          Font.Name = 'Arial'
-          Font.Style = []
-          ParentFont = False
-          TabOrder = 3
-          object Label17: TLabel
-            Left = 14
-            Top = 20
-            Width = 35
-            Height = 15
-            Caption = 'Import'
-            Color = clBtnFace
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -12
-            Font.Name = 'Arial'
-            Font.Style = []
-            ParentColor = False
-            ParentFont = False
-            WordWrap = True
-          end
-          object Label14: TLabel
-            Left = 11
-            Top = 48
-            Width = 38
-            Height = 15
-            Caption = 'Station'
-            Color = clBtnFace
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -12
-            Font.Name = 'Arial'
-            Font.Style = []
-            ParentColor = False
-            ParentFont = False
-            WordWrap = True
-          end
-          object ImportPortFLD: TwwDBComboBox
-            Left = 54
-            Top = 17
-            Width = 121
-            Height = 23
-            ShowButton = True
-            Style = csDropDown
-            MapList = True
-            AllowClearKey = False
-            AutoDropDown = True
-            ShowMatchText = True
-            DataField = 'FK_PORT_IMPORTATION'
-            DataSource = V_MawbDataDML.MawbSRC
-            DropDownCount = 8
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWindowText
-            Font.Height = -12
-            Font.Name = 'Arial'
-            Font.Style = []
-            ItemHeight = 0
-            ParentFont = False
-            Sorted = False
-            TabOrder = 0
-            UnboundDataType = wwDefault
-          end
-          object ClearingStationFLD: TwwDBComboBox
-            Left = 54
-            Top = 45
-            Width = 121
-            Height = 23
-            ShowButton = True
-            Style = csDropDown
-            MapList = True
-            AllowClearKey = False
-            AutoDropDown = True
-            ShowMatchText = True
-            DataField = 'FK_PORT_CLEARING'
-            DataSource = V_MawbDataDML.MawbSRC
-            DropDownCount = 8
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWindowText
-            Font.Height = -12
-            Font.Name = 'Arial'
-            Font.Style = []
-            ItemHeight = 0
-            ParentFont = False
-            Sorted = False
-            TabOrder = 1
-            UnboundDataType = wwDefault
-          end
-        end
-        object PassedPNL: TGroupBox
-          Left = 465
-          Top = 4
-          Width = 227
-          Height = 107
-          Caption = 'Passed'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -12
-          Font.Name = 'Arial'
-          Font.Style = []
-          ParentFont = False
-          TabOrder = 4
-          object Label5: TLabel
-            Left = 14
-            Top = 47
-            Width = 45
-            Height = 15
-            AutoSize = False
-            Caption = 'On Date'
-            Color = clBtnFace
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -12
-            Font.Name = 'Arial'
-            Font.Style = []
-            ParentColor = False
-            ParentFont = False
-            WordWrap = True
-          end
-          object Label11: TLabel
-            Left = 16
-            Top = 18
-            Width = 43
-            Height = 15
-            Caption = 'Passed'
-            Color = clBtnFace
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -12
-            Font.Name = 'Arial'
-            Font.Style = []
-            ParentColor = False
-            ParentFont = False
-            WordWrap = True
-          end
-          object PassedFLD: TwwDBComboBox
-            Left = 65
-            Top = 17
-            Width = 50
-            Height = 23
-            ShowButton = True
-            Style = csDropDownList
-            MapList = True
-            AllowClearKey = False
-            AutoDropDown = True
-            ShowMatchText = True
-            DataField = 'PASSED'
-            DataSource = V_MawbDataDML.MawbSRC
-            DropDownCount = 8
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWindowText
-            Font.Height = -12
-            Font.Name = 'Arial'
-            Font.Style = []
-            ItemHeight = 0
-            Items.Strings = (
-              'No'#9'N'
-              'Yes'#9'Y')
-            ParentFont = False
-            Sorted = False
-            TabOrder = 0
-            UnboundDataType = wwDefault
-          end
-          object DatePassedFLD: TwwDBDateTimePicker
-            Left = 65
-            Top = 43
-            Width = 90
-            Height = 23
-            CalendarAttributes.Font.Charset = DEFAULT_CHARSET
-            CalendarAttributes.Font.Color = clWindowText
-            CalendarAttributes.Font.Height = -11
-            CalendarAttributes.Font.Name = 'Arial'
-            CalendarAttributes.Font.Style = []
-            DataField = 'DATE_PASSED'
-            DataSource = V_MawbDataDML.MawbSRC
-            Epoch = 1950
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWindowText
-            Font.Height = -12
-            Font.Name = 'Arial'
-            Font.Style = []
-            ParentFont = False
-            ShowButton = True
-            TabOrder = 1
-            DisplayFormat = 'dd/mm/yyyy'
-          end
-        end
-        object MawbPNL: TGroupBox
-          Left = 8
-          Top = 4
-          Width = 235
-          Height = 106
-          Caption = 'MAWB Reference'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -12
-          Font.Name = 'Arial'
-          Font.Style = []
-          ParentFont = False
-          TabOrder = 0
-          object Label1: TLabel
-            Left = 20
-            Top = 21
-            Width = 57
-            Height = 15
-            Caption = 'Reference'
-            Color = clBtnFace
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -12
-            Font.Name = 'Arial'
-            Font.Style = []
-            ParentColor = False
-            ParentFont = False
-          end
-          object Label3: TLabel
-            Left = 23
-            Top = 46
-            Width = 54
-            Height = 15
-            Caption = 'MAWB No'
-            Color = clBtnFace
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -12
-            Font.Name = 'Arial'
-            Font.Style = []
-            ParentColor = False
-            ParentFont = False
-          end
-          object Label13: TLabel
-            Left = 31
-            Top = 77
-            Width = 46
-            Height = 15
-            Caption = 'Rotation'
-            Color = clBtnFace
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -12
-            Font.Name = 'Arial'
-            Font.Style = []
-            ParentColor = False
-            ParentFont = False
-          end
-          object ReferenceFld: TwwDBEdit
-            Left = 83
-            Top = 17
-            Width = 95
-            Height = 23
-            TabStop = False
-            CharCase = ecUpperCase
-            DataField = 'REFERENCE_NUMBER'
-            DataSource = V_MawbDataDML.MawbSRC
-            Enabled = False
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWindowText
-            Font.Height = -12
-            Font.Name = 'Arial'
-            Font.Style = [fsBold]
-            ParentFont = False
-            ReadOnly = True
-            TabOrder = 0
-            UnboundDataType = wwDefault
-            WantReturns = False
-            WordWrap = False
-          end
-          object MawbYearFld: TwwDBEdit
-            Left = 184
-            Top = 17
-            Width = 37
-            Height = 23
-            TabStop = False
-            DataField = 'REFERENCE_YEAR'
-            DataSource = V_MawbDataDML.MawbSRC
-            Enabled = False
-            ReadOnly = True
-            TabOrder = 1
-            UnboundDataType = wwDefault
-            WantReturns = False
-            WordWrap = False
-          end
-          object MawbFLD: TwwDBEdit
-            Left = 83
-            Top = 45
-            Width = 95
-            Height = 23
-            CharCase = ecUpperCase
-            DataField = 'MAWB_ID'
-            DataSource = V_MawbDataDML.MawbSRC
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWindowText
-            Font.Height = -12
-            Font.Name = 'Arial'
-            Font.Style = [fsBold]
-            ParentFont = False
-            Picture.PictureMask = '*11#'
-            Picture.AutoFill = False
-            TabOrder = 2
-            UnboundDataType = wwDefault
-            WantReturns = False
-            WordWrap = False
-          end
-          object RotationFLD: TwwDBEdit
-            Left = 83
-            Top = 74
-            Width = 57
-            Height = 23
-            DataField = 'ROTATION_NUMBER'
-            DataSource = V_MawbDataDML.MawbSRC
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWindowText
-            Font.Height = -12
-            Font.Name = 'Arial'
-            Font.Style = []
-            ParentFont = False
-            TabOrder = 3
-            UnboundDataType = wwDefault
-            WantReturns = False
-            WordWrap = False
-            OnKeyDown = RotationFLDKeyDown
-          end
-          object Rotation_2FLD: TwwDBEdit
-            Left = 146
-            Top = 74
-            Width = 19
-            Height = 23
-            DataField = 'ROTATION_2'
-            DataSource = V_MawbDataDML.MawbSRC
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWindowText
-            Font.Height = -12
-            Font.Name = 'Arial'
-            Font.Style = []
-            ParentFont = False
-            TabOrder = 4
-            UnboundDataType = wwDefault
-            WantReturns = False
-            WordWrap = False
-          end
-          object RotationYearFLD: TwwDBEdit
-            Left = 184
-            Top = 74
-            Width = 34
-            Height = 23
-            TabStop = False
-            DataField = 'ROTATION_YEAR'
-            DataSource = V_MawbDataDML.MawbSRC
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWindowText
-            Font.Height = -12
-            Font.Name = 'Arial'
-            Font.Style = []
-            ParentFont = False
-            TabOrder = 5
-            UnboundDataType = wwDefault
-            WantReturns = False
-            WordWrap = False
-          end
-        end
-        object AirportPNL: TGroupBox
-          Left = 249
-          Top = 6
-          Width = 189
-          Height = 106
-          Caption = 'Airport Details'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -12
-          Font.Name = 'Arial'
-          Font.Style = []
-          ParentFont = False
-          TabOrder = 2
-          object Label10: TLabel
-            Left = 18
-            Top = 21
-            Width = 30
-            Height = 15
-            Caption = 'Flight'
-            Color = clBtnFace
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -12
-            Font.Name = 'Arial'
-            Font.Style = []
-            ParentColor = False
-            ParentFont = False
-          end
-          object Label4: TLabel
-            Left = 15
-            Top = 47
-            Width = 33
-            Height = 15
-            Caption = 'Arrival'
-            Color = clBtnFace
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -12
-            Font.Name = 'Arial'
-            Font.Style = []
-            ParentColor = False
-            ParentFont = False
-            WordWrap = True
-          end
-          object ArrivalDateFLD: TwwDBDateTimePicker
-            Left = 54
-            Top = 45
-            Width = 122
-            Height = 23
-            CalendarAttributes.Font.Charset = DEFAULT_CHARSET
-            CalendarAttributes.Font.Color = clWindowText
-            CalendarAttributes.Font.Height = -11
-            CalendarAttributes.Font.Name = 'Arial'
-            CalendarAttributes.Font.Style = []
-            DataField = 'DATE_ARRIVED'
-            DataSource = V_MawbDataDML.MawbSRC
-            Epoch = 1950
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWindowText
-            Font.Height = -12
-            Font.Name = 'Arial'
-            Font.Style = []
-            ParentFont = False
-            ShowButton = True
-            TabOrder = 1
-            DisplayFormat = 'dd/mm/yyyy'
-          end
-          object FlightsDLG: TwwDBComboBox
-            Left = 54
-            Top = 16
-            Width = 121
-            Height = 23
-            ShowButton = True
-            Style = csDropDown
-            MapList = False
-            AllowClearKey = False
-            AutoDropDown = True
-            ShowMatchText = True
-            DataField = 'FLIGHT_NUMBER'
-            DataSource = V_MawbDataDML.MawbSRC
-            DropDownCount = 8
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWindowText
-            Font.Height = -12
-            Font.Name = 'Arial'
-            Font.Style = []
-            ItemHeight = 0
-            ParentFont = False
-            Sorted = False
-            TabOrder = 0
-            UnboundDataType = wwDefault
-          end
-        end
-        object MawbDetails: TGroupBox
-          Left = 8
-          Top = 112
-          Width = 235
-          Height = 106
-          Caption = 'Mawb Details'
-          Color = clBtnFace
-          Ctl3D = True
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -12
-          Font.Name = 'Arial'
-          Font.Style = []
-          ParentBackground = False
-          ParentColor = False
-          ParentCtl3D = False
-          ParentFont = False
-          ParentShowHint = False
-          ShowHint = False
-          TabOrder = 1
-          object a: TLabel
-            Left = 4
-            Top = 23
-            Width = 75
-            Height = 15
-            Alignment = taRightJustify
-            Caption = 'Cons Country'
-            Color = clBtnFace
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -12
-            Font.Name = 'Arial'
-            Font.Style = []
-            ParentColor = False
-            ParentFont = False
-          end
-          object Label8: TLabel
-            Left = 28
-            Top = 48
-            Width = 51
-            Height = 15
-            Caption = 'Signatory'
-            Color = clBtnFace
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -12
-            Font.Name = 'Arial'
-            Font.Style = []
-            ParentColor = False
-            ParentFont = False
-            WordWrap = True
-          end
-          object Label9: TLabel
-            Left = 21
-            Top = 76
-            Width = 58
-            Height = 15
-            Caption = 'Form Date'
-            Color = clBtnFace
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clBlack
-            Font.Height = -12
-            Font.Name = 'Arial'
-            Font.Style = []
-            ParentColor = False
-            ParentFont = False
-          end
-          object SignatoryFLD: TwwDBEdit
-            Left = 85
-            Top = 45
-            Width = 141
-            Height = 23
-            DataField = 'SIGNATORY_NAME'
-            DataSource = V_MawbDataDML.MawbSRC
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWindowText
-            Font.Height = -12
-            Font.Name = 'Arial'
-            Font.Style = []
-            ParentFont = False
-            TabOrder = 1
-            UnboundDataType = wwDefault
-            WantReturns = False
-            WordWrap = False
-          end
-          object FormDateDLG: TwwDBDateTimePicker
-            Left = 85
-            Top = 73
-            Width = 95
-            Height = 23
-            CalendarAttributes.Font.Charset = DEFAULT_CHARSET
-            CalendarAttributes.Font.Color = clWindowText
-            CalendarAttributes.Font.Height = -11
-            CalendarAttributes.Font.Name = 'Arial'
-            CalendarAttributes.Font.Style = []
-            DataField = 'FORM_DATE'
-            DataSource = V_MawbDataDML.MawbSRC
-            Epoch = 1950
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWindowText
-            Font.Height = -12
-            Font.Name = 'Arial'
-            Font.Style = []
-            ParentFont = False
-            ShowButton = True
-            TabOrder = 2
-            DisplayFormat = 'dd/mm/yyyy'
-          end
-          object CountryFLD: TwwDBComboBox
-            Left = 85
-            Top = 17
-            Width = 141
-            Height = 23
-            ShowButton = True
-            Style = csDropDown
-            MapList = True
-            AllowClearKey = False
-            AutoDropDown = True
-            ShowMatchText = True
-            DataField = 'FK_COUNTRY_CONSIGNEE'
-            DataSource = V_MawbDataDML.MawbSRC
-            DropDownCount = 8
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWindowText
-            Font.Height = -12
-            Font.Name = 'Arial'
-            Font.Style = []
-            ItemHeight = 0
-            ParentFont = False
-            Sorted = False
-            TabOrder = 0
-            UnboundDataType = wwDefault
-          end
-        end
-        object EditHawbBTN: TButton
-          Left = 464
-          Top = 175
-          Width = 60
-          Height = 20
-          Caption = 'Edit Hawb'
-          TabOrder = 5
-          Visible = False
-        end
-        object WebSentFilter: TRzRadioGroup
-          Left = 805
-          Top = 30
-          Width = 140
-          Caption = 'Web Service Status'
-          Font.Charset = GREEK_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -12
-          Font.Name = 'Arial'
-          Font.Style = []
-          ItemHeight = 14
-          ItemIndex = 0
-          Items.Strings = (
-            'All'
-            'Pending'
-            'Sent'
-            'Failed')
-          ParentFont = False
-          TabOrder = 6
-          VerticalSpacing = 6
-          OnChanging = WebSentFilterChanging
-        end
-      end
       object Panel2: TPanel
         Left = 0
         Top = 713
@@ -745,7 +100,7 @@ object V_MawbFRM: TV_MawbFRM
         Align = alBottom
         BevelInner = bvRaised
         BevelOuter = bvLowered
-        TabOrder = 1
+        TabOrder = 0
         object AcceptBTN: TBitBtn
           Left = 5
           Top = 5
@@ -1110,401 +465,23 @@ object V_MawbFRM: TV_MawbFRM
           OnClick = BitBtn1Click
         end
       end
-      object UpperPanelxPNL: TRzPanel
-        Left = 0
-        Top = 0
-        Width = 1623
-        Height = 177
-        Align = alTop
-        BorderOuter = fsNone
-        TabOrder = 2
-        object FilterPanelPNL: TRzGroupBox
-          Left = 465
-          Top = 8
-          Width = 227
-          Height = 132
-          Caption = 'Filter Mawbs'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -12
-          Font.Name = 'Arial'
-          Font.Style = []
-          GradientColorStop = clCream
-          GroupStyle = gsUnderline
-          ParentFont = False
-          TabOrder = 0
-          object Label35: TLabel
-            Left = 1
-            Top = 77
-            Width = 97
-            Height = 15
-            Caption = 'Greater than Date'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWindowText
-            Font.Height = -12
-            Font.Name = 'Arial'
-            Font.Style = []
-            ParentFont = False
-          end
-          object Label36: TLabel
-            Left = 51
-            Top = 53
-            Width = 47
-            Height = 15
-            Caption = 'Mawb ID'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWindowText
-            Font.Height = -12
-            Font.Name = 'Arial'
-            Font.Style = []
-            ParentFont = False
-          end
-          object Label37: TLabel
-            Left = 7
-            Top = 103
-            Width = 91
-            Height = 15
-            Caption = ' Less Reference'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWindowText
-            Font.Height = -12
-            Font.Name = 'Arial'
-            Font.Style = []
-            ParentFont = False
-          end
-          object BYStartDateFLD: TwwDBDateTimePicker
-            Left = 104
-            Top = 75
-            Width = 121
-            Height = 22
-            CalendarAttributes.Font.Charset = DEFAULT_CHARSET
-            CalendarAttributes.Font.Color = clWindowText
-            CalendarAttributes.Font.Height = -13
-            CalendarAttributes.Font.Name = 'Arial'
-            CalendarAttributes.Font.Style = []
-            CalendarAttributes.PopupYearOptions.StartYear = 2014
-            Epoch = 2005
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWindowText
-            Font.Height = -11
-            Font.Name = 'Arial'
-            Font.Style = []
-            ParentFont = False
-            ShowButton = True
-            TabOrder = 0
-            DisplayFormat = 'dd/mm/yyyy'
-            OnCloseUp = BYStartDateFLDCloseUp
-          end
-          object ByRefFLD: TSearchBox
-            Left = 104
-            Top = 100
-            Width = 121
-            Height = 23
-            TabOrder = 1
-            Text = 'Reference'
-            OnEnter = ByRefFLDEnter
-            OnInvokeSearch = ByRefFLDInvokeSearch
-          end
-          object ByMawbIDsFLD: TSearchBox
-            Left = 104
-            Top = 50
-            Width = 121
-            Height = 23
-            TabOrder = 2
-            OnEnter = ByMawbIDsFLDEnter
-            OnInvokeSearch = ByMawbIDsFLDInvokeSearch
-          end
-          object RzBitBtn1: TRzBitBtn
-            Left = 104
-            Top = 22
-            Width = 122
-            Caption = 'Recent Mawbs'
-            TabOrder = 3
-            OnClick = RzBitBtn1Click
-          end
-        end
-        object FilterHawbPanelPNL: TRzGroupBox
-          Left = 805
-          Top = 17
-          Width = 210
-          Height = 81
-          Caption = 'Filter Hawbs'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -12
-          Font.Name = 'Arial'
-          Font.Style = []
-          GradientColorStop = clWhite
-          GroupStyle = gsUnderline
-          ParentFont = False
-          TabOrder = 1
-          object Label41: TLabel
-            Left = 4
-            Top = 58
-            Width = 47
-            Height = 15
-            Caption = 'Hawb ID'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWindowText
-            Font.Height = -12
-            Font.Name = 'Arial'
-            Font.Style = []
-            ParentFont = False
-          end
-          object Label6: TLabel
-            Left = 2
-            Top = 27
-            Width = 57
-            Height = 15
-            Caption = 'Clearance'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWindowText
-            Font.Height = -12
-            Font.Name = 'Arial'
-            Font.Style = []
-            ParentFont = False
-          end
-          object FilterBox: TwwDBComboBox
-            Left = 62
-            Top = 24
-            Width = 140
-            Height = 23
-            ParentCustomHint = False
-            BiDiMode = bdLeftToRight
-            ParentBiDiMode = False
-            ShowButton = True
-            Style = csDropDownList
-            MapList = True
-            AllowClearKey = False
-            Color = clWhite
-            Ctl3D = True
-            DropDownCount = 8
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWindowText
-            Font.Height = -12
-            Font.Name = 'Arial'
-            Font.Style = []
-            ItemHeight = 0
-            Items.Strings = (
-              'All'#9'All'
-              'IT2 - All High Value'#9'IT2'
-              'IM4 - High Value'#9'IM4'
-              'MED - Medium Value'#9'MED'
-              'LOW - Low Value'#9'LOW'
-              'STC - Status C'#9'STC'
-              'DO - Delivery Order '#9'DO'
-              'DOZ - Zero Delivery Order'#9'DOZ')
-            ParentCtl3D = False
-            ParentFont = False
-            ParentShowHint = False
-            ShowHint = False
-            Sorted = False
-            TabOrder = 0
-            UnboundDataType = wwDefault
-            OnCloseUp = FilterBoxCloseUp
-            DoubleBuffered = False
-            ParentDoubleBuffered = False
-          end
-          object FindHawbFLD: TSearchBox
-            Left = 65
-            Top = 53
-            Width = 140
-            Height = 23
-            TabOrder = 1
-            OnEnter = FindHawbFLDEnter
-            OnInvokeSearch = FindHawbFLDInvokeSearch
-          end
-        end
-        object RzPanel1: TRzPanel
-          Left = 8
-          Top = 0
-          Width = 433
-          Height = 148
-          Align = alCustom
-          BorderOuter = fsNone
-          TabOrder = 2
-          object Panel6: TPanel
-            Left = 0
-            Top = 0
-            Width = 500
-            Height = 148
-            Align = alLeft
-            BevelOuter = bvNone
-            Color = clYellow
-            ParentBackground = False
-            TabOrder = 0
-            object ToolbarPNL: TRzToolbar
-              Left = 0
-              Top = 0
-              Width = 500
-              AutoResize = False
-              CustomizeCaptions.Title = 'Customize Toolbar'
-              CustomizeCaptions.Hint = 'Uncheck to hide control'
-              CustomizeCaptions.Close = 'Close'
-              CustomizeCaptions.MoveUp = 'Move Up'
-              CustomizeCaptions.MoveDown = 'Move Down'
-              CustomizeCaptions.TextOptions = 'Text Options'
-              CustomizeCaptions.NoTextLabels = 'No text labels'
-              CustomizeCaptions.ShowTextLabels = 'sdf'
-              CustomizeCaptions.SelectiveTextOnRight = 'Selective text on right'
-              Images = DbImages
-              ButtonWidth = 40
-              TextOptions = ttoCustom
-              BorderInner = fsNone
-              BorderOuter = fsGroove
-              BorderSides = [sdTop]
-              BorderWidth = 0
-              Caption = 'mnb'
-              FlatColor = clBtnFace
-              FullRepaint = True
-              GradientColorStart = clBtnFace
-              GradientColorStop = clSilver
-              GradientDirection = gdDiagonalDown
-              TabOrder = 0
-              VisualStyle = vsGradient
-              ToolbarControls = (
-                BtnLeft
-                BtnRight
-                BtnInsertRecord
-                BtnDeleteRecord
-                BtnPost
-                BtnCancel
-                BtnRefresh)
-              object BtnLeft: TRzToolButton
-                Left = 4
-                Top = 2
-                Hint = 'Left'
-                DisabledIndex = 9
-                ImageIndex = 8
-                Caption = 'Left'
-                OnClick = BtnLeftClick
-              end
-              object BtnRight: TRzToolButton
-                Left = 44
-                Top = 2
-                Hint = 'Right'
-                DisabledIndex = 11
-                ImageIndex = 10
-                Images = DbImages
-                Caption = 'Right'
-                OnClick = BtnRightClick
-              end
-              object BtnPost: TRzToolButton
-                Left = 164
-                Top = 2
-                Hint = 'Post'
-                DisabledIndex = 13
-                ImageIndex = 12
-                Caption = 'Post'
-                OnClick = BtnPostClick
-              end
-              object BtnRefresh: TRzToolButton
-                Left = 244
-                Top = 2
-                Hint = 'Refresh'
-                DisabledIndex = 15
-                ImageIndex = 14
-                Caption = 'Refresh'
-                OnClick = BtnRefreshClick
-              end
-              object BtnInsertRecord: TRzToolButton
-                Left = 84
-                Top = 2
-                Hint = 'Insert Record'
-                DisabledIndex = 17
-                ImageIndex = 16
-                Caption = 'Insert Record'
-                OnClick = BtnInsertRecordClick
-              end
-              object BtnDeleteRecord: TRzToolButton
-                Left = 124
-                Top = 2
-                Hint = 'Delete Record'
-                DisabledIndex = 19
-                ImageIndex = 18
-                Caption = 'Delete Record'
-                OnClick = BtnDeleteRecordClick
-              end
-              object BtnCancel: TRzToolButton
-                Left = 204
-                Top = 2
-                Hint = 'Cancel'
-                DisabledIndex = 23
-                ImageIndex = 22
-                Align = alClient
-                Caption = 'Cancel'
-                OnClick = BtnCancelClick
-              end
-            end
-            object MawbSelectGRD: TwwDBGrid
-              Left = 0
-              Top = 32
-              Width = 500
-              Height = 116
-              Selected.Strings = (
-                'REFERENCE_NUMBER'#9'10'#9'S/N'
-                'MAWB_ID'#9'15'#9'Mawb ID'
-                'DATE_ARRIVED'#9'15'#9'Arrived')
-              IniAttributes.Delimiter = ';;'
-              IniAttributes.UnicodeIniFile = False
-              TitleColor = clBtnShadow
-              FixedCols = 0
-              ShowHorzScrollBar = True
-              Align = alClient
-              DataSource = V_MawbDataDML.MawbSelectSRC
-              Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit, dgWordWrap, dgPerfectRowFit]
-              ReadOnly = True
-              TabOrder = 1
-              TitleAlignment = taLeftJustify
-              TitleFont.Charset = GREEK_CHARSET
-              TitleFont.Color = clWindowText
-              TitleFont.Height = -12
-              TitleFont.Name = 'Arial'
-              TitleFont.Style = []
-              TitleLines = 1
-              TitleButtons = True
-              OnTitleButtonClick = MawbSelectGRDTitleButtonClick
-              OnDblClick = MawbSelectGRDDblClick
-            end
-          end
-        end
-        object ReadyFilter: TRzRadioGroup
-          Left = 807
-          Top = 104
-          Width = 140
-          Height = 79
-          Caption = 'Ready Status'
-          Font.Charset = GREEK_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -12
-          Font.Name = 'Arial'
-          Font.Style = []
-          ItemHeight = 14
-          ItemIndex = 0
-          Items.Strings = (
-            'All'
-            'Ready'
-            'Not Ready')
-          ParentFont = False
-          TabOrder = 3
-          VerticalSpacing = 6
-          OnChanging = ReadyFilterChanging
-        end
-      end
       object LowPanexPNL: TRzPanel
         Left = 0
-        Top = 408
+        Top = 409
         Width = 1623
-        Height = 305
+        Height = 304
         Align = alClient
-        TabOrder = 3
+        TabOrder = 1
+        ExplicitTop = 446
+        ExplicitHeight = 267
         object RzPanel7: TRzPanel
           Left = 1388
           Top = 2
           Width = 233
-          Height = 301
+          Height = 300
           Align = alRight
           TabOrder = 0
+          ExplicitHeight = 301
           object InsertHawbBTN: TRzBitBtn
             Left = 6
             Top = 5
@@ -1696,7 +673,7 @@ object V_MawbFRM: TV_MawbFRM
           Left = 2
           Top = 2
           Width = 1386
-          Height = 301
+          Height = 300
           ControlType.Strings = (
             'OTHER_CHARGE_PAID;CheckBox;Y;N'
             'FK_CLEARING_STATE;CheckBox;1;0'
@@ -1753,6 +730,7 @@ object V_MawbFRM: TV_MawbFRM
           OnDblClick = MhawbsGRDDblClick
           OnKeyDown = MhawbsGRDKeyDown
           TitleImageList = ImageList2
+          ExplicitHeight = 223
           object wwIButton1: TwwIButton
             Left = 0
             Top = 0
@@ -1825,6 +803,1086 @@ object V_MawbFRM: TV_MawbFRM
             ImageIndex = -1
             ParentFont = False
             OnClick = wwIButton1Click
+          end
+        end
+      end
+      object RzPanel11: TRzPanel
+        Left = 0
+        Top = 0
+        Width = 1623
+        Height = 409
+        Align = alTop
+        TabOrder = 2
+        ExplicitTop = 1
+        object RzPanel10: TRzPanel
+          Left = 2
+          Top = 2
+          Width = 749
+          Height = 405
+          Align = alLeft
+          BorderOuter = fsNone
+          TabOrder = 0
+          ExplicitHeight = 442
+          object UpperPanelxPNL: TRzPanel
+            Left = 0
+            Top = 0
+            Width = 749
+            Height = 177
+            Align = alTop
+            BorderOuter = fsNone
+            TabOrder = 0
+            ExplicitLeft = 2
+            ExplicitTop = 2
+            ExplicitWidth = 645
+            object FilterPanelPNL: TRzGroupBox
+              Left = 465
+              Top = 8
+              Width = 227
+              Height = 132
+              Caption = 'Filter Mawbs'
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clWindowText
+              Font.Height = -12
+              Font.Name = 'Arial'
+              Font.Style = []
+              GradientColorStop = clCream
+              GroupStyle = gsUnderline
+              ParentFont = False
+              TabOrder = 0
+              object Label35: TLabel
+                Left = 1
+                Top = 77
+                Width = 97
+                Height = 15
+                Caption = 'Greater than Date'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWindowText
+                Font.Height = -12
+                Font.Name = 'Arial'
+                Font.Style = []
+                ParentFont = False
+              end
+              object Label36: TLabel
+                Left = 51
+                Top = 53
+                Width = 47
+                Height = 15
+                Caption = 'Mawb ID'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWindowText
+                Font.Height = -12
+                Font.Name = 'Arial'
+                Font.Style = []
+                ParentFont = False
+              end
+              object Label37: TLabel
+                Left = 7
+                Top = 103
+                Width = 91
+                Height = 15
+                Caption = ' Less Reference'
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWindowText
+                Font.Height = -12
+                Font.Name = 'Arial'
+                Font.Style = []
+                ParentFont = False
+              end
+              object BYStartDateFLD: TwwDBDateTimePicker
+                Left = 104
+                Top = 75
+                Width = 121
+                Height = 22
+                CalendarAttributes.Font.Charset = DEFAULT_CHARSET
+                CalendarAttributes.Font.Color = clWindowText
+                CalendarAttributes.Font.Height = -13
+                CalendarAttributes.Font.Name = 'Arial'
+                CalendarAttributes.Font.Style = []
+                CalendarAttributes.PopupYearOptions.StartYear = 2014
+                Epoch = 2005
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWindowText
+                Font.Height = -11
+                Font.Name = 'Arial'
+                Font.Style = []
+                ParentFont = False
+                ShowButton = True
+                TabOrder = 0
+                DisplayFormat = 'dd/mm/yyyy'
+                OnCloseUp = BYStartDateFLDCloseUp
+              end
+              object ByRefFLD: TSearchBox
+                Left = 104
+                Top = 100
+                Width = 121
+                Height = 23
+                TabOrder = 1
+                Text = 'Reference'
+                OnEnter = ByRefFLDEnter
+                OnInvokeSearch = ByRefFLDInvokeSearch
+              end
+              object ByMawbIDsFLD: TSearchBox
+                Left = 104
+                Top = 50
+                Width = 121
+                Height = 23
+                TabOrder = 2
+                OnEnter = ByMawbIDsFLDEnter
+                OnInvokeSearch = ByMawbIDsFLDInvokeSearch
+              end
+              object RzBitBtn1: TRzBitBtn
+                Left = 104
+                Top = 22
+                Width = 122
+                Caption = 'Recent Mawbs'
+                TabOrder = 3
+                OnClick = RzBitBtn1Click
+              end
+            end
+            object RzPanel1: TRzPanel
+              Left = 8
+              Top = 0
+              Width = 433
+              Height = 148
+              Align = alCustom
+              BorderOuter = fsNone
+              TabOrder = 1
+              object Panel6: TPanel
+                Left = 0
+                Top = 0
+                Width = 500
+                Height = 148
+                Align = alLeft
+                BevelOuter = bvNone
+                Color = clYellow
+                ParentBackground = False
+                TabOrder = 0
+                object ToolbarPNL: TRzToolbar
+                  Left = 0
+                  Top = 0
+                  Width = 500
+                  AutoResize = False
+                  CustomizeCaptions.Title = 'Customize Toolbar'
+                  CustomizeCaptions.Hint = 'Uncheck to hide control'
+                  CustomizeCaptions.Close = 'Close'
+                  CustomizeCaptions.MoveUp = 'Move Up'
+                  CustomizeCaptions.MoveDown = 'Move Down'
+                  CustomizeCaptions.TextOptions = 'Text Options'
+                  CustomizeCaptions.NoTextLabels = 'No text labels'
+                  CustomizeCaptions.ShowTextLabels = 'sdf'
+                  CustomizeCaptions.SelectiveTextOnRight = 'Selective text on right'
+                  Images = DbImages
+                  ButtonWidth = 40
+                  TextOptions = ttoCustom
+                  BorderInner = fsNone
+                  BorderOuter = fsGroove
+                  BorderSides = [sdTop]
+                  BorderWidth = 0
+                  Caption = 'mnb'
+                  FlatColor = clBtnFace
+                  FullRepaint = True
+                  GradientColorStart = clBtnFace
+                  GradientColorStop = clSilver
+                  GradientDirection = gdDiagonalDown
+                  TabOrder = 0
+                  VisualStyle = vsGradient
+                  ToolbarControls = (
+                    BtnLeft
+                    BtnRight
+                    BtnInsertRecord
+                    BtnDeleteRecord
+                    BtnPost
+                    BtnCancel
+                    BtnRefresh)
+                  object BtnLeft: TRzToolButton
+                    Left = 4
+                    Top = 2
+                    Hint = 'Left'
+                    DisabledIndex = 9
+                    ImageIndex = 8
+                    Caption = 'Left'
+                    OnClick = BtnLeftClick
+                  end
+                  object BtnRight: TRzToolButton
+                    Left = 44
+                    Top = 2
+                    Hint = 'Right'
+                    DisabledIndex = 11
+                    ImageIndex = 10
+                    Images = DbImages
+                    Caption = 'Right'
+                    OnClick = BtnRightClick
+                  end
+                  object BtnPost: TRzToolButton
+                    Left = 164
+                    Top = 2
+                    Hint = 'Post'
+                    DisabledIndex = 13
+                    ImageIndex = 12
+                    Caption = 'Post'
+                    OnClick = BtnPostClick
+                  end
+                  object BtnRefresh: TRzToolButton
+                    Left = 244
+                    Top = 2
+                    Hint = 'Refresh'
+                    DisabledIndex = 15
+                    ImageIndex = 14
+                    Caption = 'Refresh'
+                    OnClick = BtnRefreshClick
+                  end
+                  object BtnInsertRecord: TRzToolButton
+                    Left = 84
+                    Top = 2
+                    Hint = 'Insert Record'
+                    DisabledIndex = 17
+                    ImageIndex = 16
+                    Caption = 'Insert Record'
+                    OnClick = BtnInsertRecordClick
+                  end
+                  object BtnDeleteRecord: TRzToolButton
+                    Left = 124
+                    Top = 2
+                    Hint = 'Delete Record'
+                    DisabledIndex = 19
+                    ImageIndex = 18
+                    Caption = 'Delete Record'
+                    OnClick = BtnDeleteRecordClick
+                  end
+                  object BtnCancel: TRzToolButton
+                    Left = 204
+                    Top = 2
+                    Hint = 'Cancel'
+                    DisabledIndex = 23
+                    ImageIndex = 22
+                    Align = alClient
+                    Caption = 'Cancel'
+                    OnClick = BtnCancelClick
+                  end
+                end
+                object MawbSelectGRD: TwwDBGrid
+                  Left = 0
+                  Top = 32
+                  Width = 500
+                  Height = 116
+                  Selected.Strings = (
+                    'REFERENCE_NUMBER'#9'10'#9'S/N'
+                    'MAWB_ID'#9'15'#9'Mawb ID'
+                    'DATE_ARRIVED'#9'15'#9'Arrived')
+                  IniAttributes.Delimiter = ';;'
+                  IniAttributes.UnicodeIniFile = False
+                  TitleColor = clBtnShadow
+                  FixedCols = 0
+                  ShowHorzScrollBar = True
+                  Align = alClient
+                  DataSource = V_MawbDataDML.MawbSelectSRC
+                  Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit, dgWordWrap, dgPerfectRowFit]
+                  ReadOnly = True
+                  TabOrder = 1
+                  TitleAlignment = taLeftJustify
+                  TitleFont.Charset = GREEK_CHARSET
+                  TitleFont.Color = clWindowText
+                  TitleFont.Height = -12
+                  TitleFont.Name = 'Arial'
+                  TitleFont.Style = []
+                  TitleLines = 1
+                  TitleButtons = True
+                  OnTitleButtonClick = MawbSelectGRDTitleButtonClick
+                  OnDblClick = MawbSelectGRDDblClick
+                end
+              end
+            end
+          end
+          object MiddlePanelPNL: TPanel
+            Left = 0
+            Top = 177
+            Width = 749
+            Height = 231
+            Align = alTop
+            BevelOuter = bvNone
+            ParentBackground = False
+            TabOrder = 1
+            ExplicitLeft = 3
+            ExplicitTop = 172
+            ExplicitWidth = 819
+            object RzDBLabel1: TRzDBLabel
+              Left = 699
+              Top = 48
+              Width = 65
+              Height = 17
+              Alignment = taRightJustify
+              Visible = False
+              BorderOuter = fsGroove
+              DataField = 'SERIAL_NUMBER'
+              DataSource = V_MawbDataDML.HawbSRC
+            end
+            object PortsPNL: TGroupBox
+              Left = 252
+              Top = 112
+              Width = 189
+              Height = 106
+              Caption = 'Ports'
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clWindowText
+              Font.Height = -12
+              Font.Name = 'Arial'
+              Font.Style = []
+              ParentFont = False
+              TabOrder = 3
+              object Label17: TLabel
+                Left = 14
+                Top = 20
+                Width = 35
+                Height = 15
+                Caption = 'Import'
+                Color = clBtnFace
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clBlack
+                Font.Height = -12
+                Font.Name = 'Arial'
+                Font.Style = []
+                ParentColor = False
+                ParentFont = False
+                WordWrap = True
+              end
+              object Label14: TLabel
+                Left = 11
+                Top = 48
+                Width = 38
+                Height = 15
+                Caption = 'Station'
+                Color = clBtnFace
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clBlack
+                Font.Height = -12
+                Font.Name = 'Arial'
+                Font.Style = []
+                ParentColor = False
+                ParentFont = False
+                WordWrap = True
+              end
+              object ImportPortFLD: TwwDBComboBox
+                Left = 54
+                Top = 17
+                Width = 121
+                Height = 23
+                ShowButton = True
+                Style = csDropDown
+                MapList = True
+                AllowClearKey = False
+                AutoDropDown = True
+                ShowMatchText = True
+                DataField = 'FK_PORT_IMPORTATION'
+                DataSource = V_MawbDataDML.MawbSRC
+                DropDownCount = 8
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWindowText
+                Font.Height = -12
+                Font.Name = 'Arial'
+                Font.Style = []
+                ItemHeight = 0
+                ParentFont = False
+                Sorted = False
+                TabOrder = 0
+                UnboundDataType = wwDefault
+              end
+              object ClearingStationFLD: TwwDBComboBox
+                Left = 54
+                Top = 45
+                Width = 121
+                Height = 23
+                ShowButton = True
+                Style = csDropDown
+                MapList = True
+                AllowClearKey = False
+                AutoDropDown = True
+                ShowMatchText = True
+                DataField = 'FK_PORT_CLEARING'
+                DataSource = V_MawbDataDML.MawbSRC
+                DropDownCount = 8
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWindowText
+                Font.Height = -12
+                Font.Name = 'Arial'
+                Font.Style = []
+                ItemHeight = 0
+                ParentFont = False
+                Sorted = False
+                TabOrder = 1
+                UnboundDataType = wwDefault
+              end
+            end
+            object PassedPNL: TGroupBox
+              Left = 466
+              Top = 6
+              Width = 227
+              Height = 107
+              Caption = 'Passed'
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clWindowText
+              Font.Height = -12
+              Font.Name = 'Arial'
+              Font.Style = []
+              ParentFont = False
+              TabOrder = 4
+              object Label5: TLabel
+                Left = 14
+                Top = 47
+                Width = 45
+                Height = 15
+                AutoSize = False
+                Caption = 'On Date'
+                Color = clBtnFace
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clBlack
+                Font.Height = -12
+                Font.Name = 'Arial'
+                Font.Style = []
+                ParentColor = False
+                ParentFont = False
+                WordWrap = True
+              end
+              object Label11: TLabel
+                Left = 16
+                Top = 18
+                Width = 43
+                Height = 15
+                Caption = 'Passed'
+                Color = clBtnFace
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clBlack
+                Font.Height = -12
+                Font.Name = 'Arial'
+                Font.Style = []
+                ParentColor = False
+                ParentFont = False
+                WordWrap = True
+              end
+              object PassedFLD: TwwDBComboBox
+                Left = 65
+                Top = 17
+                Width = 50
+                Height = 23
+                ShowButton = True
+                Style = csDropDownList
+                MapList = True
+                AllowClearKey = False
+                AutoDropDown = True
+                ShowMatchText = True
+                DataField = 'PASSED'
+                DataSource = V_MawbDataDML.MawbSRC
+                DropDownCount = 8
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWindowText
+                Font.Height = -12
+                Font.Name = 'Arial'
+                Font.Style = []
+                ItemHeight = 0
+                Items.Strings = (
+                  'No'#9'N'
+                  'Yes'#9'Y')
+                ParentFont = False
+                Sorted = False
+                TabOrder = 0
+                UnboundDataType = wwDefault
+              end
+              object DatePassedFLD: TwwDBDateTimePicker
+                Left = 65
+                Top = 43
+                Width = 90
+                Height = 23
+                CalendarAttributes.Font.Charset = DEFAULT_CHARSET
+                CalendarAttributes.Font.Color = clWindowText
+                CalendarAttributes.Font.Height = -11
+                CalendarAttributes.Font.Name = 'Arial'
+                CalendarAttributes.Font.Style = []
+                DataField = 'DATE_PASSED'
+                DataSource = V_MawbDataDML.MawbSRC
+                Epoch = 1950
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWindowText
+                Font.Height = -12
+                Font.Name = 'Arial'
+                Font.Style = []
+                ParentFont = False
+                ShowButton = True
+                TabOrder = 1
+                DisplayFormat = 'dd/mm/yyyy'
+              end
+            end
+            object MawbPNL: TGroupBox
+              Left = 8
+              Top = 4
+              Width = 235
+              Height = 106
+              Caption = 'MAWB Reference'
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clWindowText
+              Font.Height = -12
+              Font.Name = 'Arial'
+              Font.Style = []
+              ParentFont = False
+              TabOrder = 0
+              object Label1: TLabel
+                Left = 20
+                Top = 21
+                Width = 57
+                Height = 15
+                Caption = 'Reference'
+                Color = clBtnFace
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clBlack
+                Font.Height = -12
+                Font.Name = 'Arial'
+                Font.Style = []
+                ParentColor = False
+                ParentFont = False
+              end
+              object Label3: TLabel
+                Left = 23
+                Top = 46
+                Width = 54
+                Height = 15
+                Caption = 'MAWB No'
+                Color = clBtnFace
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clBlack
+                Font.Height = -12
+                Font.Name = 'Arial'
+                Font.Style = []
+                ParentColor = False
+                ParentFont = False
+              end
+              object Label13: TLabel
+                Left = 31
+                Top = 77
+                Width = 46
+                Height = 15
+                Caption = 'Rotation'
+                Color = clBtnFace
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clBlack
+                Font.Height = -12
+                Font.Name = 'Arial'
+                Font.Style = []
+                ParentColor = False
+                ParentFont = False
+              end
+              object ReferenceFld: TwwDBEdit
+                Left = 83
+                Top = 17
+                Width = 95
+                Height = 23
+                TabStop = False
+                CharCase = ecUpperCase
+                DataField = 'REFERENCE_NUMBER'
+                DataSource = V_MawbDataDML.MawbSRC
+                Enabled = False
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWindowText
+                Font.Height = -12
+                Font.Name = 'Arial'
+                Font.Style = [fsBold]
+                ParentFont = False
+                ReadOnly = True
+                TabOrder = 0
+                UnboundDataType = wwDefault
+                WantReturns = False
+                WordWrap = False
+              end
+              object MawbYearFld: TwwDBEdit
+                Left = 184
+                Top = 17
+                Width = 37
+                Height = 23
+                TabStop = False
+                DataField = 'REFERENCE_YEAR'
+                DataSource = V_MawbDataDML.MawbSRC
+                Enabled = False
+                ReadOnly = True
+                TabOrder = 1
+                UnboundDataType = wwDefault
+                WantReturns = False
+                WordWrap = False
+              end
+              object MawbFLD: TwwDBEdit
+                Left = 83
+                Top = 45
+                Width = 95
+                Height = 23
+                CharCase = ecUpperCase
+                DataField = 'MAWB_ID'
+                DataSource = V_MawbDataDML.MawbSRC
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWindowText
+                Font.Height = -12
+                Font.Name = 'Arial'
+                Font.Style = [fsBold]
+                ParentFont = False
+                Picture.PictureMask = '*11#'
+                Picture.AutoFill = False
+                TabOrder = 2
+                UnboundDataType = wwDefault
+                WantReturns = False
+                WordWrap = False
+              end
+              object RotationFLD: TwwDBEdit
+                Left = 83
+                Top = 74
+                Width = 57
+                Height = 23
+                DataField = 'ROTATION_NUMBER'
+                DataSource = V_MawbDataDML.MawbSRC
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWindowText
+                Font.Height = -12
+                Font.Name = 'Arial'
+                Font.Style = []
+                ParentFont = False
+                TabOrder = 3
+                UnboundDataType = wwDefault
+                WantReturns = False
+                WordWrap = False
+                OnKeyDown = RotationFLDKeyDown
+              end
+              object Rotation_2FLD: TwwDBEdit
+                Left = 146
+                Top = 74
+                Width = 19
+                Height = 23
+                DataField = 'ROTATION_2'
+                DataSource = V_MawbDataDML.MawbSRC
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWindowText
+                Font.Height = -12
+                Font.Name = 'Arial'
+                Font.Style = []
+                ParentFont = False
+                TabOrder = 4
+                UnboundDataType = wwDefault
+                WantReturns = False
+                WordWrap = False
+              end
+              object RotationYearFLD: TwwDBEdit
+                Left = 184
+                Top = 74
+                Width = 34
+                Height = 23
+                TabStop = False
+                DataField = 'ROTATION_YEAR'
+                DataSource = V_MawbDataDML.MawbSRC
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWindowText
+                Font.Height = -12
+                Font.Name = 'Arial'
+                Font.Style = []
+                ParentFont = False
+                TabOrder = 5
+                UnboundDataType = wwDefault
+                WantReturns = False
+                WordWrap = False
+              end
+            end
+            object AirportPNL: TGroupBox
+              Left = 249
+              Top = 6
+              Width = 189
+              Height = 106
+              Caption = 'Airport Details'
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clWindowText
+              Font.Height = -12
+              Font.Name = 'Arial'
+              Font.Style = []
+              ParentFont = False
+              TabOrder = 2
+              object Label10: TLabel
+                Left = 18
+                Top = 21
+                Width = 30
+                Height = 15
+                Caption = 'Flight'
+                Color = clBtnFace
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clBlack
+                Font.Height = -12
+                Font.Name = 'Arial'
+                Font.Style = []
+                ParentColor = False
+                ParentFont = False
+              end
+              object Label4: TLabel
+                Left = 15
+                Top = 47
+                Width = 33
+                Height = 15
+                Caption = 'Arrival'
+                Color = clBtnFace
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clBlack
+                Font.Height = -12
+                Font.Name = 'Arial'
+                Font.Style = []
+                ParentColor = False
+                ParentFont = False
+                WordWrap = True
+              end
+              object ArrivalDateFLD: TwwDBDateTimePicker
+                Left = 54
+                Top = 45
+                Width = 122
+                Height = 23
+                CalendarAttributes.Font.Charset = DEFAULT_CHARSET
+                CalendarAttributes.Font.Color = clWindowText
+                CalendarAttributes.Font.Height = -11
+                CalendarAttributes.Font.Name = 'Arial'
+                CalendarAttributes.Font.Style = []
+                DataField = 'DATE_ARRIVED'
+                DataSource = V_MawbDataDML.MawbSRC
+                Epoch = 1950
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWindowText
+                Font.Height = -12
+                Font.Name = 'Arial'
+                Font.Style = []
+                ParentFont = False
+                ShowButton = True
+                TabOrder = 1
+                DisplayFormat = 'dd/mm/yyyy'
+              end
+              object FlightsDLG: TwwDBComboBox
+                Left = 54
+                Top = 16
+                Width = 121
+                Height = 23
+                ShowButton = True
+                Style = csDropDown
+                MapList = False
+                AllowClearKey = False
+                AutoDropDown = True
+                ShowMatchText = True
+                DataField = 'FLIGHT_NUMBER'
+                DataSource = V_MawbDataDML.MawbSRC
+                DropDownCount = 8
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWindowText
+                Font.Height = -12
+                Font.Name = 'Arial'
+                Font.Style = []
+                ItemHeight = 0
+                ParentFont = False
+                Sorted = False
+                TabOrder = 0
+                UnboundDataType = wwDefault
+              end
+            end
+            object MawbDetails: TGroupBox
+              Left = 8
+              Top = 112
+              Width = 235
+              Height = 106
+              Caption = 'Mawb Details'
+              Color = clBtnFace
+              Ctl3D = True
+              Font.Charset = DEFAULT_CHARSET
+              Font.Color = clWindowText
+              Font.Height = -12
+              Font.Name = 'Arial'
+              Font.Style = []
+              ParentBackground = False
+              ParentColor = False
+              ParentCtl3D = False
+              ParentFont = False
+              ParentShowHint = False
+              ShowHint = False
+              TabOrder = 1
+              object a: TLabel
+                Left = 4
+                Top = 23
+                Width = 75
+                Height = 15
+                Alignment = taRightJustify
+                Caption = 'Cons Country'
+                Color = clBtnFace
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clBlack
+                Font.Height = -12
+                Font.Name = 'Arial'
+                Font.Style = []
+                ParentColor = False
+                ParentFont = False
+              end
+              object Label8: TLabel
+                Left = 28
+                Top = 48
+                Width = 51
+                Height = 15
+                Caption = 'Signatory'
+                Color = clBtnFace
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clBlack
+                Font.Height = -12
+                Font.Name = 'Arial'
+                Font.Style = []
+                ParentColor = False
+                ParentFont = False
+                WordWrap = True
+              end
+              object Label9: TLabel
+                Left = 21
+                Top = 76
+                Width = 58
+                Height = 15
+                Caption = 'Form Date'
+                Color = clBtnFace
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clBlack
+                Font.Height = -12
+                Font.Name = 'Arial'
+                Font.Style = []
+                ParentColor = False
+                ParentFont = False
+              end
+              object SignatoryFLD: TwwDBEdit
+                Left = 85
+                Top = 45
+                Width = 141
+                Height = 23
+                DataField = 'SIGNATORY_NAME'
+                DataSource = V_MawbDataDML.MawbSRC
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWindowText
+                Font.Height = -12
+                Font.Name = 'Arial'
+                Font.Style = []
+                ParentFont = False
+                TabOrder = 1
+                UnboundDataType = wwDefault
+                WantReturns = False
+                WordWrap = False
+              end
+              object FormDateDLG: TwwDBDateTimePicker
+                Left = 85
+                Top = 73
+                Width = 95
+                Height = 23
+                CalendarAttributes.Font.Charset = DEFAULT_CHARSET
+                CalendarAttributes.Font.Color = clWindowText
+                CalendarAttributes.Font.Height = -11
+                CalendarAttributes.Font.Name = 'Arial'
+                CalendarAttributes.Font.Style = []
+                DataField = 'FORM_DATE'
+                DataSource = V_MawbDataDML.MawbSRC
+                Epoch = 1950
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWindowText
+                Font.Height = -12
+                Font.Name = 'Arial'
+                Font.Style = []
+                ParentFont = False
+                ShowButton = True
+                TabOrder = 2
+                DisplayFormat = 'dd/mm/yyyy'
+              end
+              object CountryFLD: TwwDBComboBox
+                Left = 85
+                Top = 17
+                Width = 141
+                Height = 23
+                ShowButton = True
+                Style = csDropDown
+                MapList = True
+                AllowClearKey = False
+                AutoDropDown = True
+                ShowMatchText = True
+                DataField = 'FK_COUNTRY_CONSIGNEE'
+                DataSource = V_MawbDataDML.MawbSRC
+                DropDownCount = 8
+                Font.Charset = DEFAULT_CHARSET
+                Font.Color = clWindowText
+                Font.Height = -12
+                Font.Name = 'Arial'
+                Font.Style = []
+                ItemHeight = 0
+                ParentFont = False
+                Sorted = False
+                TabOrder = 0
+                UnboundDataType = wwDefault
+              end
+            end
+            object EditHawbBTN: TButton
+              Left = 711
+              Top = 95
+              Width = 60
+              Height = 20
+              Caption = 'Edit Hawb'
+              TabOrder = 5
+              Visible = False
+            end
+          end
+        end
+        object Panel7: TPanel
+          Left = 751
+          Top = 2
+          Width = 229
+          Height = 405
+          Align = alLeft
+          BevelOuter = bvNone
+          TabOrder = 1
+          ExplicitLeft = 757
+          ExplicitHeight = 438
+          object Label6: TLabel
+            Left = 46
+            Top = 8
+            Width = 57
+            Height = 15
+            Caption = 'Clearance'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -12
+            Font.Name = 'Arial'
+            Font.Style = []
+            ParentFont = False
+          end
+          object Label41: TLabel
+            Left = 46
+            Top = 321
+            Width = 47
+            Height = 15
+            Caption = 'Hawb ID'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -12
+            Font.Name = 'Arial'
+            Font.Style = []
+            ParentFont = False
+          end
+          object ClearanceFilter: TwwDBComboBox
+            Left = 46
+            Top = 26
+            Width = 147
+            Height = 23
+            ParentCustomHint = False
+            BiDiMode = bdLeftToRight
+            ParentBiDiMode = False
+            ShowButton = True
+            Style = csDropDownList
+            MapList = True
+            AllowClearKey = False
+            Color = clWhite
+            Ctl3D = True
+            DropDownCount = 8
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -12
+            Font.Name = 'Arial'
+            Font.Style = []
+            ItemHeight = 0
+            Items.Strings = (
+              'All'#9'All'
+              'IT2 - All High Value'#9'IT2'
+              'IM4 - High Value'#9'IM4'
+              'MED - Medium Value'#9'MED'
+              'LOW - Low Value'#9'LOW'
+              'STC - Status C'#9'STC'
+              'DO - Delivery Order '#9'DO'
+              'DOZ - Zero Delivery Order'#9'DOZ')
+            ParentCtl3D = False
+            ParentFont = False
+            ParentShowHint = False
+            ShowHint = False
+            Sorted = False
+            TabOrder = 0
+            UnboundDataType = wwDefault
+            DoubleBuffered = False
+            ParentDoubleBuffered = False
+          end
+          object ReadyFilter: TRzRadioGroup
+            Left = 46
+            Top = 53
+            Width = 147
+            Height = 78
+            Caption = 'Ready Status'
+            Font.Charset = GREEK_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -12
+            Font.Name = 'Arial'
+            Font.Style = []
+            ItemHeight = 14
+            ItemIndex = 0
+            Items.Strings = (
+              'All'
+              'Ready'
+              'Not Ready')
+            ParentFont = False
+            TabOrder = 1
+            VerticalSpacing = 6
+          end
+          object RzBitBtn4: TRzBitBtn
+            Left = 46
+            Top = 614
+            Width = 147
+            Height = 37
+            Alignment = taLeftJustify
+            Caption = 'Unlock'
+            DoubleBuffered = True
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -12
+            Font.Name = 'Arial'
+            Font.Style = []
+            LightTextStyle = True
+            ParentDoubleBuffered = False
+            ParentFont = False
+            TabOrder = 2
+            OnClick = UnlockHawbBTNClick
+            Margin = -1
+            NumGlyphs = 2
+          end
+          object FilterAllBTN: TRzBitBtn
+            AlignWithMargins = True
+            Left = 46
+            Top = 143
+            Width = 147
+            Height = 34
+            Alignment = taLeftJustify
+            Caption = 'Filter'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -15
+            Font.Name = 'Calibri'
+            Font.Style = []
+            ParentFont = False
+            TabOrder = 3
+            OnClick = FilterAllBTNClick
+            Spacing = 8
+          end
+          object ClearBTN: TRzBitBtn
+            AlignWithMargins = True
+            Left = 46
+            Top = 183
+            Width = 147
+            Height = 34
+            Alignment = taLeftJustify
+            Caption = 'Clear Filter'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -15
+            Font.Name = 'Calibri'
+            Font.Style = []
+            ParentFont = False
+            TabOrder = 4
+            OnClick = ClearBTNClick
+            Spacing = 8
+          end
+          object FindHawbFLD: TSearchBox
+            Left = 46
+            Top = 342
+            Width = 147
+            Height = 23
+            TabOrder = 5
+            OnEnter = FindHawbFLDEnter
+            OnInvokeSearch = FindHawbFLDInvokeSearch
           end
         end
       end
@@ -3886,8 +3944,8 @@ object V_MawbFRM: TV_MawbFRM
     end
   end
   object ImageList2: TImageList
-    Left = 1217
-    Top = 91
+    Left = 105
+    Top = 219
     Bitmap = {
       494C010102000400040010001000FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000400000001000000001002000000000000010
@@ -5084,5 +5142,9 @@ object V_MawbFRM: TV_MawbFRM
     end
     object ppParameterList1: TppParameterList
     end
+  end
+  object IdCompressorZLib1: TIdCompressorZLib
+    Left = 1044
+    Top = 143
   end
 end

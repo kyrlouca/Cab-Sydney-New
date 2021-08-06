@@ -13,7 +13,7 @@ uses
   IBCScript, MemData, System.ImageList, vcl.wwcheckbox, RzPanel, RzButton, G_OtherProcs, G_kyriacosTypes,
   RzDBNav, vcl.WinXCtrls, ppDesignLayer, ppParameter, RzCmboBx, RzRadGrp,
   RzDBRGrp, vcl.wwbutton, System.Rtti, System.Bindings.Outputs, vcl.Bind.Editors, Data.Bind.EngExt, vcl.Bind.DBEngExt, Data.Bind.Components,
-  Data.Bind.DBScope, RzLabel, RzDBLbl;
+  Data.Bind.DBScope, RzLabel, RzDBLbl, IdBaseComponent, IdZLibCompressorBase, IdCompressorZLib;
 
 const
 
@@ -46,71 +46,12 @@ type
     Panel8: TRzPanel;
     MawbPC: TPageControl;
     MawbDetailsTS: TTabSheet;
-    MiddlePanelPNL: TPanel;
-    PortsPNL: TGroupBox;
-    Label17: TLabel;
-    Label14: TLabel;
-    ImportPortFLD: TwwDBComboBox;
-    ClearingStationFLD: TwwDBComboBox;
-    PassedPNL: TGroupBox;
-    Label5: TLabel;
-    Label11: TLabel;
-    PassedFLD: TwwDBComboBox;
-    DatePassedFLD: TwwDBDateTimePicker;
-    MawbPNL: TGroupBox;
-    Label1: TLabel;
-    Label3: TLabel;
-    Label13: TLabel;
-    ReferenceFld: TwwDBEdit;
-    MawbYearFld: TwwDBEdit;
-    MawbFLD: TwwDBEdit;
-    RotationFLD: TwwDBEdit;
-    Rotation_2FLD: TwwDBEdit;
-    RotationYearFLD: TwwDBEdit;
-    AirportPNL: TGroupBox;
-    Label10: TLabel;
-    Label4: TLabel;
-    ArrivalDateFLD: TwwDBDateTimePicker;
-    FlightsDLG: TwwDBComboBox;
-    MawbDetails: TGroupBox;
-    a: TLabel;
-    Label8: TLabel;
-    Label9: TLabel;
-    SignatoryFLD: TwwDBEdit;
-    FormDateDLG: TwwDBDateTimePicker;
-    CountryFLD: TwwDBComboBox;
-    EditHawbBTN: TButton;
     Panel2: TPanel;
     AcceptBTN: TBitBtn;
     Panel4: TPanel;
     CloseBTN: TBitBtn;
     SendBTN: TBitBtn;
     CancelBTN: TBitBtn;
-    UpperPanelxPNL: TRzPanel;
-    FilterPanelPNL: TRzGroupBox;
-    Label35: TLabel;
-    Label36: TLabel;
-    Label37: TLabel;
-    BYStartDateFLD: TwwDBDateTimePicker;
-    ByRefFLD: TSearchBox;
-    ByMawbIDsFLD: TSearchBox;
-    RzBitBtn1: TRzBitBtn;
-    FilterHawbPanelPNL: TRzGroupBox;
-    Label41: TLabel;
-    Label6: TLabel;
-    FilterBox: TwwDBComboBox;
-    FindHawbFLD: TSearchBox;
-    RzPanel1: TRzPanel;
-    Panel6: TPanel;
-    ToolbarPNL: TRzToolbar;
-    BtnLeft: TRzToolButton;
-    BtnRight: TRzToolButton;
-    BtnPost: TRzToolButton;
-    BtnRefresh: TRzToolButton;
-    BtnInsertRecord: TRzToolButton;
-    BtnDeleteRecord: TRzToolButton;
-    BtnCancel: TRzToolButton;
-    MawbSelectGRD: TwwDBGrid;
     PartialHawbTS: TTabSheet;
     Panel15: TPanel;
     wwDBNavigator4: TwwDBNavigator;
@@ -204,7 +145,6 @@ type
     Button1: TButton;
     MhawbsGRD: TwwDBGrid;
     wwIButton1: TwwIButton;
-    ReadyFilter: TRzRadioGroup;
     BucketHawbsTS: TTabSheet;
     Panel1: TPanel;
     RzPanel8: TRzPanel;
@@ -218,8 +158,6 @@ type
     BindingsList1: TBindingsList;
     BindSourceDB2: TBindSourceDB;
     LinkPropertyToFieldFK_CLEARING_STATE: TLinkPropertyToField;
-    RzDBLabel1: TRzDBLabel;
-    WebSentFilter: TRzRadioGroup;
     CreateMediumXMLWarehouse1: TMenuItem;
     MediumValueReport1: TMenuItem;
     EmptyRep: TppReport;
@@ -235,6 +173,73 @@ type
     UnlockHawbBTN: TRzBitBtn;
     SendToCustoms1: TMenuItem;
     SendMediumToCustoms1: TMenuItem;
+    RzPanel11: TRzPanel;
+    RzPanel10: TRzPanel;
+    UpperPanelxPNL: TRzPanel;
+    FilterPanelPNL: TRzGroupBox;
+    Label35: TLabel;
+    Label36: TLabel;
+    Label37: TLabel;
+    BYStartDateFLD: TwwDBDateTimePicker;
+    ByRefFLD: TSearchBox;
+    ByMawbIDsFLD: TSearchBox;
+    RzBitBtn1: TRzBitBtn;
+    RzPanel1: TRzPanel;
+    Panel6: TPanel;
+    ToolbarPNL: TRzToolbar;
+    BtnLeft: TRzToolButton;
+    BtnRight: TRzToolButton;
+    BtnPost: TRzToolButton;
+    BtnRefresh: TRzToolButton;
+    BtnInsertRecord: TRzToolButton;
+    BtnDeleteRecord: TRzToolButton;
+    BtnCancel: TRzToolButton;
+    MawbSelectGRD: TwwDBGrid;
+    MiddlePanelPNL: TPanel;
+    RzDBLabel1: TRzDBLabel;
+    PortsPNL: TGroupBox;
+    Label17: TLabel;
+    Label14: TLabel;
+    ImportPortFLD: TwwDBComboBox;
+    ClearingStationFLD: TwwDBComboBox;
+    PassedPNL: TGroupBox;
+    Label5: TLabel;
+    Label11: TLabel;
+    PassedFLD: TwwDBComboBox;
+    DatePassedFLD: TwwDBDateTimePicker;
+    MawbPNL: TGroupBox;
+    Label1: TLabel;
+    Label3: TLabel;
+    Label13: TLabel;
+    ReferenceFld: TwwDBEdit;
+    MawbYearFld: TwwDBEdit;
+    MawbFLD: TwwDBEdit;
+    RotationFLD: TwwDBEdit;
+    Rotation_2FLD: TwwDBEdit;
+    RotationYearFLD: TwwDBEdit;
+    AirportPNL: TGroupBox;
+    Label10: TLabel;
+    Label4: TLabel;
+    ArrivalDateFLD: TwwDBDateTimePicker;
+    FlightsDLG: TwwDBComboBox;
+    MawbDetails: TGroupBox;
+    a: TLabel;
+    Label8: TLabel;
+    Label9: TLabel;
+    SignatoryFLD: TwwDBEdit;
+    FormDateDLG: TwwDBDateTimePicker;
+    CountryFLD: TwwDBComboBox;
+    EditHawbBTN: TButton;
+    IdCompressorZLib1: TIdCompressorZLib;
+    Panel7: TPanel;
+    Label6: TLabel;
+    ClearanceFilter: TwwDBComboBox;
+    ReadyFilter: TRzRadioGroup;
+    RzBitBtn4: TRzBitBtn;
+    FilterAllBTN: TRzBitBtn;
+    ClearBTN: TRzBitBtn;
+    Label41: TLabel;
+    FindHawbFLD: TSearchBox;
     procedure AcceptBTNClick(Sender: TObject);
     procedure CancelBTNClick(Sender: TObject);
     procedure FormActivate(Sender: TObject);
@@ -342,6 +347,8 @@ type
     procedure FetchBuckets1Click(Sender: TObject);
     procedure UnlockHawbBTNClick(Sender: TObject);
     procedure SendMediumToCustoms1Click(Sender: TObject);
+    procedure FilterAllBTNClick(Sender: TObject);
+    procedure ClearBTNClick(Sender: TObject);
   private
     { Private declarations }
     cn: TIBCConnection;
@@ -376,6 +383,8 @@ type
     procedure PrintSelected(ReportType: String; OnPrinter: Boolean);
 
     Function SendToCustoms(): Integer;
+    procedure FilterAllNew();
+    procedure FilterClear();
   public
 
     { Public declarations }
@@ -603,7 +612,7 @@ procedure TV_MawbFRM.BucketSettings(var isNOrmal: Boolean);
       ToolbarPNL.Visible := false;
       MiddlePanelPNL.Visible := false;
       FilterPanelPNL.Visible := false;
-//      FromBucketBtn.Visible := false;
+      // FromBucketBtn.Visible := false;
 
       for var I := 1 to MawbPC.PageCount - 1 do
         MawbPC.pages[I].TabVisible := false;
@@ -619,7 +628,7 @@ procedure TV_MawbFRM.BucketSettings(var isNOrmal: Boolean);
       ToolbarPNL.Visible := true;
       MiddlePanelPNL.Visible := true;
       FilterPanelPNL.Visible := true;
-//      FromBucketBtn.Visible := true;
+      // FromBucketBtn.Visible := true;
       BucketHawbsTS.Visible := true;
       for var I := 1 to MawbPC.PageCount - 1 do
         MawbPC.pages[I].TabVisible := true;
@@ -686,6 +695,11 @@ procedure TV_MawbFRM.ClearancesTSEnter(Sender: TObject);
     ksOpenTables([V_MawbDataDML.HawbStatusSQL]);
     // ksfillComboF1(cn,SelectClearanceFLD,'clearance_waiting_code','code','','code',true,true);
     // ksfillComboF1(cn,NewStatusFLD,'clearance_waiting_code','code','','code',false,false);
+  end;
+
+procedure TV_MawbFRM.ClearBTNClick(Sender: TObject);
+  begin
+    FilterClear();
   end;
 
 procedure TV_MawbFRM.FlightDLGNotInList(Sender: TObject; LookupTable: TDataSet; NewValue: String; var Accept: Boolean);
@@ -938,6 +952,7 @@ procedure TV_MawbFRM.FindHawbFLDEnter(Sender: TObject);
 procedure TV_MawbFRM.FindHawbFLDInvokeSearch(Sender: TObject);
   Var hawbId: String; HawbDS: TibcQuery;
   begin
+   MhawbsGRD.UnselectAll;
     HawbDS := TibcQuery(MhawbsGRD.DataSource.DataSet);
     hawbId := Trim(FindHawbFLD.Text);
     HawbDS.LocateEx('Hab_id', hawbId, [lxPartialKey]);
@@ -1258,10 +1273,9 @@ procedure TV_MawbFRM.SendMediumToCustoms1Click(Sender: TObject);
 
 Function TV_MawbFRM.SendToCustoms(): Integer;
   begin
-   //Actually it will just create entries in low_pending.
-   //Send only  medium, cleared and low_pending, low_sent does NOT exist
+    // Actually it will just create entries in low_pending.
+    // Send only  medium, cleared and low_pending, low_sent does NOT exist
     var MawbSerial: Integer := V_MawbDataDML.MawbSQL.FieldByName('REFERENCE_NUMBER').AsInteger;
-
 
     var sqlStr: string := '';
     sqlStr := sqlStr + ' select ha.serial_number  from hawb ha ';
@@ -1269,7 +1283,6 @@ Function TV_MawbFRM.SendToCustoms(): Integer;
     sqlStr := sqlStr + ' left outer join low_send ls on ls.hawb_serial_number =ha.serial_number ';
     sqlStr := sqlStr + ' where ha.fk_mawb_refer_number = :MawbSerial and ha.fk_clearance_instruction=''MED'' and ha.fk_clearing_state= ''1'' ';
     sqlStr := sqlStr + ' and lp.serial_number is null and ls.serial_number is null ';
-
 
     var Count: Integer := 0;
     var qr: TibcQuery := TksQuery.Create(cn, sqlStr);
@@ -1372,7 +1385,7 @@ procedure TV_MawbFRM.FormCreate(Sender: TObject);
     ksfillComboF1(cn, ClearingStationFLD, 'port', 'code', 'DESCRIPTION');
     ksfillComboF1(cn, CountryFLD, 'COUNTRY', 'nUMBER', 'NAME');
     // ksfillComboF1(cn,FilterBox,'CLEARANCE_INSTRUCTION','code','description','order_number',false,true);
-    FilterBox.ItemIndex := 0;
+    // FilterBox.ItemIndex := 0;
     isNormalMawb := true;
 
     // MawbPC.ActivePageIndex := 0;
@@ -2158,7 +2171,7 @@ procedure TV_MawbFRM.MhawbsGRDDblClick(Sender: TObject);
     V_HawbFRM.IN_hawbSerial := hawbSerial;
 
     V_HawbFRM.IN_Action := 'EDIT';
-    V_HawbFRM.IN_MawbFIlter := FilterBox.Value;
+    // V_HawbFRM.IN_MawbFIlter := FilterBox.Value;
 
     V_HawbFRM.ShowModal;
     hawbSerial := V_HawbFRM.OUT_HawbSerial;
@@ -2585,5 +2598,76 @@ procedure TV_MawbFRM.PrintSelected(ReportType: String; OnPrinter: Boolean);
 
   end;
 /// //////////////////////////////////////
+
+procedure TV_MawbFRM.FilterAllBTNClick(Sender: TObject);
+  begin
+    FilterAllNew();
+  end;
+
+procedure TV_MawbFRM.FilterAllNew();
+  begin
+//    var StartDate: TDateTime := DateStartFLD.Date;
+//    var EndDate: TDateTime := DateEndFLD.Date;
+
+    V_MawbDataDML.hawbSQL.DisableControls;
+
+    With V_MawbDataDML.hawbSQL do
+    begin
+      MhawbsGRD.UnselectAll;
+      close;
+      RestoreSQL;
+
+      var clearingInstruction: string := ClearanceFilter.Value;
+      if (clearingInstruction = 'All') or (Trim(clearingInstruction) = '') then
+      begin
+
+        // Do nothing
+      end
+      else if clearingInstruction = 'IT2' then
+      begin
+        AddWhere('(fk_clearance_instruction =''IM4'' OR fk_clearance_instruction = ''DO'' Or fk_clearance_instruction =''DOZ'') ');
+      end
+      else
+      begin
+        AddWhere('fk_clearance_instruction =' + QuotedStr(clearingInstruction));
+      end;
+
+
+      var Cli: Integer := ReadyFilter.ItemIndex;
+
+      if Cli = 0 then
+      begin
+        // do nothing
+      end
+      else if Cli = 1 then
+      begin
+        AddWhere('fk_clearing_state =''1'' ');
+
+      end
+      else if Cli = 2 then
+      begin
+        AddWhere('fk_clearing_state =''0'' ');
+      end;
+
+      If not prepared then
+        prepare;
+      // Memo1.Lines := BucketsSQL.SQL;
+      V_MawbDataDML.hawbSQL.open;
+
+    end;
+
+    V_MawbDataDML.hawbSQL.EnableControls;
+  end;
+
+procedure TV_MawbFRM.FilterClear();
+  begin
+
+    ClearanceFilter.Value := '';
+
+    ReadyFilter.ItemIndex := 0;
+//    DateStartFLD.ClearDateTime;
+//    DateEndFLD.ClearDateTime;
+    FilterAllNew();
+  end;
 
 END.
