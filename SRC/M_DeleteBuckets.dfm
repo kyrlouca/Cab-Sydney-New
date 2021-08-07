@@ -863,7 +863,7 @@ object M_deleteBucketsFRM: TM_deleteBucketsFRM
       
         'left outer join low_Failed fa on ha.serial_number= fa.hawb_seria' +
         'l_number'
-      ' where ha.fk_mawb_refer_number =1000000'
+      ' where ha.fk_mawb_refer_number = 1000000'
       'order by ha.hab_id asc'
       '')
     Active = True

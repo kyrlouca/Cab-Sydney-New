@@ -211,6 +211,12 @@ uses U_ClairDML, V_hawb, G_generalProcs;
 
 procedure TM_deleteBucketsFRM.FormActivate(Sender: TObject);
   begin
+    BucketsSQL.DisableControls;
+    BucketsSQL.close;
+//    BucketsSQL.ParamByName('REFERENCE_NUMBER').Value := 1000000;
+    BucketsSQL.open;
+    BucketsSQL.EnableControls;
+
     CountRecords();
     BucketsGRD.Options := BucketsGRD.Options + [Wwdbigrd.dgMultiSelect];
   end;
@@ -218,7 +224,7 @@ procedure TM_deleteBucketsFRM.FormActivate(Sender: TObject);
 procedure TM_deleteBucketsFRM.FormCreate(Sender: TObject);
   begin
     cn := ClairDML.CabCOnnection;
-    ksOpenTables([BucketsSQL]);
+    // ksOpenTables([BucketsSQL]);
     // DateStartFLD.Date := now;
   end;
 
@@ -237,8 +243,8 @@ procedure TM_deleteBucketsFRM.SelectAllBTNClick(Sender: TObject);
     HawbDS := BucketsSQL;
     HawbDS.DisableControls;
     HawbDS.RestoreSQL;
-    HawbDS.Close;
-    HawbDS.Open;
+    HawbDS.close;
+    HawbDS.open;
     HawbDS.Refresh;
 
     BucketsSQL.First;
@@ -249,7 +255,7 @@ procedure TM_deleteBucketsFRM.SelectAllBTNClick(Sender: TObject);
 
 procedure TM_deleteBucketsFRM.BitBtn2Click(Sender: TObject);
   begin
-    Close;
+    close;
   end;
 
 procedure TM_deleteBucketsFRM.BucketsGRDDblClick(Sender: TObject);
@@ -267,15 +273,17 @@ procedure TM_deleteBucketsFRM.BucketsGRDDblClick(Sender: TObject);
       MessageDlg('Record is LOCKED by another user ', mtInformation, [mbOK], 0);
       exit;
     end;
+// does not work since sortgrid only works with tables without params
+//    v_hawbFRM.IN_sortedSQL := BucketsSQL.FinalSQL;
+//    v_hawbFRM.IN_MawbSerial 0;
+    v_hawbFRM.IN_hawbSerial := hawbSerial;
+    v_hawbFRM.SpecialHawbSerial := hawbSerial;
 
-    V_HawbFRM.IN_hawbSerial := hawbSerial;
-    V_HawbFRM.SpecialHawbSerial := hawbSerial;
-
-    V_HawbFRM.IN_Action := 'EDIT';
+    v_hawbFRM.IN_Action := 'EDIT';
     // V_HawbFRM.IN_MawbFIlter := FilterBox.Value;
 
-    V_HawbFRM.ShowModal;
-    hawbSerial := V_HawbFRM.OUT_HawbSerial;
+    v_hawbFRM.ShowModal;
+    hawbSerial := v_hawbFRM.OUT_HawbSerial;
     // ksOpenTables([V_MawbDataDML.hawbSQL]);
 
     try
@@ -327,7 +335,7 @@ function TM_deleteBucketsFRM.CountRecords: Integer;
     var qr: TksQuery := TksQuery.Create(cn, 'select count(*) cnt from hawb where fk_mawb_refer_number = 1000000');
     var count: Integer := 0;
     try
-      qr.Open;
+      qr.open;
       count := qr.FieldByName('cnt').AsInteger;
       CountLbl.Caption := 'Buckets:' + count.ToString;
     finally
@@ -371,7 +379,7 @@ procedure TM_deleteBucketsFRM.wwIncrementalSearch1Enter(Sender: TObject);
     BucketsSQL.DisableControls;
     BucketsGRD.UnselectAll;
     BucketsSQL.RestoreSQL;
-    BucketsSQL.Open;
+    BucketsSQL.open;
     BucketsSQL.Refresh;
     BucketsSQL.Filtered := false;
     BucketsSQL.EnableControls;
@@ -388,7 +396,6 @@ procedure TM_deleteBucketsFRM.wwIncrementalSearch1Exit(Sender: TObject);
 
   end;
 
-
 //
 procedure TM_deleteBucketsFRM.ClearBTNClick(Sender: TObject);
   begin
@@ -400,18 +407,16 @@ procedure TM_deleteBucketsFRM.FilterClear();
 
     ClearanceFilter.Value := '';
 
-    ReadyFilter.ItemIndex:=0;
+    ReadyFilter.ItemIndex := 0;
     DateStartFLD.ClearDateTime;
     DateEndFLD.ClearDateTime;
     FilterAllNew();
   end;
 
-
-  procedure TM_deleteBucketsFRM.FilterAllBTNClick(Sender: TObject);
+procedure TM_deleteBucketsFRM.FilterAllBTNClick(Sender: TObject);
   begin
     FilterAllNew();
   end;
-
 
 procedure TM_deleteBucketsFRM.FilterAllNew();
   begin
@@ -423,7 +428,7 @@ procedure TM_deleteBucketsFRM.FilterAllNew();
     With BucketsSQL do
     begin
       BucketsGRD.UnselectAll;
-      Close;
+      close;
       RestoreSQL;
 
       var clearingInstruction: string := ClearanceFilter.Value;
@@ -474,7 +479,7 @@ procedure TM_deleteBucketsFRM.FilterAllNew();
       If not prepared then
         prepare;
       Memo1.Lines := BucketsSQL.SQL;
-      BucketsSQL.Open;
+      BucketsSQL.open;
 
     end;
 

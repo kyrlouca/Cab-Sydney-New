@@ -682,9 +682,9 @@ object V_MawbFRM: TV_MawbFRM
             'SERIAL_NUMBER'#9'10'#9'* S/N'#9#9
             'HAB_ID'#9'14'#9'Hawb'#9#9
             'FK_CLEARING_STATE'#9'8'#9'Ready'#9'F'#9
+            'XML_HOUSE_ID'#9'14'#9'TDID'#9#9
             'FK_INVOICE_STATUS'#9'5'#9'Inv'#9#9
             'PROCEDURE_CODE'#9'6'#9'Proc'
-            'XML_HOUSE_ID'#9'14'#9'TDID'#9#9
             'FK_CLEARANCE_INSTRUCTION'#9'7'#9'Type'#9#9
             'CLEARANCE_WAITING_CODE'#9'8'#9'Status'#9#9
             'DESCRIPTION'#9'24'#9'Description'#9#9
@@ -727,6 +727,7 @@ object V_MawbFRM: TV_MawbFRM
           OnDblClick = MhawbsGRDDblClick
           OnKeyDown = MhawbsGRDKeyDown
           TitleImageList = ImageList2
+          ExplicitTop = 4
           object wwIButton1: TwwIButton
             Left = 0
             Top = 0

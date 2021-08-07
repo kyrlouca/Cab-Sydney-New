@@ -642,9 +642,12 @@ procedure TV_HawbFRM.FormActivate(Sender: TObject);
   Var TheDataset: TDataset; HawbDataset: TIBCQuery; SenderInvoiceDS: TDataset;
   begin
 
-    if 1 = 1 then
+    if IN_MawbSerial > 0 then
     begin
+      //only if IN_MawbSerial is provided, will work (buckets do not have)
       // copy the sql on the hawb used by mawb to sortSQL for navigation
+
+
       v_hawbDataDML.SortedHawbsSQL.close;
       v_hawbDataDML.SortedHawbsSQL.sql.Clear;
       v_hawbDataDML.SortedHawbsSQL.sql.Add(IN_sortedSQL);
@@ -1473,6 +1476,10 @@ function TV_HawbFRM.FillHawbItemRec(): ThdHawbItemRecord;
 procedure TV_HawbFRM.MoveRec(Const Direction: string);
   var qr: TksQuery; str: String; nextHawbSerial: Integer; nextHawbId: String; ClrType: string; clrFilter: String; orderBystr: String;
   begin
+
+
+    if In_MawbSerial=0 then
+      exit;
 
     if not v_hawbDataDML.SortedHawbsSQL.Active then
       v_hawbDataDML.SortedHawbsSQL.Open;
