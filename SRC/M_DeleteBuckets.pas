@@ -160,6 +160,10 @@ type
     FilterAllBTN: TRzBitBtn;
     Memo1: TMemo;
     ClearBTN: TRzBitBtn;
+    MawbBucketSQL: TIBCQuery;
+    MawbBucketSQLREFERENCE_NUMBER: TIntegerField;
+    MawbBucketSQLMAWB_ID: TStringField;
+    MawbBucketSRC: TIBCDataSource;
     procedure FormCreate(Sender: TObject);
     procedure BitBtn2Click(Sender: TObject);
     procedure DeleteRBTNClick(Sender: TObject);
@@ -211,12 +215,10 @@ uses U_ClairDML, V_hawb, G_generalProcs;
 
 procedure TM_deleteBucketsFRM.FormActivate(Sender: TObject);
   begin
-    BucketsSQL.DisableControls;
-    BucketsSQL.close;
-//    BucketsSQL.ParamByName('REFERENCE_NUMBER').Value := 1000000;
-    BucketsSQL.open;
-    BucketsSQL.EnableControls;
+//    BucketsSQL.DisableControls;
 
+    ksOpenTables([MawbBucketSQL,BucketsSQL]);
+//    BucketsSQL.EnableControls;
     CountRecords();
     BucketsGRD.Options := BucketsGRD.Options + [Wwdbigrd.dgMultiSelect];
   end;
@@ -273,14 +275,17 @@ procedure TM_deleteBucketsFRM.BucketsGRDDblClick(Sender: TObject);
       MessageDlg('Record is LOCKED by another user ', mtInformation, [mbOK], 0);
       exit;
     end;
-// does not work since sortgrid only works with tables without params
-//    v_hawbFRM.IN_sortedSQL := BucketsSQL.FinalSQL;
-//    v_hawbFRM.IN_MawbSerial 0;
+    // does not work since sortgrid only works with tables without params
+    // v_hawbFRM.IN_sortedSQL := BucketsSQL.FinalSQL;
+    // v_hawbFRM.IN_MawbSerial 0;
     v_hawbFRM.IN_hawbSerial := hawbSerial;
     v_hawbFRM.SpecialHawbSerial := hawbSerial;
 
+
     v_hawbFRM.IN_Action := 'EDIT';
-    // V_HawbFRM.IN_MawbFIlter := FilterBox.Value;
+    v_hawbFRM.IN_hawbSerial := hawbSerial;
+    v_hawbFRM.IN_sortedSQL := BucketsSQL.FinalSQL;
+    v_hawbFRM.IN_MawbSerial := MawbBucketSQL.FieldByName('REFERENCE_NUMBER').AsInteger;
 
     v_hawbFRM.ShowModal;
     hawbSerial := v_hawbFRM.OUT_HawbSerial;
@@ -476,8 +481,7 @@ procedure TM_deleteBucketsFRM.FilterAllNew();
         Addwhere('fk_clearing_state =''0'' ');
       end;
 
-      If not prepared then
-        prepare;
+      If not prepared then prepare;
       Memo1.Lines := BucketsSQL.SQL;
       BucketsSQL.open;
 

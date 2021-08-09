@@ -293,7 +293,7 @@ type
 
     procedure FillWaitingCodes(Const ClrType: String);
 
-    procedure MoveRec(Const Direction: string);
+    procedure MoveRec(Const currentHawbSerial:integer;Const Direction: string);
     procedure SelectCustomer;
     Function ClearLineFields(): Boolean;
     procedure DisplayClearanceStatus;
@@ -521,8 +521,9 @@ procedure TV_HawbFRM.BtnLeftClick(Sender: TObject);
     end;
 
     HawbId := v_hawbDataDML.HawbSQL.FieldByName('hab_id').AsString;
+    var Hawbserial := v_hawbDataDML.HawbSQL.FieldByName('SERIAL_NUMBER').AsINTEGER;
     MawbSerial := v_hawbDataDML.HawbSQL.FieldByName('FK_Mawb_refer_number').AsInteger;
-    MoveRec('P');
+    MoveRec(HawbSerial,'P');
 
   end;
 
@@ -559,7 +560,8 @@ procedure TV_HawbFRM.BtnRightClick(Sender: TObject);
 
     HawbId := v_hawbDataDML.HawbSQL.FieldByName('hab_id').AsString;
     MawbSerial := v_hawbDataDML.HawbSQL.FieldByName('FK_Mawb_refer_number').AsInteger;
-    MoveRec('N');
+   var Hawbserial := v_hawbDataDML.HawbSQL.FieldByName('SERIAL_NUMBER').AsINTEGER;
+    MoveRec(hawbSerial,'N');
 
   end;
 
@@ -839,7 +841,8 @@ procedure TV_HawbFRM.wwNavButton16Click(Sender: TObject);
 
     HawbId := v_hawbDataDML.HawbSQL.FieldByName('hab_id').AsString;
     MawbSerial := v_hawbDataDML.HawbSQL.FieldByName('FK_Mawb_refer_number').AsInteger;
-    MoveRec('P');
+        var Hawbserial := v_hawbDataDML.HawbSQL.FieldByName('SERIAL_NUMBER').AsINTEGER;
+    MoveRec(hawbSerial,'P');
     abort;
   end;
 
@@ -1473,7 +1476,7 @@ function TV_HawbFRM.FillHawbItemRec(): ThdHawbItemRecord;
 
   end;
 
-procedure TV_HawbFRM.MoveRec(Const Direction: string);
+procedure TV_HawbFRM.MoveRec(Const currentHawbSerial:integer;Const Direction: string);
   var qr: TksQuery; str: String; nextHawbSerial: Integer; nextHawbId: String; ClrType: string; clrFilter: String; orderBystr: String;
   begin
 
@@ -1483,6 +1486,9 @@ procedure TV_HawbFRM.MoveRec(Const Direction: string);
 
     if not v_hawbDataDML.SortedHawbsSQL.Active then
       v_hawbDataDML.SortedHawbsSQL.Open;
+
+     v_hawbDataDML.SortedHawbsSQL.Locate('SERIAL_NUMBER',currentHawbSerial,[]);
+
 
     if Direction = 'N' then
     begin
@@ -1497,6 +1503,7 @@ procedure TV_HawbFRM.MoveRec(Const Direction: string);
     else
     begin
       // prior=P
+
       if v_hawbDataDML.SortedHawbsSQL.Bof then
       begin
         exit;

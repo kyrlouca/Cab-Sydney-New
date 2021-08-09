@@ -863,13 +863,23 @@ object M_deleteBucketsFRM: TM_deleteBucketsFRM
       
         'left outer join low_Failed fa on ha.serial_number= fa.hawb_seria' +
         'l_number'
-      ' where ha.fk_mawb_refer_number = 1000000'
+      ' where ha.FK_MAWB_REFER_NUMBER = 1000000'
       'order by ha.hab_id asc'
       '')
+    MasterFields = 'REFERENCE_NUMBER'
+    DetailFields = 'FK_MAWB_REFER_NUMBER'
+    MasterSource = MawbBucketSRC
     Active = True
     AfterOpen = BucketsSQLAfterOpen
-    Left = 344
+    Left = 272
     Top = 9
+    ParamData = <
+      item
+        DataType = ftInteger
+        Name = 'REFERENCE_NUMBER'
+        ParamType = ptInput
+        Value = 1000000
+      end>
     object BucketsSQLSERIAL_NUMBER: TIntegerField
       DisplayLabel = '* S/N'
       DisplayWidth = 10
@@ -1503,5 +1513,58 @@ object M_deleteBucketsFRM: TM_deleteBucketsFRM
       FixedChar = True
       Size = 1
     end
+  end
+  object MawbBucketSQL: TIBCQuery
+    SQLInsert.Strings = (
+      'INSERT INTO MAWB'
+      '  (REFERENCE_NUMBER, MAWB_ID)'
+      'VALUES'
+      '  (:REFERENCE_NUMBER, :MAWB_ID)')
+    SQLDelete.Strings = (
+      'DELETE FROM MAWB'
+      'WHERE'
+      '  REFERENCE_NUMBER = :Old_REFERENCE_NUMBER')
+    SQLUpdate.Strings = (
+      'UPDATE MAWB'
+      'SET'
+      '  REFERENCE_NUMBER = :REFERENCE_NUMBER, MAWB_ID = :MAWB_ID'
+      'WHERE'
+      '  REFERENCE_NUMBER = :Old_REFERENCE_NUMBER')
+    SQLRefresh.Strings = (
+      'SELECT REFERENCE_NUMBER, MAWB_ID FROM MAWB'
+      'WHERE'
+      '  REFERENCE_NUMBER = :REFERENCE_NUMBER')
+    SQLLock.Strings = (
+      'SELECT NULL FROM MAWB'
+      'WHERE'
+      'REFERENCE_NUMBER = :Old_REFERENCE_NUMBER'
+      'FOR UPDATE WITH LOCK')
+    SQLRecCount.Strings = (
+      'SELECT COUNT(*) FROM ('
+      'SELECT 1 AS C  FROM MAWB'
+      ''
+      ') q')
+    Connection = ClairDML.CabCOnnection
+    SQL.Strings = (
+      
+        'select ma.reference_number,ma.mawb_id from mawb ma where ma.refe' +
+        'rence_number=1000000')
+    ReadOnly = True
+    Active = True
+    Left = 194
+    Top = 322
+    object MawbBucketSQLREFERENCE_NUMBER: TIntegerField
+      FieldName = 'REFERENCE_NUMBER'
+      Required = True
+    end
+    object MawbBucketSQLMAWB_ID: TStringField
+      FieldName = 'MAWB_ID'
+      Size = 15
+    end
+  end
+  object MawbBucketSRC: TIBCDataSource
+    DataSet = MawbBucketSQL
+    Left = 314
+    Top = 330
   end
 end
