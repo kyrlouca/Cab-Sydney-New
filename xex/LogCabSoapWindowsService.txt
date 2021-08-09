@@ -1,3 +1,2 @@
-﻿Logger-11:09:33 π.μ.--After Install  Param:C:\Users\kyrlo\soft\Delphi\Cab-Sydney\xex\CabSoapWindowsService.exe
-Logger-11:10:07 AM--started
-Logger-11:20:07 AM--Stopped:CabSendXmlCustoms
+﻿Logger-12:23:56 μ.μ.--After Install  Param:C:\Users\kyrlo\soft\Delphi\Cab-Sydney\xex\CabSoapWindowsService.exe
+Logger-12:24:43 PM--started

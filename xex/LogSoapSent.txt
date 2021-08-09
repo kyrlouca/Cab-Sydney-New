@@ -1,6 +1,6 @@
-time m1: 8/9/2021 11:10:11 AM-- hawb:509883 -- C:\Users\kyrlo\soft\Delphi\Cab-Sydney\EXE\LogDhlSoapService.txt
-time m1: 8/9/2021 11:10:12 AM-- hawb:509884 -- C:\Users\kyrlo\soft\Delphi\Cab-Sydney\EXE\LogDhlSoapService.txt
-time m1: 8/9/2021 11:11:14 AM-- hawb:509884 -- C:\Users\kyrlo\soft\Delphi\Cab-Sydney\EXE\LogDhlSoapService.txt
-time m1: 8/9/2021 11:14:19 AM-- hawb:509883 -- C:\Users\kyrlo\soft\Delphi\Cab-Sydney\EXE\LogDhlSoapService.txt
-time m1: 8/9/2021 11:15:22 AM-- hawb:509883 -- C:\Users\kyrlo\soft\Delphi\Cab-Sydney\EXE\LogDhlSoapService.txt
-time m1: 8/9/2021 11:15:23 AM-- hawb:509884 -- C:\Users\kyrlo\soft\Delphi\Cab-Sydney\EXE\LogDhlSoapService.txt
+time -mm: 8/9/2021 12:24:46 PM-- hawb:509884 -- C:\Users\kyrlo\soft\Delphi\Cab-Sydney\EXE\LogDhlSoapService.txt
+time -mm: 8/9/2021 12:24:48 PM-- hawb:509883 -- C:\Users\kyrlo\soft\Delphi\Cab-Sydney\EXE\LogDhlSoapService.txt
+time: 8/9/2021 12:24:48 PM-- Sent a total of 2 Medium Hawbs
+time -mm: 8/9/2021 12:26:19 PM-- hawb:509883 -- C:\Users\kyrlo\soft\Delphi\Cab-Sydney\EXE\LogDhlSoapService.txt
+time -mm: 8/9/2021 12:26:20 PM-- hawb:509884 -- C:\Users\kyrlo\soft\Delphi\Cab-Sydney\EXE\LogDhlSoapService.txt
+time: 8/9/2021 12:26:20 PM-- Sent a total of 2 Medium Hawbs
