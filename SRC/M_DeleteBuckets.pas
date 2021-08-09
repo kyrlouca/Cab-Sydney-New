@@ -287,6 +287,10 @@ procedure TM_deleteBucketsFRM.BucketsGRDDblClick(Sender: TObject);
     v_hawbFRM.IN_sortedSQL := BucketsSQL.FinalSQL;
     v_hawbFRM.IN_MawbSerial := MawbBucketSQL.FieldByName('REFERENCE_NUMBER').AsInteger;
 
+
+
+
+
     v_hawbFRM.ShowModal;
     hawbSerial := v_hawbFRM.OUT_HawbSerial;
     // ksOpenTables([V_MawbDataDML.hawbSQL]);
