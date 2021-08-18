@@ -260,12 +260,12 @@ function TU_GenerateInvFRM.GenerateOneInvoice(Const HawbSerial: Integer; Invoice
     var DutyBillingAccount: string := qr.FieldByName('DUTY_BILLING_ACCOUNT').AsString;
     var ProcedureCode: string := qr.FieldByName('PROCEDURE_CODE').AsString;
 
-    if ((ClearInstruct = 'MED') and (ProcedureCode = 'F48')) then
-    begin
-      WriteTrans.Rollback;
-      result := 0;
-      exit;
-    end;
+//    if ((ClearInstruct = 'MED') and (ProcedureCode = 'F48')) then
+//    begin
+//      WriteTrans.Rollback;
+//      result := 0;
+//      exit;
+//    end;
 
     // PROCEDURE_CODE
     // DUTY_BILLING_ACCOUNT
