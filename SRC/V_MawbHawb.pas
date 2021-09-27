@@ -3,7 +3,7 @@ unit V_MawbHawb;
 /// ////////////////////////////////////////////
 /// starting from reverse order
 /// 1.  CalcHawbCharge will create one hawb charge (all the info is given)
-/// 2.  ***CreateChargesFromTariff go through each tariff line (tariffs may have more than one line) and call 1 above
+/// 2.  ***CreateChargesFromTariffdoes  go through each tariff line (tariffs may have more than one line) and call 1 above
 /// 3a.  CreateHawbItemCharges call 2 above but also prepare hawb_item info, customs value, Vat
 /// 3b. applygroupTariffs in hawb -- will call 2. above for each tariff in group
 /// 3c. PickCharge in hawb - will call 2. above for the tariff selected
@@ -1613,6 +1613,7 @@ function TV_MawbHawbDML.ClearhawbNew(Const HawbSerial: integer): string;
     isIm4: boolean;
     isMed: boolean;
     isClearCode: boolean;
+
     cType: String;
     diff: double;
 
@@ -1659,6 +1660,7 @@ function TV_MawbHawbDML.ClearhawbNew(Const HawbSerial: integer): string;
       IsZeroDelivery := qr.FieldByName('fk_clearance_instruction').AsString = 'DOZ';
       isIm4 := qr.FieldByName('FK_CLEARANCE_INSTRUCTION').AsString = 'IM4';
       isMed := qr.FieldByName('FK_CLEARANCE_INSTRUCTION').AsString = 'MED';
+
 
       var isMediumExemptTariff: boolean := V_MawbHawbDML.isMediumExemptTariff(HawbSerial);
 
@@ -1841,8 +1843,17 @@ function TV_MawbHawbDML.ClearhawbNew(Const HawbSerial: integer): string;
 
       /// ///////////////////////////////
       ///
-      // qrItems.ParamByName('HawbSerial').Value := HawbSerial;
-      // qrItems.Open;
+       qrItems.ParamByName('HawbSerial').Value := HawbSerial;
+       qrItems.Open;
+       while (not qrItems.eof) do begin
+
+        var NoItemCountryOrigin: boolean := qrItems.FieldByName('FK_COUNTRY_ORIGIN').AsInteger = 0;
+        if (NoItemCountryOrigin) then errorString := errorString + 'Hawb Item has NO Country Origin,';
+        qrItems.Next;
+
+       end;
+
+
 
       ///
       ///

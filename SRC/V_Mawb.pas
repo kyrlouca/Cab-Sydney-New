@@ -239,6 +239,7 @@ type
     ClearBTN: TRzBitBtn;
     Label41: TLabel;
     FindHawbFLD: TSearchBox;
+    WebSentFilter: TRzRadioGroup;
     procedure AcceptBTNClick(Sender: TObject);
     procedure CancelBTNClick(Sender: TObject);
     procedure FormActivate(Sender: TObject);
@@ -2650,6 +2651,29 @@ procedure TV_MawbFRM.FilterAllNew();
         AddWhere('fk_clearing_state =''0'' ');
       end;
 
+      var isPending: Integer := WebSentFilter.ItemIndex;
+
+      if isPending = 0 then
+      begin
+        // do nothing
+      end
+      else if isPending = 1 then
+      begin
+        AddWhere('pe.serial_number >0 ');
+
+      end
+      else if isPending = 2 then
+      begin
+        AddWhere('se.serial_number >0 ');
+      end
+      else if isPending = 3 then
+      begin
+        AddWhere('fa.serial_number >0 ');
+      end;
+
+
+
+
       If not prepared then
         prepare;
       // Memo1.Lines := BucketsSQL.SQL;
@@ -2666,6 +2690,7 @@ procedure TV_MawbFRM.FilterClear();
     ClearanceFilter.Value := '';
 
     ReadyFilter.ItemIndex := 0;
+    WebSentFilter.ItemIndex:=0;
 //    DateStartFLD.ClearDateTime;
 //    DateEndFLD.ClearDateTime;
     FilterAllNew();

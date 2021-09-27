@@ -104,6 +104,7 @@ object V_hawbItemFRM4: TV_hawbItemFRM4
       OnUpdateFooter = ChargesGRDUpdateFooter
       FooterColor = clWhite
       FooterCellColor = clSilver
+      ExplicitLeft = 7
     end
     object UpperPanelPNL: TRzPanel
       Left = 0
@@ -418,8 +419,8 @@ object V_hawbItemFRM4: TV_hawbItemFRM4
         end
       end
       object ItemDetailsGroup: TGroupBox
-        Left = 7
-        Top = 242
+        Left = 4
+        Top = 255
         Width = 461
         Height = 180
         Caption = 'Item Details'

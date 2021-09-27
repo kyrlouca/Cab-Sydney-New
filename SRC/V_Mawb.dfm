@@ -727,7 +727,6 @@ object V_MawbFRM: TV_MawbFRM
           OnDblClick = MhawbsGRDDblClick
           OnKeyDown = MhawbsGRDKeyDown
           TitleImageList = ImageList2
-          ExplicitTop = 4
           object wwIButton1: TwwIButton
             Left = 0
             Top = 0
@@ -1733,7 +1732,7 @@ object V_MawbFRM: TV_MawbFRM
           end
           object Label41: TLabel
             Left = 46
-            Top = 321
+            Top = 345
             Width = 47
             Height = 15
             Caption = 'Hawb ID'
@@ -1828,8 +1827,8 @@ object V_MawbFRM: TV_MawbFRM
           end
           object FilterAllBTN: TRzBitBtn
             AlignWithMargins = True
-            Left = 46
-            Top = 143
+            Left = 54
+            Top = 250
             Width = 147
             Height = 34
             Alignment = taLeftJustify
@@ -1846,8 +1845,8 @@ object V_MawbFRM: TV_MawbFRM
           end
           object ClearBTN: TRzBitBtn
             AlignWithMargins = True
-            Left = 46
-            Top = 183
+            Left = 54
+            Top = 290
             Width = 147
             Height = 34
             Alignment = taLeftJustify
@@ -1864,12 +1863,33 @@ object V_MawbFRM: TV_MawbFRM
           end
           object FindHawbFLD: TSearchBox
             Left = 46
-            Top = 342
+            Top = 366
             Width = 147
             Height = 23
             TabOrder = 5
             OnEnter = FindHawbFLDEnter
             OnInvokeSearch = FindHawbFLDInvokeSearch
+          end
+          object WebSentFilter: TRzRadioGroup
+            Left = 49
+            Top = 137
+            Width = 140
+            Caption = 'Web Service Status'
+            Font.Charset = GREEK_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -12
+            Font.Name = 'Arial'
+            Font.Style = []
+            ItemHeight = 14
+            ItemIndex = 0
+            Items.Strings = (
+              'All'
+              'Pending'
+              'Sent'
+              'Failed')
+            ParentFont = False
+            TabOrder = 6
+            VerticalSpacing = 6
           end
         end
       end
