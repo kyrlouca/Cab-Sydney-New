@@ -699,7 +699,7 @@ procedure HawbTariffsObject.RecreateHawbAllCharges();
       end;
 
     end;
-//    UpdateHawbRelatedCharges();    no nn
+    UpdateHawbRelatedCharges();    //for mle charges (more than 5 lines)
   end;
 
 Function HawbTariffsObject.InsertAllHawbCharges(): boolean;
