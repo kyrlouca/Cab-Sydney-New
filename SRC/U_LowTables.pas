@@ -101,6 +101,9 @@ type
     TokenFailedSQLREF_MESSAGE_ID: TStringField;
     TokenSendSQLREF_MESSAGE_ID: TStringField;
     TokenSendSQLREGISTRATION_NUMBER: TStringField;
+    TokenPendingSQLIS_LOCKED: TStringField;
+    RzPanel3: TRzPanel;
+    DeleteRBTN: TRzBitBtn;
     procedure wwSearchDialog1InitDialog(Dialog: TwwLookupDlg);
     procedure BitBtn2Click(Sender: TObject);
     procedure FormActivate(Sender: TObject);
@@ -110,6 +113,8 @@ type
     procedure PendingTSShow(Sender: TObject);
     procedure FailedTSShow(Sender: TObject);
     procedure FailedGRDDblClick(Sender: TObject);
+    procedure DeleteRBTNClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
   private
     { Private declarations }
     cn: TIBCConnection;
@@ -127,6 +132,13 @@ implementation
 uses U_ClairDML, G_KyrSQL, V_hawb;
 
 {$R *.DFM}
+
+procedure TU_LowTablesFRM.DeleteRBTNClick(Sender: TObject);
+begin
+    ksExecSQLVar(cn, 'update low_pending lp set lp.is_locked=''N''  where lp.is_locked=''Y'' ', []);
+    TokenPendingSQL.Refresh;
+    ShowMessage('Pending Tokens have been unlocked');
+end;
 
 procedure TU_LowTablesFRM.FailedGRDDblClick(Sender: TObject);
 begin
@@ -187,6 +199,11 @@ procedure TU_LowTablesFRM.FormClose(Sender: TObject; var Action: TCloseAction);
   begin
     TokenPendingSQL.close;
   end;
+
+procedure TU_LowTablesFRM.FormCreate(Sender: TObject);
+begin
+    cn := ClairDML.CabCOnnection;
+end;
 
 procedure TU_LowTablesFRM.RzBitBtn1Click(Sender: TObject);
   begin

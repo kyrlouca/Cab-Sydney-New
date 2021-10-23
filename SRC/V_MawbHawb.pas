@@ -1631,6 +1631,7 @@ function TV_MawbHawbDML.ClearhawbNew(Const HawbSerial: integer): string;
     var str: string := '';
     str := str +
          ' SELECT ha.FK_MAWB_REFER_NUMBER, ha.hab_id, ha.fk_customer_code, ha.fk_invoice_status, ha.fk_clearing_state, ha.fk_clearance_instruction, ha.CLEARANCE_WAITING_CODE, DUTY_BILLING_ACCOUNT, ha.Ioss,  ';
+    str := str + ' ha.NUM_OF_PIECES_ARRIVED , ha.NUMBER_OF_PARCELS, ';
     str := str +
          ' ha.description, ha.fk_delivery_term, ha.procedure_code, ha.weight, ha.weight_gross, ha.sender_name, ha.sender_address_1, ha.sender_city, ha.sender_country, ha.description, ha.fk_country_origin, ';
     str := str + ' ssi.pre_discount_amount, ssi.invoice_number, ssi.currency, ssi.EXCHANGE_RATE,  ';
@@ -1660,7 +1661,6 @@ function TV_MawbHawbDML.ClearhawbNew(Const HawbSerial: integer): string;
       IsZeroDelivery := qr.FieldByName('fk_clearance_instruction').AsString = 'DOZ';
       isIm4 := qr.FieldByName('FK_CLEARANCE_INSTRUCTION').AsString = 'IM4';
       isMed := qr.FieldByName('FK_CLEARANCE_INSTRUCTION').AsString = 'MED';
-
 
       var isMediumExemptTariff: boolean := V_MawbHawbDML.isMediumExemptTariff(HawbSerial);
 
@@ -1720,6 +1720,10 @@ function TV_MawbHawbDML.ClearhawbNew(Const HawbSerial: integer): string;
       var NoCustomerCity: boolean := string.IsNullOrWhiteSpace(qr.FieldByName('address_city').AsString);
       if (NoCustomerCity) then errorString := errorString + 'NoCustomerCity,';
 
+      var PiecesDeclared: integer := qr.FieldByName('NUMBER_OF_PARCELS').AsInteger;
+      var PiecesArrived: integer := qr.FieldByName('NUM_OF_PIECES_ARRIVED').AsInteger;
+      if (PiecesDeclared <> PiecesArrived) then errorString := errorString + 'Pieces arrived <> Pieces Declared,';
+
       // var NoCustomerCountry: boolean := string.IsNullOrWhiteSpace(qr.FieldByName('address_country').AsString);
       // if (NoCustomerCountry) then errorString := errorString + 'NoCustomerCountry,';
       /// //////////////
@@ -1776,7 +1780,7 @@ function TV_MawbHawbDML.ClearhawbNew(Const HawbSerial: integer): string;
         errorString := errorString + ',' + 'Hawb Value must be greater than ' + procInfo.AmountMin.ToString;
       end;
 
-      if (procinfo.AmountMax>0) and (EuroAmount > procInfo.AmountMax) then
+      if (procInfo.AmountMax > 0) and (EuroAmount > procInfo.AmountMax) then
       begin
         errorString := errorString + ',' + 'Hawb Value must be less than ' + procInfo.AmountMax.ToString;
       end;
@@ -1843,17 +1847,16 @@ function TV_MawbHawbDML.ClearhawbNew(Const HawbSerial: integer): string;
 
       /// ///////////////////////////////
       ///
-       qrItems.ParamByName('HawbSerial').Value := HawbSerial;
-       qrItems.Open;
-       while (not qrItems.eof) do begin
+      qrItems.ParamByName('HawbSerial').Value := HawbSerial;
+      qrItems.Open;
+      while (not qrItems.Eof) do
+      begin
 
         var NoItemCountryOrigin: boolean := qrItems.FieldByName('FK_COUNTRY_ORIGIN').AsInteger = 0;
         if (NoItemCountryOrigin) then errorString := errorString + 'Hawb Item has NO Country Origin,';
-        qrItems.Next;
+        qrItems.next;
 
-       end;
-
-
+      end;
 
       ///
       ///
