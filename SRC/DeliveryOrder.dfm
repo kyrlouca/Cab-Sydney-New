@@ -764,6 +764,7 @@ object DeliveryOrderFRM: TDeliveryOrderFRM
         FormFieldSettings.FormSubmitInfo.SubmitMethod = fstPost
         FormFieldSettings.FormFieldType = fftNone
         Transparent = True
+        Visible = False
         mmHeight = 4763
         mmLeft = 133086
         mmTop = 13229
@@ -783,6 +784,7 @@ object DeliveryOrderFRM: TDeliveryOrderFRM
         Font.Size = 10
         Font.Style = [fsBold]
         Transparent = True
+        Visible = False
         DataPipelineName = 'HawbPL'
         mmHeight = 4763
         mmLeft = 145786
@@ -1071,7 +1073,7 @@ object DeliveryOrderFRM: TDeliveryOrderFRM
         TextAlignment = taRightJustified
         Transparent = True
         mmHeight = 4763
-        mmLeft = 47890
+        mmLeft = 46832
         mmTop = 91066
         mmWidth = 15875
         BandType = 4
