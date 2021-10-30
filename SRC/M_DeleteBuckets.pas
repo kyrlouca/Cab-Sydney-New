@@ -12,7 +12,7 @@ uses
   StdCtrls, Mask, DBCtrls, Db, DBAccess, IBC, MemDS, IBCError, wwSpeedButton, wwDBNavigator,
   wwclearpanel, Buttons, ExtCtrls, wwdbedit, Grids, Wwdbigrd, Wwdbgrid, G_KyriacosTypes, G_KyrSQL,
   ImgList, RzButton, RzPanel, vcl.wwbutton, vcl.ComCtrls, RzDTP, vcl.WinXPickers, vcl.wwdbdatetimepicker, vcl.wwkeycb, vcl.wwdotdot,
-  vcl.wwdbcomb, RzRadGrp, RzLabel;
+  vcl.wwdbcomb, RzRadGrp, RzLabel, vcl.Menus;
 
 type
   TM_deleteBucketsFRM = class(TForm)
@@ -164,6 +164,11 @@ type
     MawbBucketSQLREFERENCE_NUMBER: TIntegerField;
     MawbBucketSQLMAWB_ID: TStringField;
     MawbBucketSRC: TIBCDataSource;
+    RecalculateBTN: TRzBitBtn;
+    MainMenu1: TMainMenu;
+    PrintSelection1: TMenuItem;
+    DeliverySelected1: TMenuItem;
+    EDESelected1: TMenuItem;
     procedure FormCreate(Sender: TObject);
     procedure BitBtn2Click(Sender: TObject);
     procedure DeleteRBTNClick(Sender: TObject);
@@ -179,6 +184,9 @@ type
     procedure BucketsGRDTitleButtonClick(Sender: TObject; AFieldName: string);
     procedure FilterAllBTNClick(Sender: TObject);
     procedure ClearBTNClick(Sender: TObject);
+    procedure RecalculateBTNClick(Sender: TObject);
+    procedure DeliverySelected1Click(Sender: TObject);
+    procedure EDESelected1Click(Sender: TObject);
   private
     { Private declarations }
     cn: TIBCConnection;
@@ -188,6 +196,8 @@ type
 
     procedure FilterAllNew();
     procedure FilterClear();
+    procedure DeleteSelected();
+    procedure UpdateExchangeRate(mawbSerial: Integer);
 
   public
     { Public declarations }
@@ -211,14 +221,14 @@ implementation
 
 {$R *.DFM}
 
-uses U_ClairDML, V_hawb, G_generalProcs;
+uses U_ClairDML, V_hawb, B_TariffFunctions, G_generalProcs;
 
 procedure TM_deleteBucketsFRM.FormActivate(Sender: TObject);
   begin
-//    BucketsSQL.DisableControls;
+    // BucketsSQL.DisableControls;
 
-    ksOpenTables([MawbBucketSQL,BucketsSQL]);
-//    BucketsSQL.EnableControls;
+    ksOpenTables([MawbBucketSQL, BucketsSQL]);
+    // BucketsSQL.EnableControls;
     CountRecords();
     BucketsGRD.Options := BucketsGRD.Options + [Wwdbigrd.dgMultiSelect];
   end;
@@ -228,6 +238,57 @@ procedure TM_deleteBucketsFRM.FormCreate(Sender: TObject);
     cn := ClairDML.CabCOnnection;
     // ksOpenTables([BucketsSQL]);
     // DateStartFLD.Date := now;
+  end;
+
+procedure TM_deleteBucketsFRM.RecalculateBTNClick(Sender: TObject);
+  begin
+    UpdateExchangeRate(1000000);
+    MessageDlg('Exchange Rates updated. Cleared Hawbs recalculated', mtInformation, [mbOK], 0);
+
+  end;
+
+procedure TM_deleteBucketsFRM.UpdateExchangeRate(mawbSerial: Integer);
+  begin
+    // update the exchange rate if NOT invoiced
+    // if is clear then recalculate also
+    var str: string;
+    str := str + 'select  ha.fk_mawb_refer_number, ha.serial_number,ha.fk_clearing_state, sei.currency ';
+    str := str + 'from hawb ha ';
+    str := str + 'join sender_invoice sei on sei.fk_hawb_serial=ha.serial_number ';
+    str := str + 'where ha.fk_mawb_refer_number= :mawbSerial and  (ha.fk_invoice_status = ''0'' or ha.fk_invoice_status is null) ';
+    var sqlSelectNotInv: string := str;
+
+    var qr: TksQuery := TksQuery.Create(cn, sqlSelectNotInv);
+    try
+      qr.ParamByName('mawbSerial').Value := mawbSerial;
+      qr.Open;
+      while (not qr.Eof) do
+      begin
+        var hawbSerial: Integer := qr.FieldByName('serial_number').AsInteger;
+        var
+        isCleared := qr.FieldByName('fk_clearing_state').AsString = '1';
+        var currency: string := qr.FieldByName('currency').AsString;
+        var
+        newRate := ksGetOneFieldValue(cn, 'select RATE from exchange_rate exr where fk_currency_code= :currency', 'RATE', [currency]);
+        ksExecSQLVar(cn, 'update sender_invoice sei set sei.exchange_rate = :rate where sei.fk_hawb_serial = :hawbSerial', [newRate, hawbSerial]);
+        // ShowMessage(qr.FieldByName('serial_number').AsString);
+        if (isCleared) then
+        begin
+          var
+          tariffsObj := HawbTariffsObject.Create(cn, hawbSerial);
+          try
+            tariffsObj.RecreateHawbAllCharges();
+          finally
+            tariffsObj.Free;
+          end;
+        end;
+        qr.Next;
+      end;
+
+    finally
+      qr.Free;
+    end;
+
   end;
 
 procedure TM_deleteBucketsFRM.SearchTariffBTNClick(Sender: TObject);
@@ -246,7 +307,7 @@ procedure TM_deleteBucketsFRM.SelectAllBTNClick(Sender: TObject);
     HawbDS.DisableControls;
     HawbDS.RestoreSQL;
     HawbDS.close;
-    HawbDS.open;
+    HawbDS.Open;
     HawbDS.Refresh;
 
     BucketsSQL.First;
@@ -281,15 +342,10 @@ procedure TM_deleteBucketsFRM.BucketsGRDDblClick(Sender: TObject);
     v_hawbFRM.IN_hawbSerial := hawbSerial;
     v_hawbFRM.SpecialHawbSerial := hawbSerial;
 
-
     v_hawbFRM.IN_Action := 'EDIT';
     v_hawbFRM.IN_hawbSerial := hawbSerial;
     v_hawbFRM.IN_sortedSQL := BucketsSQL.FinalSQL;
     v_hawbFRM.IN_MawbSerial := MawbBucketSQL.FieldByName('REFERENCE_NUMBER').AsInteger;
-
-
-
-
 
     v_hawbFRM.ShowModal;
     hawbSerial := v_hawbFRM.OUT_HawbSerial;
@@ -344,7 +400,7 @@ function TM_deleteBucketsFRM.CountRecords: Integer;
     var qr: TksQuery := TksQuery.Create(cn, 'select count(*) cnt from hawb where fk_mawb_refer_number = 1000000');
     var count: Integer := 0;
     try
-      qr.open;
+      qr.Open;
       count := qr.FieldByName('cnt').AsInteger;
       CountLbl.Caption := 'Buckets:' + count.ToString;
     finally
@@ -354,6 +410,11 @@ function TM_deleteBucketsFRM.CountRecords: Integer;
   end;
 
 procedure TM_deleteBucketsFRM.DeleteRBTNClick(Sender: TObject);
+  begin
+    DeleteSelected();
+  end;
+
+procedure TM_deleteBucketsFRM.DeleteSelected();
   begin
     BucketsGRD.DataSource.DataSet.DisableControls;
 
@@ -368,6 +429,19 @@ procedure TM_deleteBucketsFRM.DeleteRBTNClick(Sender: TObject);
     BucketsGRD.UnselectAll;
     BucketsGRD.DataSource.DataSet.EnableControls;
     CountRecords();
+
+  end;
+
+procedure TM_deleteBucketsFRM.DeliverySelected1Click(Sender: TObject);
+  begin
+    DeleteSelected();
+  end;
+
+procedure TM_deleteBucketsFRM.EDESelected1Click(Sender: TObject);
+  begin
+    UpdateExchangeRate(1000000);
+    BucketsSQL.Refresh;
+    MessageDlg('Exchange Rates updated. Cleared Hawbs recalculated', mtInformation, [mbOK], 0);
 
   end;
 
@@ -388,7 +462,7 @@ procedure TM_deleteBucketsFRM.wwIncrementalSearch1Enter(Sender: TObject);
     BucketsSQL.DisableControls;
     BucketsGRD.UnselectAll;
     BucketsSQL.RestoreSQL;
-    BucketsSQL.open;
+    BucketsSQL.Open;
     BucketsSQL.Refresh;
     BucketsSQL.Filtered := false;
     BucketsSQL.EnableControls;
@@ -485,9 +559,10 @@ procedure TM_deleteBucketsFRM.FilterAllNew();
         Addwhere('fk_clearing_state =''0'' ');
       end;
 
-      If not prepared then prepare;
+      If not prepared then
+        prepare;
       Memo1.Lines := BucketsSQL.SQL;
-      BucketsSQL.open;
+      BucketsSQL.Open;
 
     end;
 

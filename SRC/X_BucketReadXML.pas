@@ -951,7 +951,7 @@ function TX_BucketreadFileFRM.ProcessOneMawb(HeaderNode: IXMLNode; mawbNode: IXM
     TraderId: integer;
 
   begin
-    var isMawbBucket: boolean := false;
+    var isMawbForBuckets: boolean := false;
     CountNew := 0;
     CountSame := 0;
     CountPartial := 0;
@@ -979,7 +979,7 @@ function TX_BucketreadFileFRM.ProcessOneMawb(HeaderNode: IXMLNode; mawbNode: IXM
       // empty mawbId it has  bucket Hawbs
       mawbSerial := 1000000;
       MawbId := 'Bucket';
-      isMawbBucket := true;
+      isMawbForBuckets := true;
     end
     else
     begin
@@ -1014,7 +1014,7 @@ function TX_BucketreadFileFRM.ProcessOneMawb(HeaderNode: IXMLNode; mawbNode: IXM
       var originCountryInt: integer := FindCountry(originCountry);
 
       var bucketRef: string := GetBucketReferenceFromNode(hawbNode);
-      if (bucketRef.trim() > '') and isMawbBucket then
+      if (bucketRef.trim() > '') and isMawbForBuckets then
       begin
         // bucket duplicate ONLY if is bucket file
 
@@ -1040,7 +1040,7 @@ function TX_BucketreadFileFRM.ProcessOneMawb(HeaderNode: IXMLNode; mawbNode: IXM
             // Create the Hawb, sender Invoice, hawb Items  xxx1
             // **************************************************************
             try
-              HawbSerial := CreateHawb(mawbSerial, hawbNode, isMawbBucket, FileName);
+              HawbSerial := CreateHawb(mawbSerial, hawbNode, isMawbForBuckets, FileName);
             except
               on e: Exception do
               begin
@@ -1113,7 +1113,7 @@ function TX_BucketreadFileFRM.ProcessOneMawb(HeaderNode: IXMLNode; mawbNode: IXM
 
             /// check if we can clear the Medium  a n c
             /// we only clear buckets (which are on a MawbBucket)
-            if (clearance = 'MED') and (isMawbBucket) then
+            if (clearance = 'MED') and (isMawbForBuckets) then
             begin
               var errors: string := V_MawbHawbDML.ClearhawbNew(HawbSerial);
               var isClear: boolean := errors.trim = '';
@@ -1168,7 +1168,7 @@ function TX_BucketreadFileFRM.ProcessOneMawb(HeaderNode: IXMLNode; mawbNode: IXM
     else
       MawbMessage := 'Existing Mawb:';
 
-    if (not isMawbBucket) then
+    if (not isMawbForBuckets) then
     begin
       // ************************************************
       // if ww loaded a normal Mawb, try to fetch the buckets

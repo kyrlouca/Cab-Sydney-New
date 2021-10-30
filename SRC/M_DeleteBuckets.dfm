@@ -3,14 +3,15 @@ object M_deleteBucketsFRM: TM_deleteBucketsFRM
   Top = 134
   BorderStyle = bsSingle
   Caption = 'M_deleteBucketsFRM'
-  ClientHeight = 855
-  ClientWidth = 1457
+  ClientHeight = 835
+  ClientWidth = 1550
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -13
   Font.Name = 'Calibri'
   Font.Style = []
+  Menu = MainMenu1
   OldCreateOrder = False
   Position = poDesigned
   WindowState = wsMaximized
@@ -21,7 +22,7 @@ object M_deleteBucketsFRM: TM_deleteBucketsFRM
   object Panel1: TPanel
     Left = 0
     Top = 0
-    Width = 1457
+    Width = 1550
     Height = 65
     Align = alTop
     Caption = 'Bucket Processing'
@@ -34,16 +35,19 @@ object M_deleteBucketsFRM: TM_deleteBucketsFRM
     ParentBackground = False
     ParentFont = False
     TabOrder = 0
+    ExplicitWidth = 1457
   end
   object Panel4: TPanel
     Left = 0
-    Top = 808
-    Width = 1457
+    Top = 788
+    Width = 1550
     Height = 47
     Align = alBottom
     TabOrder = 1
+    ExplicitTop = 808
+    ExplicitWidth = 1457
     object Panel11: TRzPanel
-      Left = 1364
+      Left = 1457
       Top = 1
       Width = 92
       Height = 45
@@ -51,6 +55,7 @@ object M_deleteBucketsFRM: TM_deleteBucketsFRM
       BorderOuter = fsNone
       TabOrder = 0
       Transparent = True
+      ExplicitLeft = 1364
       object BitBtn2: TBitBtn
         Left = 11
         Top = 4
@@ -128,10 +133,11 @@ object M_deleteBucketsFRM: TM_deleteBucketsFRM
   object Panel2: TPanel
     Left = 0
     Top = 65
-    Width = 1457
+    Width = 1550
     Height = 40
     Align = alTop
     TabOrder = 2
+    ExplicitWidth = 1457
     object Label2: TLabel
       Left = 15
       Top = 13
@@ -238,44 +244,47 @@ object M_deleteBucketsFRM: TM_deleteBucketsFRM
   object Panel3: TPanel
     Left = 0
     Top = 105
-    Width = 1457
-    Height = 703
+    Width = 1550
+    Height = 683
     Align = alClient
     TabOrder = 3
     object Panel6: TPanel
       Left = 1
       Top = 1
-      Width = 1455
-      Height = 16
+      Width = 1548
+      Height = 50
       Align = alTop
       BevelOuter = bvNone
       TabOrder = 0
     end
     object Panel5: TPanel
       Left = 1
-      Top = 17
+      Top = 51
       Width = 57
-      Height = 685
+      Height = 631
       Align = alLeft
       BevelOuter = bvNone
       TabOrder = 1
       Visible = False
+      ExplicitTop = 17
+      ExplicitHeight = 685
       object Panel7: TPanel
         Left = 0
-        Top = 526
+        Top = 472
         Width = 57
         Height = 159
         Align = alBottom
         BevelOuter = bvNone
         Caption = 'Panel5'
         TabOrder = 0
+        ExplicitTop = 526
       end
     end
     object BucketsGRD: TwwDBGrid
       Left = 58
-      Top = 17
-      Width = 1151
-      Height = 685
+      Top = 51
+      Width = 1135
+      Height = 631
       ControlType.Strings = (
         'OTHER_CHARGE_PAID;CheckBox;Y;N'
         'FK_CLEARING_STATE;CheckBox;1;0'
@@ -290,13 +299,13 @@ object M_deleteBucketsFRM: TM_deleteBucketsFRM
         'DATE_REGISTERED'#9'15'#9'Date Registered'#9#9
         'CLEARANCE_WAITING_CODE'#9'9'#9'Status'#9#9
         'DESCRIPTION'#9'17'#9'Description'#9#9
-        'CUSTOMER_NAME'#9'19'#9'Customer Name'#9#9
+        'CUSTOMER_NAME'#9'16'#9'Customer Name'#9#9
         'WEIGHT'#9'7'#9'Weight'#9#9
         'PRE_DISCOUNT_AMOUNT'#9'10'#9'Inv Amount'#9#9
         'CURRENCY'#9'8'#9'Currency'#9#9
         'SENDERCUSTOMVALUE'#9'11'#9'Customs Val'#9#9
         'FK_CLEARANCE_INSTRUCTION'#9'5'#9'Type'#9'F'#9
-        'FK_CLEARING_STATE'#9'11'#9'Ready'#9'F'#9)
+        'FK_CLEARING_STATE'#9'11'#9'Ready'#9'T')
       IniAttributes.Delimiter = ';;'
       IniAttributes.UnicodeIniFile = False
       TitleColor = clBtnFace
@@ -312,9 +321,10 @@ object M_deleteBucketsFRM: TM_deleteBucketsFRM
       Font.Style = []
       KeyOptions = [dgAllowDelete]
       MultiSelectOptions = [msoAutoUnselect, msoShiftSelect]
-      Options = [dgEditing, dgAlwaysShowEditor, dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit, dgWordWrap, dgShowFooter, dgDblClickColSizing]
+      Options = [dgAlwaysShowEditor, dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit, dgWordWrap, dgShowFooter, dgDblClickColSizing]
       ParentCtl3D = False
       ParentFont = False
+      ReadOnly = True
       TabOrder = 2
       TitleAlignment = taLeftJustify
       TitleFont.Charset = DEFAULT_CHARSET
@@ -329,6 +339,8 @@ object M_deleteBucketsFRM: TM_deleteBucketsFRM
       OnDrawFooterCell = BucketsGRDDrawFooterCell
       FooterColor = clAqua
       FooterCellColor = clRed
+      ExplicitLeft = 64
+      ExplicitTop = 46
       object wwIButton1: TwwIButton
         Left = 0
         Top = 0
@@ -413,13 +425,16 @@ object M_deleteBucketsFRM: TM_deleteBucketsFRM
       end
     end
     object Panel8: TPanel
-      Left = 1209
-      Top = 17
-      Width = 229
-      Height = 685
+      Left = 1193
+      Top = 51
+      Width = 912
+      Height = 631
       Align = alLeft
       BevelOuter = bvNone
       TabOrder = 3
+      ExplicitLeft = 995
+      ExplicitTop = 17
+      ExplicitHeight = 685
       object Label6: TLabel
         Left = 46
         Top = 6
@@ -436,7 +451,7 @@ object M_deleteBucketsFRM: TM_deleteBucketsFRM
       object DeleteRBTN: TRzBitBtn
         AlignWithMargins = True
         Left = 46
-        Top = 496
+        Top = 516
         Width = 147
         Height = 34
         Alignment = taLeftJustify
@@ -448,6 +463,7 @@ object M_deleteBucketsFRM: TM_deleteBucketsFRM
         Font.Style = []
         ParentFont = False
         TabOrder = 0
+        Visible = False
         OnClick = DeleteRBTNClick
         Glyph.Data = {
           DE010000424DDE01000000000000760000002800000024000000120000000100
@@ -606,7 +622,7 @@ object M_deleteBucketsFRM: TM_deleteBucketsFRM
       end
       object UnlockHawbBTN: TRzBitBtn
         Left = 46
-        Top = 614
+        Top = 445
         Width = 147
         Height = 37
         Alignment = taLeftJustify
@@ -659,6 +675,82 @@ object M_deleteBucketsFRM: TM_deleteBucketsFRM
         ParentFont = False
         TabOrder = 6
         OnClick = ClearBTNClick
+        Spacing = 8
+      end
+      object RecalculateBTN: TRzBitBtn
+        AlignWithMargins = True
+        Left = 46
+        Top = 556
+        Width = 147
+        Height = 34
+        Alignment = taLeftJustify
+        Caption = 'Exchange Rate'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -15
+        Font.Name = 'Calibri'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 7
+        Visible = False
+        OnClick = RecalculateBTNClick
+        Glyph.Data = {
+          F6060000424DF606000000000000360000002800000018000000180000000100
+          180000000000C006000000000000000000000000000000000000FFFFFFFFFFFF
+          FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF7676727676727676727676
+          72767672767672FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+          FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF767672
+          E6E2E2E6DEDEE6DEDEE6E2E2767672FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+          FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF928E8E8E8A8AFFFFFFFF
+          FFFFFFFFFF767672D6D2CEDAD6D6DAD6D6D6D2CE767672FFFFFFFFFFFFFFFFFF
+          8E8E8A928E8EFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF8E8A8AA29E
+          9EDEDADA96928E8A8A867E7A7A726E6E6A66666E6E6E6E6E6E6A6666726E6E7E
+          7A7A8E8A8A96928EDEDADAA29E9E8E8A8AFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+          8A86869A9692D6D6D2B2AEAE7E7E7A5E5E5A4242425652527A76768A86868A86
+          867A76765652524242425E5E5A7E7E7AB2AEAED6D6D69A96968A8686FFFFFFFF
+          FFFFFFFFFFFFFFFF868282D6D6D2B6B2AE7A7A763E3E3A52524E9E9A9AEAEAEA
+          FAFAFAFEFEFEFEFEFEFAFAFAEAEAEAA29E9A52524E3E3E3A7E7A7AB6B2AED6D6
+          D6868282FFFFFFFFFFFFFFFFFFFFFFFFFFFFFF8E8E8AA29E9E5A5A56767272CA
+          C6C6E6E6E2EAE6E6EAEAEAF2EEEEF2EEEEEAEAEAEAE6E6E6E6E6CAC6C6767272
+          5A5A56A6A29E928E8AFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF8682826E6A
+          6A767272C6C6C2DEDEDAE2E2DEC6C2C2767672767672767672767672C6C2C2E2
+          E2DEDEDEDAC6C6C27672726E6A6A868282FFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+          FFFFFF7A76765A5A56AEAAA6D6D2D2DEDADABEBEBA868282FFFFFFFFFFFFFFFF
+          FFFFFFFF868282BEBEBADEDADAD6D6D2AEAAA65A5A567A7676FFFFFFFFFFFFFF
+          FFFF7676727676727676726E6A667A7676C6C2BED2CECEBABAB6868282FFFFFF
+          9A96928A86868A86869A9696FFFFFF868282BEBAB6D6D2CEC6C2BE7A7A766E6A
+          6A767672767672767672767672AAA6A6AEAAA6726E6AA29E9EBEBAB6C6C2BE76
+          7672FFFFFF9A96968A8A86AAA6A6AAA6A68A8A869A9696FFFFFF767672C6C2BE
+          BEBABAA29E9E726E6EB2AEAAAEAAA6767672767672BAB6B6C2BEBE868282B6B2
+          B2B2AEAEB2AEAA767672FFFFFF8A8A86B2AEAACAC6C6CAC6C6B2AEAA8A8A86FF
+          FFFF767672B6B2AEB6B2AEBAB6B28A8686C6C2BEBEBAB6767672767672BEBAB6
+          C6C2BE9E9A96CAC6C6B2AEAAAEAAA6767672FFFFFF8E8A8ABAB6B2DEDAD6DEDA
+          D6BAB6B28E8A8AFFFFFF767672B2AEAAB2AEAACECAC69E9A9AC6C2C2C2BEBA76
+          7672767672D2CECEDAD6D6BEBEBAD2CECEAEAAAA9E9A9A767672FFFFFFA29E9E
+          928E8EC2BEBEC2BEBE928E8EA29E9EFFFFFF767672A29E9AB2AEAAD6D2CEC2BE
+          BEDAD6D6D6D2D2767672767672767672767672C6C6C2DEDADABEBAB68A868696
+          928E8A8686FFFFFFA29E9E928E8A928E8AA29E9EFFFFFF8A8A869692928A8686
+          BEBABADEDEDACAC6C6767672767672767672FFFFFFFFFFFFFFFFFF827E7ED6D2
+          D2DEDAD68682827E7A7A96928E8A8A86FFFFFFFFFFFFFFFFFFFFFFFF8E8A8A96
+          928E7E7A7A868282DEDADAD6D2D2827E7EFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+          FFFFFF928E8EBAB6B2EAE6E6BEBEBA7672726E6A6A7E7A7A7676727676727676
+          72767672827E7A726E6A767272C2BEBEEAE6E6BAB6B6928E8EFFFFFFFFFFFFFF
+          FFFFFFFFFFFFFFFFFFFFFF9A9692DAD6D6EEEAEAEEEEEABEBAB66A66665A5A5A
+          5252524242424242425252525A5A5A6A6666BEBABAF2EEEEEEEEEADEDADA9A96
+          96FFFFFFFFFFFFFFFFFFFFFFFFFFFFFF8E8A8AFEFEFEDED6D6EAE6E6F6F6F2F6
+          F6F2EAE6E69E9A9A6662624E4A4A4E4A4A6662629E9A9AEEEAE6F6F6F6F6F6F6
+          EAE6E6DEDADAFEFEFE8E8E8AFFFFFFFFFFFFFFFFFFFFFFFF928E8EBAB6B2FEFE
+          FEEAE2E2F2EEEECAC6C6EAEAEAFAFAFAFAF6F6F6F6F6F6F6F6FAF6F6FAFAFAEA
+          EAEACAC6C6F2EEEEEAE6E6FEFEFEBAB6B6928E8EFFFFFFFFFFFFFFFFFFFFFFFF
+          FFFFFF928E8EBEBAB6FEFEFEA29E9E969692868282EAEAEAFEFEFEFEFEFEFEFE
+          FEFEFEFEEAEAEA8682829A9692A29E9EFEFEFEBEBABA96928EFFFFFFFFFFFFFF
+          FFFFFFFFFFFFFFFFFFFFFFFFFFFF96928E96928EFFFFFFFFFFFFFFFFFF767672
+          F2EEEEF2EEEEF2EEEEF6F2EE767672FFFFFFFFFFFFFFFFFF96928E969292FFFF
+          FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+          FFFFFFFFFF767672FEFEFEFEFEFEFEFEFEFEFEFE767672FFFFFFFFFFFFFFFFFF
+          FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+          FFFFFFFFFFFFFFFFFFFFFFFFFF767672767672767672767672767672767672FF
+          FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
         Spacing = 8
       end
     end
@@ -919,7 +1011,7 @@ object M_deleteBucketsFRM: TM_deleteBucketsFRM
     end
     object BucketsSQLCUSTOMER_NAME: TStringField
       DisplayLabel = 'Customer Name'
-      DisplayWidth = 19
+      DisplayWidth = 16
       FieldName = 'CUSTOMER_NAME'
       FixedChar = True
       Size = 40
@@ -1566,5 +1658,19 @@ object M_deleteBucketsFRM: TM_deleteBucketsFRM
     DataSet = MawbBucketSQL
     Left = 314
     Top = 330
+  end
+  object MainMenu1: TMainMenu
+    Left = 376
+    object PrintSelection1: TMenuItem
+      Caption = 'Batch Operations'
+      object DeliverySelected1: TMenuItem
+        Caption = 'Delete Selected'
+        OnClick = DeliverySelected1Click
+      end
+      object EDESelected1: TMenuItem
+        Caption = 'Update Exchange Rates'
+        OnClick = EDESelected1Click
+      end
+    end
   end
 end
