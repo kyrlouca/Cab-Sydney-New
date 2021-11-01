@@ -35,7 +35,6 @@ object M_deleteBucketsFRM: TM_deleteBucketsFRM
     ParentBackground = False
     ParentFont = False
     TabOrder = 0
-    ExplicitWidth = 1457
   end
   object Panel4: TPanel
     Left = 0
@@ -44,8 +43,6 @@ object M_deleteBucketsFRM: TM_deleteBucketsFRM
     Height = 47
     Align = alBottom
     TabOrder = 1
-    ExplicitTop = 808
-    ExplicitWidth = 1457
     object Panel11: TRzPanel
       Left = 1457
       Top = 1
@@ -55,7 +52,6 @@ object M_deleteBucketsFRM: TM_deleteBucketsFRM
       BorderOuter = fsNone
       TabOrder = 0
       Transparent = True
-      ExplicitLeft = 1364
       object BitBtn2: TBitBtn
         Left = 11
         Top = 4
@@ -137,7 +133,6 @@ object M_deleteBucketsFRM: TM_deleteBucketsFRM
     Height = 40
     Align = alTop
     TabOrder = 2
-    ExplicitWidth = 1457
     object Label2: TLabel
       Left = 15
       Top = 13
@@ -266,8 +261,6 @@ object M_deleteBucketsFRM: TM_deleteBucketsFRM
       BevelOuter = bvNone
       TabOrder = 1
       Visible = False
-      ExplicitTop = 17
-      ExplicitHeight = 685
       object Panel7: TPanel
         Left = 0
         Top = 472
@@ -277,7 +270,6 @@ object M_deleteBucketsFRM: TM_deleteBucketsFRM
         BevelOuter = bvNone
         Caption = 'Panel5'
         TabOrder = 0
-        ExplicitTop = 526
       end
     end
     object BucketsGRD: TwwDBGrid
@@ -339,8 +331,6 @@ object M_deleteBucketsFRM: TM_deleteBucketsFRM
       OnDrawFooterCell = BucketsGRDDrawFooterCell
       FooterColor = clAqua
       FooterCellColor = clRed
-      ExplicitLeft = 64
-      ExplicitTop = 46
       object wwIButton1: TwwIButton
         Left = 0
         Top = 0
@@ -432,9 +422,6 @@ object M_deleteBucketsFRM: TM_deleteBucketsFRM
       Align = alLeft
       BevelOuter = bvNone
       TabOrder = 3
-      ExplicitLeft = 995
-      ExplicitTop = 17
-      ExplicitHeight = 685
       object Label6: TLabel
         Left = 46
         Top = 6
@@ -450,8 +437,8 @@ object M_deleteBucketsFRM: TM_deleteBucketsFRM
       end
       object DeleteRBTN: TRzBitBtn
         AlignWithMargins = True
-        Left = 46
-        Top = 516
+        Left = 86
+        Top = 556
         Width = 147
         Height = 34
         Alignment = taLeftJustify
@@ -679,7 +666,7 @@ object M_deleteBucketsFRM: TM_deleteBucketsFRM
       end
       object RecalculateBTN: TRzBitBtn
         AlignWithMargins = True
-        Left = 46
+        Left = 142
         Top = 556
         Width = 147
         Height = 34

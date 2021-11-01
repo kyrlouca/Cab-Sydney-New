@@ -120,7 +120,7 @@ object MainFRM: TMainFRM
     Margins.Bottom = 0
     Align = alTop
     BorderOuter = fsGroove
-    Caption = 'Cab Sydney 3.24'
+    Caption = 'Cab Sydney 3.25'
     Ctl3D = False
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clBlue
@@ -287,7 +287,7 @@ object MainFRM: TMainFRM
       BevelOuter = bvNone
       TabOrder = 2
       object SearchTariffBTN: TSpeedButton
-        Left = 340
+        Left = 332
         Top = 26
         Width = 34
         Height = 32

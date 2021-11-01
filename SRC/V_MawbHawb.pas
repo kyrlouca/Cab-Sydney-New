@@ -493,8 +493,10 @@ procedure TV_MawbHawbDML.HawbChargeCustomsSQLTARIFF_UNIT_RATEGetText(Sender: TFi
 
   begin
 
-    if VarisNull(Sender.Value) then floatVal := 0
-    else floatVal := Sender.Value;
+    if VarisNull(Sender.Value) then
+      floatVal := 0
+    else
+      floatVal := Sender.Value;
 
     if Sender.DataSet.FieldByName('TARIFF_CHARGING_METHOD').AsString = 'VA' then
     begin
@@ -625,7 +627,8 @@ Function TV_MawbHawbDML.UpdateHawbCharge(Const hc: ThdHawbCharge): boolean;
 
       with qr do
       begin
-        if qr.State in [dsBrowse] then qr.Edit;
+        if qr.State in [dsBrowse] then
+          qr.Edit;
 
         FieldByName('fk_Tariff_usage').Value := hc.TariffUsage;
         FieldByName('fk_tariff_line').Value := hc.TariffSerial;
@@ -719,8 +722,10 @@ Function TV_MawbHawbDML.CalcHawbCharge(Const HawbItem: ThdHawbItemRecord; Const 
     begin
       if hc.UnitsNotCharged > 0 then
       begin
-        if hc.PreDiscountAmount > hc.UnitsNotCharged then hc.AmountGross := hc.TariffUnitRate
-        else hc.AmountGross := 0;
+        if hc.PreDiscountAmount > hc.UnitsNotCharged then
+          hc.AmountGross := hc.TariffUnitRate
+        else
+          hc.AmountGross := 0;
       end
       else
       begin
@@ -744,9 +749,11 @@ Function TV_MawbHawbDML.CalcHawbCharge(Const HawbItem: ThdHawbItemRecord; Const 
       hc.AmountGross := hc.CustomsValue * hc.TariffUnitRate / 100;
     end;
 
-    if TariffLine.MinCharge > 0 then hc.AmountGross := max(hc.AmountGross, TariffLine.MinCharge);
+    if TariffLine.MinCharge > 0 then
+      hc.AmountGross := max(hc.AmountGross, TariffLine.MinCharge);
 
-    if TariffLine.MaxCharge > 0 then hc.AmountGross := min(hc.AmountGross, TariffLine.MaxCharge);
+    if TariffLine.MaxCharge > 0 then
+      hc.AmountGross := min(hc.AmountGross, TariffLine.MaxCharge);
 
     hc.AmountRelieved := hc.AmountGross * hc.TariffRelievedRate / 100;
     hc.AmountNet := max(0, hc.AmountGross - hc.AmountRelieved);
@@ -830,7 +837,8 @@ Function TV_MawbHawbDML.UpdateFactorOld(COnst HawbSerial: integer): boolean;
             try
               Factor := ((TotalForeignAmount / TheRate) + FreightCYP) / AfterDiscountAmount;
             except
-              on EMathError do Factor := 0;
+              on EMathError do
+                Factor := 0;
             end;
           end
           else
@@ -839,7 +847,8 @@ Function TV_MawbHawbDML.UpdateFactorOld(COnst HawbSerial: integer): boolean;
           end;
         end;
 
-        If SEnderInvoiceDS.State in [dsBrowse] then SEnderInvoiceDS.Edit;
+        If SEnderInvoiceDS.State in [dsBrowse] then
+          SEnderInvoiceDS.Edit;
         FieldByName('TOTAL_AMOUNT').Value := TotalForeignAmount;
         FieldByName('FACTOR_NUMERIC').Value := Factor;
         FieldByName('INVOICE_AMOUNT').Value := AfterDiscountAmount;
@@ -1021,8 +1030,7 @@ Function TV_MawbHawbDML.isMediumExemptTariff(Const HawbSerial: integer): boolean
         var tariff: string := System.SysUtils.StringReplace(qr.FieldByName('fk_tariff_code').AsString, ' ', '', [rfReplaceAll]);
         var tariff6: string := tariff.Substring(0, 6);
         result := ksCountRecVarSQL(cn, 'select tm.tariff_code from tariffs_medium tm where tm.tariff_code = :tariffCode', [tariff6]) > 0;
-        if (result) then
-          exit;
+        if (result) then exit;
         qr.next;
       end;
 
@@ -1104,12 +1112,14 @@ Function TV_MawbHawbDML.IsHawbChargeExists(Const hawbcharge: ThdHawbCharge): int
   begin
     if hawbcharge.HawbItemSerial > 0 then
            sql := 'select serial_number  from hawb_charge where fk_hawb= :HawbSerial and fk_hawb_item = :HawbItemSerial and fk_tariff_line= :tariffLine'
-    else sql := 'select serial_number  from hawb_charge where fk_hawb= :HawbSerial and fk_hawb_item is null and fk_tariff_line= :tariffLine';
+    else
+      sql := 'select serial_number  from hawb_charge where fk_hawb= :HawbSerial and fk_hawb_item is null and fk_tariff_line= :tariffLine';
 
     Try
       qr := TksQuery.Create(cn, sql);
       qr.ParamByName('hawbSerial').Value := hawbcharge.HawbSerial;
-      if hawbcharge.HawbItemSerial > 0 then qr.ParamByName('hawbItemSerial').Value := hawbcharge.HawbItemSerial;
+      if hawbcharge.HawbItemSerial > 0 then
+        qr.ParamByName('hawbItemSerial').Value := hawbcharge.HawbItemSerial;
       qr.ParamByName('TariffLine').Value := hawbcharge.TariffSerial;
       qr.Open;
       result := qr.FieldByName('serial_number').AsInteger;
@@ -1346,7 +1356,8 @@ procedure TV_MawbHawbDML.CreateHawbItemCharges(Const HawbItemSerial: integer);
     // ClearingInstruction:String;
 
   begin
-    if HawbItemSerial < 1 then exit;
+    if HawbItemSerial < 1 then
+      exit;
 
     Try
 
@@ -1521,15 +1532,18 @@ Procedure TV_MawbHawbDML.DeleteGroupTariffs(Const GroupCode: string);
     AppliesItem := HawbItem.HawbItemSerial > 0;
 
     whereStr := '';
-    if AppliesItem then whereStr := 'and fk_hawb_item = :HawbItemSerial';
+    if AppliesItem then
+      whereStr := 'and fk_hawb_item = :HawbItemSerial';
 
     // hawb charge associated with S_tariff_Line but tariff_group_line associated with S_TARIFF!
     DelStr := 'delete FROM hAWB_CHARGE ch where' + ' fk_hawb= :HawbSerial' + whereStr + ' and ch.fk_tariff_line in(' +
          ' select tline.serial_number from S_tariff_line tline left outer join tariff_group_line tgl ' + ' on tline.fk_s_tariff_code =tgl.fk_s_tariff ' +
          ' where tgl.fk_tariff_group= :group);';
 
-    if AppliesItem then ksExecSQLVar(cn, DelStr, [HawbItem.HawbSerial, HawbItem.HawbItemSerial, GroupCode])
-    else ksExecSQLVar(cn, DelStr, [HawbItem.HawbSerial, GroupCode]);
+    if AppliesItem then
+      ksExecSQLVar(cn, DelStr, [HawbItem.HawbSerial, HawbItem.HawbItemSerial, GroupCode])
+    else
+      ksExecSQLVar(cn, DelStr, [HawbItem.HawbSerial, GroupCode]);
 
   end;
 
@@ -1667,62 +1681,86 @@ function TV_MawbHawbDML.ClearhawbNew(Const HawbSerial: integer): string;
         /// ///////////////
 
       var NoCountryOrigin: boolean := qr.FieldByName('FK_COUNTRY_ORIGIN').AsInteger = 0;
-      if (NoCountryOrigin) then errorString := errorString + 'No Country Origin,';
+      if (NoCountryOrigin) then
+        errorString := errorString + 'No Country Origin,';
 
       var NoHawbDescription: boolean := string.IsNullOrWhiteSpace(qr.FieldByName('DESCRIPTION').AsString);
-      if (NoHawbDescription) then errorString := errorString + 'No Hawb Description,';
+      if (NoHawbDescription) then
+        errorString := errorString + 'No Hawb Description,';
 
       var NoDeliveryTerm: boolean := string.IsNullOrWhiteSpace(qr.FieldByName('FK_DELIVERY_TERM').AsString);
-      if (NoDeliveryTerm) then errorString := errorString + 'No Delivery Term,';
+      if (NoDeliveryTerm) then
+        errorString := errorString + 'No Delivery Term,';
 
       var NoProcedure: boolean := string.IsNullOrWhiteSpace(qr.FieldByName('PROCEDURE_CODE').AsString);
-      if (NoProcedure) then errorString := errorString + 'No Procedure,';
+      if (NoProcedure) then
+        errorString := errorString + 'No Procedure,';
 
       var billingAccount: boolean := string.IsNullOrWhiteSpace(qr.FieldByName('DUTY_BILLING_ACCOUNT').AsString);
-      if (billingAccount) then errorString := errorString + 'No BillingAccount,';
+      if (billingAccount) then
+        errorString := errorString + 'No BillingAccount,';
 
       var NoGrossWeight: boolean := qr.FieldByName('WEIGHT_GROSS').AsFloat = 0;
-      if (NoGrossWeight) then errorString := errorString + 'No GrossWeight,';
+      if (NoGrossWeight) then
+        errorString := errorString + 'No GrossWeight,';
 
       var NoNetWeight: boolean := qr.FieldByName('WEIGHT').AsFloat = 0;
-      if (NoNetWeight) then errorString := errorString + 'No Net Weight,';
+      if (NoNetWeight) then
+        errorString := errorString + 'No Net Weight,';
 
       var isGrossWeightLess: boolean := qr.FieldByName('WEIGHT_GROSS').AsFloat < qr.FieldByName('WEIGHT').AsFloat;
-      if (isGrossWeightLess) then errorString := errorString + 'Gross Weight Less than Net,';
+      if (isGrossWeightLess) then
+        errorString := errorString + 'Gross Weight Less than Net,';
 
       var NoInvoiceNumber: boolean := string.IsNullOrWhiteSpace(qr.FieldByName('INVOICE_NUMBER').AsString);
-      if (NoInvoiceNumber) then errorString := errorString + 'No Invoice Number,';
+      if (NoInvoiceNumber) then
+        errorString := errorString + 'No Invoice Number,';
 
       var NoInvoiceAmount: boolean := qr.FieldByName('PRE_DISCOUNT_AMOUNT').AsFloat = 0;
-      if (NoInvoiceAmount) then errorString := errorString + 'No Invoice Amount,';
+      if (NoInvoiceAmount) then
+        errorString := errorString + 'No Invoice Amount,';
 
       var NoCurrency: boolean := string.IsNullOrWhiteSpace(qr.FieldByName('CURRENCY').AsString);
-      if (NoCurrency) then errorString := errorString + 'No Currency,';
+      if (NoCurrency) then
+        errorString := errorString + 'No Currency,';
 
       var NoSenderName: boolean := string.IsNullOrWhiteSpace(qr.FieldByName('SENDER_NAME').AsString);
-      if (NoSenderName) then errorString := errorString + 'NoSenderName,';
+      if (NoSenderName) then
+        errorString := errorString + 'NoSenderName,';
 
       var NoSenderAddress1: boolean := string.IsNullOrWhiteSpace(qr.FieldByName('SENDER_ADDRESS_1').AsString);
-      if (NoSenderAddress1) then errorString := errorString + 'NoSenderAddress1,';
+      if (NoSenderAddress1) then
+        errorString := errorString + 'NoSenderAddress1,';
 
       var NoSenderCity: boolean := string.IsNullOrWhiteSpace(qr.FieldByName('SENDER_CITY').AsString);
-      if (NoSenderCity) then errorString := errorString + 'NoSenderCity,';
+      if (NoSenderCity) then
+        errorString := errorString + 'NoSenderCity,';
 
       var NoSenderCountry: boolean := string.IsNullOrWhiteSpace(qr.FieldByName('SENDER_COUNTRY').AsString);
-      if (NoSenderCountry) then errorString := errorString + 'NoSenderCountry,';
+      if (NoSenderCountry) then
+        errorString := errorString + 'NoSenderCountry,';
       // No      varNoCustomerName: boolean := not string.IsNullOrWhiteSpace(qr.FieldByName('name').AsString);
       var NoCustomerAddress: boolean := string.IsNullOrWhiteSpace(qr.FieldByName('address1').AsString);
-      if (NoCustomerAddress) then errorString := errorString + 'NoCustomerAddress,';
+      if (NoCustomerAddress) then
+        errorString := errorString + 'NoCustomerAddress,';
 
       var NoCustomerPostCode: boolean := string.IsNullOrWhiteSpace(qr.FieldByName('address_post_code').AsString);
-      if (NoCustomerPostCode) then errorString := errorString + 'NoCustomerPostCode,';
+      if (NoCustomerPostCode) then
+        errorString := errorString + 'NoCustomerPostCode,';
 
       var NoCustomerCity: boolean := string.IsNullOrWhiteSpace(qr.FieldByName('address_city').AsString);
-      if (NoCustomerCity) then errorString := errorString + 'NoCustomerCity,';
+      if (NoCustomerCity) then
+        errorString := errorString + 'NoCustomerCity,';
 
-      var PiecesDeclared: integer := qr.FieldByName('NUMBER_OF_PARCELS').AsInteger;
-      var PiecesArrived: integer := qr.FieldByName('NUM_OF_PIECES_ARRIVED').AsInteger;
-      if (PiecesDeclared <> PiecesArrived) then errorString := errorString + 'Pieces arrived <> Pieces Declared,';
+      if (isMed) then
+      begin
+
+        var PiecesDeclared: integer := qr.FieldByName('NUMBER_OF_PARCELS').AsInteger;
+        var PiecesArrived: integer := qr.FieldByName('NUM_OF_PIECES_ARRIVED').AsInteger;
+        if (PiecesDeclared <> PiecesArrived) then
+          errorString := errorString + 'Pieces arrived <> Pieces Declared,';
+
+      end;
 
       // var NoCustomerCountry: boolean := string.IsNullOrWhiteSpace(qr.FieldByName('address_country').AsString);
       // if (NoCustomerCountry) then errorString := errorString + 'NoCustomerCountry,';
@@ -1768,7 +1806,8 @@ function TV_MawbHawbDML.ClearhawbNew(Const HawbSerial: integer): string;
 
       var EuroAmount: double := 0.00;
       var rate: double := qr.FieldByName('EXCHANGE_RATE').AsFloat;
-      if rate > 0 then EuroAmount := qr.FieldByName('PRE_DISCOUNT_AMOUNT').AsFloat / rate;
+      if rate > 0 then
+        EuroAmount := qr.FieldByName('PRE_DISCOUNT_AMOUNT').AsFloat / rate;
 
       if not procInfo.isFound then
       begin
@@ -1853,7 +1892,8 @@ function TV_MawbHawbDML.ClearhawbNew(Const HawbSerial: integer): string;
       begin
 
         var NoItemCountryOrigin: boolean := qrItems.FieldByName('FK_COUNTRY_ORIGIN').AsInteger = 0;
-        if (NoItemCountryOrigin) then errorString := errorString + 'Hawb Item has NO Country Origin,';
+        if (NoItemCountryOrigin) then
+          errorString := errorString + 'Hawb Item has NO Country Origin,';
         qrItems.next;
 
       end;
