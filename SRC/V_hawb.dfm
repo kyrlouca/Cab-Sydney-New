@@ -3405,7 +3405,7 @@ object V_HawbFRM: TV_HawbFRM
       end
     end
     object ClearBTN: TRzBitBtn
-      Left = 751
+      Left = 748
       Top = 6
       Width = 84
       Height = 37

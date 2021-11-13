@@ -1846,20 +1846,24 @@ function TV_MawbHawbDML.ClearhawbNew(Const HawbSerial: integer): string;
 
       if (abs(diff) > 0.001) and (isIm4 or isMed) then
       begin
-        var diffStr: string := FloatToStrF(diff, ffFixed, 5, 2);
+        var diffStr: string := floatToStrF(abs(diff), ffFixed, 5, 2);
         diffStr := StringReplace(diffStr, ',', '.', []);
-
-        errorString := errorString + 'Hawb Invoice Amount GREATER than Sum by: ' + diffStr
+        var signWord :string :='GREATER';
+         if(diff<0) then signWord:='LESS';
+        errorString := errorString +',' + 'Hawb Invoice Amount '+ signWord + ' than Sum by: ' + diffStr;
       end;
 
       // check gross weight
       var weightDiff: double := V_MawbHawbDML.JCheckWeightTotals(HawbSerial);
       if (abs(weightDiff) > 0.001) and (isIm4 Or isMed) then
       begin
-        var weightDiffStr: string := FloatToStrF(weightDiff, ffFixed, 5, 2);
+        var weightDiffStr: string := FloatToStrF(abs(weightDiff), ffFixed, 5, 2);
         weightDiffStr := StringReplace(weightDiffStr, ',', '.', []);
 
-        errorString := errorString + ',' + 'Hawb Gross Weight GREATER than Sum by: ' + weightDiffStr;
+         var signWordw :string :='GREATER';
+         if(weightDiff<0) then signWordw:='LESS';
+
+        errorString := errorString + ',' + 'Hawb Gross Weight '+ signWordW +' than Sum by: ' + weightDiffStr;
       end;
 
       // if not V_MawbHawbDML.JCheckTariffs(HawbSerial) and isIm4 then
