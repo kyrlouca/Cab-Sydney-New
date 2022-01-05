@@ -390,6 +390,7 @@ Begin
 
          end else begin
               //Try  Medium XMLId which is on Mawb
+              //NOT USED any more because we use a different screen for thise
                 if( FindMediumXmlIdTotals(InputValue,HawbInfo)) then begin
 
                   mHawbSerial:=0;
@@ -639,6 +640,7 @@ Var
         qr:TksQuery;
         TotalCustomsValue:Double;
 begin
+//NOT USED any more because we use a different procedure to add the mediums
 
   try
    SqlString:='Select ma.reference_number, ma.mawb_id , ma.tdid_medium, ma.flight_number, date_arrived from Mawb ma where ma.tdid_medium=:XmlMediumId';

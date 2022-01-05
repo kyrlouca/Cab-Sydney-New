@@ -211,9 +211,6 @@
         <DCCReference Include="SRC\C_ScanCustomPayment.pas">
             <Form>C_ScanCustomPaymentFRM</Form>
         </DCCReference>
-        <DCCReference Include="SRC\C_CustomsHawbPayment.pas">
-            <Form>C_CustomsHawbPaymentFRM</Form>
-        </DCCReference>
         <DCCReference Include="SRC\c_readDHLInvoices.pas">
             <Form>C_ReadDhlInvoicesFRM</Form>
         </DCCReference>
@@ -471,6 +468,14 @@
         </DCCReference>
         <DCCReference Include="SRC\LN_RelievedCodes.pas">
             <Form>LN_RelievedCodesFRM</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="SRC\C_CustomsHawbMediumPayments.pas">
+            <Form>C_CustomsHawbMediumPaymentsFRM</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="SRC\C_CustomsHawbPayment.pas">
+            <Form>C_CustomsHawbPaymentFRM</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <None Include="CabSydney101.todo"/>

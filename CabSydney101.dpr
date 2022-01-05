@@ -29,7 +29,6 @@ uses
   C_ListCustomPayments in 'SRC\C_ListCustomPayments.pas' {C_ListCustomPaymentsFRM},
   C_CustomsPayment in 'SRC\C_CustomsPayment.pas' {C_CustomsPaymentFRM},
   C_ScanCustomPayment in 'SRC\C_ScanCustomPayment.pas' {C_ScanCustomPaymentFRM},
-  C_CustomsHawbPayment in 'SRC\C_CustomsHawbPayment.pas' {C_CustomsHawbPaymentFRM},
   c_readDHLInvoices in 'SRC\c_readDHLInvoices.pas' {C_ReadDhlInvoicesFRM},
   g_sendEmail in 'SRC\g_sendEmail.pas',
   D_SendSMS in 'SRC\D_SendSMS.pas' {D_SendSMSFRM},
@@ -107,7 +106,9 @@ uses
   R_MediumHawb in 'SRC\R_MediumHawb.pas' {R_MediumHawbFRM},
   X_FileFinder in 'SRC\X_FileFinder.pas',
   M_ProcedureCodesNew in 'SRC\M_ProcedureCodesNew.pas' {M_ProcedureCodesNewFRM},
-  LN_RelievedCodes in 'SRC\LN_RelievedCodes.pas' {LN_RelievedCodesFRM};
+  LN_RelievedCodes in 'SRC\LN_RelievedCodes.pas' {LN_RelievedCodesFRM},
+  C_CustomsHawbMediumPayments in 'SRC\C_CustomsHawbMediumPayments.pas' {C_CustomsHawbMediumPaymentsFRM},
+  C_CustomsHawbPayment in 'SRC\C_CustomsHawbPayment.pas' {C_CustomsHawbPaymentFRM};
 
 {$R *.RES}
 var
@@ -170,5 +171,7 @@ ReportMemoryLeaksOnShutdown := DebugHook <> 0;
   Application.CreateForm(TR_MediumHawbFRM, R_MediumHawbFRM);
   Application.CreateForm(TM_ProcedureCodesNewFRM, M_ProcedureCodesNewFRM);
   Application.CreateForm(TLN_RelievedCodesFRM, LN_RelievedCodesFRM);
+  Application.CreateForm(TC_CustomsHawbMediumPaymentsFRM, C_CustomsHawbMediumPaymentsFRM);
+  Application.CreateForm(TC_CustomsHawbPaymentFRM, C_CustomsHawbPaymentFRM);
   Application.Run;
 end.

@@ -238,7 +238,7 @@ object M_ProcedureCodesNewFRM: TM_ProcedureCodesNewFRM
         Top = 0
         Width = 1117
         Height = 225
-        ActivePage = Certificates
+        ActivePage = TabSheet2
         Align = alClient
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -610,7 +610,6 @@ object M_ProcedureCodesNewFRM: TM_ProcedureCodesNewFRM
                 Spacing = 4
                 Transparent = False
                 Caption = 'wwDBNavigator1Delete'
-                Enabled = False
                 DisabledTextColors.ShadeColor = clGray
                 DisabledTextColors.HighlightColor = clBtnHighlight
                 Index = 1

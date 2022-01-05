@@ -2,7 +2,7 @@ object C_ListCustomPaymentsFRM: TC_ListCustomPaymentsFRM
   Left = 111
   Top = 125
   Caption = 'Payments'
-  ClientHeight = 645
+  ClientHeight = 646
   ClientWidth = 1172
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -24,22 +24,22 @@ object C_ListCustomPaymentsFRM: TC_ListCustomPaymentsFRM
     Height = 53
     Align = alTop
     Caption = 'Custom Payments'
-    Font.Charset = DEFAULT_CHARSET
+    Font.Charset = GREEK_CHARSET
     Font.Color = clBlue
     Font.Height = -27
-    Font.Name = 'Arial'
+    Font.Name = 'Calibri'
     Font.Style = [fsBold]
     ParentFont = False
     TabOrder = 0
   end
   object Panel4: TPanel
     Left = 0
-    Top = 602
+    Top = 603
     Width = 1172
     Height = 43
     Align = alBottom
     TabOrder = 1
-    ExplicitTop = 604
+    ExplicitTop = 602
     object Panel11: TRzPanel
       Left = 1079
       Top = 1
@@ -127,10 +127,10 @@ object C_ListCustomPaymentsFRM: TC_ListCustomPaymentsFRM
     Left = 0
     Top = 86
     Width = 1172
-    Height = 516
+    Height = 517
     Align = alClient
     TabOrder = 2
-    ExplicitHeight = 518
+    ExplicitHeight = 516
     object Label4: TLabel
       Left = 76
       Top = 103
@@ -150,21 +150,21 @@ object C_ListCustomPaymentsFRM: TC_ListCustomPaymentsFRM
       Left = 989
       Top = 1
       Width = 19
-      Height = 198
+      Height = 199
       Align = alLeft
       BevelOuter = bvNone
       TabOrder = 0
-      ExplicitHeight = 200
+      ExplicitHeight = 198
     end
     object Panel9: TPanel
       Left = 1
       Top = 1
       Width = 988
-      Height = 198
+      Height = 199
       Align = alLeft
       BevelOuter = bvNone
       TabOrder = 1
-      ExplicitHeight = 200
+      ExplicitHeight = 198
       object Panel10: TPanel
         Left = 0
         Top = 0
@@ -174,10 +174,10 @@ object C_ListCustomPaymentsFRM: TC_ListCustomPaymentsFRM
         Alignment = taLeftJustify
         BevelOuter = bvNone
         Caption = 'Payments'
-        Font.Charset = DEFAULT_CHARSET
+        Font.Charset = GREEK_CHARSET
         Font.Color = clWindowText
         Font.Height = -21
-        Font.Name = 'Arial'
+        Font.Name = 'Calibri'
         Font.Style = []
         ParentFont = False
         TabOrder = 0
@@ -188,10 +188,10 @@ object C_ListCustomPaymentsFRM: TC_ListCustomPaymentsFRM
         Width = 170
         Height = 38
         Caption = 'Make Payment'
-        Font.Charset = DEFAULT_CHARSET
+        Font.Charset = GREEK_CHARSET
         Font.Color = clWindowText
-        Font.Height = -17
-        Font.Name = 'Arial'
+        Font.Height = -19
+        Font.Name = 'Calibri'
         Font.Style = []
         Glyph.Data = {
           F6060000424DF606000000000000360000002800000018000000180000000100
@@ -261,10 +261,10 @@ object C_ListCustomPaymentsFRM: TC_ListCustomPaymentsFRM
         Width = 170
         Height = 37
         Caption = 'Print Payment'
-        Font.Charset = DEFAULT_CHARSET
+        Font.Charset = GREEK_CHARSET
         Font.Color = clWindowText
-        Font.Height = -17
-        Font.Name = 'Arial'
+        Font.Height = -19
+        Font.Name = 'Calibri'
         Font.Style = []
         Glyph.Data = {
           F6060000424DF606000000000000360000002800000018000000180000000100
@@ -334,10 +334,10 @@ object C_ListCustomPaymentsFRM: TC_ListCustomPaymentsFRM
         Width = 170
         Height = 37
         Caption = 'Delete Batch'
-        Font.Charset = DEFAULT_CHARSET
+        Font.Charset = GREEK_CHARSET
         Font.Color = clWindowText
-        Font.Height = -17
-        Font.Name = 'Arial'
+        Font.Height = -19
+        Font.Name = 'Calibri'
         Font.Style = []
         Glyph.Data = {
           DE010000424DDE01000000000000760000002800000024000000120000000100
@@ -368,10 +368,10 @@ object C_ListCustomPaymentsFRM: TC_ListCustomPaymentsFRM
         Width = 169
         Height = 36
         Caption = 'Edit Payment'
-        Font.Charset = DEFAULT_CHARSET
+        Font.Charset = GREEK_CHARSET
         Font.Color = clWindowText
-        Font.Height = -16
-        Font.Name = 'Arial'
+        Font.Height = -19
+        Font.Name = 'Calibri'
         Font.Style = []
         Glyph.Data = {
           F6060000424DF606000000000000360000002800000018000000180000000100
@@ -439,13 +439,13 @@ object C_ListCustomPaymentsFRM: TC_ListCustomPaymentsFRM
         Left = 0
         Top = 33
         Width = 556
-        Height = 165
+        Height = 166
         Selected.Strings = (
           'SERIAL_NUMBER'#9'7'#9'S/N'
           'CHEQUE_NUMBER'#9'20'#9'Cheque'
           'AMOUNT'#9'10'#9'Amount'
-          'DATE_PAYMENT'#9'18'#9'Payment Date'
-          'COMMENTS'#9'22'#9'Comments')
+          'DATE_PAYMENT'#9'16'#9'Payment Date'
+          'COMMENTS'#9'16'#9'Comments')
         IniAttributes.Delimiter = ';;'
         IniAttributes.UnicodeIniFile = False
         TitleColor = clBtnFace
@@ -453,30 +453,35 @@ object C_ListCustomPaymentsFRM: TC_ListCustomPaymentsFRM
         ShowHorzScrollBar = True
         Align = alLeft
         DataSource = TableSRC
+        Font.Charset = GREEK_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Calibri'
+        Font.Style = []
         Options = [dgEditing, dgAlwaysShowEditor, dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit, dgWordWrap]
+        ParentFont = False
         TabOrder = 5
         TitleAlignment = taLeftJustify
-        TitleFont.Charset = DEFAULT_CHARSET
+        TitleFont.Charset = GREEK_CHARSET
         TitleFont.Color = clWindowText
-        TitleFont.Height = -10
-        TitleFont.Name = 'MS Sans Serif'
+        TitleFont.Height = -16
+        TitleFont.Name = 'Calibri'
         TitleFont.Style = []
         TitleLines = 1
         TitleButtons = True
         OnTitleButtonClick = wwDBGrid2TitleButtonClick
         OnDblClick = wwDBGrid2DblClick
-        ExplicitHeight = 167
       end
     end
     object Panel5: TPanel
       Left = 1
-      Top = 199
+      Top = 200
       Width = 1170
       Height = 316
       Align = alBottom
       BevelOuter = bvNone
       TabOrder = 2
-      ExplicitTop = 201
+      ExplicitTop = 199
       object wwDBGrid1: TwwDBGrid
         Left = 0
         Top = 53
@@ -499,10 +504,10 @@ object C_ListCustomPaymentsFRM: TC_ListCustomPaymentsFRM
         Align = alLeft
         Color = clWhite
         DataSource = CustomPaymentHawbSRC
-        Font.Charset = DEFAULT_CHARSET
+        Font.Charset = GREEK_CHARSET
         Font.Color = clWindowText
-        Font.Height = -11
-        Font.Name = 'Arial'
+        Font.Height = -13
+        Font.Name = 'Calibri'
         Font.Style = []
         KeyOptions = []
         Options = [dgAlwaysShowEditor, dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit, dgWordWrap]
@@ -510,10 +515,10 @@ object C_ListCustomPaymentsFRM: TC_ListCustomPaymentsFRM
         ReadOnly = True
         TabOrder = 0
         TitleAlignment = taCenter
-        TitleFont.Charset = DEFAULT_CHARSET
+        TitleFont.Charset = GREEK_CHARSET
         TitleFont.Color = clWindowText
-        TitleFont.Height = -15
-        TitleFont.Name = 'Arial'
+        TitleFont.Height = -16
+        TitleFont.Name = 'Calibri'
         TitleFont.Style = []
         TitleLines = 2
         TitleButtons = True
@@ -594,10 +599,10 @@ object C_ListCustomPaymentsFRM: TC_ListCustomPaymentsFRM
         Alignment = taLeftJustify
         BevelOuter = bvNone
         Caption = 'Hawbs Paid'
-        Font.Charset = DEFAULT_CHARSET
+        Font.Charset = GREEK_CHARSET
         Font.Color = clWindowText
         Font.Height = -21
-        Font.Name = 'Arial'
+        Font.Name = 'Calibri'
         Font.Style = []
         ParentFont = False
         TabOrder = 1
@@ -608,10 +613,10 @@ object C_ListCustomPaymentsFRM: TC_ListCustomPaymentsFRM
         Width = 155
         Height = 36
         Caption = 'Scan Hawb'
-        Font.Charset = DEFAULT_CHARSET
+        Font.Charset = GREEK_CHARSET
         Font.Color = clWindowText
-        Font.Height = -16
-        Font.Name = 'Arial'
+        Font.Height = -19
+        Font.Name = 'Calibri'
         Font.Style = []
         Glyph.Data = {
           F6060000424DF606000000000000360000002800000018000000180000000100
@@ -681,10 +686,10 @@ object C_ListCustomPaymentsFRM: TC_ListCustomPaymentsFRM
         Width = 155
         Height = 37
         Caption = 'Remove Hawb'
-        Font.Charset = DEFAULT_CHARSET
+        Font.Charset = GREEK_CHARSET
         Font.Color = clWindowText
-        Font.Height = -16
-        Font.Name = 'Arial'
+        Font.Height = -19
+        Font.Name = 'Calibri'
         Font.Style = []
         Glyph.Data = {
           DE010000424DDE01000000000000760000002800000024000000120000000100
@@ -725,10 +730,10 @@ object C_ListCustomPaymentsFRM: TC_ListCustomPaymentsFRM
         Width = 155
         Height = 37
         Caption = 'Add Hawb'
-        Font.Charset = DEFAULT_CHARSET
+        Font.Charset = GREEK_CHARSET
         Font.Color = clWindowText
-        Font.Height = -16
-        Font.Name = 'Arial'
+        Font.Height = -19
+        Font.Name = 'Calibri'
         Font.Style = []
         Glyph.Data = {
           DE010000424DDE01000000000000760000002800000024000000120000000100
@@ -759,10 +764,10 @@ object C_ListCustomPaymentsFRM: TC_ListCustomPaymentsFRM
         Width = 155
         Height = 37
         Caption = 'Edit Hawb'
-        Font.Charset = DEFAULT_CHARSET
+        Font.Charset = GREEK_CHARSET
         Font.Color = clWindowText
-        Font.Height = -16
-        Font.Name = 'Arial'
+        Font.Height = -19
+        Font.Name = 'Calibri'
         Font.Style = []
         Glyph.Data = {
           F6060000424DF606000000000000360000002800000018000000180000000100
@@ -832,10 +837,10 @@ object C_ListCustomPaymentsFRM: TC_ListCustomPaymentsFRM
         Width = 155
         Height = 37
         Caption = 'Add All Medium'
-        Font.Charset = DEFAULT_CHARSET
+        Font.Charset = GREEK_CHARSET
         Font.Color = clWindowText
-        Font.Height = -16
-        Font.Name = 'Arial'
+        Font.Height = -19
+        Font.Name = 'Calibri'
         Font.Style = []
         Glyph.Data = {
           DE010000424DDE01000000000000760000002800000024000000120000000100
@@ -858,6 +863,7 @@ object C_ListCustomPaymentsFRM: TC_ListCustomPaymentsFRM
         ParentFont = False
         Style = bsNew
         TabOrder = 7
+        OnClick = AddMediumBTNClick
       end
     end
   end
@@ -868,6 +874,32 @@ object C_ListCustomPaymentsFRM: TC_ListCustomPaymentsFRM
     Height = 33
     Align = alTop
     TabOrder = 3
+    object RzLabel1: TRzLabel
+      Left = 16
+      Top = 10
+      Width = 19
+      Height = 15
+      Caption = 'S/N'
+      Font.Charset = GREEK_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Calibri'
+      Font.Style = []
+      ParentFont = False
+    end
+    object RzLabel2: TRzLabel
+      Left = 216
+      Top = 10
+      Width = 40
+      Height = 15
+      Caption = 'Cheque'
+      Font.Charset = GREEK_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Calibri'
+      Font.Style = []
+      ParentFont = False
+    end
     object Panel8: TPanel
       Left = 888
       Top = 1
@@ -878,13 +910,35 @@ object C_ListCustomPaymentsFRM: TC_ListCustomPaymentsFRM
       TabOrder = 0
     end
     object wwIncrementalSearch1: TwwIncrementalSearch
-      Left = 3
+      Left = 42
       Top = 6
       Width = 121
-      Height = 21
+      Height = 23
+      DataSource = TableSRC
+      SearchField = 'Serial_number'
+      PictureMaskAutoFill = False
+      Font.Charset = GREEK_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Calibri'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 1
+    end
+    object wwIncrementalSearch2: TwwIncrementalSearch
+      Left = 259
+      Top = 6
+      Width = 121
+      Height = 23
       DataSource = TableSRC
       SearchField = 'CHEQUE_NUMBER'
-      TabOrder = 1
+      Font.Charset = GREEK_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Calibri'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 2
     end
   end
   object TableSRC: TDataSource
@@ -966,12 +1020,12 @@ object C_ListCustomPaymentsFRM: TC_ListCustomPaymentsFRM
     end
     object TableSQLDATE_PAYMENT: TDateField
       DisplayLabel = 'Payment Date'
-      DisplayWidth = 18
+      DisplayWidth = 16
       FieldName = 'DATE_PAYMENT'
     end
     object TableSQLCOMMENTS: TStringField
       DisplayLabel = 'Comments'
-      DisplayWidth = 22
+      DisplayWidth = 16
       FieldName = 'COMMENTS'
       Size = 80
     end
@@ -1072,7 +1126,7 @@ object C_ListCustomPaymentsFRM: TC_ListCustomPaymentsFRM
         DataType = ftInteger
         Name = 'SERIAL_NUMBER'
         ParamType = ptInput
-        Value = 3599
+        Value = 2990
       end>
     object CustomPaymentHawbSQLSERIAL_NUMBER: TIntegerField
       DisplayLabel = 'S/N'

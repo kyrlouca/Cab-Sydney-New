@@ -9,7 +9,7 @@ uses
   DBAccess, IBC, MemDS, Wwdbigrd, Wwdbgrid, wwdbedit,
  ppDB, ppDBPipe, ppCtrls, ppBands, ppVar, ppPrnabl, ppClass,
   ppCache, ppComm, ppRelatv, ppProd, ppReport,ppviewr,pptypes,G_KyriacosTypes,
-  ppDesignLayer, ppParameter, RzPanel, vcl.wwbutton, Vcl.WinXCtrls;
+  ppDesignLayer, ppParameter, RzPanel, vcl.wwbutton, Vcl.WinXCtrls, RzLabel;
 type
   TC_ListCustomPaymentsFRM = class(TForm)
     Titlelbl: TPanel;
@@ -99,6 +99,9 @@ type
     BitBtn1: TBitBtn;
     wwIncrementalSearch1: TwwIncrementalSearch;
     AddMediumBTN: TBitBtn;
+    wwIncrementalSearch2: TwwIncrementalSearch;
+    RzLabel1: TRzLabel;
+    RzLabel2: TRzLabel;
     procedure BitBtn2Click(Sender: TObject);
     procedure ScanBatchBTNClick(Sender: TObject);
     procedure FormActivate(Sender: TObject);
@@ -120,6 +123,7 @@ type
     procedure wwDBGrid2TitleButtonClick(Sender: TObject; AFieldName: string);
     procedure wwDBGrid2DblClick(Sender: TObject);
     procedure BitBtn1Click(Sender: TObject);
+    procedure AddMediumBTNClick(Sender: TObject);
   private
     { Private declarations }
         procedure EditPayment;
@@ -139,7 +143,7 @@ var
 implementation
 
 uses U_ClairDML,C_ScanCustomPayment, G_GeneralProcs, C_CustomsPayment,
-  C_CustomsHawbPayment;
+  C_CustomsHawbPayment, C_CustomsHawbMediumPayments;
 
 
 {$R *.DFM}
@@ -358,6 +362,28 @@ begin
                 exit;
 
    myForm := TC_CustomsHawbPaymentFRM.Create(nil) ;
+   try
+        myForm.InMasterSerial:=MasterSerial;
+        myFOrm.InAction:='INSERT';
+        myForm.ShowModal;
+   finally
+     myForm.Free;
+   end;
+   CustomPaymentHawbSQL.Refresh;
+
+end;
+
+procedure TC_ListCustomPaymentsFRM.AddMediumBTNClick(Sender: TObject);
+var
+        myForm: TC_CustomsHawbMediumPaymentsFRM;
+        MasterSerial:Integer;
+begin
+
+        MasterSerial:=TableSQL.FieldbYName('SERIAL_NUMBER').AsInteger;
+        If (not masterSerial>0) then
+                exit;
+
+   myForm := TC_CustomsHawbMediumPaymentsFRM.Create(nil) ;
    try
         myForm.InMasterSerial:=MasterSerial;
         myFOrm.InAction:='INSERT';
