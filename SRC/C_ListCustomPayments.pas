@@ -9,7 +9,7 @@ uses
   DBAccess, IBC, MemDS, Wwdbigrd, Wwdbgrid, wwdbedit,
  ppDB, ppDBPipe, ppCtrls, ppBands, ppVar, ppPrnabl, ppClass,
   ppCache, ppComm, ppRelatv, ppProd, ppReport,ppviewr,pptypes,G_KyriacosTypes,
-  ppDesignLayer, ppParameter, RzPanel, vcl.wwbutton;
+  ppDesignLayer, ppParameter, RzPanel, vcl.wwbutton, Vcl.WinXCtrls;
 type
   TC_ListCustomPaymentsFRM = class(TForm)
     Titlelbl: TPanel;
@@ -97,6 +97,8 @@ type
     CustomPaymentHawbSQLDATE_CLEARED: TDateField;
     Panel11: TRzPanel;
     BitBtn1: TBitBtn;
+    wwIncrementalSearch1: TwwIncrementalSearch;
+    AddMediumBTN: TBitBtn;
     procedure BitBtn2Click(Sender: TObject);
     procedure ScanBatchBTNClick(Sender: TObject);
     procedure FormActivate(Sender: TObject);

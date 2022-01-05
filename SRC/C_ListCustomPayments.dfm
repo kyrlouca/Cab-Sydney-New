@@ -2,7 +2,7 @@ object C_ListCustomPaymentsFRM: TC_ListCustomPaymentsFRM
   Left = 111
   Top = 125
   Caption = 'Payments'
-  ClientHeight = 647
+  ClientHeight = 645
   ClientWidth = 1172
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -34,11 +34,12 @@ object C_ListCustomPaymentsFRM: TC_ListCustomPaymentsFRM
   end
   object Panel4: TPanel
     Left = 0
-    Top = 604
+    Top = 602
     Width = 1172
     Height = 43
     Align = alBottom
     TabOrder = 1
+    ExplicitTop = 604
     object Panel11: TRzPanel
       Left = 1079
       Top = 1
@@ -126,9 +127,10 @@ object C_ListCustomPaymentsFRM: TC_ListCustomPaymentsFRM
     Left = 0
     Top = 86
     Width = 1172
-    Height = 518
+    Height = 516
     Align = alClient
     TabOrder = 2
+    ExplicitHeight = 518
     object Label4: TLabel
       Left = 76
       Top = 103
@@ -148,19 +150,21 @@ object C_ListCustomPaymentsFRM: TC_ListCustomPaymentsFRM
       Left = 989
       Top = 1
       Width = 19
-      Height = 200
+      Height = 198
       Align = alLeft
       BevelOuter = bvNone
       TabOrder = 0
+      ExplicitHeight = 200
     end
     object Panel9: TPanel
       Left = 1
       Top = 1
       Width = 988
-      Height = 200
+      Height = 198
       Align = alLeft
       BevelOuter = bvNone
       TabOrder = 1
+      ExplicitHeight = 200
       object Panel10: TPanel
         Left = 0
         Top = 0
@@ -435,7 +439,7 @@ object C_ListCustomPaymentsFRM: TC_ListCustomPaymentsFRM
         Left = 0
         Top = 33
         Width = 556
-        Height = 167
+        Height = 165
         Selected.Strings = (
           'SERIAL_NUMBER'#9'7'#9'S/N'
           'CHEQUE_NUMBER'#9'20'#9'Cheque'
@@ -461,28 +465,30 @@ object C_ListCustomPaymentsFRM: TC_ListCustomPaymentsFRM
         TitleButtons = True
         OnTitleButtonClick = wwDBGrid2TitleButtonClick
         OnDblClick = wwDBGrid2DblClick
+        ExplicitHeight = 167
       end
     end
     object Panel5: TPanel
       Left = 1
-      Top = 201
+      Top = 199
       Width = 1170
       Height = 316
       Align = alBottom
       BevelOuter = bvNone
       TabOrder = 2
+      ExplicitTop = 201
       object wwDBGrid1: TwwDBGrid
         Left = 0
         Top = 53
         Width = 881
         Height = 263
         Selected.Strings = (
-          'SERIAL_NUMBER'#9'4'#9'S/N'
+          'SERIAL_NUMBER'#9'8'#9'S/N'
           'XML_ID'#9'16'#9'XML Id'
           'HAWB_ID'#9'14'#9'Hawb Id'
           'CUSTOMER_NAME'#9'38'#9'Customer'
           'DATE_CLEARED'#9'15'#9'Date Cleared'
-          'AMOUNT_CUSTOMS'#9'16'#9'Customs Amount'
+          'AMOUNT_CUSTOMS'#9'19'#9'Customs Amount'
           'HAWB_TYPE'#9'8'#9'Type'
           'MAWB_ID'#9'15'#9'Mawb')
         IniAttributes.Delimiter = ';;'
@@ -704,8 +710,8 @@ object C_ListCustomPaymentsFRM: TC_ListCustomPaymentsFRM
         OnClick = fcShapeBtn1Click
       end
       object Button1: TButton
-        Left = 965
-        Top = 176
+        Left = 914
+        Top = 6
         Width = 61
         Height = 20
         Caption = 'Button1'
@@ -820,6 +826,39 @@ object C_ListCustomPaymentsFRM: TC_ListCustomPaymentsFRM
         TabOrder = 6
         OnClick = EditHawbBTNClick
       end
+      object AddMediumBTN: TBitBtn
+        Left = 914
+        Top = 240
+        Width = 155
+        Height = 37
+        Caption = 'Add All Medium'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -16
+        Font.Name = 'Arial'
+        Font.Style = []
+        Glyph.Data = {
+          DE010000424DDE01000000000000760000002800000024000000120000000100
+          0400000000006801000000000000000000001000000000000000000000000000
+          80000080000000808000800000008000800080800000C0C0C000808080000000
+          FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00333333333333
+          33333333333333333333333300003333333344C3333333333333337FF3333333
+          00003333333A224333333333333338733F33333300003333333A224333333333
+          333338733F33333300003333333A224333333333333338733F33333300003333
+          333A224333333333333338733F33333300003333333A22433333333333333873
+          3F33333300003344444422444444C3337FFF787337FFFFF300003A2222222222
+          22224338733333333333333F00003A222222222222224338733333333333333F
+          000033AAAAAA222AAAAA3338777777733377777700003333333A224333333337
+          888888733788888300003333333A224333333333333338733F33333300003333
+          333A224333333333333338733F33333300003333333A22433333333333333873
+          3F33333300003333333A2243333333333333387337333333000033333333AA33
+          3333333333333877733333330000333333333333333333333333338883333333
+          0000}
+        NumGlyphs = 2
+        ParentFont = False
+        Style = bsNew
+        TabOrder = 7
+      end
     end
   end
   object Panel2: TPanel
@@ -838,11 +877,20 @@ object C_ListCustomPaymentsFRM: TC_ListCustomPaymentsFRM
       BevelOuter = bvNone
       TabOrder = 0
     end
+    object wwIncrementalSearch1: TwwIncrementalSearch
+      Left = 3
+      Top = 6
+      Width = 121
+      Height = 21
+      DataSource = TableSRC
+      SearchField = 'CHEQUE_NUMBER'
+      TabOrder = 1
+    end
   end
   object TableSRC: TDataSource
     DataSet = TableSQL
-    Left = 232
-    Top = 49
+    Left = 336
+    Top = 9
   end
   object TableSQL: TIBCQuery
     KeyFields = 'SERIAL_NUMBER'
@@ -890,14 +938,14 @@ object C_ListCustomPaymentsFRM: TC_ListCustomPaymentsFRM
     Transaction = ReadTrans
     UpdateTransaction = WriteTrans
     SQL.Strings = (
-      'SELECT first 60'
+      'SELECT first 600'
       '*'
       'FROM'
       'CUSTOMs_Payment'
       'order by SERIAL_NUMBER desc')
     Active = True
-    Left = 321
-    Top = 37
+    Left = 393
+    Top = 5
     object TableSQLSERIAL_NUMBER: TIntegerField
       DisplayLabel = 'S/N'
       DisplayWidth = 7
@@ -1028,7 +1076,7 @@ object C_ListCustomPaymentsFRM: TC_ListCustomPaymentsFRM
       end>
     object CustomPaymentHawbSQLSERIAL_NUMBER: TIntegerField
       DisplayLabel = 'S/N'
-      DisplayWidth = 4
+      DisplayWidth = 8
       FieldName = 'SERIAL_NUMBER'
       Required = True
     end
@@ -1059,7 +1107,7 @@ object C_ListCustomPaymentsFRM: TC_ListCustomPaymentsFRM
     end
     object CustomPaymentHawbSQLAMOUNT_CUSTOMS: TFloatField
       DisplayLabel = 'Customs Amount'
-      DisplayWidth = 16
+      DisplayWidth = 19
       FieldName = 'AMOUNT_CUSTOMS'
       DisplayFormat = '0.00'
     end
@@ -1202,68 +1250,6 @@ object C_ListCustomPaymentsFRM: TC_ListCustomPaymentsFRM
     UserName = 'PaymentPIP'
     Left = 768
     Top = 186
-    object PaymentPIPppField1: TppField
-      Alignment = taRightJustify
-      FieldAlias = 'S/N'
-      FieldName = 'SERIAL_NUMBER'
-      FieldLength = 0
-      DataType = dtInteger
-      DisplayWidth = 7
-      Position = 0
-    end
-    object PaymentPIPppField2: TppField
-      FieldAlias = 'Cheque'
-      FieldName = 'CHEQUE_NUMBER'
-      FieldLength = 60
-      DisplayWidth = 20
-      Position = 1
-    end
-    object PaymentPIPppField3: TppField
-      Alignment = taRightJustify
-      FieldAlias = 'Amount'
-      FieldName = 'AMOUNT'
-      FieldLength = 0
-      DataType = dtDouble
-      DisplayWidth = 10
-      Position = 2
-    end
-    object PaymentPIPppField4: TppField
-      FieldAlias = 'Payment Date'
-      FieldName = 'DATE_PAYMENT'
-      FieldLength = 0
-      DataType = dtDate
-      DisplayWidth = 18
-      Position = 3
-    end
-    object PaymentPIPppField5: TppField
-      FieldAlias = 'Comments'
-      FieldName = 'COMMENTS'
-      FieldLength = 80
-      DisplayWidth = 22
-      Position = 4
-    end
-    object PaymentPIPppField6: TppField
-      FieldAlias = 'USER_TIMESTAMP'
-      FieldName = 'USER_TIMESTAMP'
-      FieldLength = 0
-      DataType = dtDateTime
-      DisplayWidth = 18
-      Position = 5
-    end
-    object PaymentPIPppField7: TppField
-      FieldAlias = 'USER_ID'
-      FieldName = 'USER_ID'
-      FieldLength = 5
-      DisplayWidth = 5
-      Position = 6
-    end
-    object PaymentPIPppField8: TppField
-      FieldAlias = 'STATUS'
-      FieldName = 'STATUS'
-      FieldLength = 1
-      DisplayWidth = 1
-      Position = 7
-    end
   end
   object ppReport1: TppReport
     AutoStop = False

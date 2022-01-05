@@ -399,8 +399,8 @@ object C_CustomsHawbPaymentFRM: TC_CustomsHawbPaymentFRM
   object TableSRC: TDataSource
     DataSet = TableSQL
     OnStateChange = TableSRCStateChange
-    Left = 544
-    Top = 17
+    Left = 400
+    Top = 89
   end
   object TableSQL: TIBCQuery
     KeyFields = 'SERIAL_NUMBER'
