@@ -455,7 +455,7 @@ object C_ListCustomPaymentsFRM: TC_ListCustomPaymentsFRM
         DataSource = TableSRC
         Font.Charset = GREEK_CHARSET
         Font.Color = clWindowText
-        Font.Height = -13
+        Font.Height = -12
         Font.Name = 'Calibri'
         Font.Style = []
         Options = [dgEditing, dgAlwaysShowEditor, dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit, dgWordWrap]
@@ -485,7 +485,7 @@ object C_ListCustomPaymentsFRM: TC_ListCustomPaymentsFRM
       object wwDBGrid1: TwwDBGrid
         Left = 0
         Top = 53
-        Width = 881
+        Width = 889
         Height = 263
         Selected.Strings = (
           'SERIAL_NUMBER'#9'8'#9'S/N'
@@ -506,7 +506,7 @@ object C_ListCustomPaymentsFRM: TC_ListCustomPaymentsFRM
         DataSource = CustomPaymentHawbSRC
         Font.Charset = GREEK_CHARSET
         Font.Color = clWindowText
-        Font.Height = -13
+        Font.Height = -12
         Font.Name = 'Calibri'
         Font.Style = []
         KeyOptions = []
@@ -610,7 +610,7 @@ object C_ListCustomPaymentsFRM: TC_ListCustomPaymentsFRM
       object ScanBatchBTN: TBitBtn
         Left = 914
         Top = 58
-        Width = 155
+        Width = 190
         Height = 36
         Caption = 'Scan Hawb'
         Font.Charset = GREEK_CHARSET
@@ -683,7 +683,7 @@ object C_ListCustomPaymentsFRM: TC_ListCustomPaymentsFRM
       object fcShapeBtn1: TBitBtn
         Left = 914
         Top = 181
-        Width = 155
+        Width = 190
         Height = 37
         Caption = 'Remove Hawb'
         Font.Charset = GREEK_CHARSET
@@ -727,7 +727,7 @@ object C_ListCustomPaymentsFRM: TC_ListCustomPaymentsFRM
       object AddHawbBTN: TBitBtn
         Left = 914
         Top = 100
-        Width = 155
+        Width = 190
         Height = 37
         Caption = 'Add Hawb'
         Font.Charset = GREEK_CHARSET
@@ -761,7 +761,7 @@ object C_ListCustomPaymentsFRM: TC_ListCustomPaymentsFRM
       object EditHawbBTN: TBitBtn
         Left = 914
         Top = 142
-        Width = 155
+        Width = 190
         Height = 37
         Caption = 'Edit Hawb'
         Font.Charset = GREEK_CHARSET
@@ -834,9 +834,9 @@ object C_ListCustomPaymentsFRM: TC_ListCustomPaymentsFRM
       object AddMediumBTN: TBitBtn
         Left = 914
         Top = 240
-        Width = 155
+        Width = 190
         Height = 37
-        Caption = 'Add All Medium'
+        Caption = 'Add Medium Hawbs'
         Font.Charset = GREEK_CHARSET
         Font.Color = clWindowText
         Font.Height = -19
@@ -1119,8 +1119,8 @@ object C_ListCustomPaymentsFRM: TC_ListCustomPaymentsFRM
     DetailFields = 'FK_CUSTOMS_SERIAL'
     MasterSource = TableSRC
     Active = True
-    Left = 272
-    Top = 218
+    Left = 448
+    Top = 74
     ParamData = <
       item
         DataType = ftInteger
