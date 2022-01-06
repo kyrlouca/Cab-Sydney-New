@@ -2,7 +2,7 @@ object C_ListCustomPaymentsFRM: TC_ListCustomPaymentsFRM
   Left = 111
   Top = 125
   Caption = 'Payments'
-  ClientHeight = 646
+  ClientHeight = 862
   ClientWidth = 1172
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -34,12 +34,12 @@ object C_ListCustomPaymentsFRM: TC_ListCustomPaymentsFRM
   end
   object Panel4: TPanel
     Left = 0
-    Top = 603
+    Top = 819
     Width = 1172
     Height = 43
     Align = alBottom
     TabOrder = 1
-    ExplicitTop = 602
+    ExplicitTop = 603
     object Panel11: TRzPanel
       Left = 1079
       Top = 1
@@ -127,10 +127,10 @@ object C_ListCustomPaymentsFRM: TC_ListCustomPaymentsFRM
     Left = 0
     Top = 86
     Width = 1172
-    Height = 517
+    Height = 733
     Align = alClient
     TabOrder = 2
-    ExplicitHeight = 516
+    ExplicitHeight = 517
     object Label4: TLabel
       Left = 76
       Top = 103
@@ -150,21 +150,21 @@ object C_ListCustomPaymentsFRM: TC_ListCustomPaymentsFRM
       Left = 989
       Top = 1
       Width = 19
-      Height = 199
+      Height = 415
       Align = alLeft
       BevelOuter = bvNone
       TabOrder = 0
-      ExplicitHeight = 198
+      ExplicitHeight = 199
     end
     object Panel9: TPanel
       Left = 1
       Top = 1
       Width = 988
-      Height = 199
+      Height = 415
       Align = alLeft
       BevelOuter = bvNone
       TabOrder = 1
-      ExplicitHeight = 198
+      ExplicitHeight = 199
       object Panel10: TPanel
         Left = 0
         Top = 0
@@ -439,7 +439,7 @@ object C_ListCustomPaymentsFRM: TC_ListCustomPaymentsFRM
         Left = 0
         Top = 33
         Width = 556
-        Height = 166
+        Height = 382
         Selected.Strings = (
           'SERIAL_NUMBER'#9'7'#9'S/N'
           'CHEQUE_NUMBER'#9'20'#9'Cheque'
@@ -471,17 +471,18 @@ object C_ListCustomPaymentsFRM: TC_ListCustomPaymentsFRM
         TitleButtons = True
         OnTitleButtonClick = wwDBGrid2TitleButtonClick
         OnDblClick = wwDBGrid2DblClick
+        ExplicitHeight = 166
       end
     end
     object Panel5: TPanel
       Left = 1
-      Top = 200
+      Top = 416
       Width = 1170
       Height = 316
       Align = alBottom
       BevelOuter = bvNone
       TabOrder = 2
-      ExplicitTop = 199
+      ExplicitTop = 200
       object wwDBGrid1: TwwDBGrid
         Left = 0
         Top = 53
@@ -1126,7 +1127,7 @@ object C_ListCustomPaymentsFRM: TC_ListCustomPaymentsFRM
         DataType = ftInteger
         Name = 'SERIAL_NUMBER'
         ParamType = ptInput
-        Value = 2990
+        Value = 3599
       end>
     object CustomPaymentHawbSQLSERIAL_NUMBER: TIntegerField
       DisplayLabel = 'S/N'
