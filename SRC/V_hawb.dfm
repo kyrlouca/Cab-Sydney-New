@@ -4573,6 +4573,13 @@ object V_HawbFRM: TV_HawbFRM
         OnClick = CreateWarehouseXML1Click
       end
     end
+    object Show1: TMenuItem
+      Caption = 'Show'
+      object ShowUser1: TMenuItem
+        Caption = 'Show User'
+        OnClick = ShowUser1Click
+      end
+    end
   end
   object BindSourceDB1: TBindSourceDB
     DataSet = V_HawbDataDML.HawbSQL

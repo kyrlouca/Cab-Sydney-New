@@ -5,9 +5,10 @@ interface
 uses
   Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms, Dialogs,
   StdCtrls, Mask, DBCtrls, Db, wwSpeedButton, wwDBNavigator,
-  wwclearpanel, Buttons, ExtCtrls,  wwdblook, Wwkeycb, Grids,
+  wwclearpanel, Buttons, ExtCtrls, wwdblook, Wwkeycb, Grids,
   DBAccess, IBC, MemDS, Wwdbigrd, Wwdbgrid, wwdbedit, wwdbdatetimepicker,
   Wwdotdot, Wwdbcomb;
+
 type
   TC_CustomsHawbPaymentFRM = class(TForm)
     Panel1: TPanel;
@@ -51,6 +52,17 @@ type
     TableSQLMAWB_ID: TStringField;
     TableSQLFFHAWB_TYPE: TStringField;
     TableSQLFFMAWB_ID: TStringField;
+    FindCustomHawbSQL: TIBCQuery;
+    FindCustomHawbSQLSERIAL_NUMBER: TIntegerField;
+    FindCustomHawbSQLXML_ID: TStringField;
+    FindCustomHawbSQLAMOUNT_CUSTOMS: TFloatField;
+    FindCustomHawbSQLAMOUNT_DHL: TFloatField;
+    FindCustomHawbSQLHAWB_SERIAL: TIntegerField;
+    FindCustomHawbSQLHAWB_ID: TStringField;
+    FindCustomHawbSQLFK_CUSTOMS_SERIAL: TIntegerField;
+    FindCustomHawbSQLCUSTOMER_NAME: TStringField;
+    FindCustomHawbSQLCHEQUE_NUMBER: TStringField;
+    FindCustomHawbSQLPAYMENTSERIAL: TIntegerField;
     procedure FormActivate(Sender: TObject);
     procedure BitBtn2Click(Sender: TObject);
     procedure TableSQLBeforeEdit(DataSet: TDataSet);
@@ -60,13 +72,13 @@ type
     procedure TableSQLBeforePost(DataSet: TDataSet);
   private
     { Private declarations }
-    DefaultType:String;
+    DefaultType: String;
   public
     { Public declarations }
 
-    InAction:String;
-    InSerialNumber:integer;
-    InMasterSerial:integer;
+    InAction: String;
+    InSerialNumber: integer;
+    InMasterSerial: integer;
   end;
 
 var
@@ -74,119 +86,130 @@ var
 
 implementation
 
-uses  U_ClairDML;
-
+uses U_ClairDML;
 
 {$R *.DFM}
 
 procedure TC_CustomsHawbPaymentFRM.FormActivate(Sender: TObject);
-begin
+  begin
 
+    With MakeSQL do
+    begin
+      Close;
+      MakeSQL.SQL.Clear;
+      MakeSQL.SQL.Text := 'select hawb_type from customs_hawb_type order by ORDER_Number ';
+      if not prepared then prepare;
+      Open;
+      first;
+      DefaultType := MakeSQL.fieldbyName('hawb_TYPE').AsString;
+      While (NOT MakeSQL.Eof) do
+      begin
+        TypeFLD.Items.add(MakeSQL.fieldbyName('hawb_TYPE').AsString);
+        MakeSQL.Next;
+      end;
+      Close;
+    end;
 
-     With MakeSQL do
-     begin
+    // NameFLD.SetFocus;
+    If InAction = 'INSERT' then
+    begin
+      TableSQL.Close;
+      TableSQL.Open;
+      TableSQL.Insert;
+      TableSQL.fieldbyName('fk_CUSTOMS_SERIAL').value := InMasterSerial;
+      TableSQL.fieldbyName('HAWB_TYPE').value := DefaultType;
+      TableSQL.fieldbyName('DATE_CLEARED').AsDateTime := NOW;
+
+    end
+    else If InAction = 'DISPLAY' then
+    begin
+      With TableSQL do
+      begin
         Close;
-        MakeSQL.SQL.Clear;
-        MakeSQL.SQL.Text :='select hawb_type from customs_hawb_type order by ORDER_Number ';
-        if not prepared then prepare;
+        TableSQL.ParambyName('SErialNumber').value := InSerialNumber;
         Open;
-        first;
-        DefaultType:=MakeSQL.fieldbyName('hawb_TYPE').AsString;
-        While ( NOT MakeSQL.Eof)do begin
-                TypeFLD.Items.add(MakeSQL.fieldbyName('hawb_TYPE').AsString);
-                MakeSQL.Next;
-       end;
-        close;
-     end;
+      end;
 
+    end;
 
-
-
-//     NameFLD.SetFocus;
-     If InAction='INSERT' then begin
-        TableSQL.close;
-        TableSQL.Open;
-        TableSQL.Insert;
-        TableSQL.FieldByName('fk_CUSTOMS_SERIAL').value:= InMasterSerial;
-        TableSQL.FieldByName('HAWB_TYPE').Value:= DefaultTYpe;
-        TableSQL.FieldByName('DATE_CLEARED').AsDateTime:=NOW;
-
-     end else If InAction='DISPLAY' then begin
-        With TableSQL do begin
-                Close;
-                TableSQL.ParambyName('SErialNumber').Value:= InSerialNumber;
-                Open;
-        end;
-  
-     end;
-
-
-end;
+  end;
 
 procedure TC_CustomsHawbPaymentFRM.BitBtn2Click(Sender: TObject);
-begin
-if tableSQL.State in [dsinsert,dsEdit] then begin
-        tableSQL.Cancel;
-end;
-close;
+  begin
+    if TableSQL.State in [dsinsert, dsEdit] then
+    begin
+      TableSQL.Cancel;
+    end;
+    Close;
 
-end;
+  end;
 
-procedure TC_CustomsHawbPaymentFRM.TableSQLBeforeEdit(
-  DataSet: TDataSet);
-begin
-//   Dataset.FieldByName('Serial_number').ReadOnly:=true;
-end;
-
+procedure TC_CustomsHawbPaymentFRM.TableSQLBeforeEdit(DataSet: TDataSet);
+  begin
+    // Dataset.FieldByName('Serial_number').ReadOnly:=true;
+  end;
 
 procedure TC_CustomsHawbPaymentFRM.TableSRCStateChange(Sender: TObject);
-begin
+  begin
 
+    with TableSQL do
+    begin
+      If State <> dsinsert then
+      begin
+        KeyIdFLD.Enabled := false;
+        // FieldByName('id').ReadOnly:=true;
+      end
+      else
+      begin
+        KeyIdFLD.Enabled := true;
+        // FieldByName('id').ReadOnly:=false;
+      end;
+    end; // with
 
-with TableSQL do
-begin
-     If State<>dsInsert then
-     begin
-         KeyIDFLD.Enabled:=false;
-//       FieldByName('id').ReadOnly:=true;
-     end
-     else
-     begin
-         KeyIDFLD.Enabled:=true;
-//       FieldByName('id').ReadOnly:=false;
-     end;
-end;//with
-
-end;
+  end;
 
 procedure TC_CustomsHawbPaymentFRM.TableSQLAfterInsert(DataSet: TDataSet);
-begin
-   if keyIDFLD.CanFocus then begin
-        keyIDFLD.SetFocus;
-   end;
+  begin
+    if KeyIdFLD.CanFocus then
+    begin
+      KeyIdFLD.SetFocus;
+    end;
 
-
-end;
+  end;
 
 procedure TC_CustomsHawbPaymentFRM.BitBtn1Click(Sender: TObject);
-begin
-if tableSQL.State in [dsinsert,dsEdit] then begin
-        tableSQL.Post;
-end;
-close;
+  begin
 
-End;
+    FindCustomHawbSQL.Close;
+    FindCustomHawbSQL.ParambyName('xmlId').value := tablesql.FieldByName('XML_ID').asstring;
+    FindCustomHawbSQL.open;
+    if (FindCustomHawbSQL.RecordCount > 0) then
+    begin
+      var payserial:string := FindCustomHawbSQL.FieldByName('paymentSerial').AsString;
+      var cheque:string := FindCustomHawbSQL.FieldByName('cheque_number').AsString;
+      ShowMessage('Xml id already exists. Cheque: ' + cheque+' PaymentSerial: '+payserial);
+      TableSQL.Cancel;
+      exit;
+    end;
+
+    if TableSQL.State in [dsinsert, dsEdit] then
+    begin
+      TableSQL.Post;
+    end;
+    Close;
+
+  End;
 
 procedure TC_CustomsHawbPaymentFRM.TableSQLBeforePost(DataSet: TDataSet);
-begin
-Dataset.FieldbyName('Hawb_type').Value := Trim(Dataset.FieldbyName('Hawb_type').AsString);
-if ( Trim(Dataset.FieldbyName('Hawb_type').AsString) = '') then begin
- Dataset.FieldbyName('Hawb_type').Value :='';
- ShowMessage('Enter hawb type');
- abort;
-end;
+  begin
+    DataSet.fieldbyName('Hawb_type').value := Trim(DataSet.fieldbyName('Hawb_type').AsString);
+    if (Trim(DataSet.fieldbyName('Hawb_type').AsString) = '') then
+    begin
+      DataSet.fieldbyName('Hawb_type').value := '';
+      ShowMessage('Enter hawb type');
+      abort;
+    end;
 
-
-end;
+  end;
 
 End.

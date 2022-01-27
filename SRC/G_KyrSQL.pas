@@ -276,6 +276,33 @@ function ksGetOneFieldValue(const connection: TIBCConnection; const Sql: string;
       qr.Open;
 
       result := qr.FieldByName(fieldForValue).value;
+      var
+      resultDataType := qr.FieldByName(fieldForValue).DataType;
+
+      if (result = null) then
+      begin
+        case resultDataType of
+          ftString, ftFixedChar:
+            result := '';
+          ftWideString, ftFixedWideChar:
+            result := '';
+          ftSmallint, ftInteger, ftWord, ftByte:
+            result := 0;
+          ftLongWord, ftLargeint:
+            result := 0;
+          ftShortint, ftFloat, ftSingle:
+            result := 0;
+          ftCurrency:
+            result := 0;
+          ftDate:
+            result := now;
+          ftTime, ftDateTime, ftTimeStamp:
+            result := now;
+        else
+          raise Exception.Create('Uknown type of Parameter');
+        end;
+
+      end;
 
     finally
       wrTrans.Free;
@@ -737,8 +764,8 @@ function ksExecSQLVar(const connection: TIBCConnection; const Sql: string; InArr
         result := qr.RowsAffected;
       except
         on E: Exception do
-        //write to console??
-        var y:=33;
+          // write to console??
+          var y := 33;
       end;
     finally
       wrTrans.Free;

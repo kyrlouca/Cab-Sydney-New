@@ -3,7 +3,7 @@
         <ProjectGuid>{1A344599-1F0A-4FD6-B26C-9F17EC21AFE9}</ProjectGuid>
         <MainSource>CabSydney101.dpr</MainSource>
         <Base>True</Base>
-        <Config Condition="'$(Config)'==''">Debug</Config>
+        <Config Condition="'$(Config)'==''">Release</Config>
         <TargetedPlatforms>1</TargetedPlatforms>
         <AppType>Application</AppType>
         <FrameworkType>VCL</FrameworkType>

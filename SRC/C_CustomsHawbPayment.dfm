@@ -541,4 +541,67 @@ object C_CustomsHawbPaymentFRM: TC_CustomsHawbPaymentFRM
     Left = 504
     Top = 258
   end
+  object FindCustomHawbSQL: TIBCQuery
+    Connection = ClairDML.CabCOnnection
+    SQL.Strings = (
+      
+        'Select cph.*, cp.serial_number as PaymentSerial, cp.cheque_numbe' +
+        'r'
+      'from Customs_Payment_Hawb cph'
+      
+        'left outer join customs_payment cp on cp.serial_number= cph.fk_c' +
+        'ustoms_serial'
+      'where cph.xml_id = :xmlId'
+      ''
+      '')
+    Left = 290
+    Top = 274
+    ParamData = <
+      item
+        DataType = ftUnknown
+        Name = 'xmlId'
+        Value = nil
+      end>
+    object FindCustomHawbSQLSERIAL_NUMBER: TIntegerField
+      FieldName = 'SERIAL_NUMBER'
+      Required = True
+    end
+    object FindCustomHawbSQLXML_ID: TStringField
+      FieldName = 'XML_ID'
+      FixedChar = True
+      Size = 13
+    end
+    object FindCustomHawbSQLAMOUNT_CUSTOMS: TFloatField
+      FieldName = 'AMOUNT_CUSTOMS'
+    end
+    object FindCustomHawbSQLAMOUNT_DHL: TFloatField
+      FieldName = 'AMOUNT_DHL'
+    end
+    object FindCustomHawbSQLHAWB_SERIAL: TIntegerField
+      FieldName = 'HAWB_SERIAL'
+    end
+    object FindCustomHawbSQLHAWB_ID: TStringField
+      FieldName = 'HAWB_ID'
+      Size = 10
+    end
+    object FindCustomHawbSQLFK_CUSTOMS_SERIAL: TIntegerField
+      FieldName = 'FK_CUSTOMS_SERIAL'
+      Required = True
+    end
+    object FindCustomHawbSQLCUSTOMER_NAME: TStringField
+      FieldName = 'CUSTOMER_NAME'
+      FixedChar = True
+      Size = 60
+    end
+    object FindCustomHawbSQLCHEQUE_NUMBER: TStringField
+      FieldName = 'CHEQUE_NUMBER'
+      ReadOnly = True
+      FixedChar = True
+      Size = 60
+    end
+    object FindCustomHawbSQLPAYMENTSERIAL: TIntegerField
+      FieldName = 'PAYMENTSERIAL'
+      ReadOnly = True
+    end
+  end
 end
