@@ -13,7 +13,7 @@ object V_MawbFRM: TV_MawbFRM
   Font.Style = []
   Menu = MainMenu1
   OldCreateOrder = False
-  Position = poDesigned
+  Position = poMainFormCenter
   WindowState = wsMaximized
   OnActivate = FormActivate
   OnCreate = FormCreate
@@ -809,6 +809,7 @@ object V_MawbFRM: TV_MawbFRM
         Height = 409
         Align = alTop
         TabOrder = 2
+        VisualStyle = vsClassic
         object RzPanel10: TRzPanel
           Left = 2
           Top = 2

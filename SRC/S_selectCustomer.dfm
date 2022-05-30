@@ -15,6 +15,7 @@ object S_SelectCustomerFRM: TS_SelectCustomerFRM
   Position = poMainFormCenter
   OnActivate = FormActivate
   OnClose = FormClose
+  OnCreate = FormCreate
   PixelsPerInch = 120
   TextHeight = 16
   object Panel1: TPanel
@@ -126,7 +127,7 @@ object S_SelectCustomerFRM: TS_SelectCustomerFRM
     Left = 0
     Top = 65
     Width = 1104
-    Height = 96
+    Height = 104
     Align = alTop
     TabOrder = 2
     object FindHawbBTN: TSpeedButton
@@ -276,7 +277,7 @@ object S_SelectCustomerFRM: TS_SelectCustomerFRM
     end
     object CodeFLD: TwwDBEdit
       Left = 72
-      Top = 64
+      Top = 65
       Width = 121
       Height = 23
       Font.Charset = DEFAULT_CHARSET
@@ -417,30 +418,77 @@ object S_SelectCustomerFRM: TS_SelectCustomerFRM
       WordWrap = False
       OnKeyUp = CodeFLDKeyUp
     end
+    object SelectActiveFLD: TRzRadioGroup
+      Left = 736
+      Top = 9
+      Width = 185
+      Height = 89
+      Caption = 'Select Active  Customers'
+      ItemIndex = 0
+      Items.Strings = (
+        'Active'
+        'Inactive'
+        'All')
+      TabOrder = 5
+      OnChanging = SelectActiveFLDChanging
+    end
   end
   object Panel3: TPanel
     Left = 0
-    Top = 161
+    Top = 169
     Width = 1104
-    Height = 495
+    Height = 487
     Align = alClient
     TabOrder = 3
+    ExplicitTop = 161
+    ExplicitHeight = 495
     object CustomerGRD: TwwDBGrid
       Left = 1
       Top = 1
       Width = 1102
-      Height = 493
+      Height = 485
+      ControlType.Strings = (
+        'IS_SHOWN;CheckBox;Y;N'
+        'ISACTIVE;CheckBox;Y;N')
       Selected.Strings = (
-        'CODE'#9'10'#9'CODE'
-        'COMPANY_OR_PERSON'#9'1'#9'Status'
-        'NAME'#9'30'#9'Name'
-        'FK_DISTRICT_CODE'#9'6'#9'District'
-        'ADDRESS1'#9'23'#9'Address'
-        'ADDRESS_CITY'#9'9'#9'City'
-        'VAT_ID'#9'10'#9'Vat'
-        'ACCOUNT_NUMBER'#9'7'#9'Account'
-        'EMAIL_TO_NOTIFY'#9'20'#9'email'
-        'TEL_NO1'#9'12'#9'Telephone')
+        'NAME'#9'80'#9'NAME'#9#9
+        'ADDRESS1'#9'50'#9'ADDRESS1'#9#9
+        'ADDRESS2'#9'50'#9'ADDRESS2'#9'F'#9
+        'ADDRESS3'#9'50'#9'ADDRESS3'#9'F'#9
+        'VAT_ID'#9'10'#9'VAT_ID'#9#9
+        'COMPANY_ID'#9'10'#9'COMPANY_ID'#9'F'#9
+        'RECEIPIENT_ID'#9'10'#9'RECEIPIENT_ID'#9'F'#9
+        'OTHER_ID'#9'15'#9'OTHER_ID'#9'F'#9
+        'TEL_NO1'#9'10'#9'TEL_NO1'#9#9
+        'TEL_NO2'#9'10'#9'TEL_NO2'#9'F'#9
+        'FAX1'#9'10'#9'FAX1'#9'F'#9
+        'FAX2'#9'10'#9'FAX2'#9'F'#9
+        'FK_DISTRICT_CODE'#9'3'#9'FK_DISTRICT_CODE'#9#9
+        'COMMENTS'#9'200'#9'COMMENTS'#9'F'#9
+        'AUTHORIZATION_NUMBER'#9'15'#9'AUTHORIZATION_NUMBER'#9'F'#9
+        'QUARANTEE_NUMBER'#9'10'#9'QUARANTEE_NUMBER'#9'F'#9
+        'IMPORTER'#9'1'#9'IMPORTER'#9'F'#9
+        'EXPORTER'#9'1'#9'EXPORTER'#9'F'#9
+        'RESELLER'#9'1'#9'RESELLER'#9'F'#9
+        'CUSTOM_DEALER_NUMBER'#9'10'#9'CUSTOM_DEALER_NUMBER'#9'F'#9
+        'FK_OCCUPATION_CODE'#9'5'#9'FK_OCCUPATION_CODE'#9'F'#9
+        'FK_CUSTOMER_CATEGORY_CODE'#9'5'#9'FK_CUSTOMER_CATEGORY_CODE'#9'F'#9
+        'AUTHORITY_TO_AGENT'#9'10'#9'AUTHORITY_TO_AGENT'#9'F'#9
+        'COMPANY_OR_PERSON'#9'1'#9'COMPANY_OR_PERSON'#9#9
+        'CODE'#9'10'#9'CODE'#9#9
+        'ACCOUNT_NUMBER'#9'10'#9'ACCOUNT_NUMBER'#9#9
+        'EMAIL_TO_NOTIFY'#9'80'#9'EMAIL_TO_NOTIFY'#9#9
+        'MOBILE_TO_NOTIFY'#9'80'#9'MOBILE_TO_NOTIFY'#9'F'#9
+        'IS_NOTIFY_MOBILE'#9'1'#9'IS_NOTIFY_MOBILE'#9'F'#9
+        'IS_NOTIFY_EMAIL'#9'1'#9'IS_NOTIFY_EMAIL'#9'F'#9
+        'IS_RECEIVE_NOTIFICATION'#9'1'#9'IS_RECEIVE_NOTIFICATION'#9'F'#9
+        'AUTHORITY_TO_DHL'#9'10'#9'AUTHORITY_TO_DHL'#9'F'#9
+        'IS_CREDIT'#9'1'#9'IS_CREDIT'#9'F'#9
+        'ADDRESS_POST_CODE'#9'50'#9'ADDRESS_POST_CODE'#9'F'#9
+        'ADDRESS_CITY'#9'50'#9'ADDRESS_CITY'#9#9
+        'ADDRESS_COUNTRY'#9'50'#9'ADDRESS_COUNTRY'#9'F'#9
+        'CONTACT_NAME'#9'80'#9'CONTACT_NAME'#9'F'#9
+        'IS_SHOWN'#9'1'#9'IS_SHOWN'#9'F'#9)
       IniAttributes.Delimiter = ';;'
       IniAttributes.UnicodeIniFile = False
       TitleColor = clBtnFace
@@ -449,7 +497,7 @@ object S_SelectCustomerFRM: TS_SelectCustomerFRM
       Align = alClient
       BorderStyle = bsNone
       Color = 13428976
-      DataSource = CustomerSRC
+      DataSource = M_CustomerNewFRM.CustomerSRC
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -12
@@ -471,6 +519,8 @@ object S_SelectCustomerFRM: TS_SelectCustomerFRM
       OnTitleButtonClick = CustomerGRDTitleButtonClick
       OnDblClick = CustomerGRDDblClick
       OnKeyDown = CustomerGRDKeyDown
+      ExplicitLeft = 2
+      ExplicitTop = 0
       object CustomerGRDIButton: TwwIButton
         Left = 0
         Top = 0
@@ -541,33 +591,34 @@ object S_SelectCustomerFRM: TS_SelectCustomerFRM
   end
   object CustomerSRC: TDataSource
     DataSet = CustomerSQL
-    Left = 656
-    Top = 113
+    Left = 248
+    Top = 249
   end
   object CustomerSQL: TIBCQuery
     SQLInsert.Strings = (
       'INSERT INTO CUSTOMER'
       
-        '  (NAME, ADDRESS1, ADDRESS2, ADDRESS3, VAT_ID, COMPANY_ID, RECEI' +
-        'PIENT_ID, OTHER_ID, TEL_NO1, TEL_NO2, FAX1, FAX2, FK_DISTRICT_CO' +
-        'DE, COMMENTS, AUTHORIZATION_NUMBER, QUARANTEE_NUMBER, IMPORTER, ' +
-        'EXPORTER, RESELLER, CUSTOM_DEALER_NUMBER, FK_OCCUPATION_CODE, FK' +
-        '_CUSTOMER_CATEGORY_CODE, AUTHORITY_TO_AGENT, COMPANY_OR_PERSON, ' +
-        'CODE, ACCOUNT_NUMBER, EMAIL_TO_NOTIFY, MOBILE_TO_NOTIFY, IS_NOTI' +
+        '  (CODE, NAME, FK_DISTRICT_CODE, COMPANY_OR_PERSON, VAT_ID, ADDR' +
+        'ESS1, ADDRESS2, ADDRESS3, COMPANY_ID, RECEIPIENT_ID, OTHER_ID, F' +
+        'AX2, TEL_NO1, TEL_NO2, FAX1, COMMENTS, AUTHORIZATION_NUMBER, QUA' +
+        'RANTEE_NUMBER, IMPORTER, EXPORTER, RESELLER, CUSTOM_DEALER_NUMBE' +
+        'R, FK_OCCUPATION_CODE, FK_CUSTOMER_CATEGORY_CODE, AUTHORITY_TO_A' +
+        'GENT, ACCOUNT_NUMBER, EMAIL_TO_NOTIFY, MOBILE_TO_NOTIFY, IS_NOTI' +
         'FY_MOBILE, IS_NOTIFY_EMAIL, IS_RECEIVE_NOTIFICATION, AUTHORITY_T' +
         'O_DHL, IS_CREDIT, ADDRESS_POST_CODE, ADDRESS_CITY, ADDRESS_COUNT' +
-        'RY)'
+        'RY, IS_SHOWN, CONTACT_NAME)'
       'VALUES'
       
-        '  (:NAME, :ADDRESS1, :ADDRESS2, :ADDRESS3, :VAT_ID, :COMPANY_ID,' +
-        ' :RECEIPIENT_ID, :OTHER_ID, :TEL_NO1, :TEL_NO2, :FAX1, :FAX2, :F' +
-        'K_DISTRICT_CODE, :COMMENTS, :AUTHORIZATION_NUMBER, :QUARANTEE_NU' +
-        'MBER, :IMPORTER, :EXPORTER, :RESELLER, :CUSTOM_DEALER_NUMBER, :F' +
-        'K_OCCUPATION_CODE, :FK_CUSTOMER_CATEGORY_CODE, :AUTHORITY_TO_AGE' +
-        'NT, :COMPANY_OR_PERSON, :CODE, :ACCOUNT_NUMBER, :EMAIL_TO_NOTIFY' +
+        '  (:CODE, :NAME, :FK_DISTRICT_CODE, :COMPANY_OR_PERSON, :VAT_ID,' +
+        ' :ADDRESS1, :ADDRESS2, :ADDRESS3, :COMPANY_ID, :RECEIPIENT_ID, :' +
+        'OTHER_ID, :FAX2, :TEL_NO1, :TEL_NO2, :FAX1, :COMMENTS, :AUTHORIZ' +
+        'ATION_NUMBER, :QUARANTEE_NUMBER, :IMPORTER, :EXPORTER, :RESELLER' +
+        ', :CUSTOM_DEALER_NUMBER, :FK_OCCUPATION_CODE, :FK_CUSTOMER_CATEG' +
+        'ORY_CODE, :AUTHORITY_TO_AGENT, :ACCOUNT_NUMBER, :EMAIL_TO_NOTIFY' +
         ', :MOBILE_TO_NOTIFY, :IS_NOTIFY_MOBILE, :IS_NOTIFY_EMAIL, :IS_RE' +
         'CEIVE_NOTIFICATION, :AUTHORITY_TO_DHL, :IS_CREDIT, :ADDRESS_POST' +
-        '_CODE, :ADDRESS_CITY, :ADDRESS_COUNTRY)')
+        '_CODE, :ADDRESS_CITY, :ADDRESS_COUNTRY, :IS_SHOWN, :CONTACT_NAME' +
+        ')')
     SQLDelete.Strings = (
       'DELETE FROM CUSTOMER'
       'WHERE'
@@ -576,37 +627,37 @@ object S_SelectCustomerFRM: TS_SelectCustomerFRM
       'UPDATE CUSTOMER'
       'SET'
       
-        '  NAME = :NAME, ADDRESS1 = :ADDRESS1, ADDRESS2 = :ADDRESS2, ADDR' +
-        'ESS3 = :ADDRESS3, VAT_ID = :VAT_ID, COMPANY_ID = :COMPANY_ID, RE' +
-        'CEIPIENT_ID = :RECEIPIENT_ID, OTHER_ID = :OTHER_ID, TEL_NO1 = :T' +
-        'EL_NO1, TEL_NO2 = :TEL_NO2, FAX1 = :FAX1, FAX2 = :FAX2, FK_DISTR' +
-        'ICT_CODE = :FK_DISTRICT_CODE, COMMENTS = :COMMENTS, AUTHORIZATIO' +
-        'N_NUMBER = :AUTHORIZATION_NUMBER, QUARANTEE_NUMBER = :QUARANTEE_' +
-        'NUMBER, IMPORTER = :IMPORTER, EXPORTER = :EXPORTER, RESELLER = :' +
-        'RESELLER, CUSTOM_DEALER_NUMBER = :CUSTOM_DEALER_NUMBER, FK_OCCUP' +
-        'ATION_CODE = :FK_OCCUPATION_CODE, FK_CUSTOMER_CATEGORY_CODE = :F' +
-        'K_CUSTOMER_CATEGORY_CODE, AUTHORITY_TO_AGENT = :AUTHORITY_TO_AGE' +
-        'NT, COMPANY_OR_PERSON = :COMPANY_OR_PERSON, CODE = :CODE, ACCOUN' +
+        '  CODE = :CODE, NAME = :NAME, FK_DISTRICT_CODE = :FK_DISTRICT_CO' +
+        'DE, COMPANY_OR_PERSON = :COMPANY_OR_PERSON, VAT_ID = :VAT_ID, AD' +
+        'DRESS1 = :ADDRESS1, ADDRESS2 = :ADDRESS2, ADDRESS3 = :ADDRESS3, ' +
+        'COMPANY_ID = :COMPANY_ID, RECEIPIENT_ID = :RECEIPIENT_ID, OTHER_' +
+        'ID = :OTHER_ID, FAX2 = :FAX2, TEL_NO1 = :TEL_NO1, TEL_NO2 = :TEL' +
+        '_NO2, FAX1 = :FAX1, COMMENTS = :COMMENTS, AUTHORIZATION_NUMBER =' +
+        ' :AUTHORIZATION_NUMBER, QUARANTEE_NUMBER = :QUARANTEE_NUMBER, IM' +
+        'PORTER = :IMPORTER, EXPORTER = :EXPORTER, RESELLER = :RESELLER, ' +
+        'CUSTOM_DEALER_NUMBER = :CUSTOM_DEALER_NUMBER, FK_OCCUPATION_CODE' +
+        ' = :FK_OCCUPATION_CODE, FK_CUSTOMER_CATEGORY_CODE = :FK_CUSTOMER' +
+        '_CATEGORY_CODE, AUTHORITY_TO_AGENT = :AUTHORITY_TO_AGENT, ACCOUN' +
         'T_NUMBER = :ACCOUNT_NUMBER, EMAIL_TO_NOTIFY = :EMAIL_TO_NOTIFY, ' +
         'MOBILE_TO_NOTIFY = :MOBILE_TO_NOTIFY, IS_NOTIFY_MOBILE = :IS_NOT' +
         'IFY_MOBILE, IS_NOTIFY_EMAIL = :IS_NOTIFY_EMAIL, IS_RECEIVE_NOTIF' +
         'ICATION = :IS_RECEIVE_NOTIFICATION, AUTHORITY_TO_DHL = :AUTHORIT' +
         'Y_TO_DHL, IS_CREDIT = :IS_CREDIT, ADDRESS_POST_CODE = :ADDRESS_P' +
         'OST_CODE, ADDRESS_CITY = :ADDRESS_CITY, ADDRESS_COUNTRY = :ADDRE' +
-        'SS_COUNTRY'
+        'SS_COUNTRY, IS_SHOWN = :IS_SHOWN, CONTACT_NAME = :CONTACT_NAME'
       'WHERE'
       '  CODE = :Old_CODE')
     SQLRefresh.Strings = (
       
-        'SELECT NAME, ADDRESS1, ADDRESS2, ADDRESS3, VAT_ID, COMPANY_ID, R' +
-        'ECEIPIENT_ID, OTHER_ID, TEL_NO1, TEL_NO2, FAX1, FAX2, FK_DISTRIC' +
-        'T_CODE, COMMENTS, AUTHORIZATION_NUMBER, QUARANTEE_NUMBER, IMPORT' +
-        'ER, EXPORTER, RESELLER, CUSTOM_DEALER_NUMBER, FK_OCCUPATION_CODE' +
-        ', FK_CUSTOMER_CATEGORY_CODE, AUTHORITY_TO_AGENT, COMPANY_OR_PERS' +
-        'ON, CODE, ACCOUNT_NUMBER, EMAIL_TO_NOTIFY, MOBILE_TO_NOTIFY, IS_' +
+        'SELECT CODE, NAME, FK_DISTRICT_CODE, COMPANY_OR_PERSON, VAT_ID, ' +
+        'ADDRESS1, ADDRESS2, ADDRESS3, COMPANY_ID, RECEIPIENT_ID, OTHER_I' +
+        'D, FAX2, TEL_NO1, TEL_NO2, FAX1, COMMENTS, AUTHORIZATION_NUMBER,' +
+        ' QUARANTEE_NUMBER, IMPORTER, EXPORTER, RESELLER, CUSTOM_DEALER_N' +
+        'UMBER, FK_OCCUPATION_CODE, FK_CUSTOMER_CATEGORY_CODE, AUTHORITY_' +
+        'TO_AGENT, ACCOUNT_NUMBER, EMAIL_TO_NOTIFY, MOBILE_TO_NOTIFY, IS_' +
         'NOTIFY_MOBILE, IS_NOTIFY_EMAIL, IS_RECEIVE_NOTIFICATION, AUTHORI' +
         'TY_TO_DHL, IS_CREDIT, ADDRESS_POST_CODE, ADDRESS_CITY, ADDRESS_C' +
-        'OUNTRY FROM CUSTOMER'
+        'OUNTRY, IS_SHOWN, CONTACT_NAME FROM CUSTOMER'
       'WHERE'
       '  CODE = :CODE')
     SQLLock.Strings = (
@@ -621,10 +672,10 @@ object S_SelectCustomerFRM: TS_SelectCustomerFRM
       ') q')
     Connection = ClairDML.CabCOnnection
     SQL.Strings = (
-      'SElect first 40 *'
+      'SElect first 80 coalesce(cu.is_shown, '#39'Y'#39') as IsActive, cu.*'
       'from '
       'customer cu'
-      'where cu.is_shown<>'#39'N'#39' or (cu.is_shown is null)')
+      '')
     Active = True
     Left = 152
     Top = 241
@@ -686,6 +737,22 @@ object S_SelectCustomerFRM: TS_SelectCustomerFRM
       DisplayWidth = 12
       FieldName = 'TEL_NO1'
       Size = 10
+    end
+    object CustomerSQLISACTIVE: TStringField
+      DisplayLabel = 'Active'
+      DisplayWidth = 1
+      FieldName = 'ISACTIVE'
+      ReadOnly = True
+      FixedChar = True
+      Size = 1
+    end
+    object CustomerSQLIS_SHOWN: TStringField
+      DisplayLabel = 'Inactive'
+      DisplayWidth = 1
+      FieldName = 'IS_SHOWN'
+      Visible = False
+      FixedChar = True
+      Size = 1
     end
     object CustomerSQLMOBILE_TO_NOTIFY: TStringField
       DisplayWidth = 80

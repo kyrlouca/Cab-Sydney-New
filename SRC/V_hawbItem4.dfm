@@ -13,7 +13,7 @@ object V_hawbItemFRM4: TV_hawbItemFRM4
   Font.Style = []
   KeyPreview = True
   OldCreateOrder = False
-  Position = poDefault
+  Position = poMainFormCenter
   WindowState = wsMaximized
   OnActivate = FormActivate
   OnCreate = FormCreate
@@ -104,7 +104,6 @@ object V_hawbItemFRM4: TV_hawbItemFRM4
       OnUpdateFooter = ChargesGRDUpdateFooter
       FooterColor = clWhite
       FooterCellColor = clSilver
-      ExplicitLeft = 7
     end
     object UpperPanelPNL: TRzPanel
       Left = 0
@@ -419,7 +418,7 @@ object V_hawbItemFRM4: TV_hawbItemFRM4
         end
       end
       object ItemDetailsGroup: TGroupBox
-        Left = 4
+        Left = 7
         Top = 255
         Width = 461
         Height = 180

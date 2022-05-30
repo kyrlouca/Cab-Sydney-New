@@ -13,7 +13,7 @@ object M_deleteBucketsFRM: TM_deleteBucketsFRM
   Font.Style = []
   Menu = MainMenu1
   OldCreateOrder = False
-  Position = poDesigned
+  Position = poMainFormCenter
   WindowState = wsMaximized
   OnActivate = FormActivate
   OnCreate = FormCreate

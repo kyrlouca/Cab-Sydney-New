@@ -14,7 +14,7 @@ object V_HawbFRM: TV_HawbFRM
   KeyPreview = True
   Menu = MainMenu1
   OldCreateOrder = False
-  Position = poDesigned
+  Position = poMainFormCenter
   WindowState = wsMaximized
   OnActivate = FormActivate
   OnClose = FormClose
@@ -988,7 +988,7 @@ object V_HawbFRM: TV_HawbFRM
         Left = 303
         Top = 193
         Width = 282
-        Height = 198
+        Height = 197
         Caption = 'Clearance'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -1032,8 +1032,8 @@ object V_HawbFRM: TV_HawbFRM
         object ClearanceRGP: TRzDBRadioGroup
           Left = 1
           Top = 16
-          Width = 117
-          Height = 181
+          Width = 96
+          Height = 180
           DataField = 'FK_CLEARANCE_INSTRUCTION'
           DataSource = V_HawbDataDML.HawbSRC
           Items.Strings = (
@@ -1128,8 +1128,8 @@ object V_HawbFRM: TV_HawbFRM
           OnKeyUp = DtpFLDKeyUp
         end
         object RzDBCheckBox4: TRzDBCheckBox
-          Left = 71
-          Top = 176
+          Left = 135
+          Top = 160
           Width = 137
           Height = 17
           DataField = 'IS_OVERRIDE_MEDIUM'

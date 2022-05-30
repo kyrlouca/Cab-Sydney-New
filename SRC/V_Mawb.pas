@@ -2542,7 +2542,7 @@ procedure TV_MawbFRM.PrintSelected(ReportType: String; OnPrinter: Boolean);
     EmptyRep.PrinterSetup.Copies := 1;
 
     EmptyRep.Print;
-    EmptyRep.PrinterSetup.Copies := 2;
+    EmptyRep.PrinterSetup.Copies := 1;
     EmptyRep.SavePrinterSetup := true;
     if OnPrinter then
     begin

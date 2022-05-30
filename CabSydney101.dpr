@@ -138,6 +138,7 @@ ReportMemoryLeaksOnShutdown := DebugHook <> 0;
       CodeSite.Clear;
     end;
 
+  TStyleManager.TrySetStyle('Iceberg Classico');
   Application.Title := 'Cab Sydney';
   Application.CreateForm(TClairDML, ClairDML);
   Application.CreateForm(TV_MawbDataDML, V_MawbDataDML);
