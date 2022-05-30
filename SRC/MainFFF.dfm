@@ -120,7 +120,7 @@ object MainFRM: TMainFRM
     Margins.Bottom = 0
     Align = alTop
     BorderOuter = fsGroove
-    Caption = 'Cab Sydney 3.28'
+    Caption = 'Cab Sydney 3.30'
     Ctl3D = False
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clBlue

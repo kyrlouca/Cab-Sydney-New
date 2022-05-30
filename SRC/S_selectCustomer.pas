@@ -6,7 +6,7 @@ uses
   Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms, Dialogs,
   StdCtrls, Mask, DBCtrls, Db, DBAccess, IBC, MemDS, IBCError, wwSpeedButton, wwDBNavigator,
   wwclearpanel, Buttons, ExtCtrls, wwdbedit, Grids, Wwdbigrd, Wwdbgrid,
-  ImgList, RzButton, System.ImageList, G_kyriacosTypes, RzPanel, vcl.wwbutton, RzRadGrp,G_KyrSQL;
+  ImgList, RzButton, System.ImageList, G_kyriacosTypes, RzPanel, vcl.wwbutton, RzRadGrp, G_KyrSQL;
 
 type
   TS_SelectCustomerFRM = class(TForm)
@@ -15,7 +15,6 @@ type
     Panel2: TPanel;
     Panel3: TPanel;
     CustomerSRC: TDataSource;
-    CustomerGRD: TwwDBGrid;
     CustomerSQL: TIBCQuery;
     NameFLD: TwwDBEdit;
     CustomerSQLNAME: TStringField;
@@ -30,7 +29,6 @@ type
     CustomerSQLACCOUNT_NUMBER: TIntegerField;
     CustomerSQLFK_DISTRICT_CODE: TStringField;
     ImageList2: TImageList;
-    CustomerGRDIButton: TwwIButton;
     AddCert1BTN: TRzBitBtn;
     EditBTN: TRzBitBtn;
     CustomerSQLADDRESS_POST_CODE: TStringField;
@@ -48,6 +46,8 @@ type
     SelectActiveFLD: TRzRadioGroup;
     CustomerSQLIS_SHOWN: TStringField;
     CustomerSQLISACTIVE: TStringField;
+    CustomerGRD: TwwDBGrid;
+    CustomerGRDIButton: TwwIButton;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure CustomerSQLBeforeEdit(DataSet: TDataSet);
     procedure CustomerGRDDblClick(Sender: TObject);
@@ -69,7 +69,7 @@ type
     procedure FormCreate(Sender: TObject);
   private
     { Private declarations }
-      cn: TIBCConnection;
+    cn: TIBCConnection;
     PreviousSortedField: String;
     procedure CustClick;
   public
@@ -98,7 +98,7 @@ end;
 
 procedure TS_SelectCustomerFRM.FormCreate(Sender: TObject);
 begin
-    cn := ClairDML.CabCOnnection;
+  cn := ClairDML.CabCOnnection;
 end;
 
 procedure TS_SelectCustomerFRM.AddCert1BTNClick(Sender: TObject);
@@ -225,11 +225,12 @@ begin
   if G_Caller = 'MainFRM' then
   begin
     EditBTN.Click;
+    CustomerSQL.Refresh;
   end
   else
   begin
     CustClick;
-    CustomerSQL.Refresh;
+
   end;
 
 end;

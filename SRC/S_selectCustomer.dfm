@@ -424,6 +424,7 @@ object S_SelectCustomerFRM: TS_SelectCustomerFRM
       Width = 185
       Height = 89
       Caption = 'Select Active  Customers'
+      ItemHeight = 18
       ItemIndex = 0
       Items.Strings = (
         'Active'
@@ -440,55 +441,25 @@ object S_SelectCustomerFRM: TS_SelectCustomerFRM
     Height = 487
     Align = alClient
     TabOrder = 3
-    ExplicitTop = 161
-    ExplicitHeight = 495
     object CustomerGRD: TwwDBGrid
       Left = 1
       Top = 1
       Width = 1102
       Height = 485
       ControlType.Strings = (
-        'IS_SHOWN;CheckBox;Y;N'
         'ISACTIVE;CheckBox;Y;N')
       Selected.Strings = (
-        'NAME'#9'80'#9'NAME'#9#9
-        'ADDRESS1'#9'50'#9'ADDRESS1'#9#9
-        'ADDRESS2'#9'50'#9'ADDRESS2'#9'F'#9
-        'ADDRESS3'#9'50'#9'ADDRESS3'#9'F'#9
-        'VAT_ID'#9'10'#9'VAT_ID'#9#9
-        'COMPANY_ID'#9'10'#9'COMPANY_ID'#9'F'#9
-        'RECEIPIENT_ID'#9'10'#9'RECEIPIENT_ID'#9'F'#9
-        'OTHER_ID'#9'15'#9'OTHER_ID'#9'F'#9
-        'TEL_NO1'#9'10'#9'TEL_NO1'#9#9
-        'TEL_NO2'#9'10'#9'TEL_NO2'#9'F'#9
-        'FAX1'#9'10'#9'FAX1'#9'F'#9
-        'FAX2'#9'10'#9'FAX2'#9'F'#9
-        'FK_DISTRICT_CODE'#9'3'#9'FK_DISTRICT_CODE'#9#9
-        'COMMENTS'#9'200'#9'COMMENTS'#9'F'#9
-        'AUTHORIZATION_NUMBER'#9'15'#9'AUTHORIZATION_NUMBER'#9'F'#9
-        'QUARANTEE_NUMBER'#9'10'#9'QUARANTEE_NUMBER'#9'F'#9
-        'IMPORTER'#9'1'#9'IMPORTER'#9'F'#9
-        'EXPORTER'#9'1'#9'EXPORTER'#9'F'#9
-        'RESELLER'#9'1'#9'RESELLER'#9'F'#9
-        'CUSTOM_DEALER_NUMBER'#9'10'#9'CUSTOM_DEALER_NUMBER'#9'F'#9
-        'FK_OCCUPATION_CODE'#9'5'#9'FK_OCCUPATION_CODE'#9'F'#9
-        'FK_CUSTOMER_CATEGORY_CODE'#9'5'#9'FK_CUSTOMER_CATEGORY_CODE'#9'F'#9
-        'AUTHORITY_TO_AGENT'#9'10'#9'AUTHORITY_TO_AGENT'#9'F'#9
-        'COMPANY_OR_PERSON'#9'1'#9'COMPANY_OR_PERSON'#9#9
         'CODE'#9'10'#9'CODE'#9#9
-        'ACCOUNT_NUMBER'#9'10'#9'ACCOUNT_NUMBER'#9#9
-        'EMAIL_TO_NOTIFY'#9'80'#9'EMAIL_TO_NOTIFY'#9#9
-        'MOBILE_TO_NOTIFY'#9'80'#9'MOBILE_TO_NOTIFY'#9'F'#9
-        'IS_NOTIFY_MOBILE'#9'1'#9'IS_NOTIFY_MOBILE'#9'F'#9
-        'IS_NOTIFY_EMAIL'#9'1'#9'IS_NOTIFY_EMAIL'#9'F'#9
-        'IS_RECEIVE_NOTIFICATION'#9'1'#9'IS_RECEIVE_NOTIFICATION'#9'F'#9
-        'AUTHORITY_TO_DHL'#9'10'#9'AUTHORITY_TO_DHL'#9'F'#9
-        'IS_CREDIT'#9'1'#9'IS_CREDIT'#9'F'#9
-        'ADDRESS_POST_CODE'#9'50'#9'ADDRESS_POST_CODE'#9'F'#9
-        'ADDRESS_CITY'#9'50'#9'ADDRESS_CITY'#9#9
-        'ADDRESS_COUNTRY'#9'50'#9'ADDRESS_COUNTRY'#9'F'#9
-        'CONTACT_NAME'#9'80'#9'CONTACT_NAME'#9'F'#9
-        'IS_SHOWN'#9'1'#9'IS_SHOWN'#9'F'#9)
+        'COMPANY_OR_PERSON'#9'1'#9'Status'#9#9
+        'NAME'#9'30'#9'Name'#9#9
+        'FK_DISTRICT_CODE'#9'6'#9'District'#9#9
+        'ADDRESS1'#9'23'#9'Address'#9#9
+        'ADDRESS_CITY'#9'9'#9'City'#9#9
+        'VAT_ID'#9'10'#9'Vat'#9#9
+        'ACCOUNT_NUMBER'#9'7'#9'Account'#9#9
+        'EMAIL_TO_NOTIFY'#9'20'#9'email'#9#9
+        'TEL_NO1'#9'12'#9'Telephone'#9#9
+        'ISACTIVE'#9'1'#9'Active'#9'F')
       IniAttributes.Delimiter = ';;'
       IniAttributes.UnicodeIniFile = False
       TitleColor = clBtnFace
@@ -497,7 +468,7 @@ object S_SelectCustomerFRM: TS_SelectCustomerFRM
       Align = alClient
       BorderStyle = bsNone
       Color = 13428976
-      DataSource = M_CustomerNewFRM.CustomerSRC
+      DataSource = CustomerSRC
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -12
@@ -519,8 +490,6 @@ object S_SelectCustomerFRM: TS_SelectCustomerFRM
       OnTitleButtonClick = CustomerGRDTitleButtonClick
       OnDblClick = CustomerGRDDblClick
       OnKeyDown = CustomerGRDKeyDown
-      ExplicitLeft = 2
-      ExplicitTop = 0
       object CustomerGRDIButton: TwwIButton
         Left = 0
         Top = 0

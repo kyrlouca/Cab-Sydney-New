@@ -219,7 +219,7 @@ end;
 
 procedure TM_CustomerNewFRM.CustomerSQLAfterScroll(DataSet: TDataSet);
 begin
-ActiveFLD.Checked := Dataset.FieldByName('isActive').AsString='Y';
+//ActiveFLD.Checked := Dataset.FieldByName('isActive').AsString='Y';
 end;
 
 procedure TM_CustomerNewFRM.CustomerSQLNewRecord(DataSet: TDataSet);
